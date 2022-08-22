@@ -2166,6 +2166,207 @@
 
 ## 10. Document Object Model (DOM)
 
+- finding, modifying, adding or removing html elements
+
+  ```js
+  // DOM -> Document Object Model
+  // Using DOM We can Find / get, change, add, or delete HTML elements.
+
+  // How to find HTML Elements
+  // document.getElementById()
+  // document.getElementsByTagName()
+  // document.getElementsByClassName()
+  // document.querySelector()
+
+  // How to change HTML Elements  (collected from W3School website)
+  // element.innerHTML =  new html content -> Change the inner HTML of an element
+  // element.attribute = new value  -> Change the attribute value of an HTML element
+  // element.style.property = new style -> Change the style of an HTML element
+
+  //Create, remove, add html element
+  // creating html element and adding to a div
+  var firstDiv = document.querySelector("#first-div");
+  console.log(firstDiv);
+
+  var heading3 = document.createElement("h3");
+  var text = document.createTextNode("This is heading 3");
+  heading3.appendChild(text);
+  firstDiv.appendChild(heading3);
+
+  var heading5 = document.createElement("h5");
+  var text = document.createTextNode("This is heading 5");
+  heading5.appendChild(text);
+  firstDiv.appendChild(heading5);
+
+  // remove element
+  firstDiv.removeChild(heading5);
+
+  //adding element before
+  var heading6 = document.createElement("h6");
+  var text = document.createTextNode("This is heading 6");
+  heading6.appendChild(text);
+  firstDiv.insertBefore(heading6, heading3);
+  // firstDiv.insertAfter(heading6, heading3);
+  ```
+
+- Event and event listeners
+
+  - keyboard event
+
+    ```js
+    // KeyboardEvent Object
+    // 1. Keydown - pressing a key, can repeat
+    // 2. keypress (may not supported by some browsers)
+    // 3. keyup
+    // some properties - key, keyCode, code, shiftKey, ctlKey, repeat
+
+    const textarea = document.querySelector("textarea");
+    textarea.addEventListener("keydown", function (e) {
+      if (e.repeat) {
+        alert("do not repeat");
+      }
+    });
+    // textarea.addEventListener("keypress", function () {
+    //   console.log("keypress");
+    // });
+    // textarea.addEventListener("keyup", function (e) {
+    //   if (e.shiftKey) {
+    //     console.log("shift+" + e.key);
+    //   }
+    // });
+    ```
+
+  - Mouse event
+
+    ```js
+    // MouseEvent - <html>, <head>, <meta>, <title>, <br>, <style>, <script>, <iframe>, <param>, <base>, <bdo>
+    // 1. onclick
+    // 2. ondblclick
+    // 3. onmousedown
+    // 4. onmousedup
+    // 5. onmouseenter
+    // 6. onmouseleave
+    // 7. onmousemove
+    // 8. onmouseover
+
+    console.clear();
+    const div = document.querySelector("div");
+
+    div.addEventListener("click", function (e) {
+      //   console.log("click is occured");
+      //   console.log(e.target);
+      //   console.log(e.target.id);
+      //   console.log(e.target.className);
+      //   console.log(e.target.innerHTML);
+      //   console.log(e.target.innerText);
+      //   console.log(e.target.textContent);
+    });
+
+    // div.addEventListener("dblclick", function () {
+    //   console.log("dblclick is occured");
+    // });
+    // div.addEventListener("mousedown", function () {
+    //   console.log("mousedown is occured");
+    // });
+    // div.addEventListener("mouseup", function () {
+    //   console.log("mouseup is occured");
+    // });
+    // div.addEventListener("mouseenter", function () {
+    //   console.log("mouseenter is occured");
+    // });
+    // div.addEventListener("mouseleave", function () {
+    //   console.log("mouseleave is occured");
+    // });
+    // div.addEventListener("mouseover", function () {
+    //   console.log("mouseover is occured");
+    // });
+    // div.addEventListener("mousemove", function (e) {
+    //   //   console.log("mousemove is occured");
+    //   //   console.log("clientX = " + e.clientX + ", clientY = " + e.clientY);
+    //   console.log("offsetX = " + e.offsetX + ", offsetY = " + e.offsetY);
+    // });
+
+    const buttons = document.querySelectorAll(".btn");
+
+    Array.from(buttons).map((button) => {
+      button.addEventListener("click", function (e) {
+        console.log(e.target.innerText);
+      });
+    });
+    ```
+
+  - onchange event
+
+    ```js
+    // <input /> - text, number, password, email, color,  radio, checkbox, search, time, date, datetime, week, month, url, tel, file,
+    // <select>,
+    // <textarea>
+
+    console.clear();
+    // const input = document.querySelector("input[name=name]");
+    // input.addEventListener("change", changeHandler);
+
+    // function changeHandler(e) {
+    //   //   console.log(e);
+    //   //   console.log(e.type);
+    //   //   console.log(e.target);
+    //   //   console.log(e.target.className);
+    //   //   console.log(e.target.id);
+    //   console.log(e.target.value);
+    // }
+
+    // const programs = document.querySelectorAll("input[name=program]");
+    // console.log(programs);
+
+    // Array.from(programs).map((program) => {
+    //   program.addEventListener("change", programHandler);
+    // });
+
+    // function programHandler(e) {
+    //   if (e.target.checked) {
+    //     console.log(e.target.value);
+    //   }
+    // }
+
+    const department = document.querySelector("#department");
+    // console.log(department);
+
+    department.addEventListener("change", handleDepartment);
+
+    function handleDepartment(e) {
+      console.log(e.target.value);
+    }
+    ```
+
+  - onchange event
+
+    ```js
+    // finding the elements
+    const form = document.querySelector("form");
+    const name = form.querySelector("div #name");
+    const email = form.querySelector("div #email");
+    const password = form.querySelector("div #password");
+
+    form.addEventListener("submit", formHandler);
+
+    function formHandler(e) {
+      e.preventDefault();
+
+      const userInfo = {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      };
+
+      console.log(userInfo);
+      name.value = "";
+      email.value = "";
+      password.value = "";
+    }
+    ```
+
+- aa
+
 ## 11. Browser Object Model (BOM)
 
 ## 12. Error Handling
@@ -2173,3 +2374,17 @@
 ## 13. Local storage
 
 ## 14. API Calling
+
+- make sure to install json formatter extension for google chrome
+- Some free api
+
+  - [dog api](https://dog.ceo/api/breeds/image/random)
+  - [country api](https://restcountries.com/v3.1/all)
+  - [fake store api](https://fakestoreapi.com/)
+  - [json placeholder free api](https://jsonplaceholder.typicode.com/)
+  - [dummy json api](https://dummyjson.com/)
+  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
+    - [check documentation](https://github.com/anisul-Islam/complete-rest-api-with-mongodb)
+  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
+
+- aa
