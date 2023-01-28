@@ -1,13 +1,21 @@
 # javascript-documentation
 
+## 0. What is Programming? Why programming?
+
 ## 1. Introduction to Javascript
 
 - What is Javascript?
   - A programming language for web.
   - it can be used in front-end and back-end
 - Why Javascript?
+
   - It adds interactivity to the web page such as adding items to the carts, form validation etc.
   - Example: Create a button with HTML, Style with CSS and add clicking functionality by using javascript
+  - A demo for the need of JS
+
+  ```html
+
+  ```
 
 ## 2. Output & comment
 
