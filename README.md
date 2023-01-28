@@ -73,7 +73,8 @@
   - <> angle brackets / chevrons
   - ; semicolon, : colon
 - Data types
-  [typeof operator] can help us to find out the data type of a value
+
+  - [typeof operator] can help us to find out the data type of a value
 
   - Data types can be divided into 2: primitive & non-primitive/reference.
   - Primitive data types: String, Number, Bigint, boolean, null, undefined, symbol
@@ -126,6 +127,9 @@
        console.log( typeof function display () { }) // function type
 
       ```
+
+  - what are the differences between primtive & non-primitive data types?
+    ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
 
 - Variables
 
