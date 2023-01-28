@@ -201,6 +201,9 @@
       console.log(age); //  not allowed as const variable is blocked scoped
       ```
 
+  - [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+    - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN
+    - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
   - Program 2: E-Commerce app [printing product details dynamically]
 
     ```javascript
