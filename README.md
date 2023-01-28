@@ -140,10 +140,11 @@
     - Names are case sensitive (y and Y are different variables)
     - Reserved words (like JavaScript keywords) cannot be used as names
 
-  - 3 most popular variable naming style
+  - 4 most popular variable naming style out of many formats [naming conventions](<https://en.wikipedia.org/wiki/Naming_convention_(programming)>)
     - Underscore: first_name, last_name
-    - Upper Camel Case (Pascal Case): FirstName, LastName
-    - Lower Camel Case: firstName, lastName
+    - Upper Camel Case (Pascal Case): FirstName, LastName -> normally used for Classes (nouns)
+    - Lower Camel Case: firstName, lastName -> normally used for methods/variables
+    - SCREAMING SNAKE CASE / CONSTANT_CASE for naming constants
   - var vs let vs const
 
     - 2 important things: reassign, scope - block, function, global
