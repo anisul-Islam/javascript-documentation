@@ -13,14 +13,11 @@
   - Example: Create a button with HTML, Style with CSS and add clicking functionality by using javascript
   - A demo for the need of JS
 
-  ```html
-
-  ```
-
 ## 2. Output & comment
 
 - output functions: functions that will help you to show output such as document.write(), console.log(), alert()
 - console has variations: console.clear(), console.error(), console.info(), console.warn()
+- console will help the developers for finding any error during the development process.
 - Example
 
   ```js
@@ -38,6 +35,7 @@
   alert("welcome to js program");
   ```
 
+- Task: Can you print your name, age, address?
 - Program 1: E-Commerce app [printing product details]
 
   ```js
@@ -73,13 +71,12 @@
   - {} curly brackets / braces
   - [] square brackets / brackets
   - <> angle brackets / chevrons
+  - ; semicolon, : colon
 - Data types
 
-  - Primitive data types
+  - Data types can be divided into 2: primitive & non-primitive/reference.
+  - Primitive data types: String, Number, Bigint, boolean, null, undefined, symbol
 
-    - null -> represent no value
-
-    - Symbol -> used as an identifier for object properties.
     - Example
 
       ```js
@@ -96,13 +93,15 @@
       console.log(typeof 123); // number
       console.log(typeof 123.5); // number
 
+      // Undefined: variable is declared but no value is assigned
       // Undefined -> data type for variable without value
       console.log(typeof x); // undefined
 
-      // null -> intentional missing object value
+      // null ->  represent no value; (fun: typeof null is object)
       console.log(typeof null);
 
       /*
+      Symbol is used as an identifier for object properties
        Symbols are unique identifiers
        introduced in ES6
        it can be used when defining constants such as enum for uniqueness
@@ -113,10 +112,8 @@
       console.log(symbol1 === symbol2); // false
       ```
 
-  - Non Primitive data types
+  - Non Primitive data types: Object (Array is also part of Object type), Function, RegEx, Date
 
-    - Object (Array is also part of Object type)
-    - Function
     - Example
 
       ```js
