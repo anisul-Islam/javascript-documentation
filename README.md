@@ -73,6 +73,7 @@
   - <> angle brackets / chevrons
   - ; semicolon, : colon
 - Data types
+  [typeof operator] can help us to find out the data type of a value
 
   - Data types can be divided into 2: primitive & non-primitive/reference.
   - Primitive data types: String, Number, Bigint, boolean, null, undefined, symbol
