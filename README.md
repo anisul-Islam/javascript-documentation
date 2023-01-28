@@ -62,6 +62,7 @@
 
 ## 2. Tokens
 
+- Tokens are backbone of any programming language. Important tokens: keywords, puncuators, data type, variables, operators, escape sequences etc.
 - Keywords: javascript reserved words for specific reasons.
 
   - Example - abstract, break, char, double, export, import, try, catch, finally, throw, throws, if, else, switch, case, break, default, continue,for, while, do, var, let, const, class, extends, implements, public, private, protected, new, static, this, true, false, boolean, string, number, function, instanceof
@@ -225,7 +226,7 @@
 
   - Symbol that helps us to do mathmatical operation
   - Arithmetic operators : +, -, \*, /, %
-  - Create area calculator, temperature calculator programs using arithmetic operators
+  - **Task:** Create area calculator, temperature calculator, years to hours programs using arithmetic operators
   - Program 3: E-Commerce app [operators]
 
     ```js
