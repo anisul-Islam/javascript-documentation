@@ -386,8 +386,14 @@
 - Traditional function syntax and example
 
   - Function is a block of codes for a specific task.
-  - Function is reusable.
+  - It is beneficial for reusablity.
   - Separation of concerns.
+  - Function related topics:
+
+    - How to define a function?
+    - How to call a function?
+    - How to pass parameters to a function?
+    - How to return a value from a function?
 
     ```js
     // Function example
@@ -491,6 +497,15 @@
       insuranceCost
     );
     ```
+
+- ### Function Programs
+
+  - create a simple function for calculating square
+  - create a simple function for calculating double, triple
+  - create functions for addition, subtraction
+  - create a function for checking a number is even or odd
+  - create a function for checking largest number between 2/3 numbers
+  - put all if-else related programs inside functions
 
 - Arrow function
 
