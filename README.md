@@ -35,7 +35,7 @@
   alert("welcome to js program");
   ```
 
-- Task: Can you print your name, age, address?
+- **Tasks: Can you print your name, age, address?**
 - Program 1: E-Commerce app [printing product details]
 
   ```js
@@ -73,6 +73,7 @@
   - [] square brackets / brackets
   - <> angle brackets / chevrons
   - ; semicolon, : colon
+- Escape sequnces: \ characters
 - Data types
 
   - [typeof operator] can help us to find out the data type of a value
@@ -229,7 +230,6 @@
 
   - Symbol that helps us to do mathmatical operation
   - Arithmetic operators : +, -, \*, /, %
-  - **Task:** Create area calculator, temperature calculator, years to hours programs using arithmetic operators
   - Program 3: E-Commerce app [operators]
 
     ```js
@@ -292,6 +292,7 @@
 
   - Ternary Operator: `condition ? expression1 : expression2;`
   - Bitwise operators: &, |, ^, ~, >>, <<
+  - **Arithmetic Programs:** Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.
 
 ## 3. Prompt & Data Type conversion
 
