@@ -292,7 +292,7 @@
 
   - Ternary Operator: `condition ? expression1 : expression2;`
   - Bitwise operators: &, |, ^, ~, >>, <<
-  - **Arithmetic Programs:** Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.
+  - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
 
 ## 3. Prompt & Data Type conversion
 
