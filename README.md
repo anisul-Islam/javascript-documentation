@@ -381,7 +381,7 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 5. Functions - traditional & arrow, string literals, jsdoc
+## 5. Functions - traditional & arrow, string literals, js module, jsdoc
 
 - Traditional function syntax and example
 
@@ -682,6 +682,63 @@
       insuranceCost
     );
     ```
+
+- javascript module
+
+  - JavaScript modules allow you to break up your code into separate files.
+
+  - This makes it easier to maintain a code-base.
+
+  - Modules are imported from external files with the import statement.
+
+  - Modules also rely on type="module" in the `<script>` tag.
+
+  - export
+
+    - Modules with functions or variables can be stored in any external file.
+    - There are two types of exports: Named Exports and Default Exports.
+    - example of Named exports
+
+      ```js
+      // person.js
+      // inline individually exports
+      export const name = "Jesse";
+      export const age = 40;
+
+      // all at once exports
+      const name = "Jesse";
+      const age = 40;
+      export { name, age };
+      ```
+
+    - example of default exports
+
+      ```js
+      // 1 export in a file
+      const message = () => {
+        const name = "Jesse";
+        const age = 40;
+        return name + " is " + age + "years old.";
+      };
+
+      export default message;
+      ```
+
+  - import
+
+    - You can import modules into a file in two ways, based on if they are named exports or default exports.
+    - Named exports are constructed using curly braces. Default exports are not.
+    - example of Named Imports
+
+      ```js
+      import { name, age } from "./person.js";
+      ```
+
+    - example of default imports
+
+      ```js
+      import message from "./message.js";
+      ```
 
 - [jsdoc](https://github.com/anisul-Islam/jsdoc-documentation)
 
