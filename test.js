@@ -2,8 +2,15 @@
 // year%4===0 && year%100!==0 - leap year
 // Not a leap year
 
-function sayGreeting(name) {
-  return `Hello ${name}! Good morning`;
+function Student(age, country) {
+  this.age = age;
+  this.country = country;
+
+  this.display1 = function display() {
+    console.log(`you are ${this.age} years old`);
+  };
 }
-console.log(sayGreeting('Anis'));
-console.log(sayGreeting('Alex'));
+
+const mercedez = new Student(29, 'australia');
+console.log(mercedez.age);
+console.log(mercedez.country);

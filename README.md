@@ -1143,6 +1143,9 @@
 
 - Object
 
+  - **object is a core concept in JS**
+  - **create a contact manager / student manager app**
+  - **use for..in for looping an object**
   - object is one type of variable that can store differnt types of variables
   - object syntax and example
 
@@ -1201,12 +1204,21 @@
 
       // adding function inside the constructor
       /*
-      object properties that holds a function is called Method. Use dot operator for accessing.
+      object properties that holds a function is called Method. Use dot operator for accessing. we can declare the function outside then use here
       */
       this.display = function () {
         console.log(this.name);
       };
+      <!-- this.display = function d() {
+        console.log(this.name);
+      }; -->
+
+      this.display = d;
     }
+
+      function d() {
+        console.log(this.name);
+      };
 
     const s1 = new Student("Anisul Islam", 27, 3.92, ["Bengali", "English"]);
     const s2 = new Student("Rabeya Begum", 23, 4.92, ["Bengali", "Urdu"]);
@@ -1216,6 +1228,23 @@
     console.log(s2);
     console.log(s3);
     s1.display();
+    ```
+
+    ```js
+    // contact manager app
+    function contact(name, number) {
+      this.name = name;
+      this.number = number;
+
+      this.print = function () {
+        console.log(`${this.name}: ${this.number}`);
+      };
+    }
+
+    var a = new contact("David", 12345);
+    var b = new contact("Amy", 987654321);
+    a.print();
+    b.print();
     ```
 
   - Program 10 : E-commerce app [object]
