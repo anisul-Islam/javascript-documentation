@@ -18,6 +18,11 @@
 - output functions: functions that will help you to show output such as document.write(), console.log(), alert()
 - console has variations: console.clear(), console.error(), console.info(), console.warn()
 - console will help the developers for finding any error during the development process.
+  console.log() allows you to visualize your code in the console.
+  - The console is only visible to you (the developer), but not the end-user.
+  - console.log() helps you find bugs.
+  - console.log does NOT replace return
+  - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
 - Example
 
   ```js
