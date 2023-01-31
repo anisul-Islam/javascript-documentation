@@ -388,6 +388,8 @@
   - Function is a block of codes for a specific task.
   - It is beneficial for reusablity.
   - Separation of concerns.
+  - **return keyword can be used only once inside a function.**
+  - **value that a function received is called parameters and the value we pass when calling function is known as arguments**
   - Function related topics:
 
     - How to define a function?
@@ -396,7 +398,74 @@
     - How to return a value from a function?
 
     ```js
-    // Function example
+    // function example 1
+    // without function
+    let greeting = "Hello ! Good morning";
+    console.log(greeting);
+
+    greeting = "Hello ! Good morning";
+    console.log(greeting);
+
+    greeting = "Hello ! Good morning";
+    console.log(greeting);
+
+    // with a simple function
+    function sayGreeting() {
+      const greeting = "Hello ! Good morning";
+      console.log(greeting);
+    }
+    sayGreeting();
+    sayGreeting();
+
+    function sayGreeting(name) {
+      const greeting = `Hello ${name}! Good morning`;
+      console.log(greeting);
+    }
+    sayGreeting("Anis");
+    sayGreeting("Alex");
+
+    function sayGreeting(name) {
+      return `Hello ${name}! Good morning`;
+    }
+    console.log(sayGreeting("Anis"));
+    console.log(sayGreeting("Alex"));
+    ```
+
+    ```js
+    // function example 2
+    // without function
+    let num1; // best practice: always slipt the declaration as I did in 3 lines
+    let num2;
+    let sum;
+
+    num1 = 20;
+    num2 = 30;
+    sum = num1 + num2;
+    console.log(sum);
+
+    num1 = 10;
+    num2 = 20;
+    sum = num1 + num2;
+    console.log(sum);
+
+    num1 = 40;
+    num2 = 20;
+    sum = num1 + num2;
+    console.log(sum);
+
+    // with function
+    function addNumbers(num1, num2) {
+      const sum = num1 + num2;
+      console.log(sum);
+    }
+
+    addNumbers(20, 30);
+    addNumbers(10, 30);
+    addNumbers(5, 15);
+    ```
+
+    ```js
+    // Function example3
 
     // creating function without parameter
     function message() {
