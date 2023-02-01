@@ -2,6 +2,8 @@
 
 ## 0. What is Programming? Why programming?
 
+- [Algorithm & Flowchart](https://www.javatpoint.com/algorithm-vs-flow-chart)
+
 ## 1. Introduction to Javascript
 
 - What is Javascript?
@@ -886,6 +888,7 @@
       - Vowel / consonant program
       - find large / small number program
       - digit spelling program
+      - [leap year program](https://www.tutorialspoint.com/learn_c_by_examples/leap_year_program_in_c.htm)
 
         ```js
         // a program that will find a large number between 2 numbers
@@ -1422,6 +1425,7 @@
 
 - Array
 
+  - [Array related methods](https://javascript.info/array-methods)
   - Array is a collection of similar data type mostly.
   - Array VS Object -> arrays use numbered indexes. but, objects use named indexes.
 
