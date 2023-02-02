@@ -338,9 +338,32 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 4. Math methods
+## 4. [Math Objects](https://www.w3schools.com/js/js_math.asp)
 
-- max(), min(), sqrt(), pow(), ceil(), floor(), round(), random()
+- Math.PI
+- Math.max(), Math.min(), Math.sqrt(), Math.pow(),
+
+  - Math.ceil() -> rounded up to its nearest integer. `Math.ceil(4.9)=5; Math.ceil(4.4)=5, Math.ceil(-4.4)=-4`
+
+    ```js
+        <!-- find century  -->
+        function main() {
+        var year = parseInt(readLine(), 10)
+            //the output
+            console.log(calcCent(year));
+        }
+
+        //complete the function
+        function calcCent(year){
+            return Math.ceil(year/100);
+
+        }
+    ```
+
+  - Math.floor() -> rounded down to its nearest integer. `Math.floor(4.9)=4; Math.floor(4.4)=4, Math.floor(-4.4)=-5`
+  - Math.round() -> rounded up to nearest integer. `Math.round(4.6)=5; Math.round(4.5)=5, Math.round(4.4)=4`
+  - Math.trunc() -> returns the integer part. `Math.trunc(4.6)=4; Math.trunc(4.5)=4, Math.trunc(-4.4)=-4`
+  - Math.random() -> returns a random number between 0 (inclusive), and 1 (exclusive)
 
   ```js
   console.log(Math.max(20, 30));
@@ -1215,6 +1238,19 @@
   - object syntax and example
 
     ```js
+    const student = {
+      name: "Anisul Islam", // property
+      displayInfo: function () {
+        // method related to object
+        return `Hello! My name is ${this.name}`;
+      },
+    };
+
+    console.log(student.name);
+    console.log(student.displayInfo());
+    ```
+
+    ```js
     // object program example
     // what is Object?
     // How to create an object?
@@ -1677,6 +1713,10 @@
       console.log("Please login first");
     }
     ```
+
+    - Array Object related properties & methods
+      - length (works with object)
+      - array1.concat(array2) -> returns a new array
 
 ## 9. Higher Order Array function, spread operator & destructure
 
