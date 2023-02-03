@@ -338,10 +338,11 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 4. [Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
+## 4. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
 
-- Math.PI
-- Math.max(), Math.min(), Math.sqrt(), Math.pow(),
+- Number Object -> x.toString(), x.toFixed(), x.toPrecision()
+  - converting Strings to Numbers-> Number(), parseFloat(), parseInt()
+- Math Object -> Math.PI, Math.max(), Math.min(), Math.sqrt(), Math.pow(),
 
   - Math.ceil() -> rounded up to its nearest integer. `Math.ceil(4.9)=5; Math.ceil(4.4)=5, Math.ceil(-4.4)=-4`
 
@@ -1751,8 +1752,20 @@
     ```
 
     - Array Object related properties & methods
+
       - length (works with object)
       - array1.concat(array2) -> returns a new array
+      - array.splice() -> add items to an array -> fruits.splice(2, 0, "Lemon", "Kiwi");
+        - The first parameter (2) defines the position where new elements should be added (spliced in).The second parameter (0) defines how many elements should be removed. The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+      - array.slice(starting, ending or only starting) -> slices out from an array
+      - array.sort() -> [default sort string](https://www.w3schools.com/js/js_array_sort.asp)
+
+        ```js
+        const points = [40, 100, 1, 5, 25, 10];
+        points.sort(function (a, b) {
+          return a - b;
+        });
+        ```
 
 ## 9. Higher Order Array function, spread operator & destructure
 
