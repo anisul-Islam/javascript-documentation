@@ -300,6 +300,7 @@
   - Ternary Operator: `condition ? expression1 : expression2;`
   - Bitwise operators: &, |, ^, ~, >>, <<
   - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
+  - [**String Methods**](https://www.w3schools.com/js/js_string_methods.asp)
 
 ## 3. Prompt & Data Type conversion
 
@@ -2682,6 +2683,38 @@
 ## 11. Browser Object Model (BOM)
 
 ## 12. Error Handling
+
+- compile time error vs run time error
+- [types of error](https://textexpander.com/blog/the-7-most-common-types-of-errors-in-programming-and-how-to-avoid-them) - syntax error, logical error, run-time error
+- runnable program can be handled by try, catch, finally, throw (defines a custom error)
+
+  ```js
+  // without try,catch
+  alert("hello");
+  alert(num);
+  alert("bye");
+
+  // with try-catch
+  try {
+    alert("hello");
+    alert(num);
+    alert("bye");
+  } catch (error) {
+    console.log("inside catch block");
+    console.log(error);
+    console.log(error.name);
+    console.log(error.message);
+  } finally {
+    alert("bye");
+  }
+
+
+  <!-- The throw statement allows you to create a custom error. -->
+  throw "not valid input"
+  throw 0
+  throw {message: 'wrong input'}
+  throw true
+  ```
 
 ## 13. Local storage
 
