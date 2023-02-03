@@ -338,7 +338,7 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 4. [Math Objects](https://www.w3schools.com/js/js_math.asp)
+## 4. [Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
 
 - Math.PI
 - Math.max(), Math.min(), Math.sqrt(), Math.pow(),
@@ -374,6 +374,42 @@
   console.log(Math.random());
 
   const randomNumber = Math.floor(Math.random() * 5) + 1;
+  ```
+
+- Date object
+
+  ```js
+  const date = new Date();
+  console.log(date.getFullYear());
+  console.log(date.getMonth());
+  console.log(date.getDate());
+  console.log(date.getDay());
+  console.log(date.getHours());
+  console.log(date.getMinutes());
+  console.log(date.getSeconds());
+  console.log(date.getMilliseconds());
+
+  // give year, month, day -> 2020, 5, 12
+  // find the day name -> Friday
+  function getWeekDay(year, month, day) {
+    const names = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const date = new Date(year, month, day);
+    //complete the function
+    return names[date.getDay()];
+  }
+
+  console.log(date);
+  console.log(date.toDateString()); // return a date object into readbale string
+  console.log(date.toISOString()); // return a date object into iso standard
+  console.log(date.toLocaleString()); // return a date object into iso standard
   ```
 
 - Program 5: E-Commerce app [Math methods]
