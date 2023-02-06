@@ -2733,3 +2733,130 @@
   - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
 
 - aa
+
+## 15. Best Practices
+
+- use naming conventions for variables
+- avoid unncessary variables
+- variable declaration on top
+- use const for object and array
+- switch, case, default
+- == vs ===
+- [access dom less](https://youtu.be/PZVF5l0D7_E)
+
+## 16. npm & ESLint setup
+
+- [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
+
+## 17. ES6
+
+### ES6 Syntax
+
+- Template literals
+
+  ```js
+  const num1 = 20;
+  const num2 = 30;
+  const result = num1 + num2;
+  console.log(num1 + " + " + num2 + " = " + result);
+  console.log(`${num1} + ${num2} = ${result}`);
+  ```
+
+- Default & Rest parameters
+
+  ```js
+  // default parameter
+  function showGreeting(message = "Have a good day") {
+    console.log(message);
+  }
+  // think about user input; what happen if we do not have the input
+  showGreeting("Good Morning");
+  showGreeting();
+
+  // rest parameter - can be used as the last parameter
+  function add(...restNumbers) {
+    let sum = 0;
+    for (let x = 0; x < restNumbers.length; x++) {
+      sum += restNumbers[x];
+    }
+    return sum;
+  }
+  console.log(add(10, 20, 30, 40));
+  ```
+
+- Spread operators
+
+  ```js
+  // spread operator - can be used for array & object
+
+  // example for array concatenation
+  const macUsers = ["Anisul", "Alex", "Mercedez"];
+  const windowsUsers = ["Mercey", "Goitom", "Berk"];
+  // let allOSUsers = macUsers.concat(windowsUsers);
+  // console.log(allOSUsers);
+  let allOSUsers = [...macUsers, "David", ...windowsUsers];
+  console.log(allOSUsers);
+
+  // example for object concatenation
+  const user1 = {};
+  const user2 = {};
+  const allUsers = { ...user1, ...user2 };
+
+  function printUserInfo(name, age, nationality) {
+    console.log(`My name is ${name}. I am ${age}. I am from ${nationality}`);
+  }
+  function printUserInfo2(info) {
+    console.log(
+      `My name is ${info.name}. I am ${info.age}. I am from ${info.nationality}`
+    );
+  }
+
+  const user = {
+    name: "Anisul Islam",
+    age: 32,
+    nationality: "Bangladesh",
+  };
+  printUserInfo(user.name, user.age, user.nationality);
+  printUserInfo2({ ...user });
+  ```
+
+- Destructuring
+
+  ```js
+  function printUserInfo2(info) {
+    const { name, age, nationality } = info;
+    console.log(`My name is ${name}. I am ${age}. I am from ${nationality}`);
+  }
+
+  const user = {
+    name: "Anisul Islam",
+    age: 32,
+    nationality: "Bangladesh",
+  };
+
+  printUserInfo2({ ...user });
+  ```
+
+- Object Literals
+
+  ```js
+  function getUserInfo(name, age) {
+    return {
+      name, // name: name
+      age, // age: age
+    };
+  }
+  console.log(getUserInfo("anis", 32));
+  ```
+
+- for of and for in
+
+  ```js
+  // for of works with iterable obejcts - array, objects
+  const numbers = [10, 20, 30, 40, 50];
+  for (const number of numbers) {
+    console.log(number);
+  }
+
+  // for in works with object
+  ```
