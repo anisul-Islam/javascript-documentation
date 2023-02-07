@@ -2481,7 +2481,7 @@
     console.log(result);
     ```
 
-## 10. Document Object Model (DOM)
+## 11. Document Object Model (DOM)
 
 - finding, modifying, adding or removing html elements
 
@@ -2684,9 +2684,59 @@
 
 - aa
 
-## 11. Browser Object Model (BOM)
+## 12. Browser Object Model (BOM)
 
-## 12. Error Handling
+- BOM allows javascript to speak or communicate with broswer
+
+  - popup boxes
+
+  ```js
+  console.clear();
+  console.log(window);
+  console.log(window.location); // return current page url
+  console.log(window.location.href); // return entire url
+  console.log(window.location.protocol); // return protocol
+  console.log(window.location.hostname); // return hostname
+  console.log(window.location.port); // return port
+  console.log(window.location.pathname); // return pathname
+  ```
+
+- popup boxes -> alert(), confirm(), prompt()
+
+  ```js
+  const deleteUser = () => {
+    const value = confirm("Do you want to Delete the user? ");
+    if (value) {
+      console.log("user is deleted");
+    } else {
+      console.log("user is not deleted");
+    }
+  };
+
+  deleteUser();
+  ```
+
+- Timing event methods -> setTimeout(), setInterval()
+
+  ```js
+  const getAllUsers = () => {
+    const users = [
+      {
+        id: 1,
+        name: "anisul islam",
+      },
+      {
+        id: 2,
+        name: "Robert william",
+      },
+    ];
+    console.log(users);
+  };
+
+  setTimeout(getAllUsers, 2000);
+  ```
+
+## 13. Error Handling
 
 - compile time error vs run time error
 - [types of error](https://textexpander.com/blog/the-7-most-common-types-of-errors-in-programming-and-how-to-avoid-them) - syntax error, logical error, run-time error
@@ -2720,9 +2770,9 @@
   throw true
   ```
 
-## 13. Local storage
+## 14. Local storage
 
-## 14. API Calling
+## 15. API Calling
 
 - make sure to install json formatter extension for google chrome
 - Some free api
@@ -2738,7 +2788,7 @@
 
 - aa
 
-## 15. Best Practices
+## 16. Best Practices
 
 - use naming conventions for variables
 - avoid unncessary variables
@@ -2748,11 +2798,11 @@
 - == vs ===
 - [access dom less](https://youtu.be/PZVF5l0D7_E)
 
-## 16. npm & ESLint setup
+## 17. npm & ESLint setup
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
-## 17. ES6
+## 18. ES6
 
 ### ES6 Syntax
 
