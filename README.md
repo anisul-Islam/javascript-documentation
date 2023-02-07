@@ -2718,6 +2718,8 @@
 
 - Timing event methods -> setTimeout(), setInterval()
 
+  - if you want to do something after a specific time then we can take help of setTimeout(), setInterval() from window object
+
   ```js
   const getAllUsers = () => {
     const users = [
@@ -2734,6 +2736,21 @@
   };
 
   setTimeout(getAllUsers, 2000);
+
+  // setInterval() repeats after certain period of time
+  setInterval(() => {
+    const users = [
+      {
+        id: 1,
+        name: "anisul islam",
+      },
+      {
+        id: 2,
+        name: "Robert william",
+      },
+    ];
+    console.log(users);
+  }, 2000);
   ```
 
 ## 13. Error Handling
@@ -2960,4 +2977,131 @@
   console.log(t1.printInfo());
   ```
 
-### function & prototype
+### Asynchronous Programming
+
+- Synchronous , asynchronous, callback, higher order function, promise, async await
+
+  - synchronous vs asynchronous
+
+    ```js
+    // sync vs async
+
+    // example of synchronous js
+    // js is single threaded, synchronous programming language.
+    // tasks will be added in call stack, when one task is done then it will moved to the next one (LIFO)
+    console.log("------------------------------------");
+    console.log("Example of Synchronous programming");
+    console.log(`Task 1`);
+    console.log(`Task 2`);
+    console.log(`Task 3`);
+    console.log(`Task 4`);
+    console.log("------------------------------------\n\n");
+    // setTimeout() is an asynchronous function
+    // tasks will be added in call stack, when one task is done then it will moved to the next one (LIFO)
+    // setTimeout() will move the task into web APIs where the task will be running in background
+    // other task will continue in call stack
+    // when the call stack is completely empty then task (callback functions) from web APIs will be moved to task queue (FIFO)
+    // when the entire call stack is empty then from task queue task will moved to call stack and the process is done
+
+    console.log("Example of Asynchronous programming");
+    // console.log(`Task 1`);
+    // setTimeout(() => {
+    //   console.log(`Task 2`);
+    // }, 2000);
+    // console.log(`Task 3`);
+    // console.log(`Task 4`);
+
+    const taskOne = () => {
+      console.log(`Task 1`);
+    };
+
+    const taskTwo = () => {
+      setTimeout(() => {
+        console.log(`Task 2`);
+        console.log("------------------------------------");
+      }, 2000);
+    };
+
+    const taskThree = () => {
+      console.log(`Task 3`);
+    };
+    const taskFour = () => {
+      console.log(`Task 4`);
+    };
+
+    taskOne();
+    taskTwo();
+    taskThree();
+    taskFour();
+    ```
+
+  - callback & higher order function
+
+  ```js
+  // callback function and higher order function
+  // using callback we can make our code non blocking
+
+  /*
+    const printSquare = (x) => {
+      console.log(`The square is ${x * x}`);
+    };
+  
+    const square = printSquare;
+    square(10);
+  
+    const higherOrderFunction = (y, callback) => {
+      callback(y);
+    };
+  
+    higherOrderFunction(5, square);
+    */
+
+  // event handlers are good example of callback functions , they will allow delay
+  // document.getElementById('button').addEventListener('click', () => {
+  //     //item clicked
+  //   })
+
+  // window.addEventListener('load', () => {
+  //     //window loaded
+  //     //do what you want
+  //   })
+
+  // setTimeout(() => {
+  //     // runs after 2 seconds
+  //   }, 2000)
+
+  const taskOne = (callback) => {
+    console.log(`Task 1`);
+    callback();
+  };
+
+  const taskTwo = (callback) => {
+    setTimeout(() => {
+      console.log(`Task 2`);
+      callback();
+    }, 2000);
+  };
+
+  const taskThree = (callback) => {
+    console.log(`Task 3`);
+    callback();
+  };
+  const taskFour = () => {
+    console.log(`Task 4`);
+  };
+
+  // taskOne(function t1() {
+  //   taskTwo(function t2() {
+  //     taskThree(function t3() {
+  //       taskFour();
+  //     });
+  //   });
+  // });
+  taskOne(() => {
+    taskTwo(() => {
+      taskThree(() => {
+        taskFour();
+      });
+    });
+  });
+  ```
