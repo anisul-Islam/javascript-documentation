@@ -67,7 +67,9 @@
   console.log("brand : Apple");
   ```
 
-## 2. Tokens
+- setup prettier code formatter
+
+## 3. Tokens
 
 - Tokens are backbone of any programming language. Important tokens: keywords, puncuators, data type, variables, operators, escape sequences etc.
 - Keywords: javascript reserved words for specific reasons.
@@ -167,7 +169,7 @@
   - var vs let vs const
 
     - 2 important things: reassign, scope - block, function, global
-    - var variable can be reassigned and function scoped.
+    - var variable can be reassigned and function scoped. var variables also become part of window object which can be overriden. try window.varName
 
       ```js
       var name = "alex";
@@ -195,7 +197,7 @@
       console.log(age); // not allowed as let variable is block scoped
       ```
 
-    - const variable can not be reassigned but blocked (a set of curly braces) scoped.
+    - const variable can not be reassigned but blocked (a set of curly braces) scoped. const object can be changed by its properties.
 
       ```js
       const name = "alex";
@@ -302,7 +304,7 @@
   - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
   - [**String Methods**](https://www.w3schools.com/js/js_string_methods.asp)
 
-## 3. Prompt & Data Type conversion
+## 4. Prompt & Data Type conversion
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
@@ -339,7 +341,7 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 4. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
+## 5. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
 
 - Number Object -> x.toString(), x.toFixed(), x.toPrecision()
   - converting Strings to Numbers-> Number(), parseFloat(), parseInt()
@@ -449,7 +451,7 @@
   console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 5. Functions - traditional & arrow, string literals, js module, jsdoc
+## 6. Functions - traditional & arrow, string literals, js module, jsdoc
 
 - Traditional function syntax and example
 
@@ -651,7 +653,7 @@
     ```js
     // Arrow function vs Traditional function
 
-    // demo1 - must use parenthesis for no parameters, but for one parameter its optional
+    // demo1 - must use parenthesis for no parameters or multiple parmaters, but for one parameter its optional
     function display1() {
       console.log("I am display 1");
     }
@@ -669,7 +671,7 @@
     display3();
     display4();
 
-    // returning value in arrow function - no need to use curly braces if returning or dealing with single statement
+    // returning value in arrow function - no need to use return keyword with single statement
     function display5() {
       return "I am display 5";
     }
@@ -909,7 +911,7 @@
     );
     ```
 
-## 7. Control statement
+## 8. Control statement
 
 - Conditional control statement: if, else if, else, switch
 
@@ -1265,7 +1267,7 @@
     }
     ```
 
-## 8. Object & Array
+## 9. Object & Array
 
 - Object
 
@@ -1796,7 +1798,7 @@
         });
         ```
 
-## 9. Higher Order Array function, spread operator & destructure
+## 10. Higher Order Array function, spread operator & destructure
 
 - map() higher order function
 
@@ -1989,10 +1991,12 @@
         native: "Bangla",
         beginner: "Finnish",
       },
+      visited: ["bangladesh", "pakistan"],
     };
-    let { fullName, gpa, languages } = student2;
+    let { fullName, gpa, languages, visited } = student2;
     console.log(fullName);
     console.log(languages.native);
+    console.log(visited[0]);
 
     // destructuring function arguments
     // const studentDetails = (studentInfo) => {
@@ -2782,6 +2786,18 @@
     return sum;
   }
   console.log(add(10, 20, 30, 40));
+
+  // another example
+  const numbers = [20, 30, 40, 50];
+  const [num1, ...rest] = numbers;
+
+  const user = {
+    id: 101,
+    name: "anisul",
+    age: 32,
+  };
+  const { id, ...rest } = user;
+  printInfo(rest);
   ```
 
 - Spread operators
@@ -2860,3 +2876,38 @@
 
   // for in works with object
   ```
+
+### classes & modules
+
+- class & Inheritance
+
+  ```js
+  class Person {
+    constructor(name) {
+      this.name = name;
+    }
+    printInfo() {
+      return `Hello ${this.name}. `;
+    }
+  }
+
+  class Teacher extends Person {
+    constructor(name, id) {
+      super(name);
+      this.id = id;
+    }
+    printInfo() {
+      super.printInfo();
+      return `${this.id}, ${this.name}`;
+    }
+  }
+
+  const p1 = new Person("Anisul Islam");
+  console.log(p1.printInfo());
+  console.log(Person.prototype);
+
+  const t1 = new Teacher("Anisul Islam", 32);
+  console.log(t1.printInfo());
+  ```
+
+### function & prototype
