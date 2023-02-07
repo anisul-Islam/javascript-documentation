@@ -2975,6 +2975,27 @@
 
   const t1 = new Teacher("Anisul Islam", 32);
   console.log(t1.printInfo());
+
+  // Another example
+  // helper.js
+  export class Student {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    printInfo() {
+      console.log(`Name: ${this.name} | Age: ${this.age}`);
+    }
+  }
+
+  // index.js
+  import { Student } from "./helper.js";
+
+  const s1 = new Student("Anisul Islam", 32);
+  s1.printInfo();
+
+  const s2 = new Student("Robert", 32);
+  s2.printInfo();
   ```
 
 ### Asynchronous Programming
@@ -3115,3 +3136,34 @@
     });
   });
   ```
+
+  - Promise: 3 states-pending, resolve, reject
+
+    ```js
+    const promise1 = new Promise((resolve, reject) => {
+      resolve("task 1");
+    });
+    const promise2 = new Promise((resolve, reject) => {
+      resolve("task 2");
+    });
+
+    // then function will be called when promise is resolved
+    // catch function will be called when promise is rejected
+    // Promise is created for you most of the time but you know how to use
+    promise1
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    promise2
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    ```
+
+  - async and await
