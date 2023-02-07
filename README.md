@@ -3038,6 +3038,16 @@
   - callback & higher order function
 
   ```js
+  const square = (num) => {
+    return num * num;
+  };
+  const exampleFunction = (num, callback) => {
+    console.log(callback(3));
+  };
+  exampleFunction(3, square);
+  ```
+
+  ```js
   // callback function and higher order function
   // using callback we can make our code non blocking
 
