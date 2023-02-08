@@ -3461,25 +3461,62 @@
 
 - axios example
 
-  ````js
-      // axios is a js library
-      // it helps to make request from browser (plain js/Vue/React/Angular), node.js
+  ```js
+  // axios is a js library
+  // it helps to make request from browser (plain js/Vue/React/Angular), node.js
 
-      // + very easy to use
-      // + it supports all modern browser includig IE
-      // + it returns promise
-      // + throws error brilliantly
-      // + No need to set header cause axios is intelligent
+  // + very easy to use
+  // + it supports all modern browser includig IE
+  // + it returns promise
+  // + throws error brilliantly
+  // + No need to set header cause axios is intelligent
 
-      // axios(config)
-      // axios(url [, config])
+  // axios(config)
+  // axios(url [, config])
 
-      // axios.get(url [, config])
-      // axios.post(url [, config])
-      // axios.put(url [, config])
-      // axios.patch(url [, config])
-      // axios.delete(url [, config])
+  // axios.get(url [, config])
+  // axios.post(url [, config])
+  // axios.put(url [, config])
+  // axios.patch(url [, config])
+  // axios.delete(url [, config])
 
-      // axios returns response object - data, status, statusText, headers, config
-        ```
-  ````
+  // axios returns response object - data, status, statusText, headers, config
+
+  step1: add axios cdn
+
+  ```
+
+## 20. local storage
+
+```js
+// Web storage API - allows us to store & read data in browser
+// Web storage API - localStorage, sessionStorage
+
+// localStorage - store, read, update and remove data
+// no expiry date: data never gets lost even if you close the browser
+
+// localStorage store data as key value pair - string
+
+// setItem(key, value)
+// localStorage.setItem("userName", "anisul islam");
+// localStorage.setItem("password", "0123456789");
+
+// getItem(key)
+// const userName = localStorage.getItem("userName");
+// const userPassword = localStorage.getItem("password");
+// console.log(userName, userPassword);
+
+// removeItem(key)
+// localStorage.removeItem("userName");
+// localStorage.removeItem("password");
+
+// setItem(key, value)
+// const countries = ["Australia", "Bangladesh", "Nepal"];
+// localStorage.setItem("countries", JSON.stringify(countries));
+
+// // getItem(key)
+// const countriesList = JSON.parse(localStorage.getItem("countries"));
+// console.log(countriesList);
+
+// localStorage.clear();
+```
