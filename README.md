@@ -2789,23 +2789,7 @@
 
 ## 14. Local storage
 
-## 15. API Calling
-
-- make sure to install json formatter extension for google chrome
-- Some free api
-
-  - [dog api](https://dog.ceo/api/breeds/image/random)
-  - [country api](https://restcountries.com/v3.1/all)
-  - [fake store api](https://fakestoreapi.com/)
-  - [json placeholder free api](https://jsonplaceholder.typicode.com/)
-  - [dummy json api](https://dummyjson.com/)
-  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
-    - [check documentation](https://github.com/anisul-Islam/complete-rest-api-with-mongodb)
-  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
-
-- aa
-
-## 16. Best Practices
+## 15. Best Practices
 
 - use naming conventions for variables
 - avoid unncessary variables
@@ -2815,11 +2799,11 @@
 - == vs ===
 - [access dom less](https://youtu.be/PZVF5l0D7_E)
 
-## 17. npm & ESLint setup
+## 16. npm & ESLint setup
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
-## 18. ES6
+## 17. ES6
 
 ### ES6 Syntax
 
@@ -3241,3 +3225,58 @@
 
   loadData();
   ```
+
+## 18. JSON
+
+- Why JSON?
+- What is JSON?
+  - Javascript Object Notation
+  - text based form
+  - human readable form
+  - language independent
+  - to store and exhange data between client & server
+- JSON Basic syntax
+
+  ```json
+      {
+        "key":"value",
+        "key":value,
+      }
+  ```
+
+- JSON Value types - String, number, boolean, null, objects, array
+- How to access JSON Objects -> dot notation, bracket notation
+- create an user.json file and add some json data
+
+  - accessing json data from other file
+
+  ```js
+  fetch("./users.json")
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+
+  // other way
+  import users from "./users.json" assert { type: "json" };
+  console.log(users);
+  console.log(users.users[0]);
+  ```
+
+- client-server conversion
+  - Before using json data in client convert into JS Object -> JSON.parse()
+  - Before sending to server convert into JSON -> JSON.stringify()
+
+## 19. API Calling
+
+- make sure to install json formatter extension for google chrome
+- Some free api
+
+  - [dog api](https://dog.ceo/api/breeds/image/random)
+  - [country api](https://restcountries.com/v3.1/all)
+  - [fake store api](https://fakestoreapi.com/)
+  - [json placeholder free api](https://jsonplaceholder.typicode.com/)
+  - [dummy json api](https://dummyjson.com/)
+  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
+    - [check documentation](https://github.com/anisul-Islam/complete-rest-api-with-mongodb)
+  - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
+
+- aa
