@@ -3258,12 +3258,39 @@
   // other way
   import users from "./users.json" assert { type: "json" };
   console.log(users);
-  console.log(users.users[0]);
   ```
 
+- JSON VS JS Object
+  - key with double quotation
+  - JSON can not contain function but JS Object does
+  - JS Object is only for JS but JSON for all other programming languages
 - client-server conversion
+
   - Before using json data in client convert into JS Object -> JSON.parse()
+
+    ```js
+    // json object
+    const jsonData = '{ "name": "John", "age": 22 }';
+
+    // converting to JavaScript object
+    const obj = JSON.parse(jsonData);
+
+    // accessing the data
+    console.log(obj.name); // John
+    ```
+
   - Before sending to server convert into JSON -> JSON.stringify()
+
+    ```js
+    // JavaScript object
+    const jsonData = { name: "John", age: 22 };
+
+    // converting to JSON
+    const obj = JSON.stringify(jsonData);
+
+    // accessing the data
+    console.log(obj); // "{"name":"John","age":22}"
+    ```
 
 ## 19. API Calling
 
@@ -3279,4 +3306,180 @@
     - [check documentation](https://github.com/anisul-Islam/complete-rest-api-with-mongodb)
   - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
 
-- aa
+- API using fetch
+
+  - get method
+
+    ```js
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
+    // can catch client error
+    fetch("https://jsonplacholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
+
+    // can not catch server error
+    fetch("https://jsonplaceholder.typicode.com/posts/101")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
+    // solution: add an if statement
+    fetch("https://jsonplaceholder.typicode.com/posts/101")
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => console.log(json))
+      .catch((error) => console.log(error));
+    ```
+
+  - post method for creating resources
+
+    ```js
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        title: "foo",
+        body: "bar",
+        userId: 1,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+    ```
+
+  - put method for updating a resource
+
+    ```js
+    fetch("https://jsonplaceholder.typicode.com/posts/1", {
+      method: "PUT",
+      body: JSON.stringify({
+        id: 1,
+        title: "foo",
+        body: "bar",
+        userId: 1,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+    ```
+
+  - delete method for deleting a resource
+
+    ```js
+    fetch("https://jsonplaceholder.typicode.com/posts/1", {
+      method: "DELETE",
+    });
+    ```
+
+  - fetch detailed example
+
+    ```js
+    // 4 ways to call api - XMLHttpRequest, fetch, axios, jquery
+
+    // fetch() has replaced XMLHttpRequest
+    // fetch() - global method for making HTTP Request
+    // 2 ways to call - then, async await
+
+    // + fetch() is easy to use compare to XMLHttpRequest
+    // + fetch() returns a promise
+    // - returned promise can only handle network error
+    // - does not support all the older browser
+
+    // method for making HTTP Request
+    const makeRequest = async (url, config) => {
+      const res = await fetch(url, config);
+      if (!res.ok) {
+        const message = `Error : ${res.status}`;
+        throw new Error(message);
+      }
+      const data = await res.json();
+      return data;
+    };
+
+    const deleteData = () => {
+      makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "DELETE",
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
+
+    deleteData();
+
+    // const updateData = () => {
+    //   makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
+    //     method: "PATCH",
+    //     body: JSON.stringify({
+    //       title: "foomaraarrara",
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
+
+    // updateData();
+
+    // const sendData = () => {
+    //   makeRequest("https://jsonplaceholder.typicode.com/posts", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       title: "foo",
+    //       body: "bar",
+    //       userId: 1,
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
+
+    // sendData();
+
+    // const getData = () => {
+    //   makeRequest("https://jsonplaceholder.typicode.com/posts")
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
+
+    // getData();
+    ```
+
+- axios example
+
+  ````js
+      // axios is a js library
+      // it helps to make request from browser (plain js/Vue/React/Angular), node.js
+
+      // + very easy to use
+      // + it supports all modern browser includig IE
+      // + it returns promise
+      // + throws error brilliantly
+      // + No need to set header cause axios is intelligent
+
+      // axios(config)
+      // axios(url [, config])
+
+      // axios.get(url [, config])
+      // axios.post(url [, config])
+      // axios.put(url [, config])
+      // axios.patch(url [, config])
+      // axios.delete(url [, config])
+
+      // axios returns response object - data, status, statusText, headers, config
+        ```
+  ````
