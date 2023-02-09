@@ -2786,6 +2786,34 @@
   throw 0
   throw {message: 'wrong input'}
   throw true
+
+  fullName = "anisul islam"; // Uncaught ReferenceError: fullName is not defined
+  // this is a run time error
+  console.log(fullName);
+
+  const user = {
+    fullName: "anisul islam",
+  };
+  console.log(user.age); // reference error
+
+  console.log(user..age) // syntax error
+
+  const number = 20;
+  number = 30; // type error
+  console.log(number);
+
+  try {
+    console.log("hi");
+    alert(nationality);
+    console.log("hello");
+  } catch (err) {
+    // console.log(err);
+    // console.warn(err);
+    // console.error(err.name);
+    // console.error(err.message);
+    console.error(err.stack); // return details
+  }
+  console.log("bye");
   ```
 
 ## 14. Local storage
