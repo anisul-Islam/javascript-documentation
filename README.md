@@ -1800,7 +1800,8 @@
 
 ## 10. Higher Order Array function, spread operator & destructure
 
-- map() higher order function
+- ES5 Feature
+- [map()](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/) higher order function
 
   - when we use loop we need to create an array but map returns an array
   - map() does not change the original array.
@@ -3449,47 +3450,36 @@
 
     deleteData();
 
-    // const updateData = () => {
-    //   makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
-    //     method: "PATCH",
-    //     body: JSON.stringify({
-    //       title: "foomaraarrara",
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json; charset=UTF-8",
-    //     },
-    //   })
-    //     .then((res) => console.log(res))
-    //     .catch((err) => console.log(err));
-    // };
+    // another example
 
-    // updateData();
+    const loadData = () => {
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((data) => {
+          let lists = "";
+          data.map((data, index) => {
+            lists += `<li>${data.title}</li>`;
+          });
+          document.querySelector(".container ol").innerHTML = lists;
+        });
+    };
 
-    // const sendData = () => {
-    //   makeRequest("https://jsonplaceholder.typicode.com/posts", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       title: "foo",
-    //       body: "bar",
-    //       userId: 1,
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json; charset=UTF-8",
-    //     },
-    //   })
-    //     .then((res) => console.log(res))
-    //     .catch((err) => console.log(err));
-    // };
+    loadData();
 
-    // sendData();
-
-    // const getData = () => {
-    //   makeRequest("https://jsonplaceholder.typicode.com/posts")
-    //     .then((res) => console.log(res))
-    //     .catch((err) => console.log(err));
-    // };
-
-    // getData();
+    const loadAllTodos = async () => {
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+        const todos = await res.json();
+        let lists = "";
+        todos.map((data) => {
+          lists += `<li>${data.title}</li>`;
+        });
+        document.querySelector(".container ol").innerHTML = lists;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadAllTodos();
     ```
 
 - axios example
