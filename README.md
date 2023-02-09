@@ -3450,7 +3450,7 @@
 
     deleteData();
 
-    // another example
+    // another example with fetch and async await
 
     const loadData = () => {
       fetch("https://jsonplaceholder.typicode.com/posts")
@@ -3507,4 +3507,27 @@
 
   step1: add axios cdn
 
+  axios("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => console.log(response))
+  .catch((err) => console.log(err));
+
+  axios("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title: "foo",
+      body: "bar",
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  }).then((response) => console.log(response));
+
+  axios
+    .post("https://jsonplaceholder.typicode.com/posts", {
+      title: "foo",
+      body: "bar",
+      userId: 1,
+    })
+    .then((response) => console.log(response));
   ```
