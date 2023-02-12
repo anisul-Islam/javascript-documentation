@@ -3009,6 +3009,25 @@
   // for in works with object
   ```
 
+### Map & Set
+
+- Set object helps us to hold unique values.
+
+  ```js
+  const numbers = [1, 1, 2, 3, 4, 5, 5];
+  const uniqueNumbers = new Set(numbers);
+  uniqueNumbers.add(3).add(23);
+  uniqueNumbers.delete(23);
+  console.log(numbers);
+  console.log(uniqueNumbers);
+  console.log(uniqueNumbers.size);
+
+  console.log(uniqueNumbers.has(4));
+  console.log(uniqueNumbers.values());
+
+  uniqueNumbers.clear(); // clear the set
+  ```
+
 ### classes & modules
 
 - class & Inheritance
@@ -3018,7 +3037,12 @@
     constructor(name) {
       this.name = name;
     }
+    get info() {
+      // this is a getter
+      return `Hello ${this.name}. `;
+    }
     printInfo() {
+      // this is a method
       return `Hello ${this.name}. `;
     }
   }
@@ -3036,6 +3060,7 @@
 
   const p1 = new Person("Anisul Islam");
   console.log(p1.printInfo());
+  console.log(p1.info);
   console.log(Person.prototype);
 
   const t1 = new Teacher("Anisul Islam", 32);
