@@ -2865,7 +2865,9 @@
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
-## 17. ES6
+## 17. ES6 - ECMASCRIPT 2015
+
+- Template literals, default & rest parameters, Spread operators, Destructuring, Object Literals, for of, for in, classes, modules, asynchronous programming- callback, promise
 
 ### ES6 Syntax
 
