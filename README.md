@@ -1,6 +1,6 @@
 # javascript-documentation
 
-![javascript roadmap](images/Screenshot 2023-05-14 at 16.55.46.png)
+![javascript roadmap](images/roadmap.png)
 
 ## 0. What is Programming? Why programming?
 
