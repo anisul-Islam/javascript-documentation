@@ -1,5 +1,7 @@
 # javascript-documentation
 
+![javascript roadmap](images/Screenshot 2023-05-14 at 16.55.46.png)
+
 ## 0. What is Programming? Why programming?
 
 - [Algorithm & Flowchart](https://www.javatpoint.com/algorithm-vs-flow-chart)
