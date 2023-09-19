@@ -29,10 +29,9 @@
 ### 1.1 Introduction to Javascript
 
 - What is Javascript?
+
   - A programming language for web.
   - it can be used in front-end and back-end
-- Why Javascript?
-
   - It adds interactivity to the web page such as adding items to the carts, form validation etc.
   - Example: Create a button with HTML, Style with CSS and add clicking functionality by using javascript
   - A demo
@@ -160,21 +159,58 @@ External JavaScript is often preferred for better code organization and maintain
     - console.log() helps you find bugs.
     - console.log does NOT replace return
     - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
-- Example
+- Comments in JavaScript are used to provide explanations or additional information within your code. They are not executed by the JavaScript interpreter and are meant for human readability. JavaScript supports two primary types of comments:
 
-  ```js
-  // single line comment
-  document.write("Welcome to JS Program");
-  document.write("<h1>Welcome to JS Program</h1>");
-  console.log("fullName : Frances Fogarty");
+  1. **Single-line Comments**:
 
-  /*
-   multiple 
-   line 
-   comment
-   */
-  alert("welcome to js program");
-  ```
+     - Denoted by `//`.
+     - Anything following `//` on the same line is treated as a comment and is ignored by the JavaScript engine.
+     - Single-line comments are used for brief explanations or notes.
+
+     ```javascript
+     // This is a single-line comment
+     var x = 5; // Assigning a value to a variable
+     ```
+
+  2. **Multi-line Comments**:
+
+     - Enclosed between `/*` and `*/`.
+     - Multi-line comments can span across multiple lines and are often used for more extensive explanations, documentation, or temporarily "commenting out" blocks of code.
+
+     ```javascript
+     /*
+         This is a multi-line comment.
+         It can span across multiple lines.
+     */
+
+     /*
+     function oldCode() {
+         // This entire function is "commented out" and won't run.
+     }
+     */
+     ```
+
+  - **Needs and Use Cases for Comments in JavaScript**:
+
+  1. **Code Explanation**: Comments are used to explain complex sections of code, making it easier for developers (including yourself) to understand the purpose and functionality of code blocks.
+
+  2. **Documentation**: Comments can serve as a form of documentation, providing information on how to use functions, classes, or libraries, including descriptions of parameters and return values.
+
+  3. **TODO Lists**: Developers often use comments with "TODO" or "FIXME" labels to highlight areas of code that need attention or future enhancements.
+
+  4. **Disable Code**: Comments can be used to temporarily disable lines or blocks of code for debugging or testing purposes without deleting the code.
+
+  5. **Version History**: Comments can include information about the version of the code, date of last modification, and author details for version control and collaboration.
+
+  6. **Algorithmic Explanation**: When implementing complex algorithms, comments can help explain the logic and steps involved.
+
+  7. **Cross-browser Compatibility**: Comments may include notes about specific browser-related workarounds or compatibility issues.
+
+  8. **Debugging**: Comments can aid in debugging by providing context or identifying problematic areas.
+
+  9. **Code Organization**: Comments can be used to divide code into sections, making it easier to navigate and understand.
+
+  While comments are essential for code readability and collaboration, it's also crucial to keep them up to date. Outdated comments can be misleading and may not accurately reflect the current state of the code. Therefore, it's good practice to maintain comments as you make changes to your code.
 
 - **Tasks 1: Can you print your name, age, address?**
 - Program 1: E-Commerce app [printing product details]
