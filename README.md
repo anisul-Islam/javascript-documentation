@@ -2,11 +2,30 @@
 
 ![javascript roadmap](images/roadmap.png)
 
-## 0. What is Programming? Why programming?
+## Table of Contents
 
-- [Algorithm & Flowchart](https://www.javatpoint.com/algorithm-vs-flow-chart)
+1. [Basic Javascript Topics](#1-basic-javascript-topics)
 
-## 1. Introduction to Javascript
+   - []()
+
+2. [Intermediate JavaScript Topics]()
+
+   - []()
+
+3. [Advanced JavaScript Topics]()
+
+   - []()
+
+     <!-- - [CV Project](#341-cv-project)
+     - [Calculator Project](#342-calculator-project)
+     - [Portfolio Website](#343-portfolio-project)
+     - [Restaurant Website](#344-restaurant-project)
+     - [Blog Website](#345-blog-website-project)
+     - [Ecommerce Website](#346-e-commerce-we -->
+
+## 1. Basic Javascript Topics
+
+### 1.1 Introduction to Javascript
 
 - What is Javascript?
   - A programming language for web.
@@ -15,9 +34,118 @@
 
   - It adds interactivity to the web page such as adding items to the carts, form validation etc.
   - Example: Create a button with HTML, Style with CSS and add clicking functionality by using javascript
-  - A demo for the need of JS
+  - A demo
 
-## 2. Output & comment
+    ```js
+
+        // index.html
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Document</title>
+            <link rel="stylesheet" href="test.css" />
+          </head>
+          <body>
+            <h1>Welcome to JS</h1>
+            <button onclick="alert('Deleted!')">Delete</button>
+          </body>
+        </html>
+
+        // style.css
+        button {
+          background-color: green;
+          color: white;
+          padding: 0.5rem;
+          border: none;
+          border-radius: 5px 5px;
+        }
+
+        // index.js
+
+    ```
+
+- What are the ways to add javascript?
+
+  **Inline JavaScript:**
+
+  Inline JavaScript is directly embedded within an HTML document using the `<script>` tag. It's placed directly within the HTML code and typically used for small scripts or quick actions.
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Inline JavaScript Example</title>
+    </head>
+    <body>
+      <h1>Welcome to JS</h1>
+      <button onclick="alert('The item is deleted!')">Delete</button>
+    </body>
+  </html>
+  ```
+
+  In this example, the JavaScript code `alert('The item is deleted!')` is executed when the button is clicked.
+
+  **Internal JavaScript:**
+
+  Internal JavaScript is placed within the HTML document, but it's placed in the `<script>` tag within the `<head>` or `<body>` section of the HTML. This allows you to keep your JavaScript separate from your HTML content.
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Internal JavaScript Example</title>
+      <script>
+        function deleteItem() {
+          alert("The item is deleted!");
+        }
+      </script>
+    </head>
+    <body>
+      <h1>Internal JavaScript Example</h1>
+
+      <button onclick="deleteItem()">Delete</button>
+    </body>
+  </html>
+  ```
+
+  In this example, the JavaScript function `deleteItem()` is defined within the `<script>` tag in the HTML document and called when the button is clicked.
+
+  **External JavaScript:**
+
+  External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. This approach is ideal for larger scripts and helps keep your HTML clean and organized.
+
+  **index.html:**
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>External JavaScript Example</title>
+      <script src="script.js"></script>
+    </head>
+    <body>
+      <h1>External JavaScript Example</h1>
+
+      <button onclick="deleteItem()">Click Me</button>
+    </body>
+  </html>
+  ```
+
+  **script.js:**
+
+  ```javascript
+  function deleteItem() {
+    alert("The item is deleted!");
+  }
+  ```
+
+In this example, the JavaScript code is stored in an external file named `script.js` and linked to the HTML file using the `<script>` tag's `src` attribute.
+
+External JavaScript is often preferred for better code organization and maintainability, especially in larger web applications where you may have multiple scripts.
+
+### 1.2 Output & comment
 
 - output functions: functions that will help you to show output such as document.write(), console.log(), alert()
 - console has variations: console.clear(), console.error(), console.info(), console.warn()
