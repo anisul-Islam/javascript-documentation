@@ -8,6 +8,10 @@
 
    - [1.1 Introduction to Javascript](#11-introduction-to-javascript)
    - [1.2 Output & comment](#12-output--comment)
+   - [1.3 Tokens](#13-tokens)
+     - [1.3.1 Keywords, puncuators and Escape sequences](#131-keywords-puncuators-and-escape-sequences)
+     - [1.3.2 Data Types](#132-data-types)
+   - [1.4 Control Flow](#13-tokens)
 
 2. [Intermediate JavaScript Topics]()
 
@@ -71,6 +75,7 @@
 
 - What are the ways to add javascript?
 
+  - we can use `onload="alert('')"` in the body tag for demonstrating the ways of adding javascript.
   - **Inline JavaScript:**
 
   Inline JavaScript is directly embedded within an HTML document using the `<script>` tag. It's placed directly within the HTML code and typically used for small scripts or quick actions.
@@ -117,7 +122,7 @@
 
   - **External JavaScript:**
 
-  External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. This approach is ideal for larger scripts and helps keep your HTML clean and organized.
+  External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. **This approach is ideal for larger scripts and helps keep your HTML clean and organized.**
 
   **index.html:**
 
@@ -126,12 +131,13 @@
   <html>
     <head>
       <title>External JavaScript Example</title>
-      <script src="script.js"></script>
     </head>
     <body>
       <h1>External JavaScript Example</h1>
 
       <button onclick="deleteItem()">Click Me</button>
+      <script src="script.js"></script>
+      <script src="script2.js"></script>
     </body>
   </html>
   ```
@@ -170,6 +176,21 @@ External JavaScript is often preferred for better code organization and maintain
      ```javascript
      // This is a single-line comment
      var x = 5; // Assigning a value to a variable
+
+     const area = 0.5 * base * height; // area of triangle = 1/2 * base * height
+
+     // TODO: Create a new Todo
+     console.log("Create a new Todo");
+
+     // TODO: Read all the todos
+     // FIXME: Unable to read all the todos
+     console.log("Listed all the todos");
+
+     // TODO: update a Todo
+     console.log("Todo is updated");
+
+     // TODO: delete a todo
+     console.log("Todo is deleted");
      ```
 
   2. **Multi-line Comments**:
@@ -239,9 +260,12 @@ External JavaScript is often preferred for better code organization and maintain
 
 - setup prettier code formatter
 
-## 3. Tokens
+## 1.3 Tokens
 
-- Tokens are backbone of any programming language. Important tokens: keywords, puncuators, data type, variables, operators, escape sequences etc.
+- Tokens are backbone of any programming language. Important tokens: keywords, puncuators, escape sequences, data type, variables, operators, etc.
+
+### 1.3.1 Keywords, puncuators and Escape sequences
+
 - Keywords: javascript reserved words for specific reasons.
 
   - Example - abstract, break, char, double, export, import, try, catch, finally, throw, throws, if, else, switch, case, break, default, continue,for, while, do, var, let, const, class, extends, implements, public, private, protected, new, static, this, true, false, boolean, string, number, function, instanceof
@@ -253,6 +277,91 @@ External JavaScript is often preferred for better code organization and maintain
   - <> angle brackets / chevrons
   - ; semicolon, : colon
 - Escape sequnces: \ characters
+  Escape sequences in JavaScript are used to represent special characters or control characters within strings. They begin with a backslash (`\`) followed by a specific character, and they are used to produce characters that are otherwise difficult to type or include in a string directly. Here are some common escape sequences in JavaScript:
+
+  1. **Newline (`\n`)**: Represents a line break or a new line character.
+
+     ```javascript
+     var text = "This is line 1.\nThis is line 2.";
+     console.log(text);
+     ```
+
+     Output:
+
+     ```js
+     This is line 1.
+     This is line 2.
+     ```
+
+  2. **Tab (`\t`)**: Represents a tab character.
+
+     ```javascript
+     var indentedText = "First\tSecond\tThird";
+     console.log(indentedText);
+     ```
+
+     Output:
+
+     ```js
+     First   Second  Third
+     ```
+
+  3. **Backslash (`\\`)**: Represents a literal backslash character.
+
+     ```javascript
+     var filePath = "C:\\Program Files\\MyApp\\file.txt";
+     console.log(filePath);
+     ```
+
+     Output:
+
+     ```js
+     C:\Program Files\MyApp\file.txt
+     ```
+
+  4. **Single Quote (`\'`)**: Represents a single quotation mark within a single-quoted string.
+
+     ```javascript
+     var singleQuoted = "This is an example of a single quote: 'Hello'";
+     console.log(singleQuoted);
+     ```
+
+     Output:
+
+     ```js
+     This is an example of a single quote: 'Hello'
+     ```
+
+  5. **Double Quote (`\"`)**: Represents a double quotation mark within a double-quoted string.
+
+     ```javascript
+     var doubleQuoted = 'This is an example of a double quote: "Hello"';
+     console.log(doubleQuoted);
+     ```
+
+     Output:
+
+     ```js
+     This is an example of a double quote: "Hello"
+     ```
+
+  6. **Unicode Characters (`\uXXXX`)**: Represents a character using its Unicode code point in hexadecimal (XXXX).
+
+     ```javascript
+     var smileyFace = "\u263A";
+     console.log(smileyFace);
+     ```
+
+     Output:
+
+     ```js
+     ☺
+     ```
+
+  These escape sequences allow you to include special characters or characters that have special meanings within your strings without causing syntax errors or unexpected behavior.
+
+### 1.3.2 Data types
+
 - Data types
 
   - [typeof operator] can help us to find out the data type of a value
