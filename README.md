@@ -885,6 +885,40 @@ External JavaScript is often preferred for better code organization and maintain
   // console.log(sum);
   ```
 
+- for of loop: The for...of loop is used for iterating over the values of iterable objects like arrays and strings.
+
+  ```js
+  const colors = ["red", "green", "blue"];
+
+  for (const color of colors) {
+    console.log(color);
+  }
+
+  // Output:
+  // "red"
+  // "green"
+  // "blue"
+  ```
+
+- for in loop: The for...in loop is used for iterating over the keys (property names) of objects. It should not be used to iterate over arrays because it may also iterate over object prototype properties.
+
+  ```js
+  const person = {
+    name: "John",
+    age: 30,
+    job: "Engineer",
+  };
+
+  for (const key in person) {
+    console.log(key + ": " + person[key]);
+  }
+
+  // Output:
+  // "name: John"
+  // "age: 30"
+  // "job: Engineer"
+  ```
+
 ### 1.4.3 jump control statement
 
 - break and continue statement
