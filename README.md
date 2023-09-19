@@ -15,6 +15,7 @@
      - [1.3.4 Variables](#134-variables)
      - [1.3.5 var vs let vs const](#135-var-vs-let-vs-const)
      - [1.3.6 Operators & String concatenation](#136-operators--string-concatenation)
+     - [1.3.7 Prompt & Data Type conversion](#137-prompt--data-type-conversion)
    - [1.4 Control Flow](#13-tokens)
 
 2. [Intermediate JavaScript Topics]()
@@ -160,15 +161,13 @@ External JavaScript is often preferred for better code organization and maintain
 
 ### 1.2 Output & comment
 
-- output functions: functions that will help you to show output such as document.write(), console.log(), alert()
+- output functions: functions that will help you to show output such as document.write(), window global object -> console.log(), lert(), confirm()
 - console
-  - console has variations: console.clear(), console.error(), console.info(), console.warn()
-  - console will help the developers for finding any error during the development process.
-    console.log() allows you to visualize your code in the console.
-    - The console is only visible to you (the developer), but not the end-user.
-    - console.log() helps you find bugs.
-    - console.log does NOT replace return
-    - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
+  - console will help the developers for finding any error during the development process. console.error(), console.info(), console.warn(), console.log() allows you to visualize your code in the console.
+  - The console is only visible to you (the developer), but not the end-user.
+  - console.log() helps you find bugs.
+  - console.log does NOT replace return
+  - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
 - Comments in JavaScript are used to provide explanations or additional information within your code. They are not executed by the JavaScript interpreter and are meant for human readability. JavaScript supports two primary types of comments:
 
   1. **Single-line Comments**:
@@ -430,7 +429,7 @@ External JavaScript is often preferred for better code organization and maintain
 ### 1.3.3 Truthy vs Falsy Values
 
 - [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
-  - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN
+  - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN (Not-a-Number)
   - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
 
 ### 1.3.4 Variables
@@ -594,7 +593,7 @@ External JavaScript is often preferred for better code organization and maintain
   - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
   - [**String Methods**](https://www.w3schools.com/js/js_string_methods.asp)
 
-## 4. Prompt & Data Type conversion
+## 1.3.7 Prompt & Data Type conversion
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
