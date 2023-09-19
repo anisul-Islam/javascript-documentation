@@ -16,7 +16,16 @@
      - [1.3.5 var vs let vs const](#135-var-vs-let-vs-const)
      - [1.3.6 Operators & String concatenation](#136-operators--string-concatenation)
      - [1.3.7 Prompt & Data Type conversion](#137-prompt--data-type-conversion)
-   - [1.4 Control Flow](#13-tokens)
+   - [1.4 Control Flow](#14-control-statement)
+     - [1.4.1 Conditional control statement](#141-conditional-control-statement-if-else-if-else-switch)
+     - [1.4.2 Loop control statement](#142-loop-control-statement)
+     - [1.4.3 Jump control statement](#143-jump-control-statement)
+   - [1.5 Function](#15-function---traditional)
+   - [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
+   - [1.7 Objects]()
+   - [1.8 Arrays]()
+   - [1.9 Built-in methods]()
+   - [1.10 Error Handling]()
 
 2. [Intermediate JavaScript Topics]()
 
@@ -593,7 +602,7 @@ External JavaScript is often preferred for better code organization and maintain
   - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
   - [**String Methods**](https://www.w3schools.com/js/js_string_methods.asp)
 
-## 1.3.7 Prompt & Data Type conversion
+### 1.3.7 Prompt & Data Type conversion
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
@@ -605,19 +614,15 @@ External JavaScript is often preferred for better code organization and maintain
   const title = "iphone 12";
   const description = "brilliant phone with 4k camera";
   const price = 549;
-  const discountPercentage = 8.5;
   const rating = 4.69;
   const brand = "Apple";
 
   // getting user input using prompt()
-  const insuranceCost = Number(prompt("Insurance Cost? "));
+  const discountPercentage = Number(prompt("Discount percentage? "));
 
   // calculating price after discount
   const discount = (price * discountPercentage) / 100;
   const priceAfterDiscount = price - discount;
-
-  // calculating final price with insuranceCost
-  const finalPriceWithInsurance = priceAfterDiscount + insuranceCost;
 
   console.log("id : " + id);
   console.log("title : " + title);
@@ -627,934 +632,522 @@ External JavaScript is often preferred for better code organization and maintain
   console.log("rating : " + rating);
   console.log("brand : " + brand);
   console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-  console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 5. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
+## 1.4 Control statement
 
-- Number Object -> x.toString(), x.toFixed(), x.toPrecision()
-  - converting Strings to Numbers-> Number(), parseFloat(), parseInt()
-- Math Object -> Math.PI, Math.max(), Math.min(), Math.sqrt(), Math.pow(),
+### 1.4.1 Conditional control statement: if, else if, else, switch
 
-  - Math.ceil() -> rounded up to its nearest integer. `Math.ceil(4.9)=5; Math.ceil(4.4)=5, Math.ceil(-4.4)=-4`
-
-    ```js
-        <!-- find century  -->
-        function main() {
-        var year = parseInt(readLine(), 10)
-            //the output
-            console.log(calcCent(year));
-        }
-
-        //complete the function
-        function calcCent(year){
-            return Math.ceil(year/100);
-
-        }
-    ```
-
-  - Math.floor() -> rounded down to its nearest integer. `Math.floor(4.9)=4; Math.floor(4.4)=4, Math.floor(-4.4)=-5`
-  - Math.round() -> rounded up to nearest integer. `Math.round(4.6)=5; Math.round(4.5)=5, Math.round(4.4)=4`
-  - Math.trunc() -> returns the integer part. `Math.trunc(4.6)=4; Math.trunc(4.5)=4, Math.trunc(-4.4)=-4`
-  - Math.random() -> returns a random number between 0 (inclusive), and 1 (exclusive)
+- if, else if, else syntax
 
   ```js
-  console.log(Math.max(20, 30));
-  console.log(Math.min(20, 30));
-  console.log(Math.floor(3.4));
-  console.log(Math.ceil(3.4));
-  console.log(Math.round(3.4));
-  console.log(Math.random());
-
-  const randomNumber = Math.floor(Math.random() * 5) + 1;
-  ```
-
-- Date object
-
-  ```js
-  const date = new Date();
-  console.log(date.getFullYear());
-  console.log(date.getMonth());
-  console.log(date.getDate());
-  console.log(date.getDay());
-  console.log(date.getHours());
-  console.log(date.getMinutes());
-  console.log(date.getSeconds());
-  console.log(date.getMilliseconds());
-
-  // give year, month, day -> 2020, 5, 12
-  // find the day name -> Friday
-  function getWeekDay(year, month, day) {
-    const names = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const date = new Date(year, month, day);
-    //complete the function
-    return names[date.getDay()];
+  // if syntax
+  // if the condition is true then if body will work
+  if (condition) {
+    // the body of if
   }
 
-  console.log(date);
-  console.log(date.toDateString()); // return a date object into readbale string
-  console.log(date.toISOString()); // return a date object into iso standard
-  console.log(date.toLocaleString()); // return a date object into iso standard
+  // if, else syntax
+  // if the condition is true then if body will work or else will work
+  if (condition) {
+    // the body of if
+  } else {
+    // the body of else
+  }
+
+  // if, else if, else syntax
+  if (condition) {
+    // the body of if
+  } else if (condition) {
+    // the body of else if
+  } else if (condition) {
+    // the body of else if
+  } else {
+    // the body of else
+  }
   ```
 
-- Program 5: E-Commerce app [Math methods]
+  - if, else if, else related programs
+
+    - positive / negative / zero program
+    - Even / odd program
+    - Vowel / consonant program
+    - find large / small number program
+    - digit spelling program
+    - [leap year program](https://www.tutorialspoint.com/learn_c_by_examples/leap_year_program_in_c.htm)
+
+      ```js
+      // a program that will find a large number between 2 numbers
+      var num1 = parseInt(prompt("Enter first numebr : "));
+      var num2 = parseInt(prompt("Enter second numebr : "));
+
+      // first method - using only if
+      if (num1 > num2) {
+        console.log("Large Number is : " + num1);
+      }
+      if (num1 < num2) {
+        console.log("Large Number is : " + num2);
+      }
+      if (num1 == num2) {
+        console.log("Equal numbers");
+      }
+
+      // second method - more efficient than first method
+      if (num1 > num2) {
+        console.log("Large Number is : " + num1);
+      } else if (num1 < num2) {
+        console.log("Large Number is : " + num2);
+      } else if (num1 == num2) {
+        console.log("Equal numbers");
+      }
+
+      // third method - more efficient than first and second method
+      if (num1 > num2) {
+        console.log("Large Number is : " + num1);
+      } else if (num1 < num2) {
+        console.log("Large Number is : " + num2);
+      } else {
+        console.log("Equal numbers");
+      }
+
+      // A program that will find a letter is vowel or consonant
+      var letter = prompt("Enter a letter : ");
+
+      // convert any uppercase input into lower cause we set only lowercase letter in condition
+      letter = letter.toLowerCase();
+
+      // Now check the condition
+      if (
+        letter == "a" ||
+        letter == "e" ||
+        letter == "i" ||
+        letter == "o" ||
+        letter == "u"
+      ) {
+        console.log("Vowel");
+      } else {
+        console.log("Consonant");
+      }
+      ```
+
+  - Program 5 : E-commerce app [conditional control statement if/else]
+
+    ```js
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const rating = 4.69;
+    const brand = "Apple";
+    let priceAfterDiscount;
+
+    // getting user input using prompt()
+    const discountPercentage = Number(prompt("Discount percentage? "));
+
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      priceAfterDiscount = price - discount;
+    }
+
+    console.log("id : " + id);
+    console.log("title : " + title);
+    console.log("description: " + description);
+    console.log("price : " + price + " euros");
+    console.log("discountPercentage : " + discountPercentage);
+    console.log("rating : " + rating);
+    console.log("brand : " + brand);
+    console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+    ```
+
+- switch: An alternative for if, else. 4 keywords: switch, case, break, default
 
   ```js
-  // Program 5: E-Commerce app [Math methods]
+  // A program to understand switch -> digit spelling program
+  // 0 -> Zero
+  // 1 -> One
+  // 2 -> Two
+  // ...
+  // ...
+  // 9 -> Nine
+  // for any number program will display "not a digit"
+
+  var digit = parseInt(prompt("Enter a digit : "));
+  switch (digit) {
+    case 0:
+      console.log("Zero");
+      break;
+
+    case 1:
+      console.log("One");
+      break;
+
+    case 2:
+      console.log("Two");
+      break;
+
+    case 3:
+      console.log("Three");
+      break;
+
+    case 4:
+      console.log("Four");
+      break;
+
+    case 5:
+      console.log("Five");
+      break;
+
+    case 6:
+      console.log("Six");
+      break;
+
+    case 7:
+      console.log("Seven");
+      break;
+
+    case 8:
+      console.log("Eight");
+      break;
+
+    case 9:
+      console.log("Nine");
+      break;
+
+    default:
+      console.log("Not a digit");
+  }
+  ```
+
+### 1.4.2 Loop control statement
+
+- for loop
+
+  ```js
+  //A program to demonstrate for loop
+  for (var i = 1; i <= 10; i++) {
+    console.log("Bangladesh");
+  }
+
+  console.log("End of for loop");
+
+  // sum of numbers 1+2+..+100
+  // var sum = 0;
+  // for (var x = 1; x <= 100; x++){
+  //     sum = sum + x;
+  // }
+  // console.log(sum);
+  ```
+
+- while loop
+
+  ```js
+  //A program to demonstrate while loop
+  var i = 1;
+  while (i <= 10) {
+    console.log("Bangladesh");
+    i++;
+  }
+
+  console.log("End of for loop");
+
+  // sum of numbers 1+2+..+100
+  // var sum = 0;
+  // var x = 1;
+  // while ( x <= 100){
+  //     sum = sum + x;
+  //     x++;
+  // }
+  // console.log(sum);
+  ```
+
+- do while loop
+
+  ```js
+  // A program to demonstrate do while loop
+  var i = 1;
+  do {
+    console.log("Bangladesh");
+    i++;
+  } while (i <= 10);
+
+  console.log("End of for loop");
+
+  // sum of numbers 1+2+..+100
+  // var sum = 0;
+  // var x = 1;
+  // do{
+  //     sum = sum + x;
+  //     x++;
+  // }while ( x <= 100)
+  // console.log(sum);
+  ```
+
+### 1.4.3 jump control statement
+
+- break and continue statement
+
+  ```js
+  // break and continue keyword program
+
+  // The break statement "jumps out" of a loop or switch if the condition is matched.
+  for (var i = 1; i <= 100; i++) {
+    if (i == 20) break;
+    console.log(i);
+  }
+
+  // The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+  for (var i = 1; i <= 100; i++) {
+    if (i == 20) continue;
+    console.log(i);
+  }
+  ```
+
+## 1.5 Function - traditional
+
+- Function: Function is a block of codes for a specific task. It is beneficial for reusablity. Separation of concerns. **return keyword can be used only once inside a function.** **value that a function received is called parameters and the value we pass when calling function is known as arguments**
+- Function related topics:
+
+  - How to define a function?
+  - How to call a function?
+  - How to pass parameters to a function?
+  - How to return a value from a function?
+
+  ```js
+  // function example 2
+  // without function
+  let num1; // best practice: always slipt the declaration as I did in 3 lines
+  let num2;
+  let sum;
+
+  num1 = 20;
+  num2 = 30;
+  sum = num1 + num2;
+  console.log(sum);
+
+  num1 = 10;
+  num2 = 20;
+  sum = num1 + num2;
+  console.log(sum);
+
+  num1 = 40;
+  num2 = 20;
+  sum = num1 + num2;
+  console.log(sum);
+
+  // with function
+  function addNumbers(num1, num2) {
+    const sum = num1 + num2;
+    console.log(sum);
+  }
+
+  addNumbers(20, 30);
+  addNumbers(10, 30);
+  addNumbers(5, 15);
+  ```
+
+  ```js
+  // Function example3
+
+  // creating function without parameter
+  function message() {
+    console.log("Hello, I am a function without parameter");
+  }
+
+  // creating function with one parameter
+  function welcomeMessage(name) {
+    console.log("Welcome " + name + "to the Full-stack");
+  }
+
+  // creating function with multiple parameters
+  function welcomeMessage2(name, programName) {
+    console.log("Welcome " + name + "to the " + programName);
+  }
+
+  // returning from a function
+  function welcomeMessage3(name, programName) {
+    return "Welcome " + name + "to the " + programName;
+  }
+
+  // calling functions
+  message();
+  welcomeMessage("Alex");
+  welcomeMessage2("Alex", "full-stack");
+  console.log(welcomeMessage3("Brown", "full-stack"));
+  ```
+
+- Program 6: E-Commerce app [function]
+
+  ```js
+  // Program 6: E-commerce app  [function]
+
   const id = 101;
   const title = "iphone 12";
   const description = "brilliant phone with 4k camera";
   const price = 549;
-  const discountPercentage = 8.5;
   const rating = 4.69;
   const brand = "Apple";
 
   // getting user input using prompt()
-  const insuranceCost = Number(prompt("Insurance Cost? "));
+  const discountPercentage = Number(prompt("Discount percentage? "));
 
-  // calculating price after discount
-  const discount = (price * discountPercentage) / 100;
-  const priceAfterDiscount = price - discount;
+  // priceAfterDiscount function
+  function priceAfterDiscount(price, discountPercentage) {
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+      return 0;
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      return price - discount;
+    }
+  }
 
-  // calculating final price with insuranceCost
-  const finalPriceWithInsurance = Math.round(
-    priceAfterDiscount + insuranceCost
+  // printing product details
+  function printProductDetails(
+    pId,
+    pTitle,
+    pDescription,
+    pPrice,
+    pRating,
+    pBrand,
+    pDiscountPercentage
+  ) {
+    console.log("id : " + pId);
+    console.log("title : " + pTitle);
+    console.log("description : " + pDescription);
+    console.log("rating : " + pRating);
+    console.log("brand : " + pBrand);
+    console.log("Original price : " + pPrice + " euros");
+    console.log("Discount Percentage : " + pDiscountPercentage);
+    console.log(
+      "After the discount price : " +
+        priceAfterDiscount(price, pDiscountPercentage) +
+        " euros"
+    );
+  }
+
+  printProductDetails(
+    id,
+    title,
+    description,
+    price,
+    rating,
+    brand,
+    discountPercentage
   );
-
-  console.log("id : " + id);
-  console.log("title : " + title);
-  console.log("description: " + description);
-  console.log("price : " + price + " euros");
-  console.log("discountPercentage : " + discountPercentage);
-  console.log("rating : " + rating);
-  console.log("brand : " + brand);
-  console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-  console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
   ```
 
-## 6. Functions - traditional & arrow, string literals, js module, jsdoc
+### Function Programs
 
-- Traditional function syntax and example
+- create a simple function for calculating square
+- create a simple function for calculating double, triple
+- create functions for addition, subtraction
+- create a function for checking a number is even or odd
+- create a function for checking largest number between 2/3 numbers
+- put all if-else related programs inside functions
 
-  - Function is a block of codes for a specific task.
-  - It is beneficial for reusablity.
-  - Separation of concerns.
-  - **return keyword can be used only once inside a function.**
-  - **value that a function received is called parameters and the value we pass when calling function is known as arguments**
-  - Function related topics:
+## 1.6 Scope of Variables & closures
 
-    - How to define a function?
-    - How to call a function?
-    - How to pass parameters to a function?
-    - How to return a value from a function?
+In JavaScript, the scope of a variable refers to the context in which the variable is declared and can be accessed. The scope determines where in your code a variable is visible and can be used. JavaScript has two main types of variable scope: **global scope** and **local scope** (also known as function scope). Understanding variable scope is crucial for writing clean, maintainable, and bug-free JavaScript code. It helps prevent unintended variable name collisions and allows you to control the visibility and lifetime of variables in your programs.
 
-    ```js
-    // function example 1
-    // without function
-    let greeting = "Hello ! Good morning";
-    console.log(greeting);
+1. **Global Scope:**
 
-    greeting = "Hello ! Good morning";
-    console.log(greeting);
+   - Variables declared outside of any function, including at the top level of a JavaScript file, have global scope.
+   - Global variables are accessible from anywhere in your code, both within functions and outside functions.
+   - Be cautious with global variables, as they can lead to naming conflicts and make it harder to maintain your code.
 
-    greeting = "Hello ! Good morning";
-    console.log(greeting);
+   ```javascript
+   var globalVar = "I'm global"; // Global scope
+   function foo() {
+     console.log(globalVar); // Accessible within functions
+   }
+   console.log(globalVar); // Accessible outside functions
+   ```
 
-    // with a simple function
-    function sayGreeting() {
-      const greeting = "Hello ! Good morning";
-      console.log(greeting);
-    }
-    sayGreeting();
-    sayGreeting();
+2. **Local Scope (Function Scope):**
 
-    function sayGreeting(name) {
-      const greeting = `Hello ${name}! Good morning`;
-      console.log(greeting);
-    }
-    sayGreeting("Anis");
-    sayGreeting("Alex");
+   - Variables declared inside a function have local scope.
+   - Local variables are only accessible within the function where they are declared. They are not visible outside of the function.
+   - Each function creates its own scope, and nested functions have access to variables in their parent functions.
 
-    function sayGreeting(name) {
-      return `Hello ${name}! Good morning`;
-    }
-    console.log(sayGreeting("Anis"));
-    console.log(sayGreeting("Alex"));
-    ```
+   ```javascript
+   function bar() {
+     var localVar = "I'm local"; // Local scope
+     console.log(localVar); // Accessible within the function
+   }
+   bar();
+   console.log(localVar); // Error: localVar is not defined
+   ```
 
-    ```js
-    // function example 2
-    // without function
-    let num1; // best practice: always slipt the declaration as I did in 3 lines
-    let num2;
-    let sum;
+3. **Block Scope (ES6 and Later):**
 
-    num1 = 20;
-    num2 = 30;
-    sum = num1 + num2;
-    console.log(sum);
+   - With the introduction of ECMAScript 6 (ES6), the `let` and `const` keywords allow for block-scoped variables.
+   - Block scope refers to variables declared within blocks, such as `if` statements or `for` loops. These variables are only accessible within the block where they are declared.
 
-    num1 = 10;
-    num2 = 20;
-    sum = num1 + num2;
-    console.log(sum);
+   ```javascript
+   if (true) {
+     let blockVar = "I'm block-scoped"; // Block scope
+     console.log(blockVar); // Accessible within the block
+   }
+   console.log(blockVar); // Error: blockVar is not defined
+   ```
 
-    num1 = 40;
-    num2 = 20;
-    sum = num1 + num2;
-    console.log(sum);
+4. **Lexical Scope (Closures):**
 
-    // with function
-    function addNumbers(num1, num2) {
-      const sum = num1 + num2;
-      console.log(sum);
-    }
+   - Lexical scope refers to the way JavaScript determines the scope of variables at the time of function creation.
+   - Closures occur when a function is defined within another function and retains access to its parent function's variables, even after the parent function has finished executing.
 
-    addNumbers(20, 30);
-    addNumbers(10, 30);
-    addNumbers(5, 15);
-    ```
+   ```javascript
+   function outer() {
+     var outerVar = "I'm in outer scope";
+     function inner() {
+       console.log(outerVar); // Accesses outerVar via closure
+     }
+     return inner;
+   }
+   var closureFunc = outer();
+   closureFunc(); // Logs "I'm in outer scope"
+   ```
 
-    ```js
-    // Function example3
+- More on clousre
+  Certainly, here's an example of a closure in JavaScript:
 
-    // creating function without parameter
-    function message() {
-      console.log("Hello, I am a function without parameter");
+  ```javascript
+  function outer() {
+    var outerVar = "I'm in the outer function"; // Outer variable
+
+    function inner() {
+      console.log(outerVar); // Accesses outerVar from the outer function
     }
 
-    // creating function with one parameter
-    function welcomeMessage(name) {
-      console.log(`Welcome ${name} to the Full-stack`);
-    }
+    return inner; // Return the inner function
+  }
 
-    // creating function with multiple parameters
-    function welcomeMessage2(name, age) {
-      console.log(
-        `Welcome ${name} to the Full-stack. ${name} is ${age} years old`
-      );
-    }
+  // Create a closure by calling outer and assigning its result to a variable
+  var closureFunc = outer();
 
-    // returning from a function
-    function welcomeMessage3(name, age) {
-      return `Welcome ${name} to the Full-stack. ${name} is ${age} years old`;
-    }
+  // Execute the closure
+  closureFunc(); // Logs "I'm in the outer function"
+  ```
 
-    // calling functions
-    message();
-    welcomeMessage("Alex");
-    welcomeMessage2("Alex", 32);
-    console.log(welcomeMessage3("Brown", 22));
-    ```
+  In this example:
 
-  - Program 6: E-Commerce app [function & string literals]
+  1. We have an outer function called `outer` that defines a variable `outerVar` within its scope.
 
-    ```js
-    // Program 6: E-commerce app  [function & string literals]
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8.5;
-    const rating = 4.69;
-    const brand = "Apple";
-    const insuranceCost = 8;
+  2. Inside the `outer` function, there's an inner function called `inner`.
 
-    // discount function
-    function discount(p, disPercentage) {
-      return (p * disPercentage) / 100;
-    }
+  3. The `inner` function has access to the `outerVar` variable even though it's declared in the outer function. This is an example of a closure. Closures allow inner functions to "remember" the scope in which they were created, even after the outer function has finished executing.
 
-    // roundPrice function
-    function roundPrice(amount) {
-      return Math.round(amount);
-    }
+  4. We return the `inner` function from the `outer` function, creating a closure.
 
-    // priceAfterDiscount function
-    function priceAfterDiscount(p, dp) {
-      return p - discount(p, dp);
-    }
+  5. We assign the returned `inner` function to the variable `closureFunc`.
 
-    // finalPriceWithInsurance function
-    function finalPriceWithInsurance(p, dp, ic) {
-      return roundPrice(priceAfterDiscount(p, dp) + ic);
-    }
+  6. When we execute `closureFunc()`, it logs the value of `outerVar`, which is still accessible due to the closure.
 
-    // printing product details
-    function printProductDetails(
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
-      );
-    }
-
-    printProductDetails(
-      id,
-      title,
-      description,
-      price,
-      rating,
-      brand,
-      discountPercentage,
-      insuranceCost
-    );
-    ```
-
-- ### Function Programs
-
-  - create a simple function for calculating square
-  - create a simple function for calculating double, triple
-  - create functions for addition, subtraction
-  - create a function for checking a number is even or odd
-  - create a function for checking largest number between 2/3 numbers
-  - put all if-else related programs inside functions
-
-- Arrow function
-
-  - Arrow function syntax and example
-
-    ```js
-    // Arrow function vs Traditional function
-
-    // demo1 - must use parenthesis for no parameters or multiple parmaters, but for one parameter its optional
-    function display1() {
-      console.log("I am display 1");
-    }
-    const display2 = () => {
-      console.log("I am display 2");
-    };
-    display1();
-    display2();
-
-    // demo2 - no need to use curly braces if returning or dealing with single statement
-    function display3() {
-      console.log("I am display 3");
-    }
-    const display4 = () => console.log("I am display 4");
-    display3();
-    display4();
-
-    // returning value in arrow function - no need to use return keyword with single statement
-    function display5() {
-      return "I am display 5";
-    }
-    const display6 = () => "I am display 6";
-    console.log(display5());
-    console.log(display6());
-
-    // parameters in arrow function
-    function add1(x, y) {
-      return x + y;
-    }
-    const add2 = (x, y) => x + y;
-    console.log(add1(10, 20));
-    console.log(add2(20, 30));
-    ```
-
-  - Program 7 : E-Commerce app [arrow-function]
-
-    ```js
-    // Program 7: E-Commerce app [arrow-function]
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8.5;
-    const rating = 4.69;
-    const brand = "Apple";
-
-    const insuranceCost = 8;
-
-    // discount function
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-    // roundPrice function
-    const roundPrice = (p) => Math.round(p);
-
-    //priceAfterDiscount
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    // finalPriceWithInsurance
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    // printing product details
-    const printProductDetails = (
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) => {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
-      );
-    };
-
-    printProductDetails(
-      id,
-      title,
-      description,
-      price,
-      rating,
-      brand,
-      discountPercentage,
-      insuranceCost
-    );
-    ```
-
-- javascript module
-
-  - JavaScript modules allow you to break up your code into separate files.
-
-  - This makes it easier to maintain a code-base.
-
-  - Modules are imported from external files with the import statement.
-
-  - Modules also rely on type="module" in the `<script>` tag.
-
-  - export
-
-    - Modules with functions or variables can be stored in any external file.
-    - There are two types of exports: Named Exports and Default Exports.
-    - example of Named exports
-
-      ```js
-      // person.js
-      // inline individually exports
-      export const name = "Jesse";
-      export const age = 40;
-
-      // all at once exports
-      const name = "Jesse";
-      const age = 40;
-      export { name, age };
-      ```
-
-    - example of default exports
-
-      ```js
-      // 1 export in a file
-      const message = () => {
-        const name = "Jesse";
-        const age = 40;
-        return name + " is " + age + "years old.";
-      };
-
-      export default message;
-      ```
-
-  - import
-
-    - You can import modules into a file in two ways, based on if they are named exports or default exports.
-    - Named exports are constructed using curly braces. Default exports are not.
-    - example of Named Imports
-
-      ```js
-      import { name, age } from "./person.js";
-      ```
-
-    - example of default imports
-
-      ```js
-      import message from "./message.js";
-      ```
-
-- [jsdoc](https://github.com/anisul-Islam/jsdoc-documentation)
-
-  - Program 8: E-Commerce app [adding jsdoc]
-
-    ```js
-    // Program 8: E-Commerce app [adding jsdoc]
-    /**
-     * product id
-     * @type {number}
-     */
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8.5;
-    const rating = 4.69;
-    const brand = "Apple";
-
-    const insuranceCost = 8;
-
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
-
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    /**
-     * print product details
-     * @param {number} pId the product id
-     * @param {string} pTitle the product title
-     * @param {string} pDescription the product description
-     * @param {number} pPrice the product price
-     * @param {number} pRating the product rating
-     * @param {string} pBrand the product brand
-     * @param {number} PDiscountPercentage the discount percentage of the product
-     * @param {number} pInsurance the insurance cost of the product
-     */
-    const printProductDetails = (
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) => {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
-      );
-    };
-
-    printProductDetails(
-      id,
-      title,
-      description,
-      price,
-      rating,
-      brand,
-      discountPercentage,
-      insuranceCost
-    );
-    ```
-
-## 8. Control statement
-
-- Conditional control statement: if, else if, else, switch
-
-  - if, else if, else syntax
-
-    ```js
-    // if syntax
-    // if the condition is true then if body will work
-    if (condition) {
-      // the body of if
-    }
-
-    // if, else syntax
-    // if the condition is true then if body will work or else will work
-    if (condition) {
-      // the body of if
-    } else {
-      // the body of else
-    }
-
-    // if, else if, else syntax
-    if (condition) {
-      // the body of if
-    } else if (condition) {
-      // the body of else if
-    } else if (condition) {
-      // the body of else if
-    } else {
-      // the body of else
-    }
-    ```
-
-    - if, else if, else related programs
-
-      - positive / negative / zero program
-      - Even / odd program
-      - Vowel / consonant program
-      - find large / small number program
-      - digit spelling program
-      - [leap year program](https://www.tutorialspoint.com/learn_c_by_examples/leap_year_program_in_c.htm)
-
-        ```js
-        // a program that will find a large number between 2 numbers
-        var num1 = parseInt(prompt("Enter first numebr : "));
-        var num2 = parseInt(prompt("Enter second numebr : "));
-
-        // first method - using only if
-        if (num1 > num2) {
-          console.log("Large Number is : " + num1);
-        }
-        if (num1 < num2) {
-          console.log("Large Number is : " + num2);
-        }
-        if (num1 == num2) {
-          console.log("Equal numbers");
-        }
-
-        // second method - more efficient than first method
-        if (num1 > num2) {
-          console.log("Large Number is : " + num1);
-        } else if (num1 < num2) {
-          console.log("Large Number is : " + num2);
-        } else if (num1 == num2) {
-          console.log("Equal numbers");
-        }
-
-        // third method - more efficient than first and second method
-        if (num1 > num2) {
-          console.log("Large Number is : " + num1);
-        } else if (num1 < num2) {
-          console.log("Large Number is : " + num2);
-        } else {
-          console.log("Equal numbers");
-        }
-
-        // A program that will find a letter is vowel or consonant
-        var letter = prompt("Enter a letter : ");
-
-        // convert any uppercase input into lower cause we set only lowercase letter in condition
-        letter = letter.toLowerCase();
-
-        // Now check the condition
-        if (
-          letter == "a" ||
-          letter == "e" ||
-          letter == "i" ||
-          letter == "o" ||
-          letter == "u"
-        ) {
-          console.log("Vowel");
-        } else {
-          console.log("Consonant");
-        }
-        ```
-
-      - Program 9 : E-commerce app [conditional control statement if/else]
-
-        ```js
-        // Program 9: E-commerce app [conditional control statement if/else]
-        /**
-         * product id
-         * @type {number}
-         */
-        const id = 101;
-        const title = "iphone 12";
-        const description = "brilliant phone with 4k camera";
-        const price = 549;
-        const discountPercentage = 8.5;
-        const rating = 4.69;
-        const brand = "Apple";
-
-        const insuranceCost = 8;
-
-        /**
-         * check login status of the user
-         * @returns true/false based on login status
-         */
-        const checkLoginStatus = () => {
-          const loginStatus = true;
-          return loginStatus;
-        };
-
-        /**
-         * calculate the discount amount of a product
-         * @param {number} p The product price
-         * @param {number} disPercentage The discount percentage of the product
-         * @returns the discount amount
-         */
-        const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-        /**
-         * calculate the round value of any amount
-         * @param {number} p The product price
-         * @returns the rounded value
-         */
-        const roundPrice = (p) => Math.round(p);
-
-        /**
-         * calculate the priceAfterDiscount
-         * @param {number} p The product price
-         * @param {number} dp discount percentage
-         * @returns the price after discount
-         */
-        const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-        /**
-         * calculate the product finalPriceWithInsurance
-         * @param {number} p the price of product;
-         * @param {number} dp the discount percentage of prodcut;
-         * @param {number} ic the product insurance cost
-         * @returns the final price including insurance cost
-         */
-        const finalPriceWithInsurance = (p, dp, ic) =>
-          roundPrice(priceAfterDiscount(p, dp) + ic);
-
-        /**
-         * print product details
-         * @param {number} pId the product id
-         * @param {string} pTitle the product title
-         * @param {string} pDescription the product description
-         * @param {number} pPrice the product price
-         * @param {number} pRating the product rating
-         * @param {string} pBrand the product brand
-         * @param {number} PDiscountPercentage the discount percentage of the product
-         * @param {number} pInsurance the insurance cost of the product
-         */
-        const printProductDetails = (
-          pId,
-          pTitle,
-          pDescription,
-          pPrice,
-          pRating,
-          pBrand,
-          PDiscountPercentage,
-          pInsurance
-        ) => {
-          console.log(`id : ${pId}`);
-          console.log(`title : ${pTitle}`);
-          console.log(`description: ${pDescription}`);
-          console.log(`price : ${pPrice} euros`);
-          console.log(`rating : ${pRating}`);
-          console.log(`brand : ${pBrand}`);
-          console.log(
-            `finalPriceWithInsurance : ${finalPriceWithInsurance(
-              pPrice,
-              PDiscountPercentage,
-              pInsurance
-            )} euros`
-          );
-        };
-
-        // user authentication check
-        if (checkLoginStatus()) {
-          console.log("user is logged in");
-          printProductDetails(
-            id,
-            title,
-            description,
-            price,
-            rating,
-            brand,
-            discountPercentage,
-            insuranceCost
-          );
-        } else {
-          console.log("Please login first");
-        }
-        ```
-
-  - switch
-
-    - An alternative for if, else.
-    - 4 keywords: switch, case, break, default
-
-    ```js
-    // A program to understand switch -> digit spelling program
-    // 0 -> Zero
-    // 1 -> One
-    // 2 -> Two
-    // ...
-    // ...
-    // 9 -> Nine
-    // for any number program will display "not a digit"
-
-    var digit = parseInt(prompt("Enter a digit : "));
-    switch (digit) {
-      case 0:
-        console.log("Zero");
-        break;
-
-      case 1:
-        console.log("One");
-        break;
-
-      case 2:
-        console.log("Two");
-        break;
-
-      case 3:
-        console.log("Three");
-        break;
-
-      case 4:
-        console.log("Four");
-        break;
-
-      case 5:
-        console.log("Five");
-        break;
-
-      case 6:
-        console.log("Six");
-        break;
-
-      case 7:
-        console.log("Seven");
-        break;
-
-      case 8:
-        console.log("Eight");
-        break;
-
-      case 9:
-        console.log("Nine");
-        break;
-
-      default:
-        console.log("Not a digit");
-    }
-    ```
-
-    - Program 8 :
-
-- Loop control statement: for, while, do while loop
-
-  - for loop
-
-    ```js
-    //A program to demonstrate for loop
-    for (var i = 1; i <= 10; i++) {
-      console.log("Bangladesh");
-    }
-
-    console.log("End of for loop");
-
-    // sum of numbers 1+2+..+100
-    // var sum = 0;
-    // for (var x = 1; x <= 100; x++){
-    //     sum = sum + x;
-    // }
-    // console.log(sum);
-    ```
-
-  - while loop
-
-    ```js
-    //A program to demonstrate while loop
-    var i = 1;
-    while (i <= 10) {
-      console.log("Bangladesh");
-      i++;
-    }
-
-    console.log("End of for loop");
-
-    // sum of numbers 1+2+..+100
-    // var sum = 0;
-    // var x = 1;
-    // while ( x <= 100){
-    //     sum = sum + x;
-    //     x++;
-    // }
-    // console.log(sum);
-    ```
-
-  - do while loop
-
-    ```js
-    // A program to demonstrate do while loop
-    var i = 1;
-    do {
-      console.log("Bangladesh");
-      i++;
-    } while (i <= 10);
-
-    console.log("End of for loop");
-
-    // sum of numbers 1+2+..+100
-    // var sum = 0;
-    // var x = 1;
-    // do{
-    //     sum = sum + x;
-    //     x++;
-    // }while ( x <= 100)
-    // console.log(sum);
-    ```
-
-  - break and continue statement
-
-    ```js
-    // break and continue keyword program
-
-    // The break statement "jumps out" of a loop or switch if the condition is matched.
-    for (var i = 1; i <= 100; i++) {
-      if (i == 20) break;
-      console.log(i);
-    }
-
-    // The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
-    for (var i = 1; i <= 100; i++) {
-      if (i == 20) continue;
-      console.log(i);
-    }
-    ```
+  Closures are powerful because they allow you to encapsulate data and behavior, creating private variables and functions that can be used to manage state or implement various patterns like the module pattern and the revealing module pattern in JavaScript.
 
 ## 9. Object & Array
 
@@ -2086,6 +1679,484 @@ External JavaScript is often preferred for better code organization and maintain
           return 0;
         });
         ```
+
+## 5. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
+
+- Number Object -> x.toString(), x.toFixed(), x.toPrecision()
+  - converting Strings to Numbers-> Number(), parseFloat(), parseInt()
+- Math Object -> Math.PI, Math.max(), Math.min(), Math.sqrt(), Math.pow(),
+
+  - Math.ceil() -> rounded up to its nearest integer. `Math.ceil(4.9)=5; Math.ceil(4.4)=5, Math.ceil(-4.4)=-4`
+
+    ```js
+        <!-- find century  -->
+        function main() {
+        var year = parseInt(readLine(), 10)
+            //the output
+            console.log(calcCent(year));
+        }
+
+        //complete the function
+        function calcCent(year){
+            return Math.ceil(year/100);
+
+        }
+    ```
+
+  - Math.floor() -> rounded down to its nearest integer. `Math.floor(4.9)=4; Math.floor(4.4)=4, Math.floor(-4.4)=-5`
+  - Math.round() -> rounded up to nearest integer. `Math.round(4.6)=5; Math.round(4.5)=5, Math.round(4.4)=4`
+  - Math.trunc() -> returns the integer part. `Math.trunc(4.6)=4; Math.trunc(4.5)=4, Math.trunc(-4.4)=-4`
+  - Math.random() -> returns a random number between 0 (inclusive), and 1 (exclusive)
+
+  ```js
+  console.log(Math.max(20, 30));
+  console.log(Math.min(20, 30));
+  console.log(Math.floor(3.4));
+  console.log(Math.ceil(3.4));
+  console.log(Math.round(3.4));
+  console.log(Math.random());
+
+  const randomNumber = Math.floor(Math.random() * 5) + 1;
+  ```
+
+- Date object
+
+  ```js
+  const date = new Date();
+  console.log(date.getFullYear());
+  console.log(date.getMonth());
+  console.log(date.getDate());
+  console.log(date.getDay());
+  console.log(date.getHours());
+  console.log(date.getMinutes());
+  console.log(date.getSeconds());
+  console.log(date.getMilliseconds());
+
+  // give year, month, day -> 2020, 5, 12
+  // find the day name -> Friday
+  function getWeekDay(year, month, day) {
+    const names = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const date = new Date(year, month, day);
+    //complete the function
+    return names[date.getDay()];
+  }
+
+  console.log(date);
+  console.log(date.toDateString()); // return a date object into readbale string
+  console.log(date.toISOString()); // return a date object into iso standard
+  console.log(date.toLocaleString()); // return a date object into iso standard
+  ```
+
+- Program 5: E-Commerce app [Math methods]
+
+  ```js
+  // Program 5: E-Commerce app [Math methods]
+  const id = 101;
+  const title = "iphone 12";
+  const description = "brilliant phone with 4k camera";
+  const price = 549;
+  const discountPercentage = 8.5;
+  const rating = 4.69;
+  const brand = "Apple";
+
+  // getting user input using prompt()
+  const insuranceCost = Number(prompt("Insurance Cost? "));
+
+  // calculating price after discount
+  const discount = (price * discountPercentage) / 100;
+  const priceAfterDiscount = price - discount;
+
+  // calculating final price with insuranceCost
+  const finalPriceWithInsurance = Math.round(
+    priceAfterDiscount + insuranceCost
+  );
+
+  console.log("id : " + id);
+  console.log("title : " + title);
+  console.log("description: " + description);
+  console.log("price : " + price + " euros");
+  console.log("discountPercentage : " + discountPercentage);
+  console.log("rating : " + rating);
+  console.log("brand : " + brand);
+  console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+  console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
+  ```
+
+## 2 Functions - traditional & arrow, string literals, js module, jsdoc
+
+```js
+// Function example3
+
+// creating function without parameter
+function message() {
+  console.log("Hello, I am a function without parameter");
+}
+
+// creating function with one parameter
+function welcomeMessage(name) {
+  console.log(`Welcome ${name} to the Full-stack`);
+}
+
+// creating function with multiple parameters
+function welcomeMessage2(name, age) {
+  console.log(`Welcome ${name} to the Full-stack. ${name} is ${age} years old`);
+}
+
+// returning from a function
+function welcomeMessage3(name, age) {
+  return `Welcome ${name} to the Full-stack. ${name} is ${age} years old`;
+}
+
+// calling functions
+message();
+welcomeMessage("Alex");
+welcomeMessage2("Alex", 32);
+console.log(welcomeMessage3("Brown", 22));
+```
+
+- Program 6: E-Commerce app [function & string literals]
+
+  ```js
+  // Program 6: E-commerce app  [function & string literals]
+  const id = 101;
+  const title = "iphone 12";
+  const description = "brilliant phone with 4k camera";
+  const price = 549;
+  const discountPercentage = 8.5;
+  const rating = 4.69;
+  const brand = "Apple";
+  const insuranceCost = 8;
+
+  // discount function
+  function discount(p, disPercentage) {
+    return (p * disPercentage) / 100;
+  }
+
+  // roundPrice function
+  function roundPrice(amount) {
+    return Math.round(amount);
+  }
+
+  // priceAfterDiscount function
+  function priceAfterDiscount(p, dp) {
+    return p - discount(p, dp);
+  }
+
+  // finalPriceWithInsurance function
+  function finalPriceWithInsurance(p, dp, ic) {
+    return roundPrice(priceAfterDiscount(p, dp) + ic);
+  }
+
+  // printing product details
+  function printProductDetails(
+    pId,
+    pTitle,
+    pDescription,
+    pPrice,
+    pRating,
+    pBrand,
+    PDiscountPercentage,
+    pInsurance
+  ) {
+    console.log(`id : ${pId}`);
+    console.log(`title : ${pTitle}`);
+    console.log(`description: ${pDescription}`);
+    console.log(`price : ${pPrice} euros`);
+    console.log(`rating : ${pRating}`);
+    console.log(`brand : ${pBrand}`);
+    console.log(
+      `finalPriceWithInsurance : ${finalPriceWithInsurance(
+        pPrice,
+        PDiscountPercentage,
+        pInsurance
+      )} euros`
+    );
+  }
+
+  printProductDetails(
+    id,
+    title,
+    description,
+    price,
+    rating,
+    brand,
+    discountPercentage,
+    insuranceCost
+  );
+  ```
+
+- Arrow function
+
+  - Arrow function syntax and example
+
+    ```js
+    // Arrow function vs Traditional function
+
+    // demo1 - must use parenthesis for no parameters or multiple parmaters, but for one parameter its optional
+    function display1() {
+      console.log("I am display 1");
+    }
+    const display2 = () => {
+      console.log("I am display 2");
+    };
+    display1();
+    display2();
+
+    // demo2 - no need to use curly braces if returning or dealing with single statement
+    function display3() {
+      console.log("I am display 3");
+    }
+    const display4 = () => console.log("I am display 4");
+    display3();
+    display4();
+
+    // returning value in arrow function - no need to use return keyword with single statement
+    function display5() {
+      return "I am display 5";
+    }
+    const display6 = () => "I am display 6";
+    console.log(display5());
+    console.log(display6());
+
+    // parameters in arrow function
+    function add1(x, y) {
+      return x + y;
+    }
+    const add2 = (x, y) => x + y;
+    console.log(add1(10, 20));
+    console.log(add2(20, 30));
+    ```
+
+  - Program 7 : E-Commerce app [arrow-function]
+
+    ```js
+    // Program 7: E-Commerce app [arrow-function]
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const discountPercentage = 8.5;
+    const rating = 4.69;
+    const brand = "Apple";
+
+    const insuranceCost = 8;
+
+    // discount function
+    const discount = (p, disPercentage) => (p * disPercentage) / 100;
+
+    // roundPrice function
+    const roundPrice = (p) => Math.round(p);
+
+    //priceAfterDiscount
+    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
+
+    // finalPriceWithInsurance
+    const finalPriceWithInsurance = (p, dp, ic) =>
+      roundPrice(priceAfterDiscount(p, dp) + ic);
+
+    // printing product details
+    const printProductDetails = (
+      pId,
+      pTitle,
+      pDescription,
+      pPrice,
+      pRating,
+      pBrand,
+      PDiscountPercentage,
+      pInsurance
+    ) => {
+      console.log(`id : ${pId}`);
+      console.log(`title : ${pTitle}`);
+      console.log(`description: ${pDescription}`);
+      console.log(`price : ${pPrice} euros`);
+      console.log(`rating : ${pRating}`);
+      console.log(`brand : ${pBrand}`);
+      console.log(
+        `finalPriceWithInsurance : ${finalPriceWithInsurance(
+          pPrice,
+          PDiscountPercentage,
+          pInsurance
+        )} euros`
+      );
+    };
+
+    printProductDetails(
+      id,
+      title,
+      description,
+      price,
+      rating,
+      brand,
+      discountPercentage,
+      insuranceCost
+    );
+    ```
+
+- javascript module
+
+  - JavaScript modules allow you to break up your code into separate files.
+
+  - This makes it easier to maintain a code-base.
+
+  - Modules are imported from external files with the import statement.
+
+  - Modules also rely on type="module" in the `<script>` tag.
+
+  - export
+
+    - Modules with functions or variables can be stored in any external file.
+    - There are two types of exports: Named Exports and Default Exports.
+    - example of Named exports
+
+      ```js
+      // person.js
+      // inline individually exports
+      export const name = "Jesse";
+      export const age = 40;
+
+      // all at once exports
+      const name = "Jesse";
+      const age = 40;
+      export { name, age };
+      ```
+
+    - example of default exports
+
+      ```js
+      // 1 export in a file
+      const message = () => {
+        const name = "Jesse";
+        const age = 40;
+        return name + " is " + age + "years old.";
+      };
+
+      export default message;
+      ```
+
+  - import
+
+    - You can import modules into a file in two ways, based on if they are named exports or default exports.
+    - Named exports are constructed using curly braces. Default exports are not.
+    - example of Named Imports
+
+      ```js
+      import { name, age } from "./person.js";
+      ```
+
+    - example of default imports
+
+      ```js
+      import message from "./message.js";
+      ```
+
+- [jsdoc](https://github.com/anisul-Islam/jsdoc-documentation)
+
+  - Program 8: E-Commerce app [adding jsdoc]
+
+    ```js
+    // Program 8: E-Commerce app [adding jsdoc]
+    /**
+     * product id
+     * @type {number}
+     */
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const discountPercentage = 8.5;
+    const rating = 4.69;
+    const brand = "Apple";
+
+    const insuranceCost = 8;
+
+    /**
+     * calculate the discount amount of a product
+     * @param {number} p The product price
+     * @param {number} disPercentage The discount percentage of the product
+     * @returns the discount amount
+     */
+    const discount = (p, disPercentage) => (p * disPercentage) / 100;
+
+    /**
+     * calculate the round value of any amount
+     * @param {number} p The product price
+     * @returns the rounded value
+     */
+    const roundPrice = (p) => Math.round(p);
+
+    /**
+     * calculate the priceAfterDiscount
+     * @param {number} p The product price
+     * @param {number} dp discount percentage
+     * @returns the price after discount
+     */
+    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
+
+    /**
+     * calculate the product finalPriceWithInsurance
+     * @param {number} p the price of product;
+     * @param {number} dp the discount percentage of prodcut;
+     * @param {number} ic the product insurance cost
+     * @returns the final price including insurance cost
+     */
+    const finalPriceWithInsurance = (p, dp, ic) =>
+      roundPrice(priceAfterDiscount(p, dp) + ic);
+
+    /**
+     * print product details
+     * @param {number} pId the product id
+     * @param {string} pTitle the product title
+     * @param {string} pDescription the product description
+     * @param {number} pPrice the product price
+     * @param {number} pRating the product rating
+     * @param {string} pBrand the product brand
+     * @param {number} PDiscountPercentage the discount percentage of the product
+     * @param {number} pInsurance the insurance cost of the product
+     */
+    const printProductDetails = (
+      pId,
+      pTitle,
+      pDescription,
+      pPrice,
+      pRating,
+      pBrand,
+      PDiscountPercentage,
+      pInsurance
+    ) => {
+      console.log(`id : ${pId}`);
+      console.log(`title : ${pTitle}`);
+      console.log(`description: ${pDescription}`);
+      console.log(`price : ${pPrice} euros`);
+      console.log(`rating : ${pRating}`);
+      console.log(`brand : ${pBrand}`);
+      console.log(
+        `finalPriceWithInsurance : ${finalPriceWithInsurance(
+          pPrice,
+          PDiscountPercentage,
+          pInsurance
+        )} euros`
+      );
+    };
+
+    printProductDetails(
+      id,
+      title,
+      description,
+      price,
+      rating,
+      brand,
+      discountPercentage,
+      insuranceCost
+    );
+    ```
 
 ## 10. Higher Order Array function, spread operator & destructure
 
