@@ -6,7 +6,8 @@
 
 1. [Basic Javascript Topics](#1-basic-javascript-topics)
 
-   - []()
+   - [1.1 Introduction to Javascript](#11-introduction-to-javascript)
+   - [1.2 Output & comment](#12-output--comment)
 
 2. [Intermediate JavaScript Topics]()
 
@@ -49,7 +50,7 @@
           </head>
           <body>
             <h1>Welcome to JS</h1>
-            <button onclick="alert('Deleted!')">Delete</button>
+            <button onclick="deleteItem()">Delete</button>
           </body>
         </html>
 
@@ -63,12 +64,15 @@
         }
 
         // index.js
+        function deleteItem() {
+          alert("The item is deleted!");
+        }
 
     ```
 
 - What are the ways to add javascript?
 
-  **Inline JavaScript:**
+  - **Inline JavaScript:**
 
   Inline JavaScript is directly embedded within an HTML document using the `<script>` tag. It's placed directly within the HTML code and typically used for small scripts or quick actions.
 
@@ -87,7 +91,7 @@
 
   In this example, the JavaScript code `alert('The item is deleted!')` is executed when the button is clicked.
 
-  **Internal JavaScript:**
+  - **Internal JavaScript:**
 
   Internal JavaScript is placed within the HTML document, but it's placed in the `<script>` tag within the `<head>` or `<body>` section of the HTML. This allows you to keep your JavaScript separate from your HTML content.
 
@@ -112,7 +116,7 @@
 
   In this example, the JavaScript function `deleteItem()` is defined within the `<script>` tag in the HTML document and called when the button is clicked.
 
-  **External JavaScript:**
+  - **External JavaScript:**
 
   External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. This approach is ideal for larger scripts and helps keep your HTML clean and organized.
 
@@ -148,20 +152,20 @@ External JavaScript is often preferred for better code organization and maintain
 ### 1.2 Output & comment
 
 - output functions: functions that will help you to show output such as document.write(), console.log(), alert()
-- console has variations: console.clear(), console.error(), console.info(), console.warn()
-- console will help the developers for finding any error during the development process.
-  console.log() allows you to visualize your code in the console.
-  - The console is only visible to you (the developer), but not the end-user.
-  - console.log() helps you find bugs.
-  - console.log does NOT replace return
-  - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
+- console
+  - console has variations: console.clear(), console.error(), console.info(), console.warn()
+  - console will help the developers for finding any error during the development process.
+    console.log() allows you to visualize your code in the console.
+    - The console is only visible to you (the developer), but not the end-user.
+    - console.log() helps you find bugs.
+    - console.log does NOT replace return
+    - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
 - Example
 
   ```js
   // single line comment
   document.write("Welcome to JS Program");
   document.write("<h1>Welcome to JS Program</h1>");
-
   console.log("fullName : Frances Fogarty");
 
   /*
@@ -172,7 +176,7 @@ External JavaScript is often preferred for better code organization and maintain
   alert("welcome to js program");
   ```
 
-- **Tasks: Can you print your name, age, address?**
+- **Tasks 1: Can you print your name, age, address?**
 - Program 1: E-Commerce app [printing product details]
 
   ```js
