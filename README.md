@@ -11,6 +11,10 @@
    - [1.3 Tokens](#13-tokens)
      - [1.3.1 Keywords, puncuators and Escape sequences](#131-keywords-puncuators-and-escape-sequences)
      - [1.3.2 Data Types](#132-data-types)
+     - [1.3.3 Truthy vs Falsy Values](#133-truthy-vs-falsy-values)
+     - [1.3.4 Variables](#134-variables)
+     - [1.3.5 var vs let vs const](#135-var-vs-let-vs-const)
+     - [1.3.6 Operators & String concatenation](#136-operators--string-concatenation)
    - [1.4 Control Flow](#13-tokens)
 
 2. [Intermediate JavaScript Topics]()
@@ -374,14 +378,14 @@ External JavaScript is often preferred for better code organization and maintain
       ```js
       // primitive data types -> String, Number, Boolean, null, undefined, Symbol
 
-      // String data type -> textual data
+      // String data type ->  Represents sequences of characters, such as text.
       console.log(typeof "John"); // string
       console.log(typeof ""); // empty string
 
-      // Boolean data type -> true / false
+      // Boolean data type -> Represents a true or false value.
       console.log(typeof true); // boolean
 
-      // Number data type -> integer / floating point number
+      // Number data type -> Represents numeric values, both integers and floating-point numbers.
       console.log(typeof 123); // number
       console.log(typeof 123.5); // number
 
@@ -389,7 +393,7 @@ External JavaScript is often preferred for better code organization and maintain
       // Undefined -> data type for variable without value
       console.log(typeof x); // undefined
 
-      // null ->  represent no value; (fun: typeof null is object)
+      // null ->  Represents the intentional absence of any object or value.(fun: typeof null is object)
       console.log(typeof null);
 
       /*
@@ -402,6 +406,8 @@ External JavaScript is often preferred for better code organization and maintain
       const symbol2 = Symbol("foo");
       console.log(typeof symbol1); // symbol
       console.log(symbol1 === symbol2); // false
+
+      // BigInt: Represents large integers with arbitrary precision (introduced in ECMAScript 2020).
       ```
 
   - Non Primitive data types: Object (Array is also part of Object type), Function, RegEx, Date
@@ -409,114 +415,119 @@ External JavaScript is often preferred for better code organization and maintain
     - Example
 
       ```js
-      // Object type -> instance for accessing its members
+      // Object type -> Represents a collection of key-value pairs (properties) where values can be of any data type, including other objects.
       console.log(tyoeof {name: 'anis'});
       console.log(typeof [1,2,3]) // array is object type
 
-       // function type
+       // function type -> Represents a reusable block of code that can be executed.
        console.log( typeof function display () { }) // function type
 
       ```
 
-  - what are the differences between primtive & non-primitive data types?
+  - **what are the differences between primtive & non-primitive data types?**
     ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
 
-- Variables
+### 1.3.3 Truthy vs Falsy Values
 
-  - Varibale is a placeholder for storing data.
+- [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+  - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN
+  - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
 
-    ```js
-    let title = "iphone 12";
-    let price = 510;
-    let discountPercentage = 8.5;
-    ```
+### 1.3.4 Variables
 
-  - variables naming rules (collected from w3school)
+- Varibale is a placeholder for storing data.
 
-    - The general rules for constructing names for variables (unique identifiers) are:
-    - Names can contain letters, digits, underscores, and dollar signs.
-    - Names must begin with a letter
-    - Names can also begin with $ and \_ (but we will not use it in this tutorial)
-    - Names are case sensitive (y and Y are different variables)
-    - Reserved words (like JavaScript keywords) cannot be used as names
+  ```js
+  let title = "iphone 12";
+  let price = 510;
+  let discountPercentage = 8.5;
+  ```
 
-  - 4 most popular variable naming style out of many formats [naming conventions](<https://en.wikipedia.org/wiki/Naming_convention_(programming)>)
-    - Underscore: first_name, last_name
-    - Upper Camel Case (Pascal Case): FirstName, LastName -> normally used for Classes (nouns)
-    - Lower Camel Case: firstName, lastName -> normally used for methods/variables
-    - SCREAMING SNAKE CASE / CONSTANT_CASE for naming constants
-  - var vs let vs const
+- variables naming rules (collected from w3school)
 
-    - 2 important things: reassign, scope - block, function, global
-    - var variable can be reassigned and function scoped. var variables also become part of window object which can be overriden. try window.varName
+  - The general rules for constructing names for variables (unique identifiers) are:
+  - Names can contain letters, digits, underscores, and dollar signs.
+  - Names must begin with a letter
+  - Names can also begin with $ and \_ (but we will not use it in this tutorial)
+  - Names are case sensitive (y and Y are different variables)
+  - Reserved words (like JavaScript keywords) cannot be used as names
 
-      ```js
-      var name = "alex";
-      name = "robin"; // reassign allowed for var variables
+- Naming Convention: 4 most popular variable naming style out of many formats [naming conventions](<https://en.wikipedia.org/wiki/Naming_convention_(programming)>)
+  - Underscore: first_name, last_name
+  - Upper Camel Case (Pascal Case): FirstName, LastName -> normally used for Classes (nouns)
+  - Lower Camel Case: firstName, lastName -> normally used for methods/variables
+  - SCREAMING SNAKE CASE / CONSTANT_CASE for naming constants
 
-      if (true) {
-        var age = 32;
-      }
+### 1.3.5 var vs let vs const
 
-      console.log(name);
-      console.log(age); //  allowed as var variable is function scoped
-      ```
+- 2 important things: reassign, scope - block, function, global
+- var variable can be reassigned and function scoped. var variables also become part of window object which can be overriden. try window.varName
 
-    - let variable can be reassigned but blocked (a set of curly braces) scoped.
+  ```js
+  var name = "alex";
+  name = "robin"; // reassign allowed for var variables
 
-      ```js
-      let name = "alex";
-      name = "robin"; // reassign allowed for let variables
+  if (true) {
+    var age = 32;
+  }
 
-      if (true) {
-        let age = 32;
-      }
+  console.log(name);
+  console.log(age); //  allowed as var variable is function scoped
+  ```
 
-      console.log(name);
-      console.log(age); // not allowed as let variable is block scoped
-      ```
+- let variable can be reassigned but blocked (a set of curly braces) scoped.
 
-    - const variable can not be reassigned but blocked (a set of curly braces) scoped. const object can be changed by its properties.
+  ```js
+  let name = "alex";
+  name = "robin"; // reassign allowed for let variables
 
-      ```js
-      const name = "alex";
-      name = "robin"; // reassign is not allowed for const variables
+  if (true) {
+    let age = 32;
+  }
 
-      if (true) {
-        const age = 32;
-      }
+  console.log(name);
+  console.log(age); // not allowed as let variable is block scoped
+  ```
 
-      console.log(name);
-      console.log(age); //  not allowed as const variable is blocked scoped
-      ```
+- const variable can not be reassigned but blocked (a set of curly braces) scoped. const object can be changed by its properties.
 
-  - [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
-    - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN
-    - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
-  - Program 2: E-Commerce app [printing product details dynamically]
+  ```js
+  const name = "alex";
+  name = "robin"; // reassign is not allowed for const variables
 
-    ```javascript
-    // Program 2: printing product details dynamically
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8;
-    const rating = 4.69;
-    const brand = "Apple";
+  if (true) {
+    const age = 32;
+  }
 
-    console.log("id : " + id);
-    console.log("title : " + title);
-    console.log("description: " + description);
-    console.log("price : " + price);
-    console.log("discountPercentage : " + discountPercentage);
-    console.log("rating : " + rating);
-    console.log("brand : " + brand);
-    ```
+  console.log(name);
+  console.log(age); //  not allowed as const variable is blocked scoped
+  ```
 
-- Operators & string concatenation
+- Program 2: E-Commerce app [printing product details dynamically]
 
-  - Symbol that helps us to do mathmatical operation
+  ```javascript
+  // Program 2: printing product details dynamically
+  const id = 101;
+  const title = "iphone 12";
+  const description = "brilliant phone with 4k camera";
+  const price = 549;
+  const discountPercentage = 8;
+  const rating = 4.69;
+  const brand = "Apple";
+
+  console.log("id : " + id);
+  console.log("title : " + title);
+  console.log("description: " + description);
+  console.log("price : " + price);
+  console.log("discountPercentage : " + discountPercentage);
+  console.log("rating : " + rating);
+  console.log("brand : " + brand);
+  ```
+
+### 1.3.6 Operators & string concatenation
+
+- Operators: Symbol that helps us to do mathmatical operation
+
   - Arithmetic operators : +, -, \*, /, %
   - Program 3: E-Commerce app [operators]
 
