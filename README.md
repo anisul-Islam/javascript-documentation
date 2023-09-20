@@ -22,8 +22,8 @@
      - [1.4.3 Jump control statement](#143-jump-control-statement)
    - [1.5 Function](#15-function---traditional)
    - [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
-   - [1.7 Objects]()
-   - [1.8 Arrays]()
+   - [1.7 Objects](#17-objects)
+   - [1.8 Arrays](#18-arrays)
    - [1.9 Built-in methods]()
    - [1.10 Error Handling]()
 
@@ -1304,6 +1304,22 @@ In JavaScript, the scope of a variable refers to the context in which the variab
     b.print();
     ```
 
+    - an example of methods
+
+    ```js
+    const Calculator = {
+      add: function (num1, num2) {
+        return num1 + num2;
+      },
+      sub: function (num1, num2) {
+        return num1 - num2;
+      },
+    };
+
+    console.log(Calculator.add(20, 30));
+    console.log(Calculator.sub(20, 30));
+    ```
+
   - **Program 7 : E-commerce app [object]**
 
     ```js
@@ -1354,7 +1370,7 @@ In JavaScript, the scope of a variable refers to the context in which the variab
       console.log("Discount Percentage : " + pDiscountPercentage);
       console.log(
         "After the discount price : " +
-          priceAfterDiscount(product.price, pDiscountPercentage) +
+          priceAfterDiscount(pPrice, pDiscountPercentage) +
           " euros"
       );
     }
@@ -1367,6 +1383,112 @@ In JavaScript, the scope of a variable refers to the context in which the variab
       product.rating,
       product.brand,
       discountPercentage
+    );
+    ```
+
+  - **Program 8 : E-commerce app [More object]**
+
+    ```js
+    // Program 8: E-commerce app [More on object]
+
+    const product1 = {
+      id: 101,
+      title: "iphone 12",
+      description: "brilliant phone with 4k camera",
+      price: 549,
+      discountPercentage: 8.5,
+      rating: 4.69,
+      brand: "Apple",
+      insuranceCost: 8,
+    };
+    const product2 = {
+      id: 102,
+      title: "iphone 13",
+      description: "brilliant phone with 4k camera",
+      price: 649,
+      discountPercentage: 7.5,
+      rating: 4.5,
+      brand: "Apple",
+      insuranceCost: 12,
+    };
+    const product3 = {
+      id: 103,
+      title: "samsung s10",
+      description: "brilliant phone with 2k camera",
+      price: 349,
+      discountPercentage: 12.5,
+      rating: 3.5,
+      brand: "Samsung",
+      insuranceCost: 5,
+    };
+
+    // getting user input using prompt()
+    const discountPercentage = Number(prompt("Discount percentage? "));
+
+    // priceAfterDiscount function
+    function priceAfterDiscount(price, discountPercentage) {
+      if (discountPercentage < 0) {
+        console.log("Not a valid discount percentage");
+        return 0;
+      } else {
+        // calculating price after discount
+        const discount = (price * discountPercentage) / 100;
+        return price - discount;
+      }
+    }
+
+    // printing product details
+    function printProductDetails(
+      pId,
+      pTitle,
+      pDescription,
+      pPrice,
+      pRating,
+      pBrand,
+      pDiscountPercentage
+    ) {
+      console.log("id : " + pId);
+      console.log("title : " + pTitle);
+      console.log("description : " + pDescription);
+      console.log("rating : " + pRating);
+      console.log("brand : " + pBrand);
+      console.log("Original price : " + pPrice + " euros");
+      console.log("Discount Percentage : " + pDiscountPercentage);
+      console.log(
+        "After the discount price : " +
+          priceAfterDiscount(pPrice, pDiscountPercentage) +
+          " euros"
+      );
+    }
+
+    printProductDetails(
+      product1.id,
+      product1.title,
+      product1.description,
+      product1.price,
+      product1.rating,
+      product1.brand,
+      product1.discountPercentage
+    );
+
+    printProductDetails(
+      product2.id,
+      product2.title,
+      product2.description,
+      product2.price,
+      product2.rating,
+      product2.brand,
+      product2.discountPercentage
+    );
+
+    printProductDetails(
+      product3.id,
+      product3.title,
+      product3.description,
+      product3.price,
+      product3.rating,
+      product3.brand,
+      product3.discountPercentage
     );
     ```
 
@@ -1524,107 +1646,6 @@ In JavaScript, the scope of a variable refers to the context in which the variab
         insuranceCost: 8,
       },
     ];
-
-    /**
-     * check login status of the user
-     * @returns true/false based on login status
-     */
-    const checkLoginStatus = () => {
-      const loginStatus = true;
-      return loginStatus;
-    };
-
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
-
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    /**
-     * print product details
-     * @param {number} pId the product id
-     * @param {string} pTitle the product title
-     * @param {string} pDescription the product description
-     * @param {number} pPrice the product price
-     * @param {number} pRating the product rating
-     * @param {string} pBrand the product brand
-     * @param {number} PDiscountPercentage the discount percentage of the product
-     * @param {number} pInsurance the insurance cost of the product
-     */
-    const printProductDetails = (
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) => {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
-      );
-    };
-
-    // user authentication check
-    if (checkLoginStatus()) {
-      console.log("login successful");
-      for (let index = 0; index < products.length; index++) {
-        console.log(`Product ${index + 1}: `);
-
-        printProductDetails(
-          products[index].id,
-          products[index].title,
-          products[index].description,
-          products[index].price,
-          products[index].rating,
-          products[index].brand,
-          products[index].discountPercentage,
-          products[index].insuranceCost
-        );
-
-        console.log("------------------------------------------");
-      }
-    } else {
-      console.log("Please login first");
-    }
     ```
 
     - Array Object related properties & methods
