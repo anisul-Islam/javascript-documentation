@@ -246,7 +246,7 @@ External JavaScript is often preferred for better code organization and maintain
   While comments are essential for code readability and collaboration, it's also crucial to keep them up to date. Outdated comments can be misleading and may not accurately reflect the current state of the code. Therefore, it's good practice to maintain comments as you make changes to your code.
 
 - **Tasks 1: Can you print your name, age, address?**
-- Program 1: E-Commerce app [printing product details]
+- **Program 1: E-Commerce app [printing product details]**
 
   ```js
   // prodcut details
@@ -511,33 +511,33 @@ External JavaScript is often preferred for better code organization and maintain
   console.log(age); //  not allowed as const variable is blocked scoped
   ```
 
-- Program 2: E-Commerce app [printing product details dynamically]
+- **Program 2: E-Commerce app [printing product details dynamically]**
 
-  ```javascript
-  // Program 2: printing product details dynamically
-  const id = 101;
-  const title = "iphone 12";
-  const description = "brilliant phone with 4k camera";
-  const price = 549;
-  const discountPercentage = 8;
-  const rating = 4.69;
-  const brand = "Apple";
+```javascript
+// Program 2: printing product details dynamically
+const id = 101;
+const title = "iphone 12";
+const description = "brilliant phone with 4k camera";
+const price = 549;
+const discountPercentage = 8;
+const rating = 4.69;
+const brand = "Apple";
 
-  console.log("id : " + id);
-  console.log("title : " + title);
-  console.log("description: " + description);
-  console.log("price : " + price);
-  console.log("discountPercentage : " + discountPercentage);
-  console.log("rating : " + rating);
-  console.log("brand : " + brand);
-  ```
+console.log("id : " + id);
+console.log("title : " + title);
+console.log("description: " + description);
+console.log("price : " + price);
+console.log("discountPercentage : " + discountPercentage);
+console.log("rating : " + rating);
+console.log("brand : " + brand);
+```
 
 ### 1.3.6 Operators & string concatenation
 
 - Operators: Symbol that helps us to do mathmatical operation
 
   - Arithmetic operators : +, -, \*, /, %
-  - Program 3: E-Commerce app [operators]
+  - **Program 3: E-Commerce app [operators]**
 
     ```js
     // Program 3: E-Commerce app [operators]
@@ -606,7 +606,7 @@ External JavaScript is often preferred for better code organization and maintain
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
-- Program 4: E-Commerce app [adding prompt(), & Number function]
+- **Program 4: E-Commerce app [adding prompt(), & Number function]**
 
   ```js
   // Program 4: E-Commerce app [adding prompt(), & Number function]
@@ -730,7 +730,7 @@ External JavaScript is often preferred for better code organization and maintain
       }
       ```
 
-  - Program 5 : E-commerce app [conditional control statement if/else]
+  - **Program 5 : E-commerce app [conditional control statement if/else]**
 
     ```js
     const id = 101;
@@ -1012,7 +1012,7 @@ External JavaScript is often preferred for better code organization and maintain
   console.log(welcomeMessage3("Brown", "full-stack"));
   ```
 
-- Program 6: E-Commerce app [function]
+- **Program 6: E-Commerce app [function]**
 
   ```js
   // Program 6: E-commerce app  [function]
@@ -1183,7 +1183,7 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
   Closures are powerful because they allow you to encapsulate data and behavior, creating private variables and functions that can be used to manage state or implement various patterns like the module pattern and the revealing module pattern in JavaScript.
 
-## 9. Object & Array
+## 1.7 Objects
 
 - Object
 
@@ -1304,10 +1304,10 @@ In JavaScript, the scope of a variable refers to the context in which the variab
     b.print();
     ```
 
-  - Program 10 : E-commerce app [object]
+  - **Program 7 : E-commerce app [object]**
 
     ```js
-    // Program 10: E-commerce app [object]
+    // Program 7: E-commerce app [object]
 
     const product = {
       id: 101,
@@ -1320,100 +1320,57 @@ In JavaScript, the scope of a variable refers to the context in which the variab
       insuranceCost: 8,
     };
 
-    /**
-     * check login status of the user
-     * @returns true/false based on login status
-     */
-    const checkLoginStatus = () => {
-      const loginStatus = true;
-      return loginStatus;
-    };
+    // getting user input using prompt()
+    const discountPercentage = Number(prompt("Discount percentage? "));
 
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
+    // priceAfterDiscount function
+    function priceAfterDiscount(price, discountPercentage) {
+      if (discountPercentage < 0) {
+        console.log("Not a valid discount percentage");
+        return 0;
+      } else {
+        // calculating price after discount
+        const discount = (price * discountPercentage) / 100;
+        return price - discount;
+      }
+    }
 
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
-
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    /**
-     * print product details
-     * @param {number} pId the product id
-     * @param {string} pTitle the product title
-     * @param {string} pDescription the product description
-     * @param {number} pPrice the product price
-     * @param {number} pRating the product rating
-     * @param {string} pBrand the product brand
-     * @param {number} PDiscountPercentage the discount percentage of the product
-     * @param {number} pInsurance the insurance cost of the product
-     */
-    const printProductDetails = (
+    // printing product details
+    function printProductDetails(
       pId,
       pTitle,
       pDescription,
       pPrice,
       pRating,
       pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) => {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
+      pDiscountPercentage
+    ) {
+      console.log("id : " + pId);
+      console.log("title : " + pTitle);
+      console.log("description : " + pDescription);
+      console.log("rating : " + pRating);
+      console.log("brand : " + pBrand);
+      console.log("Original price : " + pPrice + " euros");
+      console.log("Discount Percentage : " + pDiscountPercentage);
       console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
+        "After the discount price : " +
+          priceAfterDiscount(product.price, pDiscountPercentage) +
+          " euros"
       );
-    };
-
-    // user authentication check
-    if (checkLoginStatus()) {
-      printProductDetails(
-        product.id,
-        product.title,
-        product.description,
-        product.price,
-        product.rating,
-        product.brand,
-        product.discountPercentage,
-        product.insuranceCost
-      );
-    } else {
-      console.log("Please login first");
     }
+
+    printProductDetails(
+      product.id,
+      product.title,
+      product.description,
+      product.price,
+      product.rating,
+      product.brand,
+      discountPercentage
+    );
     ```
+
+## 1.8 Arrays
 
 - Array
 
