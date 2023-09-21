@@ -379,7 +379,7 @@ External JavaScript is often preferred for better code organization and maintain
   - [typeof operator] can help us to find out the data type of a value
 
   - Data types can be divided into 2: primitive & non-primitive/reference.
-  - Primitive data types: String, Number, Bigint, boolean, null, undefined, symbol
+  - Primitive data types: Primitive data types are also known as in-built data types. String, Number, Bigint, boolean, null, undefined, symbol
 
     - Example
 
@@ -415,10 +415,17 @@ External JavaScript is often preferred for better code organization and maintain
       console.log(typeof symbol1); // symbol
       console.log(symbol1 === symbol2); // false
 
-      // BigInt: Represents large integers with arbitrary precision (introduced in ECMAScript 2020).
+      const symbol = Symbol("Bye");
+      console.log(typeof symbol);
+      console.log(symbol);
+
+      // BigInt: Represents large integers with arbitrary precision (introduced in ECMAScript 2020). This data type can represent numbers greater than 253-1 which helps to perform operations on large numbers. The number is specified by writing ‘n’ at the end of the value
+
+      var bigNumber = 125522222222222222222222222222222222222n;
+      console.log(bigNumber);
       ```
 
-  - Non Primitive data types: Object (Array is also part of Object type), Function, RegEx, Date
+  - Non Primitive data types: non-primitive data types are derived from primitive data types. It is also known as derived data types or reference data types. Object (Array is also part of Object type), Function.
 
     - Example
 
