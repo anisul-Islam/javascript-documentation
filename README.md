@@ -541,40 +541,43 @@ console.log("brand : " + brand);
 
 ### 1.3.6 Operators & string concatenation
 
-- Operators: Symbol that helps us to do mathmatical operation
+- Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unary (works with one operand), binary (works with 2 operands), ternary (3 operands).
 
-  - Arithmetic operators : +, -, \*, /, %
-  - **Program 3: E-Commerce app [operators]**
+  - Binary operators: Arithemtic, Assignment, Relational, Logical, Bitwise
 
-    ```js
-    // Program 3: E-Commerce app [operators]
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8.5;
-    const rating = 4.69;
-    const brand = "Apple";
+    - Arithmetic operators : +, -, \*, /, %
 
-    // calculating price after discount
-    const discount = (price * discountPercentage) / 100;
-    const priceAfterDiscount = price - discount;
+      - **Program 3: E-Commerce app [operators]**
 
-    console.log("id : " + id);
-    console.log("title : " + title);
-    console.log("description: " + description);
-    console.log("price : " + price + " euros");
-    console.log("discountPercentage : " + discountPercentage);
-    console.log("rating : " + rating);
-    console.log("brand : " + brand);
-    console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-    ```
+        ```js
+        // Program 3: E-Commerce app [operators]
+        const id = 101;
+        const title = "iphone 12";
+        const description = "brilliant phone with 4k camera";
+        const price = 549;
+        const discountPercentage = 8.5;
+        const rating = 4.69;
+        const brand = "Apple";
 
-  - Assignment operators: +=, -=, \*=, /=, %=
-  - Unary operators: ++, --
-  - Comparision / Relational operators: >, >=, <, <=, ==, !=, ===, !==
+        // calculating price after discount
+        const discountAmount = (price * discountPercentage) / 100;
+        const priceAfterDiscount = price - discountAmount;
 
-    - result is always boolean value
+        console.log("id : " + id);
+        console.log("title : " + title);
+        console.log("description: " + description);
+        console.log("price : " + price + " euros");
+        console.log("discountPercentage : " + discountPercentage);
+        console.log("rating : " + rating);
+        console.log("brand : " + brand);
+        console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+        ```
+
+      - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
+
+    - Assignment operators: +=, -=, \*=, /=, %=
+
+    - Comparision / Relational operators: >, >=, <, <=, ==, !=, ===, !== .Result is always boolean value
 
       ```js
       let num1 = 20;
@@ -588,9 +591,7 @@ console.log("brand : " + brand);
       console.log(num1 !== num2); // true
       ```
 
-  - Logical operators: &&, ||, !
-
-    - result is always boolean value
+    - Logical operators: &&, ||, ! result is always boolean value
 
       ```js
       let num1 = 20;
@@ -604,10 +605,11 @@ console.log("brand : " + brand);
       console.log(num2 > num1 || num2 > num3); // true
       ```
 
-  - Ternary Operator: `condition ? expression1 : expression2;`
-  - Bitwise operators: &, |, ^, ~, >>, <<
-  - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
-  - [**String Methods**](https://www.w3schools.com/js/js_string_methods.asp)
+    - Bitwise operators: &, |, ^, ~, >>, <<
+
+  - Unary operators: + (unary plus), -(unary minus), ++ (increment), -- (decrement)
+
+  - Ternary/conditional Operator: `condition ? expression1 : expression2;`
 
 ### 1.3.7 Prompt & Data Type conversion
 
