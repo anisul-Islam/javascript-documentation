@@ -14,8 +14,8 @@
      - [1.3.2 Data Types](#132-data-types)
      - [1.3.3 Truthy vs Falsy Values](#133-truthy-vs-falsy-values)
      - [1.3.4 Variables](#134-variables)
-     - [1.3.6 Operators & String concatenation](#136-operators--string-concatenation)
-     - [1.3.7 Prompt & Data Type conversion](#137-prompt--data-type-conversion)
+     - [1.3.5 Operators & String concatenation](#135-operators--string-concatenation)
+     - [1.3.6 Prompt & Data Type conversion](#136-prompt--data-type-conversion)
 
    - [1.4 Control Flow](#14-control-statement)
      - [1.4.1 Conditional control statement](#141-conditional-control-statement-if-else-if-else-switch)
@@ -497,7 +497,7 @@ External JavaScript is often preferred for better code organization and maintain
     console.log("brand : " + brand);
     ```
 
-#### 1.3.6 Operators & string concatenation
+#### 1.3.5 Operators & string concatenation
 
 - Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unary (works with one operand), binary (works with 2 operands), ternary (3 operands).
 
@@ -569,7 +569,7 @@ External JavaScript is often preferred for better code organization and maintain
 
   - Ternary/conditional Operator: `condition ? expression1 : expression2;`
 
-#### 1.3.7 Prompt & Data Type conversion
+#### 1.3.6 Prompt & Data Type conversion
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
@@ -1509,203 +1509,393 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
 ### 1.8 Arrays
 
-- Array
+- Array is a collection of similar data type mostly.
+- Array VS Object -> arrays use numbered indexes. but, objects use named indexes.
+
+- Array syntax & example
+
+  ```js
+  // Array example 1
+  // creating an array with 20 variables
+  var names = new Array(20);
+
+  //array index always start with 0
+  names[0] = "Anisul";
+  names[1] = "Sonali";
+
+  //printing an array elements
+  console.log(names[1]);
+
+  // creating an array with values
+  var students = ["Anisul", "Sonali", "Priya", "Numan"];
+  console.log("students = " + students);
+  console.log("studnet at 2 index : " + students[2]);
+
+  //finding the length of an array
+  console.log("Length of student array : " + students.length);
+
+  // 2d array
+  let matrix = [
+    [1, 2],
+    [3, 4],
+  ];
+
+  console.log(matrix[0][1]);
+  ```
+
+- Program 9: E-commerce app [Array & loop]
+
+  ```js
+  // data collected from API - https://dummyjson.com/products
+  // Program 9: E-commerce app [Array & loop]
+  const products = [
+    {
+      id: 101,
+      title: "iphone 9",
+      description: "brilliant phone with 4k camera",
+      price: 549,
+      discountPercentage: 8.5,
+      rating: 4.69,
+      brand: "Apple",
+      insuranceCost: 8,
+    },
+    {
+      id: 102,
+      title: "iphone X",
+      description:
+        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      price: 899,
+      discountPercentage: 17.94,
+      rating: 4.44,
+      brand: "Apple",
+      insuranceCost: 8,
+    },
+    {
+      id: 103,
+      title: "Samsung Universe 9",
+      description:
+        "Samsung's new variant which goes beyond Galaxy to the Universe",
+      price: 1249,
+      discountPercentage: 15.46,
+      rating: 4.09,
+      brand: "Samsung",
+      insuranceCost: 8,
+    },
+    {
+      id: 104,
+      title: "OPPOF19",
+      description: "OPPO F19 is officially announced on April 2021.",
+      price: 280,
+      discountPercentage: 17.91,
+      rating: 4.3,
+      brand: "Oppo",
+      insuranceCost: 8,
+    },
+  ];
+
+  // priceAfterDiscount function
+  function priceAfterDiscount(price, discountPercentage) {
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+      return 0;
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      return price - discount;
+    }
+  }
+
+  // printing product details
+  function printProductDetails(
+    pId,
+    pTitle,
+    pDescription,
+    pPrice,
+    pRating,
+    pBrand,
+    pDiscountPercentage
+  ) {
+    console.log("id : " + pId);
+    console.log("title : " + pTitle);
+    console.log("description : " + pDescription);
+    console.log("rating : " + pRating);
+    console.log("brand : " + pBrand);
+    console.log("Original price : " + pPrice + " euros");
+    console.log("Discount Percentage : " + pDiscountPercentage);
+    console.log(
+      "After the discount price : " +
+        priceAfterDiscount(pPrice, pDiscountPercentage) +
+        " euros"
+    );
+  }
+
+  for (let index = 0; index < products.length; index++) {
+    printProductDetails(
+      products[index].id,
+      products[index].title,
+      products[index].description,
+      products[index].price,
+      products[index].rating,
+      products[index].brand,
+      products[index].discountPercentage
+    );
+  }
+  ```
+
+- Program 10: E-commerce app [Pass object to a function]
+
+  ```js
+  // Program 10: E-commerce app [Pass object to a function]
+  const products = [
+    {
+      id: 101,
+      title: "iphone 9",
+      description: "brilliant phone with 4k camera",
+      price: 549,
+      discountPercentage: 8.5,
+      rating: 4.69,
+      brand: "Apple",
+      insuranceCost: 8,
+    },
+    {
+      id: 102,
+      title: "iphone X",
+      description:
+        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      price: 899,
+      discountPercentage: 17.94,
+      rating: 4.44,
+      brand: "Apple",
+      insuranceCost: 8,
+    },
+    {
+      id: 103,
+      title: "Samsung Universe 9",
+      description:
+        "Samsung's new variant which goes beyond Galaxy to the Universe",
+      price: 1249,
+      discountPercentage: 15.46,
+      rating: 4.09,
+      brand: "Samsung",
+      insuranceCost: 8,
+    },
+    {
+      id: 104,
+      title: "OPPOF19",
+      description: "OPPO F19 is officially announced on April 2021.",
+      price: 280,
+      discountPercentage: 17.91,
+      rating: 4.3,
+      brand: "Oppo",
+      insuranceCost: 8,
+    },
+  ];
+
+  // priceAfterDiscount function
+  function priceAfterDiscount(price, discountPercentage) {
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+      return 0;
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      return price - discount;
+    }
+  }
+
+  // printing product details
+  function printProductDetails(product) {
+    console.log("id : " + product.id);
+    console.log("title : " + product.title);
+    console.log("description : " + product.description);
+    console.log("rating : " + product.rating);
+    console.log("brand : " + product.brand);
+    console.log("Original price : " + product.price + " euros");
+    console.log("Discount Percentage : " + product.discountPercentage);
+    console.log(
+      "After the discount price : " +
+        priceAfterDiscount(product.price, product.discountPercentage) +
+        " euros"
+    );
+  }
+
+  for (let index = 0; index < products.length; index++) {
+    printProductDetails(products[index]);
+    console.log("-------------------------");
+  }
+  ```
+
+### 1.9 Built-in methods
+
+- Array Methods
 
   - [Array related methods](https://javascript.info/array-methods)
-  - Array is a collection of similar data type mostly.
-  - Array VS Object -> arrays use numbered indexes. but, objects use named indexes.
+  - JavaScript provides a variety of built-in methods for working with arrays. These methods allow you to perform common operations on arrays, such as adding, removing, searching for elements, and transforming data. Example: push(), unshift(), pop(), shift(), concat(arr1,arr2), slice(startIndex,endIndex), splice(startIndex, deleteCount, item1...), forEach(callback), map(callback), filter(callback)
 
-  - Array syntax & example
+    1. **push(element1, element2, ...)**: Adds one or more elements to the end of an array and returns the new length of the array.
 
-    ```js
-    // Array example 1
-    // creating an array with 20 variables
-    var names = new Array(20);
+       ```javascript
+       const fruits = ["apple", "banana"];
+       fruits.push("cherry", "date");
+       // fruits is now ['apple', 'banana', 'cherry', 'date']
+       ```
 
-    //array index always start with 0
-    names[0] = "Anisul";
-    names[1] = "Sonali";
+    2. **pop()**: Removes and returns the last element from an array.
 
-    //printing an array elements
-    console.log(names[1]);
+       ```javascript
+       const fruits = ["apple", "banana", "cherry"];
+       const lastFruit = fruits.pop(); // 'cherry'
+       // fruits is now ['apple', 'banana']
+       ```
 
-    // creating an array with values
-    var students = ["Anisul", "Sonali", "Priya", "Numan"];
-    console.log("students = " + students);
-    console.log("studnet at 2 index : " + students[2]);
+    3. **unshift(element1, element2, ...)**: Adds one or more elements to the beginning of an array and returns the new length of the array.
 
-    //finding the length of an array
-    console.log("Length of student array : " + students.length);
+       ```javascript
+       const fruits = ["banana", "cherry"];
+       fruits.unshift("apple", "date");
+       // fruits is now ['apple', 'date', 'banana', 'cherry']
+       ```
 
-    //pusing an element in array
-    students.push("musa");
-    console.log("after pushing students = " + students);
+    4. **shift()**: Removes and returns the first element from an array.
 
-    //pusing an element in array
-    students.pop("musa");
-    console.log("after poping students = " + students);
+       ```javascript
+       const fruits = ["apple", "banana", "cherry"];
+       const firstFruit = fruits.shift(); // 'apple'
+       // fruits is now ['banana', 'cherry']
+       ```
 
-    // concatenation of arrays
-    var num1 = [10, 20];
-    var num2 = [30, 40, 50, 60];
-    var num = num1.concat(num2);
-    console.log("After concatenation : " + num);
+    5. **concat(array1, array2, ...)**: Combines two or more arrays and returns a new array without modifying the original arrays.
 
-    // Array example 2
-    let demoArray = [
-      "Anisul Islam",
-      3.92,
-      null,
-      true,
-      undefined,
-      { name: "anis" },
-    ];
-    console.log(demoArray);
+       ```javascript
+       const arr1 = [1, 2];
+       const arr2 = [3, 4];
+       const combined = arr1.concat(arr2); // [1, 2, 3, 4]
+       ```
 
-    //length of an array
-    console.log(demoArray.length);
+    6. **slice(startIndex, endIndex)**: Returns a shallow copy of a portion of an array as a new array. The `startIndex` is inclusive, and the `endIndex` is exclusive.
 
-    // accessing array element
-    console.log(demoArray[2]);
+       ```javascript
+       const fruits = ["apple", "banana", "cherry", "date"];
+       const sliced = fruits.slice(1, 3); // ['banana', 'cherry']
+       ```
 
-    // check an item exist or not
-    console.log(demoArray.indexOf(3.92));
+    7. **splice(startIndex, deleteCount, item1, item2, ...)**: Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
 
-    // adding single or multiple items to the starting of an array
-    demoArray.unshift("England");
-    // demoArray.unshift("England", "Pakistan");
-    console.log(demoArray);
+       ```javascript
+       const fruits = ["apple", "banana", "cherry", "date"];
+       fruits.splice(2, 1, "grape", "fig");
+       // fruits is now ['apple', 'banana', 'grape', 'fig', 'date']
+       ```
 
-    // adding items to the ending of an array
-    demoArray.push("Finland");
-    // demoArray.push("Finland", "Canada");
-    console.log(demoArray);
+    8. **forEach(callback)**: Calls a provided function once for each element in the array, in order.
 
-    // removing single or multiple items to the starting of an array
-    demoArray.shift("England");
-    // demoArray.shift("England", "Pakistan");
-    console.log(demoArray);
+       ```javascript
+       const numbers = [1, 2, 3];
+       numbers.forEach((num) => {
+         console.log(num * 2);
+       });
+       // Output: 2, 4, 6
+       ```
 
-    // removing items to the ending of an array
-    demoArray.pop("Finland");
-    // demoArray.pop("Finland", "Canada");
-    console.log(demoArray);
+    9. **map(callback)**: Creates a new array with the results of calling a provided function on every element in the array.
 
-    // remove items using splice
-    demoArray.splice(1, 2);
-    console.log(demoArray);
+       ```javascript
+       const numbers = [1, 2, 3];
+       const doubled = numbers.map((num) => num * 2);
+       // doubled is [2, 4, 6]
+       ```
 
-    // Add items using splice - startIndex, NumberOfItemsToDelete, item / items)
-    demoArray.splice(0, 1, 2);
-    console.log(demoArray);
+    10. **filter(callback)**: Creates a new array with all elements that pass the test implemented by the provided function.
 
-    // copy an array using spread operator
-    let array1 = [4, 5, 6];
-    let array2 = [1, 2, 3, ...array1];
-    console.log(array2);
-
-    let matrix = [
-      [1, 2],
-      [3, 4],
-    ];
-
-    console.log(matrix[0][1]);
-    ```
-
-  - Program 11: E-commerce app [Array & loop]
-
-    ```js
-    // Program 11: E-commerce app [Array & loop]
-    // data collected from API - https://dummyjson.com/products
-    const products = [
-      {
-        id: 101,
-        title: "iphone 9",
-        description: "brilliant phone with 4k camera",
-        price: 549,
-        discountPercentage: 8.5,
-        rating: 4.69,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 102,
-        title: "iphone X",
-        description:
-          "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        price: 899,
-        discountPercentage: 17.94,
-        rating: 4.44,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 103,
-        title: "Samsung Universe 9",
-        description:
-          "Samsung's new variant which goes beyond Galaxy to the Universe",
-        price: 1249,
-        discountPercentage: 15.46,
-        rating: 4.09,
-        brand: "Samsung",
-        insuranceCost: 8,
-      },
-      {
-        id: 104,
-        title: "OPPOF19",
-        description: "OPPO F19 is officially announced on April 2021.",
-        price: 280,
-        discountPercentage: 17.91,
-        rating: 4.3,
-        brand: "Oppo",
-        insuranceCost: 8,
-      },
-    ];
-    ```
-
-    - Array Object related properties & methods
-
-      - length (works with object)
-      - array1.concat(array2) -> returns a new array
-      - array.splice() -> add items to an array -> fruits.splice(2, 0, "Lemon", "Kiwi");
-        - The first parameter (2) defines the position where new elements should be added (spliced in).The second parameter (0) defines how many elements should be removed. The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
-      - array.slice(starting, ending or only starting) -> slices out from an array
-      - array.sort() -> [default sort string](https://www.w3schools.com/js/js_array_sort.asp)
-
-        ```js
-        const points = [40, 100, 1, 5, 25, 10];
-        points.sort(function (a, b) {
-          return a - b; // for reverse b-a
-        });
+        ```javascript
+        const numbers = [1, 2, 3, 4, 5];
+        const evens = numbers.filter((num) => num % 2 === 0);
+        // evens is [2, 4]
         ```
 
-        - The compare function should return a negative, zero, or positive value, depending on the arguments:If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
-        - find lowest value: `points.sort(function(a, b){return b - a}); points[points.length-1]`
-        - sorting object arrays
+    - array.sort() -> [default sort string](https://www.w3schools.com/js/js_array_sort.asp)
 
-        ```js
-        const cars = [
-          { type: "Volvo", year: 2016 },
-          { type: "Saab", year: 2001 },
-          { type: "BMW", year: 2010 },
-        ];
-        cars.sort(function (a, b) {
-          return a.year - b.year;
-        });
+      ```js
+      const points = [40, 100, 1, 5, 25, 10];
+      points.sort(function (a, b) {
+        return a - b; // for reverse b-a
+      });
+      ```
 
-        // comparing string inside an object is complex
-        cars.sort(function (a, b) {
-          let x = a.type.toLowerCase();
-          let y = b.type.toLowerCase();
-          if (x < y) {
-            return -1;
-          }
-          if (x > y) {
-            return 1;
-          }
-          return 0;
+      - The compare function should return a negative, zero, or positive value, depending on the arguments:If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
+      - find lowest value: `points.sort(function(a, b){return b - a}); points[points.length-1]`
+      - sorting object arrays
+
+      ```js
+      const cars = [
+        { type: "Volvo", year: 2016 },
+        { type: "Saab", year: 2001 },
+        { type: "BMW", year: 2010 },
+      ];
+      cars.sort(function (a, b) {
+        return a.year - b.year;
+      });
+
+      // comparing string inside an object is complex
+      cars.sort(function (a, b) {
+        let x = a.type.toLowerCase();
+        let y = b.type.toLowerCase();
+        if (x < y) {
+          return -1;
+        }
+        if (x > y) {
+          return 1;
+        }
+        return 0;
+      });
+      ```
+
+    - Example of a TODO APP
+
+    ```js
+    // Initialize an empty array to store tasks
+    const tasks = [];
+
+    // Function to add a task
+    function addTask(task) {
+      tasks.push(task);
+      console.log(`Task "${task}" has been added.`);
+    }
+
+    // Function to list all tasks
+    function listTasks() {
+      if (tasks.length === 0) {
+        console.log("No tasks found.");
+      } else {
+        console.log("Tasks:");
+        tasks.forEach((task, index) => {
+          console.log(`${index + 1}. ${task}`);
         });
-        ```
+      }
+    }
+
+    // Function to remove a task by its index
+    function removeTask(index) {
+      if (index >= 0 && index < tasks.length) {
+        const removedTask = tasks.splice(index, 1)[0];
+        console.log(`Task "${removedTask}" has been removed.`);
+      } else {
+        console.log("Invalid task index.");
+      }
+    }
+
+    // Example usage
+    addTask("Buy groceries");
+    addTask("Read a book");
+    listTasks();
+    removeTask(0);
+    listTasks();
+    ```
+
+- String Methods
+- Number Methods
+- Math Methods
+- Date Methods
 
 ## 5. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
 
