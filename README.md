@@ -9,19 +9,22 @@
    - [1.1 Introduction to Javascript](#11-introduction-to-javascript)
    - [1.2 Output & comment](#12-output--comment)
    - [1.3 Tokens](#13-tokens)
+
      - [1.3.1 Keywords, puncuators and Escape sequences](#131-keywords-puncuators-and-escape-sequences)
      - [1.3.2 Data Types](#132-data-types)
      - [1.3.3 Truthy vs Falsy Values](#133-truthy-vs-falsy-values)
      - [1.3.4 Variables](#134-variables)
-     - [1.3.5 var vs let vs const](#135-var-vs-let-vs-const)
      - [1.3.6 Operators & String concatenation](#136-operators--string-concatenation)
      - [1.3.7 Prompt & Data Type conversion](#137-prompt--data-type-conversion)
+
    - [1.4 Control Flow](#14-control-statement)
      - [1.4.1 Conditional control statement](#141-conditional-control-statement-if-else-if-else-switch)
      - [1.4.2 Loop control statement](#142-loop-control-statement)
      - [1.4.3 Jump control statement](#143-jump-control-statement)
    - [1.5 Function](#15-function---traditional)
    - [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
+     - [1.6.1 scope of variables and closures](#161-scope-and-closures)
+     - [1.6.2 var, let, const](#162-var-let-const)
    - [1.7 Objects](#17-objects)
    - [1.8 Arrays](#18-arrays)
    - [1.9 Built-in methods]()
@@ -272,11 +275,11 @@ External JavaScript is often preferred for better code organization and maintain
 
 - setup prettier code formatter
 
-## 1.3 Tokens
+### 1.3 Tokens
 
 - Tokens are backbone of any programming language. Important tokens: keywords, puncuators, escape sequences, data type, variables, operators, etc.
 
-### 1.3.1 Keywords, puncuators and Escape sequences
+#### 1.3.1 Keywords, puncuators and Escape sequences
 
 - Keywords: javascript reserved words for specific reasons.
 
@@ -372,7 +375,7 @@ External JavaScript is often preferred for better code organization and maintain
 
   These escape sequences allow you to include special characters or characters that have special meanings within your strings without causing syntax errors or unexpected behavior.
 
-### 1.3.2 Data types
+#### 1.3.2 Data types
 
 - Data types
 
@@ -442,13 +445,13 @@ External JavaScript is often preferred for better code organization and maintain
   - **what are the differences between primtive & non-primitive data types?**
     ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
 
-### 1.3.3 Truthy vs Falsy Values
+#### 1.3.3 Truthy vs Falsy Values
 
 - [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
   - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN (Not-a-Number)
   - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
 
-### 1.3.4 Variables
+#### 1.3.4 Variables
 
 - Varibale is a placeholder for storing data.
 
@@ -468,78 +471,33 @@ External JavaScript is often preferred for better code organization and maintain
   - Reserved words (like JavaScript keywords) cannot be used as names
 
 - Naming Convention: 4 most popular variable naming style out of many formats [naming conventions](<https://en.wikipedia.org/wiki/Naming_convention_(programming)>)
+
   - Underscore: first_name, last_name
   - Upper Camel Case (Pascal Case): FirstName, LastName -> normally used for Classes (nouns)
   - Lower Camel Case: firstName, lastName -> normally used for methods/variables
   - SCREAMING SNAKE CASE / CONSTANT_CASE for naming constants
+  - Program 2: E-Commerce app [printing product details dynamically]
 
-### 1.3.5 var vs let vs const
+    ```js
+    // Program 2: printing product details dynamically
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const discountPercentage = 8;
+    const rating = 4.69;
+    const brand = "Apple";
 
-- 2 important things: reassign, scope - block, function, global
-- var variable can be reassigned and function scoped. var variables also become part of window object which can be overriden. try window.varName
+    console.log("id : " + id);
+    console.log("title : " + title);
+    console.log("description: " + description);
+    console.log("price : " + price);
+    console.log("discountPercentage : " + discountPercentage);
+    console.log("rating : " + rating);
+    console.log("brand : " + brand);
+    ```
 
-  ```js
-  var name = "alex";
-  name = "robin"; // reassign allowed for var variables
-
-  if (true) {
-    var age = 32;
-  }
-
-  console.log(name);
-  console.log(age); //  allowed as var variable is function scoped
-  ```
-
-- let variable can be reassigned but blocked (a set of curly braces) scoped.
-
-  ```js
-  let name = "alex";
-  name = "robin"; // reassign allowed for let variables
-
-  if (true) {
-    let age = 32;
-  }
-
-  console.log(name);
-  console.log(age); // not allowed as let variable is block scoped
-  ```
-
-- const variable can not be reassigned but blocked (a set of curly braces) scoped. const object can be changed by its properties.
-
-  ```js
-  const name = "alex";
-  name = "robin"; // reassign is not allowed for const variables
-
-  if (true) {
-    const age = 32;
-  }
-
-  console.log(name);
-  console.log(age); //  not allowed as const variable is blocked scoped
-  ```
-
-- **Program 2: E-Commerce app [printing product details dynamically]**
-
-```javascript
-// Program 2: printing product details dynamically
-const id = 101;
-const title = "iphone 12";
-const description = "brilliant phone with 4k camera";
-const price = 549;
-const discountPercentage = 8;
-const rating = 4.69;
-const brand = "Apple";
-
-console.log("id : " + id);
-console.log("title : " + title);
-console.log("description: " + description);
-console.log("price : " + price);
-console.log("discountPercentage : " + discountPercentage);
-console.log("rating : " + rating);
-console.log("brand : " + brand);
-```
-
-### 1.3.6 Operators & string concatenation
+#### 1.3.6 Operators & string concatenation
 
 - Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unary (works with one operand), binary (works with 2 operands), ternary (3 operands).
 
@@ -611,7 +569,7 @@ console.log("brand : " + brand);
 
   - Ternary/conditional Operator: `condition ? expression1 : expression2;`
 
-### 1.3.7 Prompt & Data Type conversion
+#### 1.3.7 Prompt & Data Type conversion
 
 - prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
 - Number(), toString(), pasreInt(), parseFloat(), parseDouble()
@@ -643,9 +601,9 @@ console.log("brand : " + brand);
   console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
   ```
 
-## 1.4 Control statement
+### 1.4 Control statement
 
-### 1.4.1 Conditional control statement: if, else if, else, switch
+#### 1.4.1 Conditional control statement: if, else if, else, switch
 
 - if, else if, else syntax
 
@@ -757,8 +715,8 @@ console.log("brand : " + brand);
       console.log("Not a valid discount percentage");
     } else {
       // calculating price after discount
-      const discount = (price * discountPercentage) / 100;
-      priceAfterDiscount = price - discount;
+      const discountAmount = (price * discountPercentage) / 100;
+      priceAfterDiscount = price - discountAmount;
     }
 
     console.log("id : " + id);
@@ -830,7 +788,7 @@ console.log("brand : " + brand);
   }
   ```
 
-### 1.4.2 Loop control statement
+#### 1.4.2 Loop control statement
 
 - for loop
 
@@ -928,7 +886,7 @@ console.log("brand : " + brand);
   // "job: Engineer"
   ```
 
-### 1.4.3 jump control statement
+#### 1.4.3 jump control statement
 
 - break and continue statement
 
@@ -948,7 +906,7 @@ console.log("brand : " + brand);
   }
   ```
 
-## 1.5 Function - traditional
+### 1.5 Function - traditional
 
 - Function: Function is a block of codes for a specific task. It is beneficial for reusablity. Separation of concerns. **return keyword can be used only once inside a function.** **value that a function received is called parameters and the value we pass when calling function is known as arguments**
 - Function related topics:
@@ -1043,8 +1001,8 @@ console.log("brand : " + brand);
       return 0;
     } else {
       // calculating price after discount
-      const discount = (price * discountPercentage) / 100;
-      return price - discount;
+      const discountAmount = (price * discountPercentage) / 100;
+      return price - discountAmount;
     }
   }
 
@@ -1083,7 +1041,7 @@ console.log("brand : " + brand);
   );
   ```
 
-### Function Programs
+#### Function related Programs
 
 - create a simple function for calculating square
 - create a simple function for calculating double, triple
@@ -1092,7 +1050,9 @@ console.log("brand : " + brand);
 - create a function for checking largest number between 2/3 numbers
 - put all if-else related programs inside functions
 
-## 1.6 Scope of Variables & closures
+### 1.6 Scope of Variables , closures
+
+#### 1.6.1 scope and closures
 
 In JavaScript, the scope of a variable refers to the context in which the variable is declared and can be accessed. The scope determines where in your code a variable is visible and can be used. JavaScript has two main types of variable scope: **global scope** and **local scope** (also known as function scope). Understanding variable scope is crucial for writing clean, maintainable, and bug-free JavaScript code. It helps prevent unintended variable name collisions and allows you to control the visibility and lifetime of variables in your programs.
 
@@ -1192,7 +1152,53 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
   Closures are powerful because they allow you to encapsulate data and behavior, creating private variables and functions that can be used to manage state or implement various patterns like the module pattern and the revealing module pattern in JavaScript.
 
-## 1.7 Objects
+#### 1.6.2 Var, let, const
+
+- 2 important things: reassign, scope - block, function, global.
+
+- var variable can be reassigned and function scoped. var variables also become part of window object which can be overriden. try window.varName
+
+  ```js
+  var name = "alex";
+  name = "robin"; // reassign allowed for var variables
+
+  if (true) {
+    var age = 32;
+  }
+
+  console.log(name);
+  console.log(age); // allowed as var variable is function scoped
+  ```
+
+- let variable can be reassigned but blocked (a set of curly braces) scoped.
+
+  ```js
+  let name = "alex";
+  name = "robin"; // reassign allowed for let variables
+
+  if (true) {
+    let age = 32;
+  }
+
+  console.log(name);
+  console.log(age); // not allowed as let variable is block scoped
+  ```
+
+- const variable can not be reassigned but blocked (a set of curly braces) scoped. const object can be changed by its properties.
+
+  ```js
+  const name = "alex";
+  name = "robin"; // reassign is not allowed for const variables
+
+  if (true) {
+    const age = 32;
+  }
+
+  console.log(name);
+  console.log(age); // not allowed as const variable is blocked scoped
+  ```
+
+### 1.7 Objects
 
 - Object
 
@@ -1501,7 +1507,7 @@ In JavaScript, the scope of a variable refers to the context in which the variab
     );
     ```
 
-## 1.8 Arrays
+### 1.8 Arrays
 
 - Array
 
