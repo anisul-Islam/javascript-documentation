@@ -27,10 +27,11 @@
      - [1.6.2 var, let, const](#162-var-let-const)
    - [1.7 Objects](#17-objects)
    - [1.8 Arrays](#18-arrays)
-   - [1.9 Built-in methods]()
-   - [1.10 Error Handling]()
+   - [1.9 Built-in methods](#19-built-in-methods)
+   - [1.10 Error Handling](#110-errors-and-errors-handling)
+   - [1.11 JSON](#111-json)
 
-2. [Intermediate JavaScript Topics]()
+2. [Intermediate JavaScript Topics](#2-intermediate-javascript-topics)
 
    - []()
 
@@ -1727,285 +1728,851 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
 ### 1.9 Built-in methods
 
-- Array Methods
+#### 1.9.1 Array Methods
 
-  - [Array related methods](https://javascript.info/array-methods)
-  - JavaScript provides a variety of built-in methods for working with arrays. These methods allow you to perform common operations on arrays, such as adding, removing, searching for elements, and transforming data. Example: push(), unshift(), pop(), shift(), concat(arr1,arr2), slice(startIndex,endIndex), splice(startIndex, deleteCount, item1...), forEach(callback), map(callback), filter(callback)
+Array Methods: JavaScript provides a variety of built-in methods for working with arrays. These methods allow you to perform common operations on arrays, such as adding, removing, searching for elements, and transforming data. Example: push(), unshift(), pop(), shift(), concat(arr1,arr2), slice(startIndex,endIndex), splice(startIndex, deleteCount, item1...), forEach(callback), map(callback), filter(callback)
 
-    1. **push(element1, element2, ...)**: Adds one or more elements to the end of an array and returns the new length of the array.
+1. **push(element1, element2, ...)**: Adds one or more elements to the end of an array and returns the new length of the array.
 
-       ```javascript
-       const fruits = ["apple", "banana"];
-       fruits.push("cherry", "date");
-       // fruits is now ['apple', 'banana', 'cherry', 'date']
-       ```
+   ```javascript
+   const fruits = ["apple", "banana"];
+   fruits.push("cherry", "date");
+   // fruits is now ['apple', 'banana', 'cherry', 'date']
+   ```
 
-    2. **pop()**: Removes and returns the last element from an array.
+2. **pop()**: Removes and returns the last element from an array.
 
-       ```javascript
-       const fruits = ["apple", "banana", "cherry"];
-       const lastFruit = fruits.pop(); // 'cherry'
-       // fruits is now ['apple', 'banana']
-       ```
+   ```javascript
+   const fruits = ["apple", "banana", "cherry"];
+   const lastFruit = fruits.pop(); // 'cherry'
+   // fruits is now ['apple', 'banana']
+   ```
 
-    3. **unshift(element1, element2, ...)**: Adds one or more elements to the beginning of an array and returns the new length of the array.
+3. **unshift(element1, element2, ...)**: Adds one or more elements to the beginning of an array and returns the new length of the array.
 
-       ```javascript
-       const fruits = ["banana", "cherry"];
-       fruits.unshift("apple", "date");
-       // fruits is now ['apple', 'date', 'banana', 'cherry']
-       ```
+   ```javascript
+   const fruits = ["banana", "cherry"];
+   fruits.unshift("apple", "date");
+   // fruits is now ['apple', 'date', 'banana', 'cherry']
+   ```
 
-    4. **shift()**: Removes and returns the first element from an array.
+4. **shift()**: Removes and returns the first element from an array.
 
-       ```javascript
-       const fruits = ["apple", "banana", "cherry"];
-       const firstFruit = fruits.shift(); // 'apple'
-       // fruits is now ['banana', 'cherry']
-       ```
+   ```javascript
+   const fruits = ["apple", "banana", "cherry"];
+   const firstFruit = fruits.shift(); // 'apple'
+   // fruits is now ['banana', 'cherry']
+   ```
 
-    5. **concat(array1, array2, ...)**: Combines two or more arrays and returns a new array without modifying the original arrays.
+5. **concat(array1, array2, ...)**: Combines two or more arrays and returns a new array without modifying the original arrays.
 
-       ```javascript
-       const arr1 = [1, 2];
-       const arr2 = [3, 4];
-       const combined = arr1.concat(arr2); // [1, 2, 3, 4]
-       ```
+   ```javascript
+   const arr1 = [1, 2];
+   const arr2 = [3, 4];
+   const combined = arr1.concat(arr2); // [1, 2, 3, 4]
+   ```
 
-    6. **slice(startIndex, endIndex)**: Returns a shallow copy of a portion of an array as a new array. The `startIndex` is inclusive, and the `endIndex` is exclusive.
+6. **slice(startIndex, endIndex)**: Returns a shallow copy of a portion of an array as a new array. The `startIndex` is inclusive, and the `endIndex` is exclusive.
 
-       ```javascript
-       const fruits = ["apple", "banana", "cherry", "date"];
-       const sliced = fruits.slice(1, 3); // ['banana', 'cherry']
-       ```
+   ```javascript
+   const fruits = ["apple", "banana", "cherry", "date"];
+   const sliced = fruits.slice(1, 3); // ['banana', 'cherry']
+   ```
 
-    7. **splice(startIndex, deleteCount, item1, item2, ...)**: Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+7. **splice(startIndex, deleteCount, item1, item2, ...)**: Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
 
-       ```javascript
-       const fruits = ["apple", "banana", "cherry", "date"];
-       fruits.splice(2, 1, "grape", "fig");
-       // fruits is now ['apple', 'banana', 'grape', 'fig', 'date']
-       ```
+   ```javascript
+   const fruits = ["apple", "banana", "cherry", "date"];
+   fruits.splice(2, 1, "grape", "fig");
+   // fruits is now ['apple', 'banana', 'grape', 'fig', 'date']
+   ```
 
-    8. **forEach(callback)**: Calls a provided function once for each element in the array, in order.
+8. **forEach(callback)**: Calls a provided function once for each element in the array, in order.
 
-       ```javascript
-       const numbers = [1, 2, 3];
-       numbers.forEach((num) => {
-         console.log(num * 2);
-       });
-       // Output: 2, 4, 6
-       ```
+   ```javascript
+   const numbers = [1, 2, 3];
+   numbers.forEach((num) => {
+     console.log(num * 2);
+   });
+   // Output: 2, 4, 6
+   ```
 
-    9. **map(callback)**: Creates a new array with the results of calling a provided function on every element in the array.
+9. **map(callback)**: Creates a new array with the results of calling a provided function on every element in the array.
 
-       ```javascript
-       const numbers = [1, 2, 3];
-       const doubled = numbers.map((num) => num * 2);
-       // doubled is [2, 4, 6]
-       ```
+   ```javascript
+   const numbers = [1, 2, 3];
+   const doubled = numbers.map((num) => num * 2);
+   // doubled is [2, 4, 6]
+   ```
 
-    10. **filter(callback)**: Creates a new array with all elements that pass the test implemented by the provided function.
+10. **filter(callback)**: Creates a new array with all elements that pass the test implemented by the provided function.
 
-        ```javascript
-        const numbers = [1, 2, 3, 4, 5];
-        const evens = numbers.filter((num) => num % 2 === 0);
-        // evens is [2, 4]
-        ```
-
-    - array.sort() -> [default sort string](https://www.w3schools.com/js/js_array_sort.asp)
-
-      ```js
-      const points = [40, 100, 1, 5, 25, 10];
-      points.sort(function (a, b) {
-        return a - b; // for reverse b-a
-      });
-      ```
-
-      - The compare function should return a negative, zero, or positive value, depending on the arguments:If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
-      - find lowest value: `points.sort(function(a, b){return b - a}); points[points.length-1]`
-      - sorting object arrays
-
-      ```js
-      const cars = [
-        { type: "Volvo", year: 2016 },
-        { type: "Saab", year: 2001 },
-        { type: "BMW", year: 2010 },
-      ];
-      cars.sort(function (a, b) {
-        return a.year - b.year;
-      });
-
-      // comparing string inside an object is complex
-      cars.sort(function (a, b) {
-        let x = a.type.toLowerCase();
-        let y = b.type.toLowerCase();
-        if (x < y) {
-          return -1;
-        }
-        if (x > y) {
-          return 1;
-        }
-        return 0;
-      });
-      ```
-
-    - Example of a TODO APP
-
-    ```js
-    // Initialize an empty array to store tasks
-    const tasks = [];
-
-    // Function to add a task
-    function addTask(task) {
-      tasks.push(task);
-      console.log(`Task "${task}" has been added.`);
-    }
-
-    // Function to list all tasks
-    function listTasks() {
-      if (tasks.length === 0) {
-        console.log("No tasks found.");
-      } else {
-        console.log("Tasks:");
-        tasks.forEach((task, index) => {
-          console.log(`${index + 1}. ${task}`);
-        });
-      }
-    }
-
-    // Function to remove a task by its index
-    function removeTask(index) {
-      if (index >= 0 && index < tasks.length) {
-        const removedTask = tasks.splice(index, 1)[0];
-        console.log(`Task "${removedTask}" has been removed.`);
-      } else {
-        console.log("Invalid task index.");
-      }
-    }
-
-    // Example usage
-    addTask("Buy groceries");
-    addTask("Read a book");
-    listTasks();
-    removeTask(0);
-    listTasks();
+    ```javascript
+    const numbers = [1, 2, 3, 4, 5];
+    const evens = numbers.filter((num) => num % 2 === 0);
+    // evens is [2, 4]
     ```
 
-- String Methods
-- Number Methods
-- Math Methods
-- Date Methods
-
-## 5. [Number, Math, Date Objects](https://www.w3schools.com/js/js_math.asp)
-
-- Number Object -> x.toString(), x.toFixed(), x.toPrecision()
-  - converting Strings to Numbers-> Number(), parseFloat(), parseInt()
-- Math Object -> Math.PI, Math.max(), Math.min(), Math.sqrt(), Math.pow(),
-
-  - Math.ceil() -> rounded up to its nearest integer. `Math.ceil(4.9)=5; Math.ceil(4.4)=5, Math.ceil(-4.4)=-4`
-
-    ```js
-        <!-- find century  -->
-        function main() {
-        var year = parseInt(readLine(), 10)
-            //the output
-            console.log(calcCent(year));
-        }
-
-        //complete the function
-        function calcCent(year){
-            return Math.ceil(year/100);
-
-        }
-    ```
-
-  - Math.floor() -> rounded down to its nearest integer. `Math.floor(4.9)=4; Math.floor(4.4)=4, Math.floor(-4.4)=-5`
-  - Math.round() -> rounded up to nearest integer. `Math.round(4.6)=5; Math.round(4.5)=5, Math.round(4.4)=4`
-  - Math.trunc() -> returns the integer part. `Math.trunc(4.6)=4; Math.trunc(4.5)=4, Math.trunc(-4.4)=-4`
-  - Math.random() -> returns a random number between 0 (inclusive), and 1 (exclusive)
+- array.sort() -> [default sort string](https://www.w3schools.com/js/js_array_sort.asp)
 
   ```js
-  console.log(Math.max(20, 30));
-  console.log(Math.min(20, 30));
-  console.log(Math.floor(3.4));
-  console.log(Math.ceil(3.4));
-  console.log(Math.round(3.4));
-  console.log(Math.random());
-
-  const randomNumber = Math.floor(Math.random() * 5) + 1;
+  const points = [40, 100, 1, 5, 25, 10];
+  points.sort(function (a, b) {
+    return a - b; // for reverse b-a
+  });
   ```
 
-- Date object
+  - The compare function should return a negative, zero, or positive value, depending on the arguments:If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
+  - find lowest value: `points.sort(function(a, b){return b - a}); points[points.length-1]`
+  - sorting object arrays
 
   ```js
-  const date = new Date();
-  console.log(date.getFullYear());
-  console.log(date.getMonth());
-  console.log(date.getDate());
-  console.log(date.getDay());
-  console.log(date.getHours());
-  console.log(date.getMinutes());
-  console.log(date.getSeconds());
-  console.log(date.getMilliseconds());
+  const cars = [
+    { type: "Volvo", year: 2016 },
+    { type: "Saab", year: 2001 },
+    { type: "BMW", year: 2010 },
+  ];
+  cars.sort(function (a, b) {
+    return a.year - b.year;
+  });
 
-  // give year, month, day -> 2020, 5, 12
-  // find the day name -> Friday
-  function getWeekDay(year, month, day) {
-    const names = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const date = new Date(year, month, day);
-    //complete the function
-    return names[date.getDay()];
+  // comparing string inside an object is complex
+  cars.sort(function (a, b) {
+    let x = a.type.toLowerCase();
+    let y = b.type.toLowerCase();
+    if (x < y) {
+      return -1;
+    }
+    if (x > y) {
+      return 1;
+    }
+    return 0;
+  });
+  ```
+
+- Example of a TODO APP
+
+```js
+// Initialize an empty array to store tasks
+const tasks = [];
+
+// Function to add a task
+function addTask(task) {
+  tasks.push(task);
+  console.log(`Task "${task}" has been added.`);
+}
+
+// Function to list all tasks
+function listTasks() {
+  if (tasks.length === 0) {
+    console.log("No tasks found.");
+  } else {
+    console.log("Tasks:");
+    tasks.forEach((task, index) => {
+      console.log(`${index + 1}. ${task}`);
+    });
+  }
+}
+
+// Function to remove a task by its index
+function removeTask(index) {
+  if (index >= 0 && index < tasks.length) {
+    const removedTask = tasks.splice(index, 1)[0];
+    console.log(`Task "${removedTask}" has been removed.`);
+  } else {
+    console.log("Invalid task index.");
+  }
+}
+
+// Example usage
+addTask("Buy groceries");
+addTask("Read a book");
+listTasks();
+removeTask(0);
+listTasks();
+```
+
+#### 1.9.2 String Methods
+
+String Methods: JavaScript provides a variety of built-in methods for working with strings. These methods allow you to manipulate and transform strings in various ways. Here are some of the most commonly used string methods in JavaScript:
+
+1. **length**: Returns the length of a string.
+
+   ```javascript
+   const str = "Hello, World!";
+   const length = str.length; // 13
+   ```
+
+2. **charAt(index)**: Returns the character at the specified index in a string.
+
+   ```javascript
+   const str = "JavaScript";
+   const char = str.charAt(0); // 'J'
+   ```
+
+3. **charCodeAt(index)**: Returns the Unicode value of the character at the specified index in a string.
+
+   ```javascript
+   const str = "JavaScript";
+   const charCode = str.charCodeAt(0); // 74 (Unicode value for 'J')
+   ```
+
+4. **concat(str1, str2, ...)**: Combines two or more strings and returns a new concatenated string.
+
+   ```javascript
+   const str1 = "Hello, ";
+   const str2 = "World!";
+   const result = str1.concat(str2); // 'Hello, World!'
+   ```
+
+5. **indexOf(substring, startIndex)**: Returns the index of the first occurrence of a substring in a string, or -1 if the substring is not found.
+
+   ```javascript
+   const str = "Hello, World!";
+   const index = str.indexOf("World"); // 7
+   ```
+
+6. **lastIndexOf(substring, startIndex)**: Returns the index of the last occurrence of a substring in a string, or -1 if the substring is not found.
+
+   ```javascript
+   const str = "Hello, World, World!";
+   const index = str.lastIndexOf("World"); // 13
+   ```
+
+7. **substring(startIndex, endIndex)**: Returns a new substring from a string. The `startIndex` is inclusive, and the `endIndex` is exclusive.
+
+   ```javascript
+   const str = "Hello, World!";
+   const substring = str.substring(7, 12); // 'World'
+   ```
+
+8. **slice(startIndex, endIndex)**: Returns a new substring from a string. The `startIndex` is inclusive, and the `endIndex` is exclusive. It works similarly to `substring`.
+
+   ```javascript
+   const str = "Hello, World!";
+   const sliced = str.slice(7, 12); // 'World'
+   ```
+
+9. **toUpperCase()**: Converts a string to uppercase.
+
+   ```javascript
+   const str = "Hello, World!";
+   const upperCaseStr = str.toUpperCase(); // 'HELLO, WORLD!'
+   ```
+
+10. **toLowerCase()**: Converts a string to lowercase.
+
+    ```javascript
+    const str = "Hello, World!";
+    const lowerCaseStr = str.toLowerCase(); // 'hello, world!'
+    ```
+
+11. **trim()**: Removes whitespace from the beginning and end of a string.
+
+    ```javascript
+    const str = "   Hello, World!   ";
+    const trimmedStr = str.trim(); // 'Hello, World!'
+    ```
+
+12. **split(separator, limit)**: Splits a string into an array of substrings based on a specified separator.
+
+    ```javascript
+    const str = "apple,banana,cherry";
+    const fruits = str.split(","); // ['apple', 'banana', 'cherry']
+    ```
+
+13. **replace(searchValue, replaceValue)**: Searches for a substring and replaces the first occurrence with a new substring.
+
+    ```javascript
+    const str = "Hello, World!";
+    const newStr = str.replace("World", "Universe"); // 'Hello, Universe!'
+    ```
+
+14. **replaceAll(searchValue, replaceValue)**: Searches for all occurrences of a substring and replaces them with a new substring. (Introduced in ECMAScript 2021)
+
+    ```javascript
+    const str = "apple apple apple";
+    const newStr = str.replaceAll("apple", "banana"); // 'banana banana banana'
+    ```
+
+#### 1.9.3 Number and Math Methods
+
+Number Methods: JavaScript provides several methods for working with numbers. These methods allow you to perform common mathematical operations and manipulate numbers. Here are some commonly used Number methods in JavaScript:
+
+1. **toFixed(digits)**: Formats a number to a specified number of decimal places and returns it as a string.
+
+   ```javascript
+   const num = 12.3456;
+   const formattedNum = num.toFixed(2); // '12.35'
+   ```
+
+2. **toPrecision(precision)**: Formats a number to a specified total number of significant digits and returns it as a string.
+
+   ```javascript
+   const num = 123.4567;
+   const formattedNum = num.toPrecision(4); // '123.5'
+   ```
+
+3. **toString(radix)**: Converts a number to a string, optionally in a specified base (radix).
+
+   ```javascript
+   const num = 255;
+   const binaryStr = num.toString(2); // '11111111' (binary representation)
+   ```
+
+4. **parseInt(string, radix)**: Parses a string and returns an integer in the specified base (radix).
+
+   ```javascript
+   const binaryStr = "101010";
+   const decimalNum = parseInt(binaryStr, 2); // 42 (decimal)
+   ```
+
+5. **parseFloat(string)**: Parses a string and returns a floating-point number.
+
+   ```javascript
+   const floatStr = "3.14159";
+   const pi = parseFloat(floatStr); // 3.14159
+   ```
+
+6. **isNaN(value)**: Checks if a value is NaN (Not-a-Number).
+
+   ```javascript
+   isNaN(NaN); // true
+   isNaN("Hello"); // true
+   isNaN(42); // false
+   ```
+
+7. **isFinite(value)**: Checks if a value is a finite number (not Infinity or -Infinity).
+
+   ```javascript
+   isFinite(42); // true
+   isFinite(Infinity); // false
+   ```
+
+8. **Number.isNaN(value)**: A more reliable way to check if a value is NaN.
+
+   ```javascript
+   Number.isNaN(NaN); // true
+   Number.isNaN("Hello"); // false
+   ```
+
+9. **Number.isInteger(value)**: Checks if a value is an integer.
+
+   ```javascript
+   Number.isInteger(42); // true
+   Number.isInteger(3.14); // false
+   ```
+
+10. **Number.isSafeInteger(value)**: Checks if a value is a safe integer within the range of -2^53 to 2^53.
+
+    ```javascript
+    Number.isSafeInteger(9007199254740992); // false
+    ```
+
+11. **Math.abs(value)**: Returns the absolute (positive) value of a number.
+
+    ```javascript
+    Math.abs(-42); // 42
+    ```
+
+12. **Math.round(value)**: Rounds a number to the nearest integer.
+
+    ```javascript
+    Math.round(3.49); // 3
+    Math.round(3.5); // 4
+    ```
+
+13. **Math.floor(value)**: Rounds a number down to the nearest integer.
+
+    ```javascript
+    Math.floor(3.9); // 3
+    ```
+
+14. **Math.ceil(value)**: Rounds a number up to the nearest integer.
+
+    ```javascript
+    Math.ceil(3.1); // 4
+    ```
+
+15. **Math.min(...values)**: Returns the smallest number from a list of values.
+
+    ```javascript
+    Math.min(5, 2, 9, 1); // 1
+    ```
+
+16. **Math.max(...values)**: Returns the largest number from a list of values.
+
+    ```javascript
+    Math.max(5, 2, 9, 1); // 9
+    ```
+
+17. **Math.trunc()**: returns the integer part. `Math.trunc(4.6)=4; Math.trunc(4.5)=4, Math.trunc(-4.4)=-4`
+
+18. **Math.random()**: returns a random number between 0 (inclusive), and 1 (exclusive)
+
+```js
+console.log(Math.random());
+const randomNumber = Math.floor(Math.random() * 5) + 1;
+```
+
+#### 1.9.4 Date Methods
+
+- given year, month and day find the day
+
+```js
+const date = new Date();
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+console.log(date.getDay());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+console.log(date.getMilliseconds());
+
+// give year, month, day -> 2020, 5, 12
+// find the day name -> Friday
+function getWeekDay(year, month, day) {
+  const names = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const date = new Date(year, month, day);
+  //complete the function
+  return names[date.getDay()];
+}
+
+console.log(date);
+console.log(date.toDateString()); // return a date object into readbale string
+console.log(date.toISOString()); // return a date object into iso standard
+console.log(date.toLocaleString()); // return a date object into iso standard
+```
+
+- Program 11: E-Commerce app [Math methods]
+
+```js
+// Program 11: E-commerce app [Math methods]
+const products = [
+  {
+    id: 101,
+    title: "iphone 9",
+    description: "brilliant phone with 4k camera",
+    price: 549,
+    discountPercentage: 8.5,
+    rating: 4.69,
+    brand: "Apple",
+    insuranceCost: 8,
+  },
+  {
+    id: 102,
+    title: "iphone X",
+    description:
+      "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    price: 899,
+    discountPercentage: 17.94,
+    rating: 4.44,
+    brand: "Apple",
+    insuranceCost: 8,
+  },
+  {
+    id: 103,
+    title: "Samsung Universe 9",
+    description:
+      "Samsung's new variant which goes beyond Galaxy to the Universe",
+    price: 1249,
+    discountPercentage: 15.46,
+    rating: 4.09,
+    brand: "Samsung",
+    insuranceCost: 8,
+  },
+  {
+    id: 104,
+    title: "OPPOF19",
+    description: "OPPO F19 is officially announced on April 2021.",
+    price: 280,
+    discountPercentage: 17.91,
+    rating: 4.3,
+    brand: "Oppo",
+    insuranceCost: 8,
+  },
+];
+
+// priceAfterDiscount function
+function priceAfterDiscount(price, discountPercentage) {
+  if (discountPercentage < 0) {
+    console.log("Not a valid discount percentage");
+    return 0;
+  } else {
+    // calculating price after discount
+    const discount = (price * discountPercentage) / 100;
+    return Math.round(price - discount);
+  }
+}
+
+// printing product details
+function printProductDetails(product) {
+  console.log("id : " + product.id);
+  console.log("title : " + product.title);
+  console.log("description : " + product.description);
+  console.log("rating : " + product.rating);
+  console.log("brand : " + product.brand);
+  console.log("Original price : " + product.price + " euros");
+  console.log("Discount Percentage : " + product.discountPercentage);
+  console.log(
+    "After the discount price : " +
+      priceAfterDiscount(product.price, product.discountPercentage) +
+      " euros"
+  );
+}
+
+for (let index = 0; index < products.length; index++) {
+  printProductDetails(products[index]);
+  console.log("-------------------------");
+}
+```
+
+### 1.10 Errors and errors Handling
+
+In JavaScript, errors can be categorized into several types based on their origins and characteristics. Here are some common types of errors in JavaScript:
+
+1. **Syntax Errors:**
+
+   - **Description:** These errors occur when there are issues with the syntax of your JavaScript code. For example, missing parentheses, semicolons, or incorrect variable names.
+   - **Example:**
+
+     ```javascript
+     if (x > 5  // Missing closing parenthesis
+       console.log("Hello, World");
+     ```
+
+2. **Reference Errors:**
+
+   - **Description:** Reference errors happen when you try to access a variable or function that has not been declared or is not in scope.
+   - **Example:**
+
+     ```javascript
+     console.log(y); // ReferenceError: y is not defined
+     ```
+
+3. **Type Errors:**
+
+   - **Description:** Type errors occur when you try to perform an operation on a value that is of the wrong type.
+   - **Example:**
+
+     ```javascript
+     let x = "Hello";
+     x.toUpperCase(); // TypeError: x.toUpperCase is not a function
+     ```
+
+4. **Range Errors:**
+
+   - **Description:** These errors occur when you try to manipulate a value that is outside the allowable range.
+   - **Example:**
+
+     ```javascript
+     let arr = [1, 2, 3];
+     arr[5] = 6; // RangeError: Invalid array length
+     ```
+
+5. **Custom Errors:**
+
+   - **Description:** You can create custom errors in JavaScript by extending the built-in `Error` object. This is often done to provide more context-specific error messages.
+   - **Example:**
+
+     ```javascript
+     class MyError extends Error {
+       constructor(message) {
+         super(message);
+         this.name = "MyError";
+       }
+     }
+
+     throw new MyError("This is a custom error.");
+     ```
+
+6. **Network Errors:**
+
+   - **Description:** These errors occur when there are issues with network requests, such as failed fetch requests due to network problems.
+   - **Example:**
+
+     ```javascript
+     fetch("https://example.com/api")
+       .then((response) => response.json())
+       .catch((error) => console.error(error)); // NetworkError: Failed to fetch
+     ```
+
+7. **Promise Errors:**
+
+   - **Description:** When working with Promises, errors can occur during Promise rejection.
+   - **Example:**
+
+     ```javascript
+     new Promise((resolve, reject) => {
+       reject("Promise rejected");
+     }).catch((error) => console.error(error)); // "Promise rejected"
+     ```
+
+8. **Eval Errors:**
+
+   - **Description:** Eval errors occur when using the `eval()` function and there is an issue with the evaluated code.
+   - **Example:**
+
+     ```javascript
+     eval("var x = 1;");
+     console.log(x); // ReferenceError: x is not defined
+     ```
+
+9. **Internal Errors:**
+   - **Description:** These errors are typically thrown by the JavaScript engine itself and indicate a critical issue in the engine or runtime environment.
+   - **Example:** Usually, you won't encounter these directly in your code.
+
+- compile time error vs run time error. runnable program can be handled by try, catch, finally, throw (defines a custom error)
+
+  ```js
+  // without try,catch
+  alert("hello");
+  alert(num);
+  alert("bye");
+
+  // with try-catch
+  try {
+    alert("hello");
+    alert(num);
+    alert("bye");
+  } catch (error) {
+    console.log("inside catch block");
+    console.log(error);
+    console.log(error.name);
+    console.log(error.message);
+  } finally {
+    alert("bye");
   }
 
-  console.log(date);
-  console.log(date.toDateString()); // return a date object into readbale string
-  console.log(date.toISOString()); // return a date object into iso standard
-  console.log(date.toLocaleString()); // return a date object into iso standard
+
+  <!-- The throw statement allows you to create a custom error. -->
+  throw "not valid input"
+  throw 0
+  throw {message: 'wrong input'}
+  throw true
+
+  fullName = "anisul islam"; // Uncaught ReferenceError: fullName is not defined
+  // this is a run time error
+  console.log(fullName);
+
+  const user = {
+    fullName: "anisul islam",
+  };
+  console.log(user.age); // reference error
+
+  console.log(user..age) // syntax error
+
+  const number = 20;
+  number = 30; // type error
+  console.log(number);
+
+  try {
+    console.log("hi");
+    alert(nationality);
+    console.log("hello");
+  } catch (err) {
+    // console.log(err);
+    // console.warn(err);
+    // console.error(err.name);
+    // console.error(err.message);
+    console.error(err.stack); // return details
+  }
+  console.log("bye");
   ```
 
-- Program 5: E-Commerce app [Math methods]
+- Program 12: E-commerce app [Error handling]
 
-  ```js
-  // Program 5: E-Commerce app [Math methods]
-  const id = 101;
-  const title = "iphone 12";
-  const description = "brilliant phone with 4k camera";
-  const price = 549;
-  const discountPercentage = 8.5;
-  const rating = 4.69;
-  const brand = "Apple";
+```js
+const products = [
+  {
+    id: 101,
+    title: "iphone 9",
+    description: "brilliant phone with 4k camera",
+    price: 549,
+    discountPercentage: 8.5,
+    rating: 4.69,
+    brand: "Apple",
+    insuranceCost: 8,
+  },
+  {
+    id: 102,
+    title: "iphone X",
+    description:
+      "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    price: 899,
+    discountPercentage: 17.94,
+    rating: 4.44,
+    brand: "Apple",
+    insuranceCost: 8,
+  },
+  {
+    id: 103,
+    title: "Samsung Universe 9",
+    description:
+      "Samsung's new variant which goes beyond Galaxy to the Universe",
+    price: 1249,
+    discountPercentage: 15.46,
+    rating: 4.09,
+    brand: "Samsung",
+    insuranceCost: 8,
+  },
+  {
+    id: 104,
+    title: "OPPOF19",
+    description: "OPPO F19 is officially announced on April 2021.",
+    price: 280,
+    discountPercentage: 17.91,
+    rating: 4.3,
+    brand: "Oppo",
+    insuranceCost: 8,
+  },
+];
 
-  // getting user input using prompt()
-  const insuranceCost = Number(prompt("Insurance Cost? "));
+// priceAfterDiscount function
+function priceAfterDiscount(price, discountPercentage) {
+  if (discountPercentage < 0) {
+    throw new Error("Invalid discount percentage"); // Throw an error for invalid input
+  } else {
+    // calculating price after discount
+    const discount = (price * discountPercentage) / 100;
+    return Math.round(price - discount);
+  }
+}
 
-  // calculating price after discount
-  const discount = (price * discountPercentage) / 100;
-  const priceAfterDiscount = price - discount;
+// printing product details
+function printProductDetails(product) {
+  console.log("id : " + product.id);
+  console.log("title : " + product.title);
+  console.log("description : " + product.description);
+  console.log("rating : " + product.rating);
+  console.log("brand : " + product.brand);
+  console.log("Original price : " + product.price + " euros");
+  console.log("Discount Percentage : " + product.discountPercentage);
 
-  // calculating final price with insuranceCost
-  const finalPriceWithInsurance = Math.round(
-    priceAfterDiscount + insuranceCost
-  );
+  try {
+    const discountedPrice = priceAfterDiscount(
+      product.price,
+      product.discountPercentage
+    );
+    console.log("After the discount price : " + discountedPrice + " euros");
+  } catch (error) {
+    console.error("Error: " + error.message); // Handle and log errors
+  }
 
-  console.log("id : " + id);
-  console.log("title : " + title);
-  console.log("description: " + description);
-  console.log("price : " + price + " euros");
-  console.log("discountPercentage : " + discountPercentage);
-  console.log("rating : " + rating);
-  console.log("brand : " + brand);
-  console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-  console.log("finalPriceWithInsurance : " + finalPriceWithInsurance);
-  ```
+  console.log("-------------------------");
+}
+
+for (let index = 0; index < products.length; index++) {
+  printProductDetails(products[index]);
+  console.log("-------------------------");
+}
+```
+
+### 1.11 JSON
+
+JSON (JavaScript Object Notation) is a lightweight data-interchange format that is commonly used for data serialization and communication between a server and a web application, as well as for configuration files and data storage. In JavaScript, JSON is a text-based format that can be represented as a string and parsed into JavaScript objects or used to serialize JavaScript objects into strings.
+
+Here are some key aspects of JSON in JavaScript:
+
+1. **JSON Syntax:**
+
+   - JSON data consists of key-value pairs.
+   - Keys must be strings enclosed in double quotation marks.
+   - Values can be strings, numbers, objects, arrays, booleans, or `null`.
+   - Data is separated by commas, and key-value pairs are separated by colons.
+   - JSON objects are enclosed in curly braces `{}`.
+   - JSON arrays are ordered lists of values enclosed in square brackets `[]`.
+
+   ```javascript
+   {
+     "name": "John",
+     "age": 30,
+     "isStudent": false,
+     "hobbies": ["Reading", "Swimming"],
+     "address": {
+       "city": "New York",
+       "zipCode": "10001"
+     }
+   }
+   ```
+
+2. **JSON.parse():**
+
+   - The `JSON.parse()` method is used to parse a JSON string and convert it into a JavaScript object.
+   - It takes a JSON string as an argument and returns the corresponding JavaScript object.
+
+   ```javascript
+   const jsonString = '{"name": "Alice", "age": 25}';
+   const person = JSON.parse(jsonString);
+   console.log(person.name); // "Alice"
+   ```
+
+3. **JSON.stringify():**
+
+   - The `JSON.stringify()` method is used to serialize a JavaScript object into a JSON string.
+   - It takes a JavaScript object as an argument and returns the corresponding JSON string.
+
+   ```javascript
+   const person = { name: "Bob", age: 30 };
+   const jsonString = JSON.stringify(person);
+   console.log(jsonString); // '{"name":"Bob","age":30}'
+   ```
+
+4. **Working with JSON Arrays:**
+
+   - JSON can represent arrays of data.
+   - JSON arrays are ordered lists enclosed in square brackets `[]`.
+
+   ```javascript
+   const numbers = [1, 2, 3, 4, 5];
+   const jsonArray = JSON.stringify(numbers);
+   console.log(jsonArray); // '[1,2,3,4,5]'
+   ```
+
+JSON is a widely used data format for exchanging and storing structured data. It's supported in many programming languages, making it a popular choice for data interchange in web applications and APIs. In JavaScript, the `JSON.parse()` and `JSON.stringify()` methods make it easy to work with JSON data.
+
+- JSON VS JS Object
+  - key with double quotation
+  - JSON can not contain function but JS Object does
+  - JS Object is only for JS but JSON for all other programming languages
+- client-server conversion
+
+  - Before using json data in client convert into JS Object -> JSON.parse()
+
+    ```js
+    // json object
+    const jsonData = '{ "name": "John", "age": 22 }';
+
+    // converting to JavaScript object
+    const obj = JSON.parse(jsonData);
+
+    // accessing the data
+    console.log(obj.name); // John
+    ```
+
+  - Before sending to server convert into JSON -> JSON.stringify()
+
+    ```js
+    // JavaScript object
+    const jsonData = { name: "John", age: 22 };
+
+    // converting to JSON
+    const obj = JSON.stringify(jsonData);
+
+    // accessing the data
+    console.log(obj); // "{"name":"John","age":22}"
+    ```
+
+## 2. Intermediate Javascript Topics
 
 ## 2 Functions - traditional & arrow, string literals, js module, jsdoc
 
@@ -3331,68 +3898,6 @@ console.log(welcomeMessage3("Brown", 22));
   }, 2000);
   ```
 
-## 13. Error Handling
-
-- compile time error vs run time error
-- [types of error](https://textexpander.com/blog/the-7-most-common-types-of-errors-in-programming-and-how-to-avoid-them) - syntax error, logical error, run-time error
-- runnable program can be handled by try, catch, finally, throw (defines a custom error)
-
-  ```js
-  // without try,catch
-  alert("hello");
-  alert(num);
-  alert("bye");
-
-  // with try-catch
-  try {
-    alert("hello");
-    alert(num);
-    alert("bye");
-  } catch (error) {
-    console.log("inside catch block");
-    console.log(error);
-    console.log(error.name);
-    console.log(error.message);
-  } finally {
-    alert("bye");
-  }
-
-
-  <!-- The throw statement allows you to create a custom error. -->
-  throw "not valid input"
-  throw 0
-  throw {message: 'wrong input'}
-  throw true
-
-  fullName = "anisul islam"; // Uncaught ReferenceError: fullName is not defined
-  // this is a run time error
-  console.log(fullName);
-
-  const user = {
-    fullName: "anisul islam",
-  };
-  console.log(user.age); // reference error
-
-  console.log(user..age) // syntax error
-
-  const number = 20;
-  number = 30; // type error
-  console.log(number);
-
-  try {
-    console.log("hi");
-    alert(nationality);
-    console.log("hello");
-  } catch (err) {
-    // console.log(err);
-    // console.warn(err);
-    // console.error(err.name);
-    // console.error(err.message);
-    console.error(err.stack); // return details
-  }
-  console.log("bye");
-  ```
-
 ## 14. Local storage
 
 ```js
@@ -3908,72 +4413,6 @@ console.log(welcomeMessage3("Brown", 22));
 
   loadData();
   ```
-
-## 18. JSON
-
-- Why JSON?
-- What is JSON?
-  - Javascript Object Notation
-  - text based form
-  - human readable form
-  - language independent
-  - to store and exhange data between client & server
-- JSON Basic syntax
-
-  ```json
-      {
-        "key":"value",
-        "key":value,
-      }
-  ```
-
-- JSON Value types - String, number, boolean, null, objects, array
-- How to access JSON Objects -> dot notation, bracket notation
-- create an user.json file and add some json data
-
-  - accessing json data from other file
-
-  ```js
-  fetch("./users.json")
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-
-  // other way
-  import users from "./users.json" assert { type: "json" };
-  console.log(users);
-  ```
-
-- JSON VS JS Object
-  - key with double quotation
-  - JSON can not contain function but JS Object does
-  - JS Object is only for JS but JSON for all other programming languages
-- client-server conversion
-
-  - Before using json data in client convert into JS Object -> JSON.parse()
-
-    ```js
-    // json object
-    const jsonData = '{ "name": "John", "age": 22 }';
-
-    // converting to JavaScript object
-    const obj = JSON.parse(jsonData);
-
-    // accessing the data
-    console.log(obj.name); // John
-    ```
-
-  - Before sending to server convert into JSON -> JSON.stringify()
-
-    ```js
-    // JavaScript object
-    const jsonData = { name: "John", age: 22 };
-
-    // converting to JSON
-    const obj = JSON.stringify(jsonData);
-
-    // accessing the data
-    console.log(obj); // "{"name":"John","age":22}"
-    ```
 
 ## 19. API Calling
 
