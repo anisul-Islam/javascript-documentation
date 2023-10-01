@@ -522,7 +522,6 @@ External JavaScript is often preferred for better code organization and maintain
     console.log(num1); // Output: 5
     console.log(num2); // Output: 10
 
-
     // Copying by reference
     let arr1 = [1, 2, 3];
     let arr2 = arr1; // arr2 references the same array as arr1
@@ -531,7 +530,6 @@ External JavaScript is often preferred for better code organization and maintain
 
     console.log(arr1); // Output: [1, 2, 3, 4]
     console.log(arr2); // Output: [1, 2, 3, 4]
-
     ```
 
 #### 1.3.3 Truthy vs Falsy Values
@@ -2475,6 +2473,53 @@ In JavaScript, errors can be categorized into several types based on their origi
     console.error(err.stack); // return details
   }
   console.log("bye");
+  ```
+
+- Adding try-catch in todo application
+
+  ```js
+  // Initialize an empty array to store tasks
+  const tasks = [];
+
+  // Function to add a task
+  function addTask(task) {
+    tasks.push(task);
+    console.log(`Task "${task}" has been added.`);
+  }
+
+  // Function to list all tasks
+  function listTasks() {
+    if (tasks.length === 0) {
+      console.log("No tasks found.");
+    } else {
+      console.log("Tasks:");
+      tasks.forEach((task, index) => {
+        console.log(`${index + 1}. ${task}`);
+      });
+    }
+  }
+
+  // Function to remove a task by its index
+  function removeTask(index) {
+    try {
+      if (index >= 0 && index < tasks.length) {
+        const removedTask = tasks.splice(index, 1)[0];
+        console.log(`Task "${removedTask}" has been removed.`);
+      } else {
+        throw new Error("Invalid task index.");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  // Example usage
+  addTask("Buy groceries");
+  addTask("Read a book");
+  listTasks();
+  removeTask(0); // Valid index
+  listTasks();
+  removeTask(2); // Invalid index
   ```
 
 - Program 12: E-commerce app [Error handling]
