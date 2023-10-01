@@ -512,6 +512,28 @@ External JavaScript is often preferred for better code organization and maintain
   - **what are the differences between primtive & non-primitive data types?**
     ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
 
+    ```js
+    // Copying by value
+    let num1 = 5;
+    let num2 = num1; // num2 gets the value of num1
+
+    num2 = 10; // Modifying num2 does not affect num1
+
+    console.log(num1); // Output: 5
+    console.log(num2); // Output: 10
+
+
+    // Copying by reference
+    let arr1 = [1, 2, 3];
+    let arr2 = arr1; // arr2 references the same array as arr1
+
+    arr2.push(4); // Modifying arr2 also affects arr1
+
+    console.log(arr1); // Output: [1, 2, 3, 4]
+    console.log(arr2); // Output: [1, 2, 3, 4]
+
+    ```
+
 #### 1.3.3 Truthy vs Falsy Values
 
 - [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
