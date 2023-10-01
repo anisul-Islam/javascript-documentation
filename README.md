@@ -7,7 +7,7 @@
 1. [Basic Javascript Topics](#1-basic-javascript-topics)
 
    - [1.1 Introduction to Javascript](#11-introduction-to-javascript)
-   - [1.2 Output & comment](#12-output--comment)
+   - [1.2 Output Console Object & comment](#12-output--comment)
    - [1.3 Tokens](#13-tokens)
 
      - [1.3.1 Keywords, puncuators and Escape sequences](#131-keywords-puncuators-and-escape-sequences)
@@ -33,7 +33,12 @@
 
 2. [Intermediate JavaScript Topics](#2-intermediate-javascript-topics)
 
-   - []()
+   - [2.1 ES6 Features]()
+   - [2.2 Asynchronous Programming]()
+   - [2.3 Functional Programming HOF]()
+   - [2.4 DOM Manipulation]()
+   - [2.5 LocalStorage and SessionStorage]()
+   - [2.6 API Calling]()
 
 3. [Advanced JavaScript Topics]()
 
@@ -176,11 +181,72 @@ External JavaScript is often preferred for better code organization and maintain
 
 - output functions: functions that will help you to show output such as document.write(), window global object -> console.log(), lert(), confirm()
 - console
-  - console will help the developers for finding any error during the development process. console.error(), console.info(), console.warn(), console.log() allows you to visualize your code in the console.
-  - The console is only visible to you (the developer), but not the end-user.
-  - console.log() helps you find bugs.
-  - console.log does NOT replace return
-  - console.log will never modify the result of a function, it will just show you a string or a number in the Console.
+
+  - In JavaScript, the `console` object is a built-in object that provides a way to interact with the browser's debugging console or the console of other JavaScript environments (like Node.js). It's commonly used for debugging, logging information, and monitoring the behavior of your code. Here are some important functions and methods provided by the `console` object:
+
+    1. **`console.log(...args)`**: This is one of the most commonly used functions. It logs the provided arguments to the console. For example:
+
+       ```javascript
+       console.log("Hello, world!");
+       ```
+
+    2. **`console.error(...args)`**: Logs error messages to the console with a red icon. Useful for reporting errors and issues in your code.
+
+       ```javascript
+       console.error("An error occurred.");
+       ```
+
+    3. **`console.warn(...args)`**: Logs warning messages to the console with a yellow icon. It's often used for non-fatal issues or potential problems.
+
+       ```javascript
+       console.warn("This is a warning message.");
+       ```
+
+    4. **`console.info(...args)`**: Logs informational messages to the console with a blue icon. Useful for general information about your code's behavior.
+
+       ```javascript
+       console.info("This is an informational message.");
+       ```
+
+    5. **`console.debug(...args)`**: Logs debugging messages to the console. These messages are typically used for detailed debugging information and may not be shown in all console environments.
+
+       ```javascript
+       console.debug("Debugging information.");
+       ```
+
+    6. **`console.clear()`**: Clears the console, removing all previous log messages. Useful for keeping the console tidy during debugging sessions.
+
+       ```javascript
+       console.clear();
+       ```
+
+    7. **`console.group(label)`** and **`console.groupEnd()`**: These methods allow you to group related log messages together. You can create a group using `console.group(label)` and close it with `console.groupEnd()`. This is particularly useful for organizing logs in complex applications.
+
+       ```javascript
+       console.group("Group Label");
+       console.log("Log message 1");
+       console.log("Log message 2");
+       console.groupEnd();
+       ```
+
+    8. **`console.table(data)`**: Displays tabular data in a table format. This is especially helpful for visualizing arrays or objects.
+
+       ```javascript
+       const data = [
+         { name: "Alice", age: 30 },
+         { name: "Bob", age: 25 },
+       ];
+       console.table(data);
+       ```
+
+    9. **`console.time(label)`** and **`console.timeEnd(label)`**: These methods are used to measure the time it takes to execute a piece of code. You start a timer with `console.time(label)` and stop it with `console.timeEnd(label)`.
+
+       ```javascript
+       console.time("Timer");
+       // Code to measure execution time
+       console.timeEnd("Timer");
+       ```
+
 - Comments in JavaScript are used to provide explanations or additional information within your code. They are not executed by the JavaScript interpreter and are meant for human readability. JavaScript supports two primary types of comments:
 
   1. **Single-line Comments**:
@@ -2573,6 +2639,8 @@ JSON is a widely used data format for exchanging and storing structured data. It
     ```
 
 ## 2. Intermediate Javascript Topics
+
+### 2.1 ES6 Features
 
 ## 2 Functions - traditional & arrow, string literals, js module, jsdoc
 
