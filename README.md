@@ -1287,312 +1287,371 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
 ### 1.7 Objects
 
-- Object
+Object: In JavaScript, objects are fundamental data structures used to store and organize data. Objects are collections of key-value pairs, where each key is a string (or a symbol in ES6+) that acts as a unique identifier for a value. Values in objects can be of any data type, including other objects, functions, arrays, and primitive types (like strings, numbers, and booleans).
 
-  - **object is a core concept in JS**
-  - **create a contact manager / student manager app**
-  - **use for..in for looping an object**
-  - object is one type of variable that can store differnt types of variables
-  - object syntax and example
+- object examples are given below
 
-    ```js
-    const student = {
-      name: "Anisul Islam", // property
-      displayInfo: function () {
-        // method related to object
-        return `Hello! My name is ${this.name}`;
-      },
-    };
+```js
+// Creating an empty object
+const person = {};
 
-    console.log(student.name);
-    console.log(student.displayInfo());
-    ```
+// Adding properties to the object
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 30;
 
-    ```js
-    // object program example
-    // what is Object?
-    // How to create an object?
-    // How to access object properties?
-    // Constructor, this keyword
-    // function inside constructor
+// Accessing object properties
+console.log(person.firstName); // "John"
+console.log(person.lastName); // "Doe"
+console.log(person.age); // 30
 
-    // declaring variables and using them
-    const name = "Anisul Islam";
-    const age = 27;
-    const cgpa = 3.92;
-    const lang = ["Bengali", "English"];
+// Objects can also be created with properties in a single step
+const car = {
+  make: "Toyota",
+  model: "Camry",
+  year: 2022,
+};
 
-    // declaring objects -> object is one type of variable that can store differnt types of variables
-    const student1 = {
-      // property : value
-      name: "Anisul Islam",
-      age: 27,
-      cgpa: 3.92,
-      lang: ["Bengali", "English"],
-    };
+// Accessing properties using square brackets (useful when the property name is dynamic)
+const propertyName = "make";
+console.log(car[propertyName]); // "Toyota"
 
-    const student2 = {
-      // property : value
-      name: "Rokib",
-      age: 28,
-      cgpa: 2.92,
-      lang: ["Hindi", "Bengali"],
-    };
+// Nested objects
+const student = {
+  name: "Alice",
+  info: {
+    major: "Computer Science",
+    GPA: 3.9,
+  },
+};
 
-    const student3 = {
-      // property : value
-      name: "Sweety",
-      age: 25,
-      cgpa: 4.92,
-      lang: ["Bengali", "Urdu"],
-    };
-    // printing object property's value
-    // object properties can be accessed in two ways: objectName.propertyName or objectName["propertyName"]
-    console.log(student1.name);
-    console.log(student1[name]);
-    console.log(student1);
+console.log(student.info.major); // "Computer Science"
+console.log(student["info"]["GPA"]); // 3.9
 
-    console.log("using constructor");
-    // adding constructor and simplifying the task
+// Deleting a property
+delete car.year;
 
-    function Student(name, age, cgpa, lang) {
-      this.name = name;
-      this.age = age;
-      this.cgpa = cgpa;
-      this.lang = lang;
+// Checking if a property exists
+console.log("make" in car); // true
+console.log("year" in car); // false
 
-      // adding function inside the constructor
-      /*
-      object properties that holds a function is called Method. Use dot operator for accessing. we can declare the function outside then use here
-      */
-      this.display = function () {
-        console.log(this.name);
-      };
-      <!-- this.display = function d() {
-        console.log(this.name);
-      }; -->
+// Iterating through object properties
+for (const key in car) {
+  console.log(key, car[key]);
+}
 
-      this.display = d;
+// Object methods (functions attached to objects)
+const calculator = {
+  add: function (a, b) {
+    return a + b;
+  },
+  subtract: function (a, b) {
+    return a - b;
+  },
+};
+
+console.log(calculator.add(5, 3)); // 8
+console.log(calculator.subtract(10, 4)); // 6
+```
+
+```js
+const student = {
+  name: "Anisul Islam", // property
+  displayInfo: function () {
+    // method related to object
+    return `Hello! My name is ${this.name}`;
+  },
+};
+
+console.log(student.name);
+console.log(student.displayInfo());
+```
+
+```js
+// object program example
+// what is Object?
+// How to create an object?
+// How to access object properties?
+// Constructor, this keyword
+// function inside constructor
+
+// declaring variables and using them
+const name = "Anisul Islam";
+const age = 27;
+const cgpa = 3.92;
+const lang = ["Bengali", "English"];
+
+// declaring objects -> object is one type of variable that can store differnt types of variables
+const student1 = {
+  // property : value
+  name: "Anisul Islam",
+  age: 27,
+  cgpa: 3.92,
+  lang: ["Bengali", "English"],
+};
+
+const student2 = {
+  // property : value
+  name: "Rokib",
+  age: 28,
+  cgpa: 2.92,
+  lang: ["Hindi", "Bengali"],
+};
+
+const student3 = {
+  // property : value
+  name: "Sweety",
+  age: 25,
+  cgpa: 4.92,
+  lang: ["Bengali", "Urdu"],
+};
+// printing object property's value
+// object properties can be accessed in two ways: objectName.propertyName or objectName["propertyName"]
+console.log(student1.name);
+console.log(student1[name]);
+console.log(student1);
+
+console.log("using constructor");
+// adding constructor and simplifying the task
+
+function Student(name, age, cgpa, lang) {
+  this.name = name;
+  this.age = age;
+  this.cgpa = cgpa;
+  this.lang = lang;
+
+  // adding function inside the constructor
+  /*
+  object properties that holds a function is called Method. Use dot operator for accessing. we can declare the function outside then use here
+  */
+  this.display = function () {
+    console.log(this.name);
+  };
+  <!-- this.display = function d() {
+    console.log(this.name);
+  }; -->
+
+  this.display = d;
+}
+
+  function d() {
+    console.log(this.name);
+  };
+
+const s1 = new Student("Anisul Islam", 27, 3.92, ["Bengali", "English"]);
+const s2 = new Student("Rabeya Begum", 23, 4.92, ["Bengali", "Urdu"]);
+const s3 = new Student("Milon", 29, 4.68, ["Bengali", "Hindi"]);
+
+console.log(s1);
+console.log(s2);
+console.log(s3);
+s1.display();
+```
+
+```js
+// contact manager app
+function contact(name, number) {
+  this.name = name;
+  this.number = number;
+
+  this.print = function () {
+    console.log(`${this.name}: ${this.number}`);
+  };
+}
+
+const a = new contact("David", 12345);
+const b = new contact("Amy", 987654321);
+a.print();
+b.print();
+```
+
+- an example of methods
+
+```js
+const Calculator = {
+  add: function (num1, num2) {
+    return num1 + num2;
+  },
+  sub: function (num1, num2) {
+    return num1 - num2;
+  },
+};
+
+console.log(Calculator.add(20, 30));
+console.log(Calculator.sub(20, 30));
+```
+
+- **Program 7 : E-commerce app [object]**
+
+  ```js
+  // Program 7: E-commerce app [object]
+
+  const product = {
+    id: 101,
+    title: "iphone 12",
+    description: "brilliant phone with 4k camera",
+    price: 549,
+    discountPercentage: 8.5,
+    rating: 4.69,
+    brand: "Apple",
+    insuranceCost: 8,
+  };
+
+  // getting user input using prompt()
+  const discountPercentage = Number(prompt("Discount percentage? "));
+
+  // priceAfterDiscount function
+  function priceAfterDiscount(price, discountPercentage) {
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+      return 0;
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      return price - discount;
     }
+  }
 
-      function d() {
-        console.log(this.name);
-      };
-
-    const s1 = new Student("Anisul Islam", 27, 3.92, ["Bengali", "English"]);
-    const s2 = new Student("Rabeya Begum", 23, 4.92, ["Bengali", "Urdu"]);
-    const s3 = new Student("Milon", 29, 4.68, ["Bengali", "Hindi"]);
-
-    console.log(s1);
-    console.log(s2);
-    console.log(s3);
-    s1.display();
-    ```
-
-    ```js
-    // contact manager app
-    function contact(name, number) {
-      this.name = name;
-      this.number = number;
-
-      this.print = function () {
-        console.log(`${this.name}: ${this.number}`);
-      };
-    }
-
-    var a = new contact("David", 12345);
-    var b = new contact("Amy", 987654321);
-    a.print();
-    b.print();
-    ```
-
-    - an example of methods
-
-    ```js
-    const Calculator = {
-      add: function (num1, num2) {
-        return num1 + num2;
-      },
-      sub: function (num1, num2) {
-        return num1 - num2;
-      },
-    };
-
-    console.log(Calculator.add(20, 30));
-    console.log(Calculator.sub(20, 30));
-    ```
-
-  - **Program 7 : E-commerce app [object]**
-
-    ```js
-    // Program 7: E-commerce app [object]
-
-    const product = {
-      id: 101,
-      title: "iphone 12",
-      description: "brilliant phone with 4k camera",
-      price: 549,
-      discountPercentage: 8.5,
-      rating: 4.69,
-      brand: "Apple",
-      insuranceCost: 8,
-    };
-
-    // getting user input using prompt()
-    const discountPercentage = Number(prompt("Discount percentage? "));
-
-    // priceAfterDiscount function
-    function priceAfterDiscount(price, discountPercentage) {
-      if (discountPercentage < 0) {
-        console.log("Not a valid discount percentage");
-        return 0;
-      } else {
-        // calculating price after discount
-        const discount = (price * discountPercentage) / 100;
-        return price - discount;
-      }
-    }
-
-    // printing product details
-    function printProductDetails(
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      pDiscountPercentage
-    ) {
-      console.log("id : " + pId);
-      console.log("title : " + pTitle);
-      console.log("description : " + pDescription);
-      console.log("rating : " + pRating);
-      console.log("brand : " + pBrand);
-      console.log("Original price : " + pPrice + " euros");
-      console.log("Discount Percentage : " + pDiscountPercentage);
-      console.log(
-        "After the discount price : " +
-          priceAfterDiscount(pPrice, pDiscountPercentage) +
-          " euros"
-      );
-    }
-
-    printProductDetails(
-      product.id,
-      product.title,
-      product.description,
-      product.price,
-      product.rating,
-      product.brand,
-      discountPercentage
+  // printing product details
+  function printProductDetails(
+    pId,
+    pTitle,
+    pDescription,
+    pPrice,
+    pRating,
+    pBrand,
+    pDiscountPercentage
+  ) {
+    console.log("id : " + pId);
+    console.log("title : " + pTitle);
+    console.log("description : " + pDescription);
+    console.log("rating : " + pRating);
+    console.log("brand : " + pBrand);
+    console.log("Original price : " + pPrice + " euros");
+    console.log("Discount Percentage : " + pDiscountPercentage);
+    console.log(
+      "After the discount price : " +
+        priceAfterDiscount(pPrice, pDiscountPercentage) +
+        " euros"
     );
-    ```
+  }
 
-  - **Program 8 : E-commerce app [More object]**
+  printProductDetails(
+    product.id,
+    product.title,
+    product.description,
+    product.price,
+    product.rating,
+    product.brand,
+    discountPercentage
+  );
+  ```
 
-    ```js
-    // Program 8: E-commerce app [More on object]
+- **Program 8 : E-commerce app [More object]**
 
-    const product1 = {
-      id: 101,
-      title: "iphone 12",
-      description: "brilliant phone with 4k camera",
-      price: 549,
-      discountPercentage: 8.5,
-      rating: 4.69,
-      brand: "Apple",
-      insuranceCost: 8,
-    };
-    const product2 = {
-      id: 102,
-      title: "iphone 13",
-      description: "brilliant phone with 4k camera",
-      price: 649,
-      discountPercentage: 7.5,
-      rating: 4.5,
-      brand: "Apple",
-      insuranceCost: 12,
-    };
-    const product3 = {
-      id: 103,
-      title: "samsung s10",
-      description: "brilliant phone with 2k camera",
-      price: 349,
-      discountPercentage: 12.5,
-      rating: 3.5,
-      brand: "Samsung",
-      insuranceCost: 5,
-    };
+  ```js
+  // Program 8: E-commerce app [More on object]
 
-    // getting user input using prompt()
-    const discountPercentage = Number(prompt("Discount percentage? "));
+  const product1 = {
+    id: 101,
+    title: "iphone 12",
+    description: "brilliant phone with 4k camera",
+    price: 549,
+    discountPercentage: 8.5,
+    rating: 4.69,
+    brand: "Apple",
+    insuranceCost: 8,
+  };
+  const product2 = {
+    id: 102,
+    title: "iphone 13",
+    description: "brilliant phone with 4k camera",
+    price: 649,
+    discountPercentage: 7.5,
+    rating: 4.5,
+    brand: "Apple",
+    insuranceCost: 12,
+  };
+  const product3 = {
+    id: 103,
+    title: "samsung s10",
+    description: "brilliant phone with 2k camera",
+    price: 349,
+    discountPercentage: 12.5,
+    rating: 3.5,
+    brand: "Samsung",
+    insuranceCost: 5,
+  };
 
-    // priceAfterDiscount function
-    function priceAfterDiscount(price, discountPercentage) {
-      if (discountPercentage < 0) {
-        console.log("Not a valid discount percentage");
-        return 0;
-      } else {
-        // calculating price after discount
-        const discount = (price * discountPercentage) / 100;
-        return price - discount;
-      }
+  // getting user input using prompt()
+  const discountPercentage = Number(prompt("Discount percentage? "));
+
+  // priceAfterDiscount function
+  function priceAfterDiscount(price, discountPercentage) {
+    if (discountPercentage < 0) {
+      console.log("Not a valid discount percentage");
+      return 0;
+    } else {
+      // calculating price after discount
+      const discount = (price * discountPercentage) / 100;
+      return price - discount;
     }
+  }
 
-    // printing product details
-    function printProductDetails(
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      pDiscountPercentage
-    ) {
-      console.log("id : " + pId);
-      console.log("title : " + pTitle);
-      console.log("description : " + pDescription);
-      console.log("rating : " + pRating);
-      console.log("brand : " + pBrand);
-      console.log("Original price : " + pPrice + " euros");
-      console.log("Discount Percentage : " + pDiscountPercentage);
-      console.log(
-        "After the discount price : " +
-          priceAfterDiscount(pPrice, pDiscountPercentage) +
-          " euros"
-      );
-    }
-
-    printProductDetails(
-      product1.id,
-      product1.title,
-      product1.description,
-      product1.price,
-      product1.rating,
-      product1.brand,
-      product1.discountPercentage
+  // printing product details
+  function printProductDetails(
+    pId,
+    pTitle,
+    pDescription,
+    pPrice,
+    pRating,
+    pBrand,
+    pDiscountPercentage
+  ) {
+    console.log("id : " + pId);
+    console.log("title : " + pTitle);
+    console.log("description : " + pDescription);
+    console.log("rating : " + pRating);
+    console.log("brand : " + pBrand);
+    console.log("Original price : " + pPrice + " euros");
+    console.log("Discount Percentage : " + pDiscountPercentage);
+    console.log(
+      "After the discount price : " +
+        priceAfterDiscount(pPrice, pDiscountPercentage) +
+        " euros"
     );
+  }
 
-    printProductDetails(
-      product2.id,
-      product2.title,
-      product2.description,
-      product2.price,
-      product2.rating,
-      product2.brand,
-      product2.discountPercentage
-    );
+  printProductDetails(
+    product1.id,
+    product1.title,
+    product1.description,
+    product1.price,
+    product1.rating,
+    product1.brand,
+    product1.discountPercentage
+  );
 
-    printProductDetails(
-      product3.id,
-      product3.title,
-      product3.description,
-      product3.price,
-      product3.rating,
-      product3.brand,
-      product3.discountPercentage
-    );
-    ```
+  printProductDetails(
+    product2.id,
+    product2.title,
+    product2.description,
+    product2.price,
+    product2.rating,
+    product2.brand,
+    product2.discountPercentage
+  );
+
+  printProductDetails(
+    product3.id,
+    product3.title,
+    product3.description,
+    product3.price,
+    product3.rating,
+    product3.brand,
+    product3.discountPercentage
+  );
+  ```
 
 ### 1.8 Arrays
 
@@ -2694,16 +2753,18 @@ JSON is a widely used data format for exchanging and storing structured data. It
 
   - Before sending to server convert into JSON -> JSON.stringify()
 
-    ```js
-    // JavaScript object
-    const jsonData = { name: "John", age: 22 };
+        ```js
+        // JavaScript object
+        const jsonData = { name: "John", age: 22 };
 
-    // converting to JSON
-    const obj = JSON.stringify(jsonData);
+        // converting to JSON
+        const obj = JSON.stringify(jsonData);
 
-    // accessing the data
-    console.log(obj); // "{"name":"John","age":22}"
-    ```
+        // accessing the data
+        console.log(obj); // "{"name":"John","age":22}"
+        ```
+
+    [Back to Top][#1.]
 
 ## 2. Intermediate Javascript Topics
 
