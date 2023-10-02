@@ -6,39 +6,31 @@
 
 1. [Basic Javascript Topics](#1-basic-javascript-topics)
 
-   - [1.1 Introduction to Javascript](#11-introduction-to-javascript)
-   - [1.2 Output Console Object & comment](#12-output--comment)
-   - [1.3 Tokens](#13-tokens)
+   [1.1 Introduction to Javascript](#11-introduction-to-javascript)
+   [1.2 Output Console Object & comment](#12-output--comment)
+   [1.3 Tokens - variables, data types, operators](#13-tokens)
 
-     - [1.3.1 Keywords, puncuators and Escape sequences](#131-keywords-puncuators-and-escape-sequences)
-     - [1.3.2 Data Types](#132-data-types)
-     - [1.3.3 Truthy vs Falsy Values](#133-truthy-vs-falsy-values)
-     - [1.3.4 Variables](#134-variables)
-     - [1.3.5 Operators & String concatenation](#135-operators--string-concatenation)
-     - [1.3.6 Prompt & Data Type conversion](#136-prompt--data-type-conversion)
+   [1.4 Control Flow](#14-control-statement)
 
-   - [1.4 Control Flow](#14-control-statement)
-     - [1.4.1 Conditional control statement](#141-conditional-control-statement-if-else-if-else-switch)
-     - [1.4.2 Loop control statement](#142-loop-control-statement)
-     - [1.4.3 Jump control statement](#143-jump-control-statement)
-   - [1.5 Function](#15-function---traditional)
-   - [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
-     - [1.6.1 scope of variables and closures](#161-scope-and-closures)
-     - [1.6.2 var, let, const](#162-var-let-const)
-   - [1.7 Objects](#17-objects)
-   - [1.8 Arrays](#18-arrays)
-   - [1.9 Built-in methods](#19-built-in-methods)
-   - [1.10 Error Handling](#110-errors-and-errors-handling)
-   - [1.11 JSON](#111-json)
+   [1.5 Function](#15-function---traditional)
+
+   [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
+
+   - [1.6.1 scope of variables and closures](#161-scope-and-closures)
+   - [1.6.2 var, let, const](#162-var-let-const)
+
+   [1.7 Objects](#17-objects)
+   [1.8 Arrays](#18-arrays)
+   [1.9 Built-in methods](#19-built-in-methods)
+   [1.10 Error Handling](#110-errors-and-errors-handling)
+   [1.11 JSON and JSDoc](#111-json-and-jsdoc)
 
 2. [Intermediate JavaScript Topics](#2-intermediate-javascript-topics)
 
-   - [2.1 ES6 Features]()
-   - [2.2 Asynchronous Programming]()
-   - [2.3 Functional Programming HOF]()
-   - [2.4 DOM Manipulation]()
-   - [2.5 LocalStorage and SessionStorage]()
-   - [2.6 API Calling]()
+   [2.1 Document Object Model (DOM) and Events](#21-document-object-model-dom-and-events)
+   [2.2 Browser Object Model (BOM)](#22-browser-object-model-bom)
+   [2.3 Local storage](#23-local-storage)
+   [2.4 ES6 Features](#24-es6-features)
 
 3. [Advanced JavaScript Topics]()
 
@@ -98,84 +90,83 @@
 
 - What are the ways to add javascript?
 
-  - we can use `onload="alert('')"` in the body tag for demonstrating the ways of adding javascript.
   - **Inline JavaScript:**
 
-  Inline JavaScript is directly embedded within an HTML document using the `<script>` tag. It's placed directly within the HTML code and typically used for small scripts or quick actions.
+    Inline JavaScript is directly embedded within an HTML document using the `<script>` tag. It's placed directly within the HTML code and typically used for small scripts or quick actions.
 
-  ```html
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Inline JavaScript Example</title>
-    </head>
-    <body>
-      <h1>Welcome to JS</h1>
-      <button onclick="alert('The item is deleted!')">Delete</button>
-    </body>
-  </html>
-  ```
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Inline JavaScript Example</title>
+      </head>
+      <body>
+        <h1>Welcome to JS</h1>
+        <button onclick="alert('The item is deleted!')">Delete</button>
+      </body>
+    </html>
+    ```
 
-  In this example, the JavaScript code `alert('The item is deleted!')` is executed when the button is clicked.
+    In this example, the JavaScript code `alert('The item is deleted!')` is executed when the button is clicked.
 
   - **Internal JavaScript:**
 
-  Internal JavaScript is placed within the HTML document, but it's placed in the `<script>` tag within the `<head>` or `<body>` section of the HTML. This allows you to keep your JavaScript separate from your HTML content.
+    Internal JavaScript is placed within the HTML document, but it's placed in the `<script>` tag within the `<head>` or `<body>` section of the HTML. This allows you to keep your JavaScript separate from your HTML content.
 
-  ```html
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Internal JavaScript Example</title>
-      <script>
-        function deleteItem() {
-          alert("The item is deleted!");
-        }
-      </script>
-    </head>
-    <body>
-      <h1>Internal JavaScript Example</h1>
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Internal JavaScript Example</title>
+        <script>
+          function deleteItem() {
+            alert("The item is deleted!");
+          }
+        </script>
+      </head>
+      <body>
+        <h1>Internal JavaScript Example</h1>
 
-      <button onclick="deleteItem()">Delete</button>
-    </body>
-  </html>
-  ```
+        <button onclick="deleteItem()">Delete</button>
+      </body>
+    </html>
+    ```
 
-  In this example, the JavaScript function `deleteItem()` is defined within the `<script>` tag in the HTML document and called when the button is clicked.
+    In this example, the JavaScript function `deleteItem()` is defined within the `<script>` tag in the HTML document and called when the button is clicked.
 
   - **External JavaScript:**
 
-  External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. **This approach is ideal for larger scripts and helps keep your HTML clean and organized.**
+    External JavaScript is stored in a separate .js file and linked to the HTML document using the `<script>` tag's `src` attribute. **This approach is ideal for larger scripts and helps keep your HTML clean and organized.**
 
-  **index.html:**
+    **index.html:**
 
-  ```html
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>External JavaScript Example</title>
-    </head>
-    <body>
-      <h1>External JavaScript Example</h1>
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>External JavaScript Example</title>
+      </head>
+      <body>
+        <h1>External JavaScript Example</h1>
 
-      <button onclick="deleteItem()">Click Me</button>
-      <script src="script.js"></script>
-      <script src="script2.js"></script>
-    </body>
-  </html>
-  ```
+        <button onclick="deleteItem()">Click Me</button>
+        <script src="script.js"></script>
+        <script src="script2.js"></script>
+      </body>
+    </html>
+    ```
 
-  **script.js:**
+    **script.js:**
 
-  ```javascript
-  function deleteItem() {
-    alert("The item is deleted!");
-  }
-  ```
+    ```javascript
+    function deleteItem() {
+      alert("The item is deleted!");
+    }
+    ```
 
-In this example, the JavaScript code is stored in an external file named `script.js` and linked to the HTML file using the `<script>` tag's `src` attribute.
+    In this example, the JavaScript code is stored in an external file named `script.js` and linked to the HTML file using the `<script>` tag's `src` attribute.
 
-External JavaScript is often preferred for better code organization and maintainability, especially in larger web applications where you may have multiple scripts.
+    External JavaScript is often preferred for better code organization and maintainability, especially in larger web applications where you may have multiple scripts.
 
 ### 1.2 Output & comment
 
@@ -444,101 +435,153 @@ External JavaScript is often preferred for better code organization and maintain
 
 #### 1.3.2 Data types
 
-- Data types
+Data types: [typeof operator] can help us to find out the data type of a value. Data types can be divided into 2: primitive & non-primitive/reference.
 
-  - [typeof operator] can help us to find out the data type of a value
+- Primitive data types: Primitive data types are also known as in-built data types. String, Number, Bigint, boolean, null, undefined, symbol
 
-  - Data types can be divided into 2: primitive & non-primitive/reference.
-  - Primitive data types: Primitive data types are also known as in-built data types. String, Number, Bigint, boolean, null, undefined, symbol
-
-    - Example
-
-      ```js
-      // primitive data types -> String, Number, Boolean, null, undefined, Symbol
-
-      // String data type ->  Represents sequences of characters, such as text.
-      console.log(typeof "John"); // string
-      console.log(typeof ""); // empty string
-
-      // Boolean data type -> Represents a true or false value.
-      console.log(typeof true); // boolean
-
-      // Number data type -> Represents numeric values, both integers and floating-point numbers.
-      console.log(typeof 123); // number
-      console.log(typeof 123.5); // number
-
-      // Undefined: variable is declared but no value is assigned
-      // Undefined -> data type for variable without value
-      console.log(typeof x); // undefined
-
-      // null ->  Represents the intentional absence of any object or value.(fun: typeof null is object)
-      console.log(typeof null);
-
-      /*
-      Symbol is used as an identifier for object properties
-       Symbols are unique identifiers
-       introduced in ES6
-       it can be used when defining constants such as enum for uniqueness
-       */
-      const symbol1 = Symbol("foo");
-      const symbol2 = Symbol("foo");
-      console.log(typeof symbol1); // symbol
-      console.log(symbol1 === symbol2); // false
-
-      const symbol = Symbol("Bye");
-      console.log(typeof symbol);
-      console.log(symbol);
-
-      // BigInt: Represents large integers with arbitrary precision (introduced in ECMAScript 2020). This data type can represent numbers greater than 253-1 which helps to perform operations on large numbers. The number is specified by writing ‘n’ at the end of the value
-
-      var bigNumber = 125522222222222222222222222222222222222n;
-      console.log(bigNumber);
-      ```
-
-  - Non Primitive data types: non-primitive data types are derived from primitive data types. It is also known as derived data types or reference data types. Object (Array is also part of Object type), Function.
-
-    - Example
-
-      ```js
-      // Object type -> Represents a collection of key-value pairs (properties) where values can be of any data type, including other objects.
-      console.log(tyoeof {name: 'anis'});
-      console.log(typeof [1,2,3]) // array is object type
-
-       // function type -> Represents a reusable block of code that can be executed.
-       console.log( typeof function display () { }) // function type
-
-      ```
-
-  - **what are the differences between primtive & non-primitive data types?**
-    ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
+  - Example
 
     ```js
-    // Copying by value
-    let num1 = 5;
-    let num2 = num1; // num2 gets the value of num1
+    // primitive data types -> String, Number, Boolean, null, undefined, Symbol
 
-    num2 = 10; // Modifying num2 does not affect num1
+    // String data type ->  Represents sequences of characters, such as text.
+    console.log(typeof "John"); // string
+    console.log(typeof ""); // empty string
 
-    console.log(num1); // Output: 5
-    console.log(num2); // Output: 10
+    // Boolean data type -> Represents a true or false value.
+    console.log(typeof true); // boolean
 
-    // Copying by reference
-    let arr1 = [1, 2, 3];
-    let arr2 = arr1; // arr2 references the same array as arr1
+    // Number data type -> Represents numeric values, both integers and floating-point numbers.
+    console.log(typeof 123); // number
+    console.log(typeof 123.5); // number
 
-    arr2.push(4); // Modifying arr2 also affects arr1
+    // Undefined: variable is declared but no value is assigned
+    // Undefined -> data type for variable without value
+    console.log(typeof x); // undefined
 
-    console.log(arr1); // Output: [1, 2, 3, 4]
-    console.log(arr2); // Output: [1, 2, 3, 4]
+    // null ->  Represents the intentional absence of any object or value.(fun: typeof null is object)
+    console.log(typeof null);
+
+    /*
+    Symbol is used as an identifier for object properties
+     Symbols are unique identifiers
+     introduced in ES6
+     it can be used when defining constants such as enum for uniqueness
+     */
+    const symbol1 = Symbol("foo");
+    const symbol2 = Symbol("foo");
+    console.log(typeof symbol1); // symbol
+    console.log(symbol1 === symbol2); // false
+
+    const symbol = Symbol("Bye");
+    console.log(typeof symbol);
+    console.log(symbol);
+
+    // BigInt: Represents large integers with arbitrary precision (introduced in ECMAScript 2020). This data type can represent numbers greater than 253-1 which helps to perform operations on large numbers. The number is specified by writing ‘n’ at the end of the value
+
+    var bigNumber = 125522222222222222222222222222222222222n;
+    console.log(bigNumber);
     ```
 
-#### 1.3.3 Truthy vs Falsy Values
+- Non Primitive data types: non-primitive data types are derived from primitive data types. It is also known as derived data types or reference data types. Object (Array is also part of Object type), Function.
 
-- [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+  - Example
+
+    ```js
+    // Object type -> Represents a collection of key-value pairs (properties) where values can be of any data type, including other objects.
+    console.log(tyoeof {name: 'anis'});
+    console.log(typeof [1,2,3]) // array is object type
+
+     // function type -> Represents a reusable block of code that can be executed.
+     console.log( typeof function display () { }) // function type
+
+    ```
+
+- **what are the differences between primtive & non-primitive data types?**
+  ![primitive vs non-primitive](images/difference-between-primitive-and-non-primitive-datatypes-12-1650387712.png)
+
+  ```js
+  // Copying by value
+  let num1 = 5;
+  let num2 = num1; // num2 gets the value of num1
+
+  num2 = 10; // Modifying num2 does not affect num1
+
+  console.log(num1); // Output: 5
+  console.log(num2); // Output: 10
+
+  // Copying by reference
+  let arr1 = [1, 2, 3];
+  let arr2 = arr1; // arr2 references the same array as arr1
+
+  arr2.push(4); // Modifying arr2 also affects arr1
+
+  console.log(arr1); // Output: [1, 2, 3, 4]
+  console.log(arr2); // Output: [1, 2, 3, 4]
+  ```
+
+- **[truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) vs [Falsy value](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)**
   - falsy value: false, 0, 0.0, -0, -0.0, "",'',``,null, undefined, NAN (Not-a-Number)
   - truthy value: all values except falsy value. {}, [], new Date(), Infinity etc.
+- **Data type conversion in js**
+  JavaScript provides several methods for type conversion, allowing you to convert data from one type to another. Here are some common methods and examples:
 
-#### 1.3.4 Variables
+  1. **Implicit Type Conversion (Coercion):** JavaScript automatically converts data types in certain situations. For example, when you use the `+` operator with different data types, JavaScript may implicitly convert them to a common type (usually a string or a number).
+
+     ```javascript
+     const num = 5;
+     const str = "10";
+
+     // JavaScript implicitly converts 'str' to a number before addition
+     const result = num + str; // result is 15 (a number)
+     ```
+
+  2. **Explicit Type Conversion (Type Casting):** You can explicitly convert data types using various methods. Here are some common ones:
+
+     - **String Conversion:** Use `String()` or `.toString()` to convert a value to a string.
+
+       ```javascript
+       const num = 42;
+       const str = String(num); // str is "42"
+       ```
+
+     - **Number Conversion:** Use `Number()`, `parseInt()`, or `parseFloat()` to convert a value to a number.
+
+       ```javascript
+       const str = "3.14";
+       const num = Number(str); // num is 3.14
+
+       const intStr = "42";
+       const intNum = parseInt(intStr); // intNum is 42
+       ```
+
+     - **Boolean Conversion:** Use `Boolean()` to convert a value to a boolean.
+
+       ```javascript
+       const value = "Hello";
+       const bool = Boolean(value); // bool is true (non-empty strings are truthy)
+       ```
+
+  3. **Explicit Type Conversion to Arrays and Objects:** You can convert values to arrays or objects using specific constructors or methods.
+
+     - **Array Conversion:** Use `Array.from()` to convert iterable objects (like strings or arrays-like objects) into arrays.
+
+       ```javascript
+       const str = "hello";
+       const arr = Array.from(str); // arr is ['h', 'e', 'l', 'l', 'o']
+       ```
+
+     - **Object Conversion:** You can create objects using object literal syntax `{}`.
+
+       ```javascript
+       const keyValuePairs = [
+         ["a", 1],
+         ["b", 2],
+       ];
+       const obj = Object.fromEntries(keyValuePairs); // obj is { a: 1, b: 2 }
+       ```
+
+#### 1.3.3 Variables
 
 - Varibale is a placeholder for storing data.
 
@@ -584,115 +627,113 @@ External JavaScript is often preferred for better code organization and maintain
     console.log("brand : " + brand);
     ```
 
-#### 1.3.5 Operators & string concatenation
+#### 1.3.4 Operators & string concatenation
 
-- Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unary (works with one operand), binary (works with 2 operands), ternary (3 operands).
+Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unary (works with one operand), binary (works with 2 operands), ternary (3 operands).
 
-  - Binary operators: Arithemtic, Assignment, Relational, Logical, Bitwise
+- Types of operators
 
-    - Arithmetic operators : +, -, \*, /, %
+  - Arithmetic operators : +, -, \*, /, %
 
-      - **Program 3: E-Commerce app [operators]**
+  - **Program 3: E-Commerce app [operators]**
 
-        ```js
-        // Program 3: E-Commerce app [operators]
-        const id = 101;
-        const title = "iphone 12";
-        const description = "brilliant phone with 4k camera";
-        const price = 549;
-        const discountPercentage = 8.5;
-        const rating = 4.69;
-        const brand = "Apple";
+    ```js
+    // Program 3: E-Commerce app [operators]
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const discountPercentage = 8.5;
+    const rating = 4.69;
+    const brand = "Apple";
 
-        // calculating price after discount
-        const discountAmount = (price * discountPercentage) / 100;
-        const priceAfterDiscount = price - discountAmount;
+    // calculating price after discount
+    const discountAmount = (price * discountPercentage) / 100;
+    const priceAfterDiscount = price - discountAmount;
 
-        console.log("id : " + id);
-        console.log("title : " + title);
-        console.log("description: " + description);
-        console.log("price : " + price + " euros");
-        console.log("discountPercentage : " + discountPercentage);
-        console.log("rating : " + rating);
-        console.log("brand : " + brand);
-        console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-        ```
+    console.log("id : " + id);
+    console.log("title : " + title);
+    console.log("description: " + description);
+    console.log("price : " + price + " euros");
+    console.log("discountPercentage : " + discountPercentage);
+    console.log("rating : " + rating);
+    console.log("brand : " + brand);
+    console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+    ```
 
-      - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
+  - **Arithmetic Programs: Create normal calculator, algebra formula calculator, area calculator (triangle,circle), temperature calculator(fahrenheit-celsius), years to hours, swap 2 numbers.**
 
-    - Assignment operators: +=, -=, \*=, /=, %=
+  - Assignment operators: +=, -=, \*=, /=, %=
 
-    - Comparision / Relational operators: >, >=, <, <=, ==, !=, ===, !== .Result is always boolean value
+  - Comparision / Relational operators: >, >=, <, <=, ==, !=, ===, !== .Result is always boolean value
 
-      ```js
-      let num1 = 20;
-      let num2 = 10;
+    ```js
+    let num1 = 20;
+    let num2 = 10;
 
-      console.log(num1 > num2); // true
-      console.log(num1 >= num2); // true
-      console.log(num1 < num2); // false
-      console.log(num1 <= num2); // false
-      console.log(num1 === num2); // false
-      console.log(num1 !== num2); // true
-      ```
+    console.log(num1 > num2); // true
+    console.log(num1 >= num2); // true
+    console.log(num1 < num2); // false
+    console.log(num1 <= num2); // false
+    console.log(num1 === num2); // false
+    console.log(num1 !== num2); // true
+    ```
 
-    - Logical operators: &&, ||, ! result is always boolean value
+  - Logical operators: &&, ||, ! result is always boolean value
 
-      ```js
-      let num1 = 20;
-      let num2 = 10;
-      let num3 = 5;
+    ```js
+    let num1 = 20;
+    let num2 = 10;
+    let num3 = 5;
 
-      console.log(num1 > num2 && num1 > num3); // true
-      console.log(num2 > num1 && num2 > num3); // false
-      console.log(num3 > num1 && num3 > num2); // false
-      console.log(num3 > num1 || num3 > num2); // false
-      console.log(num2 > num1 || num2 > num3); // true
-      ```
+    console.log(num1 > num2 && num1 > num3); // true
+    console.log(num2 > num1 && num2 > num3); // false
+    console.log(num3 > num1 && num3 > num2); // false
+    console.log(num3 > num1 || num3 > num2); // false
+    console.log(num2 > num1 || num2 > num3); // true
+    ```
 
-    - Bitwise operators: &, |, ^, ~, >>, <<
+  - Bitwise operators: &, |, ^, ~, >>, <<
 
   - Unary operators: + (unary plus), -(unary minus), ++ (increment), -- (decrement)
 
   - Ternary/conditional Operator: `condition ? expression1 : expression2;`
 
-#### 1.3.6 Prompt & Data Type conversion
+- Prompt & Data Type conversion: prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form. Number(), toString(), pasreInt(), parseFloat(), parseDouble()
 
-- prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
-- Number(), toString(), pasreInt(), parseFloat(), parseDouble()
-- **Program 4: E-Commerce app [adding prompt(), & Number function]**
+  - **Program 4: E-Commerce app [adding prompt(), & Number function]**
 
-  ```js
-  // Program 4: E-Commerce app [adding prompt(), & Number function]
-  const id = 101;
-  const title = "iphone 12";
-  const description = "brilliant phone with 4k camera";
-  const price = 549;
-  const rating = 4.69;
-  const brand = "Apple";
+    ```js
+    // Program 4: E-Commerce app [adding prompt(), & Number function]
+    const id = 101;
+    const title = "iphone 12";
+    const description = "brilliant phone with 4k camera";
+    const price = 549;
+    const rating = 4.69;
+    const brand = "Apple";
 
-  // getting user input using prompt()
-  const discountPercentage = Number(prompt("Discount percentage? "));
+    // getting user input using prompt()
+    const discountPercentage = Number(prompt("Discount percentage? "));
 
-  // calculating price after discount
-  const discount = (price * discountPercentage) / 100;
-  const priceAfterDiscount = price - discount;
+    // calculating price after discount
+    const discount = (price * discountPercentage) / 100;
+    const priceAfterDiscount = price - discount;
 
-  console.log("id : " + id);
-  console.log("title : " + title);
-  console.log("description: " + description);
-  console.log("price : " + price + " euros");
-  console.log("discountPercentage : " + discountPercentage);
-  console.log("rating : " + rating);
-  console.log("brand : " + brand);
-  console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
-  ```
+    console.log("id : " + id);
+    console.log("title : " + title);
+    console.log("description: " + description);
+    console.log("price : " + price + " euros");
+    console.log("discountPercentage : " + discountPercentage);
+    console.log("rating : " + rating);
+    console.log("brand : " + brand);
+    console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+    ```
 
 ### 1.4 Control statement
 
 #### 1.4.1 Conditional control statement: if, else if, else, switch
 
-- if, else if, else syntax
+- **if, else if, else**
 
   ```js
   // if syntax
@@ -721,102 +762,102 @@ External JavaScript is often preferred for better code organization and maintain
   }
   ```
 
-  - if, else if, else related programs
+- if, else if, else related programs
 
-    - positive / negative / zero program
-    - Even / odd program
-    - Vowel / consonant program
-    - find large / small number program
-    - digit spelling program
-    - [leap year program](https://www.tutorialspoint.com/learn_c_by_examples/leap_year_program_in_c.htm)
-
-      ```js
-      // a program that will find a large number between 2 numbers
-      var num1 = parseInt(prompt("Enter first numebr : "));
-      var num2 = parseInt(prompt("Enter second numebr : "));
-
-      // first method - using only if
-      if (num1 > num2) {
-        console.log("Large Number is : " + num1);
-      }
-      if (num1 < num2) {
-        console.log("Large Number is : " + num2);
-      }
-      if (num1 == num2) {
-        console.log("Equal numbers");
-      }
-
-      // second method - more efficient than first method
-      if (num1 > num2) {
-        console.log("Large Number is : " + num1);
-      } else if (num1 < num2) {
-        console.log("Large Number is : " + num2);
-      } else if (num1 == num2) {
-        console.log("Equal numbers");
-      }
-
-      // third method - more efficient than first and second method
-      if (num1 > num2) {
-        console.log("Large Number is : " + num1);
-      } else if (num1 < num2) {
-        console.log("Large Number is : " + num2);
-      } else {
-        console.log("Equal numbers");
-      }
-
-      // A program that will find a letter is vowel or consonant
-      var letter = prompt("Enter a letter : ");
-
-      // convert any uppercase input into lower cause we set only lowercase letter in condition
-      letter = letter.toLowerCase();
-
-      // Now check the condition
-      if (
-        letter == "a" ||
-        letter == "e" ||
-        letter == "i" ||
-        letter == "o" ||
-        letter == "u"
-      ) {
-        console.log("Vowel");
-      } else {
-        console.log("Consonant");
-      }
-      ```
-
-  - **Program 5 : E-commerce app [conditional control statement if/else]**
+  - positive / negative / zero program
+  - Even / odd program
+  - Vowel / consonant program
+  - find large / small number program
+  - digit spelling program
+  - [leap year program](https://www.tutorialspoint.com/learn_c_by_examples/leap_year_program_in_c.htm)
 
     ```js
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const rating = 4.69;
-    const brand = "Apple";
-    let priceAfterDiscount;
+    // a program that will find a large number between 2 numbers
+    var num1 = parseInt(prompt("Enter first numebr : "));
+    var num2 = parseInt(prompt("Enter second numebr : "));
 
-    // getting user input using prompt()
-    const discountPercentage = Number(prompt("Discount percentage? "));
-
-    if (discountPercentage < 0) {
-      console.log("Not a valid discount percentage");
-    } else {
-      // calculating price after discount
-      const discountAmount = (price * discountPercentage) / 100;
-      priceAfterDiscount = price - discountAmount;
+    // first method - using only if
+    if (num1 > num2) {
+      console.log("Large Number is : " + num1);
+    }
+    if (num1 < num2) {
+      console.log("Large Number is : " + num2);
+    }
+    if (num1 == num2) {
+      console.log("Equal numbers");
     }
 
-    console.log("id : " + id);
-    console.log("title : " + title);
-    console.log("description: " + description);
-    console.log("price : " + price + " euros");
-    console.log("discountPercentage : " + discountPercentage);
-    console.log("rating : " + rating);
-    console.log("brand : " + brand);
-    console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+    // second method - more efficient than first method
+    if (num1 > num2) {
+      console.log("Large Number is : " + num1);
+    } else if (num1 < num2) {
+      console.log("Large Number is : " + num2);
+    } else if (num1 == num2) {
+      console.log("Equal numbers");
+    }
+
+    // third method - more efficient than first and second method
+    if (num1 > num2) {
+      console.log("Large Number is : " + num1);
+    } else if (num1 < num2) {
+      console.log("Large Number is : " + num2);
+    } else {
+      console.log("Equal numbers");
+    }
+
+    // A program that will find a letter is vowel or consonant
+    var letter = prompt("Enter a letter : ");
+
+    // convert any uppercase input into lower cause we set only lowercase letter in condition
+    letter = letter.toLowerCase();
+
+    // Now check the condition
+    if (
+      letter == "a" ||
+      letter == "e" ||
+      letter == "i" ||
+      letter == "o" ||
+      letter == "u"
+    ) {
+      console.log("Vowel");
+    } else {
+      console.log("Consonant");
+    }
     ```
 
-- switch: An alternative for if, else. 4 keywords: switch, case, break, default
+- **Program 5 : E-commerce app [conditional control statement if/else]**
+
+  ```js
+  const id = 101;
+  const title = "iphone 12";
+  const description = "brilliant phone with 4k camera";
+  const price = 549;
+  const rating = 4.69;
+  const brand = "Apple";
+  let priceAfterDiscount;
+
+  // getting user input using prompt()
+  const discountPercentage = Number(prompt("Discount percentage? "));
+
+  if (discountPercentage < 0) {
+    console.log("Not a valid discount percentage");
+  } else {
+    // calculating price after discount
+    const discountAmount = (price * discountPercentage) / 100;
+    priceAfterDiscount = price - discountAmount;
+  }
+
+  console.log("id : " + id);
+  console.log("title : " + title);
+  console.log("description: " + description);
+  console.log("price : " + price + " euros");
+  console.log("discountPercentage : " + discountPercentage);
+  console.log("rating : " + rating);
+  console.log("brand : " + brand);
+  console.log("priceAfterDiscount : " + priceAfterDiscount + " euros");
+  ```
+
+- **switch**: An alternative for if, else. 4 keywords: switch, case, break, default
 
   ```js
   // A program to understand switch -> digit spelling program
@@ -2669,380 +2710,106 @@ for (let index = 0; index < products.length; index++) {
 }
 ```
 
-### 1.11 JSON
-
-JSON (JavaScript Object Notation) is a lightweight data-interchange format that is commonly used for data serialization and communication between a server and a web application, as well as for configuration files and data storage. In JavaScript, JSON is a text-based format that can be represented as a string and parsed into JavaScript objects or used to serialize JavaScript objects into strings.
-
-Here are some key aspects of JSON in JavaScript:
-
-1. **JSON Syntax:**
-
-   - JSON data consists of key-value pairs.
-   - Keys must be strings enclosed in double quotation marks.
-   - Values can be strings, numbers, objects, arrays, booleans, or `null`.
-   - Data is separated by commas, and key-value pairs are separated by colons.
-   - JSON objects are enclosed in curly braces `{}`.
-   - JSON arrays are ordered lists of values enclosed in square brackets `[]`.
-
-   ```javascript
-   {
-     "name": "John",
-     "age": 30,
-     "isStudent": false,
-     "hobbies": ["Reading", "Swimming"],
-     "address": {
-       "city": "New York",
-       "zipCode": "10001"
-     }
-   }
-   ```
-
-2. **JSON.parse():**
-
-   - The `JSON.parse()` method is used to parse a JSON string and convert it into a JavaScript object.
-   - It takes a JSON string as an argument and returns the corresponding JavaScript object.
-
-   ```javascript
-   const jsonString = '{"name": "Alice", "age": 25}';
-   const person = JSON.parse(jsonString);
-   console.log(person.name); // "Alice"
-   ```
-
-3. **JSON.stringify():**
-
-   - The `JSON.stringify()` method is used to serialize a JavaScript object into a JSON string.
-   - It takes a JavaScript object as an argument and returns the corresponding JSON string.
-
-   ```javascript
-   const person = { name: "Bob", age: 30 };
-   const jsonString = JSON.stringify(person);
-   console.log(jsonString); // '{"name":"Bob","age":30}'
-   ```
-
-4. **Working with JSON Arrays:**
-
-   - JSON can represent arrays of data.
-   - JSON arrays are ordered lists enclosed in square brackets `[]`.
-
-   ```javascript
-   const numbers = [1, 2, 3, 4, 5];
-   const jsonArray = JSON.stringify(numbers);
-   console.log(jsonArray); // '[1,2,3,4,5]'
-   ```
-
-JSON is a widely used data format for exchanging and storing structured data. It's supported in many programming languages, making it a popular choice for data interchange in web applications and APIs. In JavaScript, the `JSON.parse()` and `JSON.stringify()` methods make it easy to work with JSON data.
-
-- JSON VS JS Object
-  - key with double quotation
-  - JSON can not contain function but JS Object does
-  - JS Object is only for JS but JSON for all other programming languages
-- client-server conversion
-
-  - Before using json data in client convert into JS Object -> JSON.parse()
-
-    ```js
-    // json object
-    const jsonData = '{ "name": "John", "age": 22 }';
-
-    // converting to JavaScript object
-    const obj = JSON.parse(jsonData);
-
-    // accessing the data
-    console.log(obj.name); // John
-    ```
-
-  - Before sending to server convert into JSON -> JSON.stringify()
-
-        ```js
-        // JavaScript object
-        const jsonData = { name: "John", age: 22 };
-
-        // converting to JSON
-        const obj = JSON.stringify(jsonData);
-
-        // accessing the data
-        console.log(obj); // "{"name":"John","age":22}"
-        ```
-
-    [Back to Top][#1.]
-
-## 2. Intermediate Javascript Topics
-
-### 2.1 ES6 Features
-
-## 2 Functions - traditional & arrow, string literals, js module, jsdoc
-
-```js
-// Function example3
-
-// creating function without parameter
-function message() {
-  console.log("Hello, I am a function without parameter");
-}
-
-// creating function with one parameter
-function welcomeMessage(name) {
-  console.log(`Welcome ${name} to the Full-stack`);
-}
-
-// creating function with multiple parameters
-function welcomeMessage2(name, age) {
-  console.log(`Welcome ${name} to the Full-stack. ${name} is ${age} years old`);
-}
-
-// returning from a function
-function welcomeMessage3(name, age) {
-  return `Welcome ${name} to the Full-stack. ${name} is ${age} years old`;
-}
-
-// calling functions
-message();
-welcomeMessage("Alex");
-welcomeMessage2("Alex", 32);
-console.log(welcomeMessage3("Brown", 22));
-```
-
-- Program 6: E-Commerce app [function & string literals]
-
-  ```js
-  // Program 6: E-commerce app  [function & string literals]
-  const id = 101;
-  const title = "iphone 12";
-  const description = "brilliant phone with 4k camera";
-  const price = 549;
-  const discountPercentage = 8.5;
-  const rating = 4.69;
-  const brand = "Apple";
-  const insuranceCost = 8;
-
-  // discount function
-  function discount(p, disPercentage) {
-    return (p * disPercentage) / 100;
-  }
-
-  // roundPrice function
-  function roundPrice(amount) {
-    return Math.round(amount);
-  }
-
-  // priceAfterDiscount function
-  function priceAfterDiscount(p, dp) {
-    return p - discount(p, dp);
-  }
-
-  // finalPriceWithInsurance function
-  function finalPriceWithInsurance(p, dp, ic) {
-    return roundPrice(priceAfterDiscount(p, dp) + ic);
-  }
-
-  // printing product details
-  function printProductDetails(
-    pId,
-    pTitle,
-    pDescription,
-    pPrice,
-    pRating,
-    pBrand,
-    PDiscountPercentage,
-    pInsurance
-  ) {
-    console.log(`id : ${pId}`);
-    console.log(`title : ${pTitle}`);
-    console.log(`description: ${pDescription}`);
-    console.log(`price : ${pPrice} euros`);
-    console.log(`rating : ${pRating}`);
-    console.log(`brand : ${pBrand}`);
-    console.log(
-      `finalPriceWithInsurance : ${finalPriceWithInsurance(
-        pPrice,
-        PDiscountPercentage,
-        pInsurance
-      )} euros`
-    );
-  }
-
-  printProductDetails(
-    id,
-    title,
-    description,
-    price,
-    rating,
-    brand,
-    discountPercentage,
-    insuranceCost
-  );
-  ```
-
-- Arrow function
-
-  - Arrow function syntax and example
-
-    ```js
-    // Arrow function vs Traditional function
-
-    // demo1 - must use parenthesis for no parameters or multiple parmaters, but for one parameter its optional
-    function display1() {
-      console.log("I am display 1");
-    }
-    const display2 = () => {
-      console.log("I am display 2");
-    };
-    display1();
-    display2();
-
-    // demo2 - no need to use curly braces if returning or dealing with single statement
-    function display3() {
-      console.log("I am display 3");
-    }
-    const display4 = () => console.log("I am display 4");
-    display3();
-    display4();
-
-    // returning value in arrow function - no need to use return keyword with single statement
-    function display5() {
-      return "I am display 5";
-    }
-    const display6 = () => "I am display 6";
-    console.log(display5());
-    console.log(display6());
-
-    // parameters in arrow function
-    function add1(x, y) {
-      return x + y;
-    }
-    const add2 = (x, y) => x + y;
-    console.log(add1(10, 20));
-    console.log(add2(20, 30));
-    ```
-
-  - Program 7 : E-Commerce app [arrow-function]
-
-    ```js
-    // Program 7: E-Commerce app [arrow-function]
-    const id = 101;
-    const title = "iphone 12";
-    const description = "brilliant phone with 4k camera";
-    const price = 549;
-    const discountPercentage = 8.5;
-    const rating = 4.69;
-    const brand = "Apple";
-
-    const insuranceCost = 8;
-
-    // discount function
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-    // roundPrice function
-    const roundPrice = (p) => Math.round(p);
-
-    //priceAfterDiscount
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    // finalPriceWithInsurance
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    // printing product details
-    const printProductDetails = (
-      pId,
-      pTitle,
-      pDescription,
-      pPrice,
-      pRating,
-      pBrand,
-      PDiscountPercentage,
-      pInsurance
-    ) => {
-      console.log(`id : ${pId}`);
-      console.log(`title : ${pTitle}`);
-      console.log(`description: ${pDescription}`);
-      console.log(`price : ${pPrice} euros`);
-      console.log(`rating : ${pRating}`);
-      console.log(`brand : ${pBrand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          pPrice,
-          PDiscountPercentage,
-          pInsurance
-        )} euros`
-      );
-    };
-
-    printProductDetails(
-      id,
-      title,
-      description,
-      price,
-      rating,
-      brand,
-      discountPercentage,
-      insuranceCost
-    );
-    ```
-
-- javascript module
-
-  - JavaScript modules allow you to break up your code into separate files.
-
-  - This makes it easier to maintain a code-base.
-
-  - Modules are imported from external files with the import statement.
-
-  - Modules also rely on type="module" in the `<script>` tag.
-
-  - export
-
-    - Modules with functions or variables can be stored in any external file.
-    - There are two types of exports: Named Exports and Default Exports.
-    - example of Named exports
+### 1.11 JSON and JSDoc
+
+- JSON (JavaScript Object Notation) is a lightweight data-interchange format that is commonly used for data serialization and communication between a server and a web application, as well as for configuration files and data storage. In JavaScript, JSON is a text-based format that can be represented as a string and parsed into JavaScript objects or used to serialize JavaScript objects into strings.
+
+  - Here are some key aspects of JSON in JavaScript:
+
+    1. **JSON Syntax:**
+
+       - JSON data consists of key-value pairs.
+       - Keys must be strings enclosed in double quotation marks.
+       - Values can be strings, numbers, objects, arrays, booleans, or `null`.
+       - Data is separated by commas, and key-value pairs are separated by colons.
+       - JSON objects are enclosed in curly braces `{}`.
+       - JSON arrays are ordered lists of values enclosed in square brackets `[]`.
+
+         ```javascript
+         {
+           "name": "John",
+           "age": 30,
+           "isStudent": false,
+           "hobbies": ["Reading", "Swimming"],
+           "address": {
+             "city": "New York",
+             "zipCode": "10001"
+           }
+         }
+         ```
+
+    2. **JSON.parse():**
+
+       - The `JSON.parse()` method is used to parse a JSON string and convert it into a JavaScript object.
+       - It takes a JSON string as an argument and returns the corresponding JavaScript object.
+
+         ```javascript
+         const jsonString = '{"name": "Alice", "age": 25}';
+         const person = JSON.parse(jsonString);
+         console.log(person.name); // "Alice"
+         ```
+
+    3. **JSON.stringify():**
+
+       - The `JSON.stringify()` method is used to serialize a JavaScript object into a JSON string.
+       - It takes a JavaScript object as an argument and returns the corresponding JSON string.
+
+         ```javascript
+         const person = { name: "Bob", age: 30 };
+         const jsonString = JSON.stringify(person);
+         console.log(jsonString); // '{"name":"Bob","age":30}'
+         ```
+
+    4. **Working with JSON Arrays:**
+
+       - JSON can represent arrays of data.
+       - JSON arrays are ordered lists enclosed in square brackets `[]`.
+
+         ```javascript
+         const numbers = [1, 2, 3, 4, 5];
+         const jsonArray = JSON.stringify(numbers);
+         console.log(jsonArray); // '[1,2,3,4,5]'
+         ```
+
+    JSON is a widely used data format for exchanging and storing structured data. It's supported in many programming languages, making it a popular choice for data interchange in web applications and APIs. In JavaScript, the `JSON.parse()` and `JSON.stringify()` methods make it easy to work with JSON data.
+
+  - JSON VS JS Object
+    - key with double quotation
+    - JSON can not contain function but JS Object does
+    - JS Object is only for JS but JSON for all other programming languages
+  - client-server conversion
+
+    - Before using json data in client convert into JS Object -> JSON.parse()
 
       ```js
-      // person.js
-      // inline individually exports
-      export const name = "Jesse";
-      export const age = 40;
+      // json object
+      const jsonData = '{ "name": "John", "age": 22 }';
 
-      // all at once exports
-      const name = "Jesse";
-      const age = 40;
-      export { name, age };
+      // converting to JavaScript object
+      const obj = JSON.parse(jsonData);
+
+      // accessing the data
+      console.log(obj.name); // John
       ```
 
-    - example of default exports
+    - Before sending to server convert into JSON -> JSON.stringify()
 
       ```js
-      // 1 export in a file
-      const message = () => {
-        const name = "Jesse";
-        const age = 40;
-        return name + " is " + age + "years old.";
-      };
+      // JavaScript object
+      const jsonData = { name: "John", age: 22 };
 
-      export default message;
-      ```
+      // converting to JSON
+      const obj = JSON.stringify(jsonData);
 
-  - import
-
-    - You can import modules into a file in two ways, based on if they are named exports or default exports.
-    - Named exports are constructed using curly braces. Default exports are not.
-    - example of Named Imports
-
-      ```js
-      import { name, age } from "./person.js";
-      ```
-
-    - example of default imports
-
-      ```js
-      import message from "./message.js";
+      // accessing the data
+      console.log(obj); // "{"name":"John","age":22}"
       ```
 
 - [jsdoc](https://github.com/anisul-Islam/jsdoc-documentation)
 
-  - Program 8: E-Commerce app [adding jsdoc]
+  - Program 13: E-Commerce app [adding jsdoc]
 
     ```js
-    // Program 8: E-Commerce app [adding jsdoc]
     /**
      * product id
      * @type {number}
@@ -3138,894 +2905,258 @@ console.log(welcomeMessage3("Brown", 22));
     );
     ```
 
-## 10. Higher Order Array function, spread operator & destructure
+[&#8593; Back to Top](#table-of-contents)
 
-- ES5 Feature
-- [map()](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/) higher order function
+## 2. Intermediate Javascript Topics
 
-  - when we use loop we need to create an array but map returns an array
-  - map() does not change the original array.
-  - map() creates a new array from calling a function for every array element.
-  - map() calls a function once for each element in an array.
-  - map() does not execute the function for empty elements.
+### 2.1 Document Object Model (DOM) and Events
 
-  - syntax and example
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content dynamically. In other words, it allows you to interact with the content and structure of a web page using JavaScript. The DOM is a tree-like structure, where each node represents part of the web page.
 
-    ```js
-    const numbers = [22, 31, 4, 5, 35, 26, 78];
-    const squareNumbers = numbers.map(function (x) {
-      return x * x;
-    });
-    console.log(squareNumbers);
-    ```
+Here are some key concepts and operations related to the DOM in JavaScript:
 
-  - Program 12 : E-commerce app [Higher Order Function: map()]
+**1. Accessing Elements:**
 
-    ```js
-    // Program 12: E-commerce app [Higher Order Function: map()]
-    // data collected from API - https://dummyjson.com/products
-    const products = [
-      {
-        id: 101,
-        title: "iphone 9",
-        description: "brilliant phone with 4k camera",
-        price: 549,
-        discountPercentage: 8.5,
-        rating: 4.69,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 102,
-        title: "iphone X",
-        description:
-          "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        price: 899,
-        discountPercentage: 17.94,
-        rating: 4.44,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 103,
-        title: "Samsung Universe 9",
-        description:
-          "Samsung's new variant which goes beyond Galaxy to the Universe",
-        price: 1249,
-        discountPercentage: 15.46,
-        rating: 4.09,
-        brand: "Samsung",
-        insuranceCost: 8,
-      },
-      {
-        id: 104,
-        title: "OPPOF19",
-        description: "OPPO F19 is officially announced on April 2021.",
-        price: 280,
-        discountPercentage: 17.91,
-        rating: 4.3,
-        brand: "Oppo",
-        insuranceCost: 8,
-      },
-    ];
+- You can access HTML elements in JavaScript using methods like `getElementById`, `getElementsByClassName`, `getElementsByTagName`, and `querySelector`. For example:
 
-    /**
-     * check login status of the user
-     * @returns true/false based on login status
-     */
-    const checkLoginStatus = () => {
-      const loginStatus = true;
-      return loginStatus;
-    };
+```javascript
+const elementById = document.getElementById("myElement");
+const elementsByClass = document.getElementsByClassName("myClass");
+const elementsByTag = document.getElementsByTagName("div");
+const elementBySelector = document.querySelector(".myClass");
+```
 
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
+**2. Modifying Elements:**
 
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
+- You can change element properties, attributes, and content using JavaScript. For example:
 
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
+```javascript
+elementById.innerHTML = "New Content";
+elementById.style.color = "red";
+elementById.setAttribute("data-custom", "value");
+```
 
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
+**3. Creating Elements:**
 
-    /**
-     * print product details
-     * @param {object} product the product object
-     */
-    const printProductDetails = (product) => {
-      console.log(`id : ${product.id}`);
-      console.log(`title : ${product.title}`);
-      console.log(`description: ${product.description}`);
-      console.log(`price : ${product.price} euros`);
-      console.log(`rating : ${product.rating}`);
-      console.log(`brand : ${product.brand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          product.price,
-          product.discountPercentage,
-          product.insuranceCost
-        )} euros`
-      );
-    };
+- You can create new HTML elements dynamically and add them to the DOM. For example:
 
-    // user authentication check
-    if (checkLoginStatus()) {
-      console.log("login successful");
-      products.map((product, index) => {
-        // print all the products
-        // console.log(product);
-        console.log(`Product ${index + 1}: `);
-        printProductDetails(product);
-        console.log("------------------------------------------");
-      });
-    } else {
-      console.log("Please login first");
-    }
-    ```
+```javascript
+const newDiv = document.createElement("div");
+newDiv.textContent = "Dynamic Element";
+document.body.appendChild(newDiv);
+```
 
-- destructure
+**4. Removing Elements:**
 
-  - destructure syntax and example
+- You can remove elements from the DOM using the `removeChild` or `remove` methods. For example:
 
-    ```js
-    // destructuing assignment
+```javascript
+const elementToRemove = document.getElementById("toRemove");
+elementToRemove.parentNode.removeChild(elementToRemove);
+```
 
-    //array destructuring
-    let numbers = [10, 20, 30, 40, 50];
-    let [num1, num2, num3, num4, num5] = numbers;
-    console.log(numbers[0]);
-    console.log(num1);
-    console.log(num2);
+**5. Event Handling:**
 
-    let [x, y, ...z] = numbers;
-    console.log(z);
+- You can attach event listeners to elements to respond to user interactions. For example:
 
-    //swapping variables
-    let m = 10,
-      n = 5;
-    [m, n] = [n, m];
-    console.log(m);
-    console.log(n);
+```javascript
+const button = document.getElementById("myButton");
+button.addEventListener("click", function () {
+  alert("Button Clicked!");
+});
+```
 
-    //object destructuring
-    // const student1 = {
-    //     id : 101,
-    //     fullName : 'Anisul Islam',
-    //     gpa : 3.92
-    // }
+**6. Traversing the DOM:**
 
-    // //we can also set default values of an object that does not exist
-    // let {id, fullName, gpa, country = 'Bangladesh'} = student1
+- You can navigate the DOM tree by accessing parent, child, and sibling nodes. For example:
 
-    // console.log(fullName)
-    // console.log(country)
+```javascript
+const parent = element.parentNode;
+const firstChild = parent.firstChild;
+const nextSibling = element.nextSibling;
+```
 
-    //nested object destructuring
-    const student2 = {
-      id: 101,
-      fullName: "Anisul Islam",
-      gpa: 3.92,
-      languages: {
-        native: "Bangla",
-        beginner: "Finnish",
-      },
-      visited: ["bangladesh", "pakistan"],
-    };
-    let { fullName, gpa, languages, visited } = student2;
-    console.log(fullName);
-    console.log(languages.native);
-    console.log(visited[0]);
+**7. Working with Forms:**
 
-    // destructuring function arguments
-    // const studentDetails = (studentInfo) => {
-    //     console.log(`${studentInfo.firstName} ${studentInfo.roll} ${studentInfo.dob}`)
-    // }
+- You can access and manipulate form elements and their values. For example:
 
-    const studentDetails = ({ firstName, roll, dob }) => {
-      console.log(`${firstName} ${roll} ${dob}`);
-    };
+```javascript
+const inputField = document.getElementById("username");
+const inputValue = inputField.value;
+```
 
-    const studentInfo = {
-      dob: "12/03/90",
-      roll: 101,
-      firstName: "Anisul",
-    };
+**8. Styling Elements:**
 
-    studentDetails(studentInfo);
-    ```
+- You can change the style of elements using the `style` property. For example:
 
-    - Program 13: E-commerce app [destructuring]
+```javascript
+element.style.color = "blue";
+element.style.fontSize = "18px";
+```
 
-    ```js
-    // Program 13: E-commerce app [destructuring]
-    // data collected from API - https://dummyjson.com/products
-    const products = [
-      {
-        id: 101,
-        title: "iphone 9",
-        description: "brilliant phone with 4k camera",
-        price: 549,
-        discountPercentage: 8.5,
-        rating: 4.69,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 102,
-        title: "iphone X",
-        description:
-          "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        price: 899,
-        discountPercentage: 17.94,
-        rating: 4.44,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 103,
-        title: "Samsung Universe 9",
-        description:
-          "Samsung's new variant which goes beyond Galaxy to the Universe",
-        price: 1249,
-        discountPercentage: 15.46,
-        rating: 4.09,
-        brand: "Samsung",
-        insuranceCost: 8,
-      },
-      {
-        id: 104,
-        title: "OPPOF19",
-        description: "OPPO F19 is officially announced on April 2021.",
-        price: 280,
-        discountPercentage: 17.91,
-        rating: 4.3,
-        brand: "Oppo",
-        insuranceCost: 8,
-      },
-    ];
+**9. DOM Events:**
 
-    /**
-     * check login status of the user
-     * @returns true/false based on login status
-     */
-    const checkLoginStatus = () => {
-      const loginStatus = true;
-      return loginStatus;
-    };
+- The DOM provides a wide range of events like click, mouseover, change, and more. You can use these events to trigger JavaScript functions in response to user actions.
 
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
+The DOM is a fundamental concept in web development because it enables dynamic and interactive web pages. It's a crucial part of JavaScript programming for the web.
 
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
+#### Event and event listeners
 
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    /**
-     * print product details
-     * @param {object} product the product object
-     */
-    const printProductDetails = (product) => {
-      // destructuring here
-      const {
-        id,
-        title,
-        description,
-        price,
-        rating,
-        brand,
-        discountPercentage,
-        insuranceCost,
-      } = product;
-      console.log(`id : ${id}`);
-      console.log(`title : ${title}`);
-      console.log(`description: ${description}`);
-      console.log(`price : ${price}`);
-      console.log(`rating : ${rating}`);
-      console.log(`brand : ${brand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          price,
-          discountPercentage,
-          insuranceCost
-        )}`
-      );
-    };
-
-    // user authentication check
-    if (checkLoginStatus()) {
-      console.log("login successful");
-      products.map((product, index) => {
-        // print all the products
-        // console.log(product);
-        console.log(`Product ${index + 1}: `);
-        printProductDetails(product);
-        console.log("------------------------------------------");
-      });
-    } else {
-      console.log("Please login first");
-    }
-    ```
-
-- filter() higher order function
-
-  - filter() does not change the original array.
-  - filter() creates a new array filled with elements that pass a test provided by a function.
-  - filter() calls a function once for each element in an array.
-  - filter() does not execute the function for empty elements.
-  - filter() syntax and example
-
-    ```js
-    var numbers = [22, 31, 4, 5, 35, 26, 78];
-    var newNumbers = numbers.filter(function (x) {
-      return x > 10;
-    });
-    console.log(newNumbers);
-    ```
-
-  - filter() syntax and example
-
-    ```js
-    // Program 14: E-commerce app [filter() higher order function]
-    // data collected from API - https://dummyjson.com/products
-    const products = [
-      {
-        id: 101,
-        title: "iphone 9",
-        description: "brilliant phone with 4k camera",
-        price: 549,
-        discountPercentage: 8.5,
-        rating: 4.69,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 102,
-        title: "iphone X",
-        description:
-          "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        price: 899,
-        discountPercentage: 17.94,
-        rating: 4.44,
-        brand: "Apple",
-        insuranceCost: 8,
-      },
-      {
-        id: 103,
-        title: "Samsung Universe 9",
-        description:
-          "Samsung's new variant which goes beyond Galaxy to the Universe",
-        price: 1249,
-        discountPercentage: 15.46,
-        rating: 4.09,
-        brand: "Samsung",
-        insuranceCost: 8,
-      },
-      {
-        id: 104,
-        title: "OPPOF19",
-        description: "OPPO F19 is officially announced on April 2021.",
-        price: 280,
-        discountPercentage: 17.91,
-        rating: 4.3,
-        brand: "Oppo",
-        insuranceCost: 8,
-      },
-    ];
-
-    /**
-     * check login status of the user
-     * @returns true/false based on login status
-     */
-    const checkLoginStatus = () => {
-      const loginStatus = true;
-      return loginStatus;
-    };
-
-    /**
-     * calculate the discount amount of a product
-     * @param {number} p The product price
-     * @param {number} disPercentage The discount percentage of the product
-     * @returns the discount amount
-     */
-    const discount = (p, disPercentage) => (p * disPercentage) / 100;
-
-    /**
-     * calculate the round value of any amount
-     * @param {number} p The product price
-     * @returns the rounded value
-     */
-    const roundPrice = (p) => Math.round(p);
-
-    /**
-     * calculate the priceAfterDiscount
-     * @param {number} p The product price
-     * @param {number} dp discount percentage
-     * @returns the price after discount
-     */
-    const priceAfterDiscount = (p, dp) => p - discount(p, dp);
-
-    /**
-     * calculate the product finalPriceWithInsurance
-     * @param {number} p the price of product;
-     * @param {number} dp the discount percentage of prodcut;
-     * @param {number} ic the product insurance cost
-     * @returns the final price including insurance cost
-     */
-    const finalPriceWithInsurance = (p, dp, ic) =>
-      roundPrice(priceAfterDiscount(p, dp) + ic);
-
-    /**
-     * print product details
-     * @param {object} product the product object
-     */
-    const printProductDetails = (product) => {
-      // destructuring here
-      const {
-        id,
-        title,
-        description,
-        price,
-        rating,
-        brand,
-        discountPercentage,
-        insuranceCost,
-      } = product;
-      console.log(`id : ${id}`);
-      console.log(`title : ${title}`);
-      console.log(`description: ${description}`);
-      console.log(`price : ${price} euros`);
-      console.log(`rating : ${rating}`);
-      console.log(`brand : ${brand}`);
-      console.log(
-        `finalPriceWithInsurance : ${finalPriceWithInsurance(
-          price,
-          discountPercentage,
-          insuranceCost
-        )} euros`
-      );
-    };
-
-    /**
-     * find a product from products array based on a particular product's id
-     * @param {*} id  particular product's id
-     * @returns return the found product
-     */
-    const findProduct = (id) => products.filter((product) => product.id === id);
-
-    // user authentication check
-    if (checkLoginStatus()) {
-      console.log("login successful");
-      const selectedProduct = findProduct(101);
-      selectedProduct.map((product, index) => {
-        // print all the products
-        // console.log(product);
-        console.log(`Product ${index + 1}: `);
-        printProductDetails(product);
-        console.log("------------------------------------------");
-      });
-    } else {
-      console.log("Please login first");
-    }
-    ```
-
-- spread operator
+- keyboard event
 
   ```js
-  // Program 14: E-commerce app [spread operators]
-  // data collected from API - https://dummyjson.com/products
-  const products = [
-    {
-      id: 101,
-      title: "iphone 9",
-      description: "brilliant phone with 4k camera",
-      price: 549,
-      discountPercentage: 8.5,
-      rating: 4.69,
-      brand: "Apple",
-      insuranceCost: 8,
-    },
-    {
-      id: 102,
-      title: "iphone X",
-      description:
-        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      price: 899,
-      discountPercentage: 17.94,
-      rating: 4.44,
-      brand: "Apple",
-      insuranceCost: 8,
-    },
-    {
-      id: 103,
-      title: "Samsung Universe 9",
-      description:
-        "Samsung's new variant which goes beyond Galaxy to the Universe",
-      price: 1249,
-      discountPercentage: 15.46,
-      rating: 4.09,
-      brand: "Samsung",
-      insuranceCost: 8,
-    },
-    {
-      id: 104,
-      title: "OPPOF19",
-      description: "OPPO F19 is officially announced on April 2021.",
-      price: 280,
-      discountPercentage: 17.91,
-      rating: 4.3,
-      brand: "Oppo",
-      insuranceCost: 8,
-    },
-  ];
+  // KeyboardEvent Object
+  // 1. Keydown - pressing a key, can repeat
+  // 2. keypress (may not supported by some browsers)
+  // 3. keyup
+  // some properties - key, keyCode, code, shiftKey, ctlKey, repeat
 
-  /**
-   * check login status of the user
-   * @returns true/false based on login status
-   */
-  const checkLoginStatus = () => {
-    const loginStatus = true;
-    return loginStatus;
-  };
+  const textarea = document.querySelector("textarea");
+  textarea.addEventListener("keydown", function (e) {
+    if (e.repeat) {
+      alert("do not repeat");
+    }
+  });
+  // textarea.addEventListener("keypress", function () {
+  //   console.log("keypress");
+  // });
+  // textarea.addEventListener("keyup", function (e) {
+  //   if (e.shiftKey) {
+  //     console.log("shift+" + e.key);
+  //   }
+  // });
+  ```
 
-  /**
-   * calculate the discount amount of a product
-   * @param {number} p The product price
-   * @param {number} disPercentage The discount percentage of the product
-   * @returns the discount amount
-   */
-  const discount = (p, disPercentage) => (p * disPercentage) / 100;
+- Mouse event
 
-  /**
-   * calculate the round value of any amount
-   * @param {number} p The product price
-   * @returns the rounded value
-   */
-  const roundPrice = (p) => Math.round(p);
+  ```js
+  // MouseEvent - <html>, <head>, <meta>, <title>, <br>, <style>, <script>, <iframe>, <param>, <base>, <bdo>
+  // 1. onclick
+  // 2. ondblclick
+  // 3. onmousedown
+  // 4. onmousedup
+  // 5. onmouseenter
+  // 6. onmouseleave
+  // 7. onmousemove
+  // 8. onmouseover
 
-  /**
-   * calculate the priceAfterDiscount
-   * @param {number} p The product price
-   * @param {number} dp discount percentage
-   * @returns the price after discount
-   */
-  const priceAfterDiscount = (p, dp) => p - discount(p, dp);
+  console.clear();
+  const div = document.querySelector("div");
 
-  /**
-   * calculate the product finalPriceWithInsurance
-   * @param {number} p the price of product;
-   * @param {number} dp the discount percentage of prodcut;
-   * @param {number} ic the product insurance cost
-   * @returns the final price including insurance cost
-   */
-  const finalPriceWithInsurance = (p, dp, ic) =>
-    roundPrice(priceAfterDiscount(p, dp) + ic);
+  div.addEventListener("click", function (e) {
+    //   console.log("click is occured");
+    //   console.log(e.target);
+    //   console.log(e.target.id);
+    //   console.log(e.target.className);
+    //   console.log(e.target.innerHTML);
+    //   console.log(e.target.innerText);
+    //   console.log(e.target.textContent);
+  });
 
-  /**
-   * print product details
-   * @param {object} product the product object
-   */
-  const printProductDetails = ({
-    id,
-    title,
-    description,
-    price,
-    rating,
-    brand,
-    discountPercentage,
-    insuranceCost,
-  }) => {
-    console.log(`id : ${id}`);
-    console.log(`title : ${title}`);
-    console.log(`description: ${description}`);
-    console.log(`price : ${price} euros`);
-    console.log(`rating : ${rating}`);
-    console.log(`brand : ${brand}`);
-    console.log(
-      `finalPriceWithInsurance : ${finalPriceWithInsurance(
-        price,
-        discountPercentage,
-        insuranceCost
-      )} euros`
-    );
-  };
+  // div.addEventListener("dblclick", function () {
+  //   console.log("dblclick is occured");
+  // });
+  // div.addEventListener("mousedown", function () {
+  //   console.log("mousedown is occured");
+  // });
+  // div.addEventListener("mouseup", function () {
+  //   console.log("mouseup is occured");
+  // });
+  // div.addEventListener("mouseenter", function () {
+  //   console.log("mouseenter is occured");
+  // });
+  // div.addEventListener("mouseleave", function () {
+  //   console.log("mouseleave is occured");
+  // });
+  // div.addEventListener("mouseover", function () {
+  //   console.log("mouseover is occured");
+  // });
+  // div.addEventListener("mousemove", function (e) {
+  //   //   console.log("mousemove is occured");
+  //   //   console.log("clientX = " + e.clientX + ", clientY = " + e.clientY);
+  //   console.log("offsetX = " + e.offsetX + ", offsetY = " + e.offsetY);
+  // });
 
-  /**
-   * find a product from products array based on a particular product's id
-   * @param {*} id  particular product's id
-   * @returns return the found product
-   */
-  const findProduct = (id) => products.filter((product) => product.id === id);
+  const buttons = document.querySelectorAll(".btn");
 
-  // user authentication check
-  if (checkLoginStatus()) {
-    console.log("login successful");
-    const selectedProduct = findProduct(101);
-    selectedProduct.map((product, index) => {
-      // print all the products
-      // console.log(product);
-      console.log(`Product ${index + 1}: `);
-      printProductDetails({ ...product });
-      console.log("------------------------------------------");
+  Array.from(buttons).map((button) => {
+    button.addEventListener("click", function (e) {
+      console.log(e.target.innerText);
     });
-  } else {
-    console.log("Please login first");
+  });
+  ```
+
+- onchange event
+
+  ```js
+  // <input /> - text, number, password, email, color,  radio, checkbox, search, time, date, datetime, week, month, url, tel, file,
+  // <select>,
+  // <textarea>
+
+  console.clear();
+  // const input = document.querySelector("input[name=name]");
+  // input.addEventListener("change", changeHandler);
+
+  // function changeHandler(e) {
+  //   //   console.log(e);
+  //   //   console.log(e.type);
+  //   //   console.log(e.target);
+  //   //   console.log(e.target.className);
+  //   //   console.log(e.target.id);
+  //   console.log(e.target.value);
+  // }
+
+  // const programs = document.querySelectorAll("input[name=program]");
+  // console.log(programs);
+
+  // Array.from(programs).map((program) => {
+  //   program.addEventListener("change", programHandler);
+  // });
+
+  // function programHandler(e) {
+  //   if (e.target.checked) {
+  //     console.log(e.target.value);
+  //   }
+  // }
+
+  const department = document.querySelector("#department");
+  // console.log(department);
+
+  department.addEventListener("change", handleDepartment);
+
+  function handleDepartment(e) {
+    console.log(e.target.value);
   }
   ```
 
-- reduce() higher order function
-
-  - sum of all numbers; when sum think reduce
-  - it executes a reducer function for array element.
-  - it returns a single value: the function's accumulated result.
-  - it does not execute the function for empty array elements.
-  - it does not change the original array.
-
-    ```js
-    const numbers = [10, 20, 30, 40, 50];
-    // first call -> previous 10, current 20
-    // 2nd call -> previous 30, current 30
-    // 3rd call -> previous 60, current 40
-    // 4th call -> previous 100, current 50
-
-    const result = numbers.reduce((previous, current) => {
-      return previous + current;
-    });
-    console.log(result);
-    ```
-
-## 11. Document Object Model (DOM)
-
-- finding, modifying, adding or removing html elements
+- onsubmit event
 
   ```js
-  // DOM -> Document Object Model
-  // Using DOM We can Find / get, change, add, or delete HTML elements.
+  // finding the elements
+  const form = document.querySelector("form");
+  const name = form.querySelector("div #name");
+  const email = form.querySelector("div #email");
+  const password = form.querySelector("div #password");
 
-  // How to find HTML Elements
-  // document.getElementById()
-  // document.getElementsByTagName()
-  // document.getElementsByClassName()
-  // document.querySelector()
+  form.addEventListener("submit", formHandler);
 
-  // How to change HTML Elements  (collected from W3School website)
-  // element.innerHTML =  new html content -> Change the inner HTML of an element
-  // element.attribute = new value  -> Change the attribute value of an HTML element
-  // element.style.property = new style -> Change the style of an HTML element
+  function formHandler(e) {
+    e.preventDefault();
 
-  //Create, remove, add html element
-  // creating html element and adding to a div
-  var firstDiv = document.querySelector("#first-div");
-  console.log(firstDiv);
+    const userInfo = {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    };
 
-  var heading3 = document.createElement("h3");
-  var text = document.createTextNode("This is heading 3");
-  heading3.appendChild(text);
-  firstDiv.appendChild(heading3);
-
-  var heading5 = document.createElement("h5");
-  var text = document.createTextNode("This is heading 5");
-  heading5.appendChild(text);
-  firstDiv.appendChild(heading5);
-
-  // remove element
-  firstDiv.removeChild(heading5);
-
-  //adding element before
-  var heading6 = document.createElement("h6");
-  var text = document.createTextNode("This is heading 6");
-  heading6.appendChild(text);
-  firstDiv.insertBefore(heading6, heading3);
-  // firstDiv.insertAfter(heading6, heading3);
+    console.log(userInfo);
+    name.value = "";
+    email.value = "";
+    password.value = "";
+  }
   ```
 
-- Event and event listeners
-
-  - keyboard event
-
-    ```js
-    // KeyboardEvent Object
-    // 1. Keydown - pressing a key, can repeat
-    // 2. keypress (may not supported by some browsers)
-    // 3. keyup
-    // some properties - key, keyCode, code, shiftKey, ctlKey, repeat
-
-    const textarea = document.querySelector("textarea");
-    textarea.addEventListener("keydown", function (e) {
-      if (e.repeat) {
-        alert("do not repeat");
-      }
-    });
-    // textarea.addEventListener("keypress", function () {
-    //   console.log("keypress");
-    // });
-    // textarea.addEventListener("keyup", function (e) {
-    //   if (e.shiftKey) {
-    //     console.log("shift+" + e.key);
-    //   }
-    // });
-    ```
-
-  - Mouse event
-
-    ```js
-    // MouseEvent - <html>, <head>, <meta>, <title>, <br>, <style>, <script>, <iframe>, <param>, <base>, <bdo>
-    // 1. onclick
-    // 2. ondblclick
-    // 3. onmousedown
-    // 4. onmousedup
-    // 5. onmouseenter
-    // 6. onmouseleave
-    // 7. onmousemove
-    // 8. onmouseover
-
-    console.clear();
-    const div = document.querySelector("div");
-
-    div.addEventListener("click", function (e) {
-      //   console.log("click is occured");
-      //   console.log(e.target);
-      //   console.log(e.target.id);
-      //   console.log(e.target.className);
-      //   console.log(e.target.innerHTML);
-      //   console.log(e.target.innerText);
-      //   console.log(e.target.textContent);
-    });
-
-    // div.addEventListener("dblclick", function () {
-    //   console.log("dblclick is occured");
-    // });
-    // div.addEventListener("mousedown", function () {
-    //   console.log("mousedown is occured");
-    // });
-    // div.addEventListener("mouseup", function () {
-    //   console.log("mouseup is occured");
-    // });
-    // div.addEventListener("mouseenter", function () {
-    //   console.log("mouseenter is occured");
-    // });
-    // div.addEventListener("mouseleave", function () {
-    //   console.log("mouseleave is occured");
-    // });
-    // div.addEventListener("mouseover", function () {
-    //   console.log("mouseover is occured");
-    // });
-    // div.addEventListener("mousemove", function (e) {
-    //   //   console.log("mousemove is occured");
-    //   //   console.log("clientX = " + e.clientX + ", clientY = " + e.clientY);
-    //   console.log("offsetX = " + e.offsetX + ", offsetY = " + e.offsetY);
-    // });
-
-    const buttons = document.querySelectorAll(".btn");
-
-    Array.from(buttons).map((button) => {
-      button.addEventListener("click", function (e) {
-        console.log(e.target.innerText);
-      });
-    });
-    ```
-
-  - onchange event
-
-    ```js
-    // <input /> - text, number, password, email, color,  radio, checkbox, search, time, date, datetime, week, month, url, tel, file,
-    // <select>,
-    // <textarea>
-
-    console.clear();
-    // const input = document.querySelector("input[name=name]");
-    // input.addEventListener("change", changeHandler);
-
-    // function changeHandler(e) {
-    //   //   console.log(e);
-    //   //   console.log(e.type);
-    //   //   console.log(e.target);
-    //   //   console.log(e.target.className);
-    //   //   console.log(e.target.id);
-    //   console.log(e.target.value);
-    // }
-
-    // const programs = document.querySelectorAll("input[name=program]");
-    // console.log(programs);
-
-    // Array.from(programs).map((program) => {
-    //   program.addEventListener("change", programHandler);
-    // });
-
-    // function programHandler(e) {
-    //   if (e.target.checked) {
-    //     console.log(e.target.value);
-    //   }
-    // }
-
-    const department = document.querySelector("#department");
-    // console.log(department);
-
-    department.addEventListener("change", handleDepartment);
-
-    function handleDepartment(e) {
-      console.log(e.target.value);
-    }
-    ```
-
-  - onchange event
-
-    ```js
-    // finding the elements
-    const form = document.querySelector("form");
-    const name = form.querySelector("div #name");
-    const email = form.querySelector("div #email");
-    const password = form.querySelector("div #password");
-
-    form.addEventListener("submit", formHandler);
-
-    function formHandler(e) {
-      e.preventDefault();
-
-      const userInfo = {
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      };
-
-      console.log(userInfo);
-      name.value = "";
-      email.value = "";
-      password.value = "";
-    }
-    ```
-
-- aa
-
-## 12. Browser Object Model (BOM)
+### 2.2 Browser Object Model (BOM)
 
 - BOM allows javascript to speak or communicate with broswer
 
@@ -4094,7 +3225,7 @@ console.log(welcomeMessage3("Brown", 22));
   }, 2000);
   ```
 
-## 14. Local storage
+### 2.3 Local storage
 
 ```js
 // Web storage API - allows us to store & read data in browser
@@ -4129,25 +3260,11 @@ console.log(welcomeMessage3("Brown", 22));
 // localStorage.clear();
 ```
 
-## 15. Best Practices
-
-- use naming conventions for variables
-- avoid unncessary variables
-- variable declaration on top
-- use const for object and array
-- switch, case, default
-- == vs ===
-- [access dom less](https://youtu.be/PZVF5l0D7_E)
-
-## 16. npm & ESLint setup
-
-- [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
-
-## 17. ES6 - ECMASCRIPT 2015
+### 2.4 ES6 Features
 
 - Template literals, default & rest parameters, Spread operators, Destructuring, Object Literals, for of, for in, classes, modules, asynchronous programming- callback, promise
 
-### ES6 Syntax
+// old version
 
 - Template literals
 
@@ -4287,8 +3404,6 @@ console.log(welcomeMessage3("Brown", 22));
   // for in works with object
   ```
 
-### Map & Set
-
 - Set object helps us to hold unique values.
 
   ```js
@@ -4305,8 +3420,6 @@ console.log(welcomeMessage3("Brown", 22));
 
   uniqueNumbers.clear(); // clear the set
   ```
-
-### classes & modules
 
 - class & Inheritance
 
@@ -4366,7 +3479,273 @@ console.log(welcomeMessage3("Brown", 22));
   s2.printInfo();
   ```
 
-### Asynchronous Programming
+  // old version finished here
+
+#### 2.4.1 Template literals
+
+Template literals, introduced in ECMAScript 6 (ES6), provide an elegant way to work with strings in JavaScript. They allow you to embed expressions and multiline strings directly within string literals. Template literals are enclosed in backticks (``), rather than single or double quotes. Here are some key features and examples:
+
+1. **Embedding Expressions:** You can embed JavaScript expressions inside template literals using `${}` within the backticks.
+
+   ```javascript
+   const name = "John";
+   const greeting = `Hello, ${name}!`; // Embedding the 'name' variable
+   console.log(greeting); // Output: "Hello, John!"
+   ```
+
+2. **Multiline Strings:** Template literals can span multiple lines without needing escape characters like `\n`.
+
+   ```javascript
+   const multiline = `This is
+   a multiline
+   string.`;
+   console.log(multiline);
+   // Output:
+   // This is
+   // a multiline
+   // string.
+   ```
+
+3. **Expression Evaluation:** Expressions within `${}` are evaluated and their results are included in the resulting string.
+
+   ```javascript
+   const x = 5;
+   const y = 10;
+   const sum = `The sum of ${x} and ${y} is ${x + y}.`;
+   console.log(sum); // Output: "The sum of 5 and 10 is 15."
+   ```
+
+4. **Tagged Templates (Advanced):** You can use tagged templates to customize the behavior of template literals. A tag function can preprocess template literals and perform custom operations.
+
+   ```javascript
+   function tag(strings, ...values) {
+     console.log(strings); // Array of string parts
+     console.log(values); // Array of expression values
+   }
+
+   const a = 5;
+   const b = 10;
+   tag`The sum of ${a} and ${b} is ${a + b}.`;
+   // Output:
+   // [ 'The sum of ', ' and ', ' is ', '.' ]
+   // [ 5, 10, 15 ]
+   ```
+
+Template literals offer a cleaner and more readable way to work with strings, especially when you need to include variables or multiline content. They are widely used in modern JavaScript development.
+
+#### 2.4.2 Arrow Function
+
+Arrow functions are a concise way to write functions in JavaScript, introduced in ECMAScript 6 (ES6). They provide a more streamlined syntax compared to traditional function expressions. Arrow functions are particularly useful for writing short, simple functions.
+
+```js
+// Arrow function vs Traditional function
+
+// demo1 - must use parenthesis for no parameters or multiple parmaters, but for one parameter its optional
+function display1() {
+  console.log("I am display 1");
+}
+const display2 = () => {
+  console.log("I am display 2");
+};
+display1();
+display2();
+
+// demo2 - no need to use curly braces if returning or dealing with single statement
+function display3() {
+  console.log("I am display 3");
+}
+const display4 = () => console.log("I am display 4");
+display3();
+display4();
+
+// returning value in arrow function - no need to use return keyword with single statement
+function display5() {
+  return "I am display 5";
+}
+const display6 = () => "I am display 6";
+console.log(display5());
+console.log(display6());
+
+// parameters in arrow function
+function add1(x, y) {
+  return x + y;
+}
+const add2 = (x, y) => x + y;
+console.log(add1(10, 20));
+console.log(add2(20, 30));
+```
+
+- Program 13 : E-Commerce app [arrow-function]
+
+  ```js
+
+  ```
+
+#### 2.4.3 module
+
+JavaScript modules allow you to break up your code into separate files. This makes it easier to maintain a code-base. Modules are imported from external files with the import statement. Modules also rely on type="module" in the `<script>` tag.
+
+- export: Modules with functions or variables can be stored in any external file. There are two types of exports: Named Exports and Default Exports.
+
+  ```js
+  // person.js
+  // inline individually exports
+  export const name = "Jesse";
+  export const age = 40;
+
+  // all at once exports
+  const name = "Jesse";
+  const age = 40;
+  export { name, age };
+  ```
+
+  ```js
+  // 1 export in a file
+  const message = () => {
+    const name = "Jesse";
+    const age = 40;
+    return name + " is " + age + "years old.";
+  };
+
+  export default message;
+  ```
+
+- import: You can import modules into a file in two ways, based on if they are named exports or default exports. Named exports are constructed using curly braces. Default exports are not.
+
+  - example of Named Imports
+
+    ```js
+    import { name, age } from "./person.js";
+    ```
+
+  - example of default imports
+
+    ```js
+    import message from "./message.js";
+    ```
+
+#### 2.4.4 spread operator and Rest parameter
+
+The spread operator and rest parameter are two features in JavaScript that involve the use of three dots (`...`). While they might look similar, they serve different purposes and are used in different contexts.
+
+- Spread Operator: The spread operator (`...`) is used to expand elements or items from an iterable (like an array or object) into places where multiple elements or arguments are expected. It allows you to create copies of arrays or objects, merge arrays, or pass multiple arguments to functions.
+
+  - Array Spread:
+
+  ```javascript
+  const numbers = [1, 2, 3];
+  const newNumbers = [...numbers, 4, 5]; // Creates a new array with the spread operator
+
+  console.log(newNumbers); // Output: [1, 2, 3, 4, 5]
+  ```
+
+  - Object Spread (ES2018 and later):
+
+  ```javascript
+  const person = { name: "John", age: 30 };
+  const newPerson = { ...person, city: "New York" }; // Merges objects
+
+  console.log(newPerson); // Output: { name: 'John', age: 30, city: 'New York' }
+  ```
+
+  - Function Arguments: The spread operator can be used to pass multiple arguments to a function.
+
+  ```javascript
+  function addNumbers(x, y, z) {
+    return x + y + z;
+  }
+
+  const numbers = [1, 2, 3];
+  const sum = addNumbers(...numbers); // Passes individual values as arguments
+
+  console.log(sum); // Output: 6
+  ```
+
+- Rest Parameter: The rest parameter (`...`) is used in function definitions to collect all remaining arguments into a single array-like object. It's the opposite of the spread operator because it takes multiple arguments and turns them into an array.
+
+```javascript
+function sumNumbers(...args) {
+  return args.reduce((total, num) => total + num, 0);
+}
+
+const result = sumNumbers(1, 2, 3, 4, 5);
+
+console.log(result); // Output: 15
+```
+
+In this example, the `...args` rest parameter collects all the arguments passed to the `sumNumbers` function into an array-like object. You can then perform operations on this array, such as summing the numbers.
+
+**To summarize, the spread operator is used for expanding elements (e.g., when creating copies or merging arrays/objects), while the rest parameter is used for collecting multiple function arguments into a single array-like object. Both of these features are powerful tools in JavaScript for working with data structures and function arguments.**
+
+#### 2.4.5 destructure
+
+Destructuring is a feature in JavaScript that allows you to extract values from objects and arrays, and assign them to variables in a more concise and readable way. It can be used for both objects and arrays.
+
+- Object Destructuring:
+
+  ```javascript
+  const person = { firstName: "John", lastName: "Doe", age: 30 };
+
+  // Destructuring assignment
+  const { firstName, lastName, age } = person;
+
+  console.log(firstName); // Output: 'John'
+  console.log(lastName); // Output: 'Doe'
+  console.log(age); // Output: 30
+  ```
+
+  In the example above, we have an object `person`, and we use object destructuring to extract its properties `firstName`, `lastName`, and `age` into separate variables.
+
+- Array Destructuring:
+
+  ```javascript
+  const colors = ["red", "green", "blue"];
+
+  // Destructuring assignment
+  const [firstColor, secondColor, thirdColor] = colors;
+
+  console.log(firstColor); // Output: 'red'
+  console.log(secondColor); // Output: 'green'
+  console.log(thirdColor); // Output: 'blue'
+  ```
+
+  In this example, we have an array `colors`, and we use array destructuring to extract its elements into separate variables.
+
+- Default Values: You can also provide default values when destructuring in case a property or element doesn't exist:
+
+  ```javascript
+  const person = { firstName: "John", lastName: "Doe" };
+
+  // Destructuring with default values
+  const { firstName, lastName, age = 25 } = person;
+
+  console.log(firstName); // Output: 'John'
+  console.log(lastName); // Output: 'Doe'
+  console.log(age); // Output: 25 (default value)
+  ```
+
+- Rest Syntax: Destructuring also allows you to use the rest syntax to collect remaining properties or elements into a new variable:
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5];
+
+  // Using the rest syntax to collect remaining elements
+  const [first, second, ...rest] = numbers;
+
+  console.log(first); // Output: 1
+  console.log(second); // Output: 2
+  console.log(rest); // Output: [3, 4, 5]
+  ```
+
+  Destructuring is a powerful feature that can simplify your code when working with complex data structures like objects and arrays. It's commonly used in modern JavaScript to make code more readable and expressive.
+
+- Program 14: E-commerce app [destructuring]
+
+```js
+
+```
+
+#### 2.4.6 Asynchronous Programming
 
 - Synchronous , asynchronous, callback, higher order function, promise, async await
 
@@ -4610,7 +3989,119 @@ console.log(welcomeMessage3("Brown", 22));
   loadData();
   ```
 
-## 19. API Calling
+### 2.5 Higher order and callback functions
+
+#### 2.5.1 higher order function and callback function
+
+Higher-order functions and callback functions are fundamental concepts in JavaScript. Higher-order functions are functions that can accept other functions as arguments or return functions as their result. Callback functions are functions that are passed as arguments to higher-order functions and are executed later. Here's an example:
+
+```javascript
+// Higher-order function
+function calculate(num1, num2, operation) {
+  return operation(num1, num2);
+}
+
+// Callback functions
+function add(x, y) {
+  return x + y;
+}
+
+function subtract(x, y) {
+  return x - y;
+}
+
+function multiply(x, y) {
+  return x * y;
+}
+
+function divide(x, y) {
+  return x / y;
+}
+
+// Using the higher-order function with callback functions
+const result1 = calculate(5, 3, add);
+console.log(result1); // Output: 8
+
+const result2 = calculate(10, 4, subtract);
+console.log(result2); // Output: 6
+
+const result3 = calculate(6, 2, multiply);
+console.log(result3); // Output: 12
+
+const result4 = calculate(8, 2, divide);
+console.log(result4); // Output: 4
+```
+
+In this example:
+
+1. `calculate` is a higher-order function that takes two numbers and a callback function (`operation`) as arguments. It then invokes the `operation` callback function with the provided numbers.
+
+2. We define four callback functions (`add`, `subtract`, `multiply`, and `divide`) that perform different mathematical operations.
+
+3. We use the `calculate` function with each of these callback functions to perform various calculations. The `calculate` function doesn't need to know the specifics of the operation; it delegates that to the provided callback function.
+
+This is a simple example of how higher-order functions and callback functions work together in JavaScript. They are used extensively in JavaScript for various tasks, including event handling, asynchronous operations, and functional programming.
+
+#### 2.5.2 map( )
+
+- [map()](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/) higher order function - when we use loop we need to create an array but map returns an array. map() does not change the original array. map() creates a new array from calling a function for every array element. map() does not execute the function for empty elements.
+
+  ```js
+  const numbers = [22, 31, 4, 5, 35, 26, 78];
+  const squareNumbers = numbers.map(function (x) {
+    return x * x;
+  });
+  console.log(squareNumbers);
+  ```
+
+  - Program 15 : E-commerce app [Higher Order Function: map()]
+
+#### 2.5.3 filter( )
+
+- filter() higher order function: filter() does not change the original array. filter() creates a new array filled with elements that pass a test provided by a function. filter() calls a function once for each element in an array. filter() does not execute the function for empty elements.
+
+  ```js
+  var numbers = [22, 31, 4, 5, 35, 26, 78];
+  var newNumbers = numbers.filter(function (x) {
+    return x > 10;
+  });
+  console.log(newNumbers);
+  ```
+
+- Program 16: E-commerce app [filter() higher order function]
+
+#### 2.5.4 reduce( )
+
+- reduce() higher order function: sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
+
+  ```js
+  const numbers = [10, 20, 30, 40, 50];
+  // first call -> previous 10, current 20
+  // 2nd call -> previous 30, current 30
+  // 3rd call -> previous 60, current 40
+  // 4th call -> previous 100, current 50
+
+  const result = numbers.reduce((previous, current) => {
+    return previous + current;
+  });
+  console.log(result);
+  ```
+
+## 2.7 Best Practices
+
+- use naming conventions for variables
+- avoid unncessary variables
+- variable declaration on top
+- use const for object and array
+- switch, case, default
+- == vs ===
+- [access dom less](https://youtu.be/PZVF5l0D7_E)
+
+## 2.8 npm & ESLint setup
+
+- [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
+
+## 2.9 API Calling
 
 - make sure to install json formatter extension for google chrome
 - Some free api
