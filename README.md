@@ -20,17 +20,26 @@
    - [1.6.2 var, let, const](#162-var-let-const)
 
    [1.7 Objects](#17-objects)
+
    [1.8 Arrays](#18-arrays)
+
    [1.9 Built-in methods](#19-built-in-methods)
+
    [1.10 Error Handling](#110-errors-and-errors-handling)
+
    [1.11 JSON and JSDoc](#111-json-and-jsdoc)
 
 2. [Intermediate JavaScript Topics](#2-intermediate-javascript-topics)
 
    [2.1 Document Object Model (DOM) and Events](#21-document-object-model-dom-and-events)
+
    [2.2 Browser Object Model (BOM)](#22-browser-object-model-bom)
+
    [2.3 Local storage](#23-local-storage)
+
    [2.4 ES6 Features](#24-es6-features)
+
+   [2.5 Higher order and callback functions](#25-higher-order-and-callback-functions)
 
 3. [Advanced JavaScript Topics]()
 
@@ -3993,7 +4002,9 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 #### 2.5.1 higher order function and callback function
 
-Higher-order functions and callback functions are fundamental concepts in JavaScript. Higher-order functions are functions that can accept other functions as arguments or return functions as their result. Callback functions are functions that are passed as arguments to higher-order functions and are executed later. Here's an example:
+Higher-order functions and callback functions are fundamental concepts in JavaScript. Higher-order functions are functions that can accept other functions as arguments or return functions as their result. Example of higher order functions: forEach, map, filter, reduce, setTimeout, addEvenetListener, find, some, every, sort.
+
+Callback functions are functions that are passed as arguments to higher-order functions and are executed later. Here's an example:
 
 ```javascript
 // Higher-order function
@@ -4042,9 +4053,22 @@ In this example:
 
 This is a simple example of how higher-order functions and callback functions work together in JavaScript. They are used extensively in JavaScript for various tasks, including event handling, asynchronous operations, and functional programming.
 
-#### 2.5.2 map( )
+#### 2.5.2 forEach
 
-- [map()](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/) higher order function - when we use loop we need to create an array but map returns an array. map() does not change the original array. map() creates a new array from calling a function for every array element. map() does not execute the function for empty elements.
+- The forEach function is a higher-order function that executes a provided function once for each array element.
+
+  ```js
+  const fruits = ["apple", "banana", "cherry"];
+  fruits.forEach((fruit) => console.log(fruit));
+  // Output:
+  // apple
+  // banana
+  // cherry
+  ```
+
+#### 2.5.3 map( )
+
+- [map()](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/) higher order function - The map function is a higher-order function that applies a provided function to each element in an array and returns a new array with the results. when we use loop we need to create an array but map returns an array. map() does not change the original array. map() creates a new array from calling a function for every array element. map() does not execute the function for empty elements.
 
   ```js
   const numbers = [22, 31, 4, 5, 35, 26, 78];
@@ -4052,13 +4076,17 @@ This is a simple example of how higher-order functions and callback functions wo
     return x * x;
   });
   console.log(squareNumbers);
+
+  const numbers = [1, 2, 3, 4, 5];
+  const doubled = numbers.map((number) => number * 2);
+  console.log(doubled); // [2, 4, 6, 8, 10]
   ```
 
   - Program 15 : E-commerce app [Higher Order Function: map()]
 
-#### 2.5.3 filter( )
+#### 2.5.4 filter( )
 
-- filter() higher order function: filter() does not change the original array. filter() creates a new array filled with elements that pass a test provided by a function. filter() calls a function once for each element in an array. filter() does not execute the function for empty elements.
+- filter() higher order function: The filter function is a higher-order function that returns a new array containing elements that satisfy a given condition. filter() does not change the original array. filter() creates a new array filled with elements that pass a test provided by a function. filter() calls a function once for each element in an array. filter() does not execute the function for empty elements.
 
   ```js
   var numbers = [22, 31, 4, 5, 35, 26, 78];
@@ -4066,13 +4094,17 @@ This is a simple example of how higher-order functions and callback functions wo
     return x > 10;
   });
   console.log(newNumbers);
+
+  const numbers = [1, 2, 3, 4, 5];
+  const evenNumbers = numbers.filter((number) => number % 2 === 0);
+  console.log(evenNumbers); // [2, 4]
   ```
 
 - Program 16: E-commerce app [filter() higher order function]
 
-#### 2.5.4 reduce( )
+#### 2.5.5 reduce( )
 
-- reduce() higher order function: sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
+- reduce() higher order function: The reduce function is a higher-order function that applies a function against an accumulator and each element in an array (from left to right) to reduce it to a single value. sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
 
   ```js
   const numbers = [10, 20, 30, 40, 50];
@@ -4085,9 +4117,39 @@ This is a simple example of how higher-order functions and callback functions wo
     return previous + current;
   });
   console.log(result);
+
+  const numbers = [1, 2, 3, 4, 5];
+  const sum = numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  console.log(sum); // 15
   ```
 
-## 2.7 Best Practices
+#### 2.5.6 some( ) and every( )
+
+The some function checks if at least one element in an array satisfies a given condition, while the every function checks if all elements in an array satisfy a given condition.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const hasEven = numbers.some((number) => number % 2 === 0);
+console.log(hasEven); // true
+
+const allEven = numbers.every((number) => number % 2 === 0);
+console.log(allEven); // false
+```
+
+#### 2.5.7 sort
+
+The sort function is a higher-order function that sorts the elements of an array based on a provided comparison function.
+
+```js
+const fruits = ["apple", "banana", "cherry", "date"];
+const sortedFruits = fruits.sort((a, b) => a.localeCompare(b));
+console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
+```
+
+## 2.6 Best Practices
 
 - use naming conventions for variables
 - avoid unncessary variables
@@ -4097,11 +4159,11 @@ This is a simple example of how higher-order functions and callback functions wo
 - == vs ===
 - [access dom less](https://youtu.be/PZVF5l0D7_E)
 
-## 2.8 npm & ESLint setup
+## 2.7 npm & ESLint setup
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
-## 2.9 API Calling
+## 2.8 API Calling
 
 - make sure to install json formatter extension for google chrome
 - Some free api
