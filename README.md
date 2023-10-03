@@ -14,10 +14,11 @@
 
    [1.5 Function](#15-function---traditional)
 
-   [1.6 Scope of Variables & closures](#16-scope-of-variables--closures)
+   [1.6 Hositing, scope of variables and closures](#16-hoisting-scope-of-variables--closures)
 
-   - [1.6.1 scope of variables and closures](#161-scope-and-closures)
-   - [1.6.2 var, let, const](#162-var-let-const)
+   - [1.6.1 Hositings](#161-hoisting)
+   - [1.6.2 Scope of variables and closures](#162-scope-and-closures)
+   - [1.6.3 var, let, const](#163-var-let-const)
 
    [1.7 Objects](#17-objects)
 
@@ -1187,9 +1188,51 @@ Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unar
 - create a function for checking largest number between 2/3 numbers
 - put all if-else related programs inside functions
 
-### 1.6 Scope of Variables , closures
+### 1.6 Hoisting, Scope of Variables , closures
 
-#### 1.6.1 scope and closures
+#### 1.6.1 Hoisting
+
+Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase. This means that you can use variables and functions in code before they are declared in the source code. However, there is a distinction between variable and function hoisting.
+
+1. **Variable Hoisting**:
+
+   Variables declared with `var` are hoisted. This means that they are moved to the top of their function or global scope, and their initial value is set to `undefined`.
+
+   ```javascript
+   console.log(x); // undefined
+   var x = 5;
+   ```
+
+   In the above example, `x` is hoisted, but its value is `undefined` until it's assigned the value `5`.
+
+2. **Function Hoisting**:
+
+   Function declarations are also hoisted. You can call a function before its declaration in the code.
+
+   ```javascript
+   sayHello(); // Hello, world!
+
+   function sayHello() {
+     console.log("Hello, world!");
+   }
+   ```
+
+   In this case, the function `sayHello` is hoisted to the top of the scope, so you can call it before its actual declaration in the code.
+
+3. **Block-Scoped Variables (let and const)**:
+
+   Variables declared with `let` and `const` are also hoisted, but they are not initialized with `undefined`. Instead, they are in a "temporal dead zone" until they are declared in the code.
+
+   ```javascript
+   console.log(x); // ReferenceError: x is not defined
+   let x = 5;
+   ```
+
+   Unlike `var`, if you try to access a `let` or `const` variable before its declaration, it will result in a `ReferenceError`.
+
+It's important to understand hoisting because it can lead to unexpected behavior in your code if you're not aware of how it works. To avoid issues, it's generally a good practice to declare variables at the beginning of their containing scope and to use `let` and `const` for better scoping behavior compared to `var`.
+
+#### 1.6.2 scope and closures
 
 In JavaScript, the scope of a variable refers to the context in which the variable is declared and can be accessed. The scope determines where in your code a variable is visible and can be used. JavaScript has two main types of variable scope: **global scope** and **local scope** (also known as function scope). Understanding variable scope is crucial for writing clean, maintainable, and bug-free JavaScript code. It helps prevent unintended variable name collisions and allows you to control the visibility and lifetime of variables in your programs.
 
@@ -1289,7 +1332,7 @@ In JavaScript, the scope of a variable refers to the context in which the variab
 
   Closures are powerful because they allow you to encapsulate data and behavior, creating private variables and functions that can be used to manage state or implement various patterns like the module pattern and the revealing module pattern in JavaScript.
 
-#### 1.6.2 Var, let, const
+#### 1.6.3 Var, let, const
 
 - 2 important things: reassign, scope - block, function, global.
 
@@ -3165,6 +3208,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
   }
   ```
 
+[&#8593; Back to Top](#table-of-contents)[&#8593; Back to Top](#table-of-contents)
+
 ### 2.2 Browser Object Model (BOM)
 
 - BOM allows javascript to speak or communicate with broswer
@@ -3234,6 +3279,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
   }, 2000);
   ```
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 2.3 Local storage
 
 ```js
@@ -3268,6 +3315,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
 
 // localStorage.clear();
 ```
+
+[&#8593; Back to Top](#table-of-contents)
 
 ### 2.4 ES6 Features
 
@@ -3998,7 +4047,11 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
   loadData();
   ```
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 2.5 Higher order and callback functions
+
+[&#8593; Back to Top](#table-of-contents)
 
 #### 2.5.1 higher order function and callback function
 
@@ -4084,6 +4137,8 @@ This is a simple example of how higher-order functions and callback functions wo
 
   - Program 15 : E-commerce app [Higher Order Function: map()]
 
+[&#8593; Back to Top](#table-of-contents)
+
 #### 2.5.4 filter( )
 
 - filter() higher order function: The filter function is a higher-order function that returns a new array containing elements that satisfy a given condition. filter() does not change the original array. filter() creates a new array filled with elements that pass a test provided by a function. filter() calls a function once for each element in an array. filter() does not execute the function for empty elements.
@@ -4101,6 +4156,8 @@ This is a simple example of how higher-order functions and callback functions wo
   ```
 
 - Program 16: E-commerce app [filter() higher order function]
+
+[&#8593; Back to Top](#table-of-contents)
 
 #### 2.5.5 reduce( )
 
@@ -4149,6 +4206,8 @@ const sortedFruits = fruits.sort((a, b) => a.localeCompare(b));
 console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
 ```
 
+[&#8593; Back to Top](#table-of-contents)
+
 ## 2.6 Best Practices
 
 - use naming conventions for variables
@@ -4158,6 +4217,8 @@ console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
 - switch, case, default
 - == vs ===
 - [access dom less](https://youtu.be/PZVF5l0D7_E)
+
+[&#8593; Back to Top](#table-of-contents)
 
 ## 2.7 npm & ESLint setup
 
