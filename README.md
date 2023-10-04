@@ -54,6 +54,7 @@
    - [Project ideas]()
      - Caclulator - basics, BMI
      - Converter - Temperature
+     - guessing game, dynamic cards, user preference (youtube)
      - API - Weather, Joke, Dog, Products
 
 ## 1. Basic Javascript Topics
@@ -4298,6 +4299,14 @@ These best practices can vary depending on the specific project, team, and codin
 ### 2.7 npm & ESLint setup
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
+
+### 2.8 You Must Know
+
+- Basics: Tokens, control statement, scope, functions
+- DOM: CRUD elements, event handling
+- ES6: string literals, arrow function, destructure, spread, rest, asynchronous - promise + asyc-await + fetch
+- Callback and Higher order functions: forEach, map, filter, reduce, every, some, find
+- json, try-catch, npm setup, localstorage
 
 ### 2.8 API Calling
 
