@@ -42,16 +42,19 @@
 
    [2.5 Higher order and callback functions](#25-higher-order-and-callback-functions)
 
+   [2.6 Best Practices](#26-best-practices)
+
+   [2.7 npm & ESLint setup](#27-npm--eslint-setup)
+
+   [2.8 API Calling](#28-api-calling)
+
 3. [Advanced JavaScript Topics]()
+   [3.1 OOP]()
 
-   - []()
-
-     <!-- - [CV Project](#341-cv-project)
-     - [Calculator Project](#342-calculator-project)
-     - [Portfolio Website](#343-portfolio-project)
-     - [Restaurant Website](#344-restaurant-project)
-     - [Blog Website](#345-blog-website-project)
-     - [Ecommerce Website](#346-e-commerce-we -->
+   - [Project ideas]()
+     - Caclulator - basics, BMI
+     - Converter - Temperature
+     - API - Weather, Joke, Dog, Products
 
 ## 1. Basic Javascript Topics
 
@@ -4208,7 +4211,9 @@ console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
 
 [&#8593; Back to Top](#table-of-contents)
 
-## 2.6 Best Practices
+### 2.6 Best Practices
+
+Best practices for JavaScript development are guidelines and recommendations that can help you write clean, maintainable, and efficient code. Here are some key best practices to consider:
 
 - use naming conventions for variables
 - avoid unncessary variables
@@ -4216,15 +4221,85 @@ console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
 - use const for object and array
 - switch, case, default
 - == vs ===
-- [access dom less](https://youtu.be/PZVF5l0D7_E)
+
+1. **Use Meaningful Variable and Function Names:** Choose descriptive names that indicate the purpose of the variable or function. Avoid single-letter variable names or cryptic names.
+
+   ```javascript
+   // Good
+   const totalPrice = calculateTotalPrice();
+
+   // Bad
+   const x = calc();
+   ```
+
+2. **Indentation and Formatting:** Use consistent indentation and formatting to make your code more readable. Common conventions include using 2 or 4 spaces for each level of indentation.
+
+   ```javascript
+   // Good
+   function sayHello() {
+     console.log("Hello, World!");
+   }
+
+   // Bad
+   function sayHello() {
+     console.log("Hello, World!");
+   }
+   ```
+
+3. **Comments:** Use comments to explain complex sections of code, especially if the logic isn't immediately clear. However, strive to write self-explanatory code, so comments are used sparingly.
+
+   ```javascript
+   // Good: Explains the purpose of the function
+   function calculateTotalPrice() {
+     // Calculate the total price after applying discounts
+     // ...
+   }
+
+   // Bad: Unnecessary comment stating the obvious
+   function sayHello() {
+     console.log("Hello, World!"); // Print Hello, World!
+   }
+   ```
+
+4. **Modularize Your Code:** Organize your code into smaller, reusable functions or modules. This promotes code reusability and makes it easier to maintain.
+
+5. **Avoid Global Variables:** Minimize the use of global variables, as they can lead to naming conflicts and make debugging difficult. Use local variables or encapsulate your code in modules to prevent pollution of the global namespace.
+
+6. **Use Strict Mode:** Enable strict mode (`'use strict';`) at the beginning of your JavaScript files or functions to catch common coding mistakes and make your code more robust.
+
+   ```javascript
+   "use strict";
+   ```
+
+7. **Avoid Blocking Operations:** JavaScript is single-threaded, so long-running operations can block the main thread. Use asynchronous programming techniques like Promises and `async/await` to prevent blocking.
+
+8. **Error Handling:** Always include error handling in your code, especially when dealing with external data sources or APIs. Use try-catch blocks or Promises to handle errors gracefully.
+
+9. **Avoid Excessive Nesting:** Deeply nested code can be hard to read and maintain. Refactor complex logic into smaller functions to reduce nesting levels.
+
+10. **Optimize Performance:** Be mindful of performance considerations. Avoid unnecessary DOM manipulations, minimize network requests, and optimize loops and data structures for efficiency.
+
+11. **Testing:** Implement automated testing using frameworks like Jest or Mocha to ensure that your code behaves as expected. Write unit tests, integration tests, and end-to-end tests as needed.
+
+12. **Version Control:** Use version control systems like Git to track changes in your codebase. Create meaningful commit messages and follow branching strategies like Git Flow.
+
+13. **Code Reviews:** Collaborate with team members and conduct code reviews to catch issues, share knowledge, and ensure code quality.
+
+14. **Keep Dependencies Up to Date:** Regularly update your project's dependencies to benefit from bug fixes, security updates, and new features.
+
+15. **Code Linting:** Use a code linter like ESLint to enforce coding standards and catch potential issues early in development.
+
+16. **Documentation:** Write clear and concise documentation for your code, including usage instructions for functions and modules.
+
+These best practices can vary depending on the specific project, team, and coding standards in use. It's important to adapt and refine your practices as you gain experience and work on different types of projects.
 
 [&#8593; Back to Top](#table-of-contents)
 
-## 2.7 npm & ESLint setup
+### 2.7 npm & ESLint setup
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
-## 2.8 API Calling
+### 2.8 API Calling
 
 - make sure to install json formatter extension for google chrome
 - Some free api
@@ -4237,6 +4312,7 @@ console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
   - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
     - [check documentation](https://github.com/anisul-Islam/complete-rest-api-with-mongodb)
   - [users api create by me](https://rest-api-mongodb-2022.herokuapp.com)
+  - [joke api](https://api.chucknorris.io/)
 
 - API using fetch
 
