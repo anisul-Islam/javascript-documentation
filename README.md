@@ -46,9 +46,10 @@
 
    [2.7 npm & ESLint setup](#27-npm--eslint-setup)
 
-   [2.8 API Calling](#28-api-calling)
+   [2.8 You must know](#28-you-must-know)
+   [2.9 API Calling](#29-api-calling)
 
-3. [Advanced JavaScript Topics]()
+3. [Advanced JavaScript Topics](#3-advanced-javascript-topics)
    [3.1 OOP]()
 
    - [Project ideas]()
@@ -56,6 +57,7 @@
      - Converter - Temperature
      - guessing game, dynamic cards, user preference (youtube)
      - API - Weather, Joke, Dog, Products
+     - [Todo CRUD APP](https://todo-crud-app-2023.netlify.app/)
 
 ## 1. Basic Javascript Topics
 
@@ -3214,6 +3216,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
 
 [&#8593; Back to Top](#table-of-contents)[&#8593; Back to Top](#table-of-contents)
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 2.2 Browser Object Model (BOM)
 
 - BOM allows javascript to speak or communicate with broswer
@@ -3285,6 +3289,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
 
 [&#8593; Back to Top](#table-of-contents)
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 2.3 Local storage
 
 ```js
@@ -3319,6 +3325,8 @@ The DOM is a fundamental concept in web development because it enables dynamic a
 
 // localStorage.clear();
 ```
+
+[&#8593; Back to Top](#table-of-contents)
 
 [&#8593; Back to Top](#table-of-contents)
 
@@ -4055,8 +4063,6 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 ### 2.5 Higher order and callback functions
 
-[&#8593; Back to Top](#table-of-contents)
-
 #### 2.5.1 higher order function and callback function
 
 Higher-order functions and callback functions are fundamental concepts in JavaScript. Higher-order functions are functions that can accept other functions as arguments or return functions as their result. Example of higher order functions: forEach, map, filter, reduce, setTimeout, addEvenetListener, find, some, every, sort.
@@ -4300,6 +4306,8 @@ These best practices can vary depending on the specific project, team, and codin
 
 - [ESLint documentation](https://github.com/anisul-Islam/eslint-documentation)
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 2.8 You Must Know
 
 - Basics: Tokens, control statement, scope, functions
@@ -4308,7 +4316,9 @@ These best practices can vary depending on the specific project, team, and codin
 - Callback and Higher order functions: forEach, map, filter, reduce, every, some, find
 - json, try-catch, npm setup, localstorage
 
-### 2.8 API Calling
+[&#8593; Back to Top](#table-of-contents)
+
+### 2.9 API Calling
 
 - make sure to install json formatter extension for google chrome
 - Some free api
@@ -4331,12 +4341,18 @@ These best practices can vary depending on the specific project, team, and codin
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((json) => console.log(json));
+    setTimeout(() => {
+      console.log("hello");
+    }, 3000);
 
     // can catch client error
     fetch("https://jsonplacholder.typicode.com/posts")
       .then((response) => response.json())
       .then((json) => console.log(json))
       .catch((err) => console.log(err));
+    setTimeout(() => {
+      console.log("hello");
+    }, 3000);
 
     // can not catch server error
     fetch("https://jsonplaceholder.typicode.com/posts/101")
@@ -4346,8 +4362,10 @@ These best practices can vary depending on the specific project, team, and codin
     // solution: add an if statement
     fetch("https://jsonplaceholder.typicode.com/posts/101")
       .then((response) => {
-        console.log(response);
-        return response.json();
+        if (response.ok) {
+          return response.json();
+        }
+        throw Error("server error");
       })
       .then((json) => console.log(json))
       .catch((error) => console.log(error));
@@ -4514,3 +4532,181 @@ These best practices can vary depending on the specific project, team, and codin
     })
     .then((response) => console.log(response));
   ```
+
+[&#8593; Back to Top](#table-of-contents)
+
+## 3. Advanced Javascript Topics
+
+### 3.1 Object Oriented Programming (OOP)
+
+- 4 keys principles of OOP: Inheritance, Encapsulation, Abstraction and Polymorphism. In order to understand these 4 key concepts we need to understand class and object.
+
+class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
+
+```javascript
+// Define a class named "Person"
+class Person {
+  // The constructor method is called when an object is created from this class.
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // Method to greet
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
+  }
+}
+
+// Create an instance of the Person class
+const person1 = new Person("John", 30);
+
+// Call the greet method on the object
+person1.greet(); // Output: "Hello, my name is John and I am 30 years old."
+```
+
+In this example:
+
+- We define a `Person` class with a constructor method that sets the `name` and `age` properties of the object when it's created.
+- We define a `greet` method within the class that allows objects created from this class to greet.
+- We create an instance of the `Person` class called `person1` using the `new` keyword and pass in values for the `name` and `age` properties.
+- We call the `greet` method on the `person1` object to display a greeting.
+
+ES6 classes provide a more structured and readable way to work with object-oriented programming in JavaScript, making it easier to create and manage objects with shared behaviors.
+
+#### 3.1.1 Inheritance
+
+#### 3.1.2 Encapsulation
+
+However, constructors cannot be private in JavaScript.
+
+```js
+class Shape {
+  #dim1;
+  #dim2;
+  constructor(dim1, dim2) {
+    this.#dim1 = dim1;
+    this.#dim2 = dim2;
+  }
+
+  setDim1(dim1) {
+    this.#dim1 = dim1;
+  }
+  setDim2(dim2) {
+    this.#dim2 = dim2;
+  }
+
+  getDim1() {
+    return this.#dim1;
+  }
+  getDim2() {
+    return this.#dim2;
+  }
+}
+
+const s = new Shape(20, 30);
+s.setDim1(50);
+console.log(s.getDim1());
+```
+
+#### 3.1.3 Polymorphism
+
+Polymorphism in object-oriented programming allows objects of different classes to be treated as objects of a common superclass. It allows you to use a single interface to represent a general class of actions. Here's a simple example in JavaScript:
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log(`${this.name} meows.`);
+  }
+}
+
+// Polymorphism in action
+const animals = [new Dog("Rex"), new Cat("Whiskers")];
+
+animals.forEach((animal) => {
+  animal.speak(); // The correct speak method is called based on the object's type.
+});
+```
+
+In this example:
+
+1. We have a base class `Animal` with a `speak` method that prints a generic message.
+
+2. We have two derived classes, `Dog` and `Cat`, which inherit from `Animal` and override the `speak` method to provide their own implementation.
+
+3. We create instances of `Dog` and `Cat` and store them in an array.
+
+4. We iterate through the array of animals and call the `speak` method on each object. Despite the method having the same name in the base class, it behaves differently based on the actual type of the object (i.e., polymorphism).
+
+#### 3.1.4 Abstraction
+
+Abstraction in object-oriented programming is the process of simplifying complex reality by modeling classes based on the essential properties and behaviors of objects. It involves hiding the complex implementation details and exposing only the necessary functionalities. Here's an example in JavaScript:
+
+```javascript
+class Shape {
+  constructor(name) {
+    this.name = name;
+  }
+
+  // Abstract method to calculate area (to be overridden by subclasses)
+  calculateArea() {
+    throw new Error("Method calculateArea must be implemented in subclasses");
+  }
+}
+
+class Circle extends Shape {
+  constructor(name, radius) {
+    super(name);
+    this.radius = radius;
+  }
+
+  calculateArea() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(name, width, height) {
+    super(name);
+    this.width = width;
+    this.height = height;
+  }
+
+  calculateArea() {
+    return this.width * this.height;
+  }
+}
+
+// Usage
+const circle = new Circle("Circle", 5);
+const rectangle = new Rectangle("Rectangle", 4, 6);
+
+console.log(`${circle.name} Area: ${circle.calculateArea()}`);
+console.log(`${rectangle.name} Area: ${rectangle.calculateArea()}`);
+```
+
+In this example:
+
+1. We have an abstract class `Shape` that defines a contract for subclasses to implement. It has an abstract method `calculateArea()`, which should be overridden by concrete subclasses.
+
+2. We have two concrete subclasses, `Circle` and `Rectangle`, that inherit from the `Shape` class. They implement the `calculateArea` method according to their specific shapes.
+
+3. We create instances of `Circle` and `Rectangle`, and we can call the `calculateArea` method on them, which is abstracted away from the implementation details. The specific calculation is hidden within each subclass, demonstrating abstraction.
