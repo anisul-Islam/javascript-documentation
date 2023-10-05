@@ -4710,3 +4710,169 @@ In this example:
 2. We have two concrete subclasses, `Circle` and `Rectangle`, that inherit from the `Shape` class. They implement the `calculateArea` method according to their specific shapes.
 
 3. We create instances of `Circle` and `Rectangle`, and we can call the `calculateArea` method on them, which is abstracted away from the implementation details. The specific calculation is hidden within each subclass, demonstrating abstraction.
+
+### 3.2 Bank Demo
+
+```js
+class Transaction {
+  constructor(amount) {
+    try {
+      if (amount < 0) {
+        throw new Error("Transaction amount cannot be negative.");
+      }
+      this.amount = amount;
+      this.date = new Date();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+}
+
+class Customer {
+  constructor(name, id) {
+    this.name = name;
+    this.id = id;
+    this.transactions = [];
+  }
+
+  addTransaction(amount) {
+    try {
+      const transaction = new Transaction(amount);
+      this.transactions.push(transaction);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  getBalance() {
+    return this.transactions.reduce(
+      (total, transaction) => total + transaction.amount,
+      0
+    );
+  }
+}
+
+class Branch {
+  constructor(name) {
+    this.name = name;
+    this.customers = [];
+  }
+
+  addCustomer(customer) {
+    if (!this.customers.includes(customer)) {
+      this.customers.push(customer);
+    }
+  }
+
+  addCustomerTransaction(customerId, amount) {
+    try {
+      const customer = this.customers.find((c) => c.id === customerId);
+      if (customer) {
+        customer.addTransaction(amount);
+      } else {
+        throw new Error("Customer not found.");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+}
+
+class Bank {
+  constructor(name) {
+    this.name = name;
+    this.branches = [];
+  }
+
+  addBranch(branch) {
+    try {
+      if (!this.branches.includes(branch)) {
+        this.branches.push(branch);
+      } else {
+        throw new Error("Branch already exists.");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  addCustomer(branch, customer) {
+    try {
+      if (this.branches.includes(branch)) {
+        branch.addCustomer(customer);
+      } else {
+        throw new Error("Branch not found.");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  addCustomerTransaction(branch, customerId, amount) {
+    try {
+      const targetBranch = this.branches.find((b) => b.name === branch.name);
+      if (targetBranch) {
+        targetBranch.addCustomerTransaction(customerId, amount);
+      } else {
+        throw new Error("Branch not found.");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  findBranchByName(branchName) {
+    return this.branches.filter((branch) => branch.name === branchName);
+  }
+
+  checkBranch(branch) {
+    return this.branches.includes(branch);
+  }
+
+  listCustomers(branch, includeTransactions) {
+    if (!this.branches.includes(branch)) {
+      console.error("Branch not found.");
+      return;
+    }
+
+    console.log(`Customers of ${branch.name}:`);
+    branch.customers.forEach((customer) => {
+      console.log(`Customer: ${customer.name}`);
+      if (includeTransactions) {
+        console.log("Transactions:");
+        customer.transactions.forEach((transaction) => {
+          console.log(
+            `Amount: ${transaction.amount}, Date: ${transaction.date}`
+          );
+        });
+      }
+      console.log(`Balance: ${customer.getBalance()}`);
+      console.log("---");
+    });
+  }
+}
+
+// Example usage:
+const bank = new Bank("My Bank");
+const branch1 = new Branch("Branch 1");
+const branch2 = new Branch("Branch 2");
+
+const customer1 = new Customer("Alice", "C1");
+const customer2 = new Customer("Bob", "C2");
+
+bank.addBranch(branch1);
+bank.addBranch(branch2);
+bank.addCustomer(branch1, customer1);
+bank.addCustomer(branch2, customer2);
+
+customer1.addTransaction(100);
+try {
+  customer1.addTransaction(-50); // This will throw an error.
+} catch (error) {
+  console.error(error.message);
+}
+
+bank.addCustomerTransaction(branch1, "C1", 200);
+
+bank.listCustomers(branch1, true);
+```
