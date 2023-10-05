@@ -50,14 +50,38 @@
    [2.9 API Calling](#29-api-calling)
 
 3. [Advanced JavaScript Topics](#3-advanced-javascript-topics)
-   [3.1 OOP]()
+   [3.1 OOP](#31-object-oriented-programming-oop)
+   [3.2 Testing and Debugging]()
 
-   - [Project ideas]()
-     - Caclulator - basics, BMI
-     - Converter - Temperature
-     - guessing game, dynamic cards, user preference (youtube)
-     - API - Weather, Joke, Dog, Products
-     - [Todo CRUD APP](https://todo-crud-app-2023.netlify.app/)
+   - [Unit testing with frameworks like Jest]()
+   - [Debugging tools and techniques]()
+
+   [3.3 Security]()
+
+   - [Cross-Site Scripting (XSS) prevention]()
+   - [Cross-Site Request Forgery (CSRF) prevention]()
+   - [Content Security Policy (CSP)]()
+
+   [3.4 Performance Optimization]()
+
+   - [Code optimization]()
+   - [Network optimization (lazy loading, asset compression)]()
+   - [Rendering optimization (requestAnimationFrame)]()
+
+   [3.5 Design Patterns]()
+
+   - [Singleton pattern]()
+   - [Module pattern]()
+   - [Observer pattern]()
+   - [Factory pattern]()
+
+   [3.6 Project ideas]()
+
+   - Caclulator - basics, BMI
+   - Converter - Temperature
+   - guessing game, dynamic cards, user preference (youtube)
+   - API - Weather, Joke, Dog, Products
+   - [Todo CRUD APP](https://todo-crud-app-2023.netlify.app/)
 
 ## 1. Basic Javascript Topics
 
