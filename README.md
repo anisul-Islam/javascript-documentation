@@ -4711,6 +4711,8 @@ In this example:
 
 3. We create instances of `Circle` and `Rectangle`, and we can call the `calculateArea` method on them, which is abstracted away from the implementation details. The specific calculation is hidden within each subclass, demonstrating abstraction.
 
+[&#8593; Back to Top](#table-of-contents)
+
 ### 3.2 Bank Demo
 
 ```js
@@ -4876,3 +4878,5 @@ bank.addCustomerTransaction(branch1, "C1", 200);
 
 bank.listCustomers(branch1, true);
 ```
+
+[&#8593; Back to Top](#table-of-contents)
