@@ -51,6 +51,8 @@
 
 3. [Advanced JavaScript Topics](#3-advanced-javascript-topics)
    [3.1 OOP](#31-object-oriented-programming-oop)
+   [3.2 Bank Demo](#32-bank-demo)
+   [3.3 Prepare for technical test](#33-prepare-for-technical-test)
    [3.2 Testing and Debugging]()
 
    - [Unit testing with frameworks like Jest]()
@@ -3841,6 +3843,90 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 #### 2.4.6 Asynchronous Programming
 
+- JS is a synchronous, blocking, single thread programming Language;
+
+    ```js
+      // synchronous
+      console.log('Task 1');
+      console.log('Task 2');
+      console.log('Task 3');
+      console.log('Task 4');
+      console.log('Task 5');
+
+      // blocking
+      console.log('Task 1');
+      console.log('Task 2');
+      const guess = Number(prompt('Enter a guess: '));
+      console.log(guess);
+      console.log('Task 3');
+      console.log('Task 4');
+      console.log('Task 5');
+    ```
+
+- we can use web API and fucntions from browser to make our code asycnhronous
+  - manage the time using settimeout, setinterval (these functions are not part of js they are just provided by the browser)
+  - event driven such as click a mouse then addEvenetListener will handle the event
+  - arrival of data using callbacks, promises and async await
+
+- setTimeout(): we can use setTimeout and setInterval traditional function to make our code asynchronous: settimeout(function, duration, param1, param2....). setTimeout runs once after a specific amount of time. the dealys are minimum delay but it can take more time.
+
+  ```js
+    console.log('Task 1');
+    console.log('Task 2');
+    setTimeout(() => {
+      console.log('Task 3');
+    }, 2000);
+    console.log('Task 4');
+    console.log('Task 5');
+
+  // cleartimeout()
+  console.log('Task 1');
+  console.log('Task 2');
+  const timeoutId = setTimeout(() => {
+    console.log('Task 3');
+  }, 2000);
+  clearTimeout(timeoutId);
+  console.log('Task 4');
+  console.log('Task 5');
+
+  ```
+
+- setInterval(): setInterval runs repeatedly after a specific amount of time. 
+  - create a basic digital clock
+
+    ```html
+      <p class="watch"></p>
+        <button id="watch-btn">stop the watch</button>
+    ```
+
+    ```js
+      const watchElement = document.querySelector('.watch');
+
+      const watchButton = document.querySelector('#watch-btn');
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        watchElement.textContent = timeString;
+      }
+
+      const intervalId = setInterval(updateClock, 1000); // Update every second
+
+      const stopWatch = () => {
+        clearInterval(intervalId);
+      };
+
+      watchButton?.addEventListener('click', stopWatch);
+    ```
+
+- we can achieve the the task of setInterval using recusrsive setTimeOut
+
+  ```js
+
+  ```
+
 - Synchronous , asynchronous, callback, higher order function, promise, async await
 
   - synchronous vs asynchronous
@@ -4089,6 +4175,10 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 #### 2.5.1 higher order function and callback function
 
+- check this site for understanding HOF - https://www.freecodecamp.org/news/higher-order-functions-in-javascript/ 
+
+[!higher order function](images/hof.png)
+
 Higher-order functions and callback functions are fundamental concepts in JavaScript. Higher-order functions are functions that can accept other functions as arguments or return functions as their result. Example of higher order functions: forEach, map, filter, reduce, setTimeout, addEvenetListener, find, some, every, sort.
 
 Callback functions are functions that are passed as arguments to higher-order functions and are executed later. Here's an example:
@@ -4139,6 +4229,22 @@ In this example:
 3. We use the `calculate` function with each of these callback functions to perform various calculations. The `calculate` function doesn't need to know the specifics of the operation; it delegates that to the provided callback function.
 
 This is a simple example of how higher-order functions and callback functions work together in JavaScript. They are used extensively in JavaScript for various tasks, including event handling, asynchronous operations, and functional programming.
+
+##### Types of Callback
+
+- Synchronous vs Asynchronous Callback
+- synchornous callback: a callback which execute immediately. example: sort((a,b)=> a-b), map(), filter()
+- Asynchornous callback: a callback which is not called immediately or which is responsible to make the delay for executing a function until a further time or event has occured. example fetching data and then run a function. Example: setTimeout(), event handler
+
+  ```js
+    const message = (msg) => {
+      console.log(msg);
+    }
+    setTimeout(message, 5000, "hello");
+
+  ```
+- callback hell is an issue where innerCallback dependeds on outer callback result. so the solution is promise. it is the most common interview questions.
+
 
 #### 2.5.2 forEach
 
@@ -4195,9 +4301,10 @@ This is a simple example of how higher-order functions and callback functions wo
 
 #### 2.5.5 reduce( )
 
-- reduce() higher order function: The reduce function is a higher-order function that applies a function against an accumulator and each element in an array (from left to right) to reduce it to a single value. sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
+- reduce() higher order function: The reduce function is a higher-order function that applies a function against an accumulator (initial value is 0 for this you can think about let sum=0) and each element in an array (from left to right) to reduce it to a single value. sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
 
   ```js
+  
   const numbers = [10, 20, 30, 40, 50];
   // first call -> previous 10, current 20
   // 2nd call -> previous 30, current 30
@@ -4215,6 +4322,19 @@ This is a simple example of how higher-order functions and callback functions wo
     0
   );
   console.log(sum); // 15
+
+
+  // Another example
+  const products = [
+  { id: 1, name: 'x', price: 300 },
+  { id: 2, name: 'y', price: 400 },
+  { id: 3, name: 'z', price: 500 },
+
+  ];
+
+  const total = products
+    .map((product) => product.price)
+    .reduce((acc, current) => acc + current);
   ```
 
 #### 2.5.6 some( ) and every( )
@@ -4232,12 +4352,84 @@ console.log(allEven); // false
 
 #### 2.5.7 sort
 
-The sort function is a higher-order function that sorts the elements of an array based on a provided comparison function.
+The sort function is a higher-order function that sorts the elements of an array based on a provided comparison function.  The default sort order is ascending, based on converting the elements into strings and comparing their sequences of UTF-16 code units values. This default behavior may not work well for sorting numbers or other types of data.
 
 ```js
+const names = ['david', 'anisul', 'lisa'];
+names.sort();
+console.log(names);
+
 const fruits = ["apple", "banana", "cherry", "date"];
-const sortedFruits = fruits.sort((a, b) => a.localeCompare(b));
+const sortedFruits = fruits.sort((a, b) => a.localeCompare(b)); // for string compare
 console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
+
+
+
+const numbers = [20,10,5,-3,50]; // An array of numbers
+numbers.sort(); // Sort the array in ascending order
+console.log(numbers); //  [-3, 10, 20, 5, 50]
+
+// solution -the sort() function can be used with a custom compareFunction to sort the objects based on a particular property. The compareFunction takes two objects as parameters and returns a value indicating the order of the two objects. If the return value is less than 0, the first object comes before the second. If the return value is greater than 0, the first object comes after the second. If the return value is 0, the order of the two objects is unchanged.
+const numbers = [20, 10, 5, -3, 50];
+numbers.sort((a, b) => {
+  return a - b;
+});
+console.log(numbers);
+```
+
+```js
+// complex example version 1
+  const todos = [
+  {id: 3, description: 'learn js', completed: true},
+  {id: 1, description: 'update ts doc', completed: false},
+  {id: 2, description: 'create js video', completed: true},
+]
+// adding sorting functionality
+function compareById(a, b) {
+  return b.id - a.id; // descending
+  // return a.id - b.id; //ascending
+}
+
+function compareByDescription(a, b) {
+  return b.description.localeCompare(a.description); // descending
+  // return a.description.localeCompare(b.description); //ascending
+}
+const sortTodos = (event) => {
+  const sortTerm = event.target.value;
+  switch (sortTerm) {
+    case 'id':
+      todos.sort(compareById);
+      displayTodos(todos);
+      break;
+    case 'text':
+      todos.sort(compareByDescription);
+      displayTodos(todos);
+      break;
+  }
+};
+
+// complex example version 2
+const todos = [
+    { id: 3, description: 'learn js', completed: true },
+    { id: 1, description: 'update ts doc', completed: false },
+    { id: 2, description: 'create js video', completed: true },
+];
+
+// Comparison functions
+const comparators = {
+    id: (a, b) => b.id - a.id,
+    text: (a, b) => b.description.localeCompare(a.description),
+};
+
+// Sort function
+const sortTodos = (event) => {
+    const sortTerm = event.target.value;
+    if (sortTerm in comparators) {
+        todos.sort(comparators[sortTerm]);
+        displayTodos(todos);
+    }
+};
+
 ```
 
 [&#8593; Back to Top](#table-of-contents)
@@ -4904,3 +5096,35 @@ bank.listCustomers(branch1, true);
 ```
 
 [&#8593; Back to Top](#table-of-contents)
+
+### 3.3 Prepare for technical test
+
+```js
+
+
+function sockMerchant(n, ar) {
+  // Create an object to store the count of each color of socks
+  let pairs = 0;
+  const sockColorsCount = {};
+
+  // Count the number of socks of each color
+  ar.forEach((color) => {
+    if (sockColorsCount[color]) {
+      pairs++;
+      sockColorsCount[color] = 0;
+    } else {
+      sockColorsCount[color] = 1;
+    }
+    console.log('sockColorsCount : ', sockColorsCount);
+  });
+
+  return pairs;
+}
+
+const n = 7;
+const ar = [1, 2, 1, 2, 1, 3, 2];
+const pairs = sockMerchant(n, ar);
+console.log('The number of pairs is:', pairs);
+
+
+```
