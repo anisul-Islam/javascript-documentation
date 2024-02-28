@@ -4755,6 +4755,42 @@ These best practices can vary depending on the specific project, team, and codin
 
 ### 3.1 Object Oriented Programming (OOP)
 
+```js
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+        console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+    };
+}
+
+const person = new Person('John', 30);
+person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+
+```
+
+```js
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+    }
+}
+
+const person = new Person('John', 30);
+person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+
+```
+
+- key differences:
+  - Classes provide a more structured way to define object blueprints compared to constructor functions.
+  - Classes support inheritance, allowing one class to inherit properties and methods from another.
+  - Classes have a more familiar syntax for developers coming from other programming languages.
+
 - 4 keys principles of OOP: Inheritance, Encapsulation, Abstraction and Polymorphism. In order to understand these 4 key concepts we need to understand class and object.
 
 class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
