@@ -3843,6 +3843,8 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 #### 2.4.6 Asynchronous Programming
 
+- [A good reference for asynchronous programming](https://www.lydiahallie.com/blog/event-loop)
+
 - JS is a synchronous, blocking, single thread programming Language;
 
     ```js
@@ -4064,34 +4066,34 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
   });
   ```
 
-  - Promise: 3 states-pending, resolve, reject
+##### Promise: 3 states-pending, resolve, reject
 
-    ```js
-    const promise1 = new Promise((resolve, reject) => {
-      resolve("task 1");
-    });
-    const promise2 = new Promise((resolve, reject) => {
-      resolve("task 2");
-    });
+  ```js
+  const promise1 = new Promise((resolve, reject) => {
+    resolve("task 1");
+  });
+  const promise2 = new Promise((resolve, reject) => {
+    resolve("task 2");
+  });
 
-    // then function will be called when promise is resolved
-    // catch function will be called when promise is rejected
-    // Promise is created for you most of the time but you know how to use
-    promise1
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    promise2
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    ```
+  // then function will be called when promise is resolved
+  // catch function will be called when promise is rejected
+  // Promise is created for you most of the time but you know how to use
+  promise1
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  promise2
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  ```
 
   - async and await
 
@@ -4150,6 +4152,137 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
   console.log("bye");
   ```
+
+// new explanation
+
+Promises in JavaScript provide a way to handle asynchronous operations. They represent a value that may be available now, in the future, or never. Here's a basic overview and example of how to use Promises in JavaScript.
+
+###### Creating a Promise
+
+A Promise is created using the `Promise` constructor, which takes a function with two arguments: `resolve` and `reject`. These are callbacks to be called respectively when the asynchronous operation is successful or fails.
+
+###### Example: Basic Promise
+
+###### 1. Creating a Promise
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  const success = true; // Change this to `false` to see the rejection case
+
+  if (success) {
+    resolve('Operation was successful!');
+  } else {
+    reject('Operation failed.');
+  }
+});
+```
+
+###### 2. Using a Promise
+
+To handle the eventual value of the Promise, you use the `.then()` method to specify what to do when the Promise is resolved, and the `.catch()` method to handle the rejection.
+
+```javascript
+myPromise
+  .then((message) => {
+    console.log(message); // "Operation was successful!"
+  })
+  .catch((error) => {
+    console.error(error); // "Operation failed."
+  });
+```
+
+###### Real-life Example: Fetching Data
+
+Let's use Promises in a more practical example, such as fetching data from an API.
+
+###### 1. Fetch Data Using Promises
+
+```javascript
+const fetchData = (url) => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(JSON.parse(xhr.responseText));
+      } else {
+        reject(`Error: ${xhr.status}`);
+      }
+    };
+    xhr.onerror = () => reject('Network error');
+    xhr.send();
+  });
+};
+
+const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+fetchData(url)
+  .then((data) => {
+    console.log('Data fetched successfully:', data);
+  })
+  .catch((error) => {
+    console.error('Failed to fetch data:', error);
+  });
+```
+
+###### 2. Using Fetch API (Simpler)
+
+The Fetch API is a modern and easier way to make network requests. It returns a Promise.
+
+```javascript
+const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+fetch(url)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log('Data fetched successfully:', data);
+  })
+  .catch((error) => {
+    console.error('Failed to fetch data:', error);
+  });
+```
+
+###### Chaining Promises
+
+Promises can be chained to sequence multiple asynchronous operations.
+
+```javascript
+const firstPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('First promise resolved');
+  }, 1000);
+});
+
+firstPromise
+  .then((message) => {
+    console.log(message); // "First promise resolved"
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('Second promise resolved');
+      }, 1000);
+    });
+  })
+  .then((message) => {
+    console.log(message); // "Second promise resolved"
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+###### Summary
+
+- **Creating a Promise**: Use the `Promise` constructor and provide `resolve` and `reject` callbacks.
+- **Using a Promise**: Use `.then()` for successful resolution and `.catch()` for errors.
+- **Real-life Example**: Fetching data from an API using `XMLHttpRequest` or the Fetch API.
+- **Chaining Promises**: Sequence multiple asynchronous operations by chaining `.then()` calls.
+
+Promises are powerful and form the basis of async/await syntax, which provides an even cleaner way to work with asynchronous code.
 
 - fetch data
 
@@ -4750,6 +4883,234 @@ These best practices can vary depending on the specific project, team, and codin
   ```
 
 [&#8593; Back to Top](#table-of-contents)
+
+### 2.10 this keyword in es5 and es6
+
+In JavaScript, the `this` keyword behaves differently in ES5 (ECMAScript 5) and ES6 (ECMAScript 6) contexts. Understanding its behavior is crucial for effective programming in JavaScript. Here's an explanation of how `this` works in both versions and some examples to illustrate the differences.
+
+#### ES5 (ECMAScript 5)
+
+In ES5, the value of `this` is determined by how a function is called. Here are the common scenarios:
+
+1. **Global Context**
+
+   In the global execution context (outside of any function), `this` refers to the global object (`window` in browsers, `global` in Node.js).
+
+   ```javascript
+   console.log(this); // Window (in browsers)
+   ```
+
+2. **Function Context**
+
+   In a regular function, `this` refers to the global object if the function is not called as a method of an object.
+
+   ```javascript
+   function showThis() {
+     console.log(this);
+   }
+   showThis(); // Window (in browsers)
+   ```
+
+3. **Method Context**
+
+   When a function is called as a method of an object, `this` refers to the object.
+
+   ```javascript
+   var person = {
+     name: 'John',
+     greet: function() {
+       console.log(this.name);
+     }
+   };
+   person.greet(); // John
+   ```
+
+4. **Constructor Context**
+
+   When a function is used as a constructor with the `new` keyword, `this` refers to the new object being created.
+
+   ```javascript
+   function Person(name) {
+     this.name = name;
+   }
+   var john = new Person('John');
+   console.log(john.name); // John
+   ```
+
+5. **Explicit Binding**
+
+   You can explicitly set the value of `this` using `call`, `apply`, or `bind`.
+
+   ```javascript
+   function greet() {
+     console.log(this.name);
+   }
+   var person = { name: 'John' };
+   greet.call(person); // John
+   ```
+
+#### ES6 (ECMAScript 6)
+
+ES6 introduced arrow functions, which handle `this` differently compared to regular functions.
+
+1. **Arrow Functions**
+
+   Arrow functions do not have their own `this`. Instead, they inherit `this` from the enclosing lexical context, which means the value of `this` is determined by the surrounding code.
+
+   ```javascript
+   var person = {
+     name: 'John',
+     greet: function() {
+       var innerFunction = () => {
+         console.log(this.name);
+       };
+       innerFunction();
+     }
+   };
+   person.greet(); // John
+   ```
+
+   In the above example, `innerFunction` is an arrow function, so it inherits `this` from the `greet` method, which is called as a method of `person`.
+
+2. **Classes**
+
+   ES6 also introduced classes, and methods defined in classes behave like methods in objects, where `this` refers to the instance of the class.
+
+   ```javascript
+   class Person {
+     constructor(name) {
+       this.name = name;
+     }
+     greet() {
+       console.log(this.name);
+     }
+   }
+   const john = new Person('John');
+   john.greet(); // John
+   ```
+
+#### Summary of this keyword
+
+- **ES5:**
+  - `this` depends on how a function is called.
+  - In global context, `this` refers to the global object.
+  - In a method, `this` refers to the object the method belongs to.
+  - In a constructor, `this` refers to the new instance.
+  - Can be explicitly set using `call`, `apply`, or `bind`.
+
+- **ES6:**
+  - Arrow functions inherit `this` from their enclosing context.
+  - Classes have methods where `this` refers to the instance of the class.
+
+Understanding the differences in how `this` works in ES5 and ES6 can help avoid common pitfalls, especially when transitioning from ES5 to ES6 or working with both versions in the same project.
+
+### 2.11 Clousers
+
+Closures are a fundamental concept in JavaScript that allow functions to have private variables. A closure is created when a function is defined inside another function, allowing the inner function to access variables and parameters of its outer function even after the outer function has finished executing. This capability is powerful and underpins many advanced JavaScript patterns and techniques.
+
+#### How Closures Work
+
+When a function is created in JavaScript, it gets a scope chain. This scope chain is a list of all the scopes (environments) in which the function has been defined. The scope chain lets the function access variables and functions from its outer scope.
+
+#### Example of a Closure
+
+Here's a simple example to illustrate how closures work:
+
+```javascript
+function outerFunction() {
+  var outerVariable = 'I am from the outer function';
+
+  function innerFunction() {
+    console.log(outerVariable); // The inner function can access the outer function's variable
+  }
+
+  return innerFunction;
+}
+
+const closure = outerFunction(); // outerFunction is called, but its execution context is not discarded
+closure(); // The inner function is called, and it still has access to the outer function's scope
+```
+
+In this example:
+
+1. `outerFunction` defines a variable `outerVariable` and an `innerFunction`.
+2. `innerFunction` can access `outerVariable` because it's within the same scope.
+3. When `outerFunction` is called, it returns `innerFunction`, creating a closure.
+4. `closure` holds the reference to `innerFunction` and can access `outerVariable` even after `outerFunction` has finished executing.
+
+### Practical Uses of Closures
+
+#### 1. Data Privacy
+
+Closures can be used to create private variables. This is useful for data encapsulation and hiding implementation details.
+
+```javascript
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment: function() {
+      count++;
+      return count;
+    },
+    decrement: function() {
+      count--;
+      return count;
+    }
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.decrement()); // 1
+```
+
+In this example, the `count` variable is private to the `createCounter` function. It can't be accessed directly from the outside, only through the `increment` and `decrement` methods.
+
+#### 2. Function Factories
+
+Closures can be used to create functions that are pre-configured with specific data.
+
+```javascript
+function createAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+const add5 = createAdder(5);
+console.log(add5(2)); // 7
+console.log(add5(10)); // 15
+```
+
+In this example, `createAdder` returns a function that adds a given number to `x`. The returned function has access to `x` because of the closure.
+
+#### 3. Maintaining State
+
+Closures can be used to maintain state across multiple function calls.
+
+```javascript
+function createToggle(initialState = false) {
+  let state = initialState;
+
+  return function() {
+    state = !state;
+    return state;
+  };
+}
+
+const toggle = createToggle();
+console.log(toggle()); // true
+console.log(toggle()); // false
+console.log(toggle()); // true
+```
+
+In this example, `createToggle` returns a function that toggles its state between `true` and `false` each time it's called.
+
+#### Summary of clousres
+
+Closures are a powerful feature in JavaScript that allow functions to retain access to their lexical scope, even when the function is executed outside that scope. They enable data encapsulation, maintain state across function calls, and can be used to create function factories. Understanding and effectively using closures is crucial for mastering JavaScript and building robust applications.
 
 ## 3. Advanced Javascript Topics
 
