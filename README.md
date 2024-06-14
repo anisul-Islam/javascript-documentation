@@ -5116,6 +5116,99 @@ Closures are a powerful feature in JavaScript that allow functions to retain acc
 
 ### 3.1 Object Oriented Programming (OOP)
 
+Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which can contain data in the form of fields (often known as attributes or properties) and code in the form of methods (functions). OOP is a widely used paradigm in modern software development, and it provides several key benefits:
+
+1. **Modularity**:
+   - OOP allows developers to break down a complex problem into smaller, more manageable pieces (objects). Each object represents a different part of the application and encapsulates its own data and behavior. This modularity makes it easier to understand, develop, and maintain the code.
+
+2. **Encapsulation**:
+   - Encapsulation is the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, or object. It restricts direct access to some of an object's components, which can prevent the accidental modification of data. By providing public methods for data access and modification, it enhances data security and integrity.
+
+3. **Reusability**:
+   - OOP promotes code reuse through inheritance and composition. Inheritance allows new classes to inherit properties and methods from existing classes, reducing code duplication. Composition allows objects to be composed of other objects, further promoting reuse.
+
+4. **Flexibility and Maintainability**:
+   - OOP makes it easier to maintain and modify existing code. Since objects are self-contained, changes to one part of the system (object) have minimal impact on other parts. This separation of concerns makes it simpler to troubleshoot, update, and extend the application.
+
+5. **Abstraction**:
+   - OOP allows developers to abstract complex systems into simple models using classes. These classes provide a blueprint for creating objects, hiding complex implementation details and exposing only what is necessary. This simplifies the design and implementation of systems.
+
+6. **Inheritance**:
+   - Inheritance allows new classes to derive from existing ones, inheriting their attributes and methods. This promotes the reuse of existing code and can simplify the addition of new features. Inheritance can also facilitate polymorphism, allowing objects of different classes to be treated as objects of a common superclass.
+
+7. **Polymorphism**:
+   - Polymorphism enables objects of different classes to be treated as objects of a common superclass. It allows for the implementation of methods that can work with objects of multiple types, enhancing flexibility and integration. This is particularly useful in designing systems that can handle a variety of data types and behaviors.
+
+8. **Improved Collaboration**:
+   - OOP can improve team collaboration by providing clear modular structures. Different team members can work on different objects or classes simultaneously, reducing dependencies and enhancing productivity.
+
+### Practical Example
+
+Consider a simple banking system with the following classes:
+
+- **Account**: Represents a bank account with attributes like account number, balance, and methods to deposit and withdraw money.
+- **Customer**: Represents a bank customer with attributes like name, address, and a list of accounts.
+- **Bank**: Represents the bank itself with attributes like name, address, and methods to manage customers and accounts.
+
+Each class encapsulates its own data and methods, promoting modularity, encapsulation, and reuse. For instance, the `Customer` class can reuse the `Account` class to manage a list of accounts.
+
+```javascript
+class Account {
+  constructor(accountNumber, balance = 0) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    if (amount <= this.balance) {
+      this.balance -= amount;
+    } else {
+      console.log('Insufficient balance');
+    }
+  }
+}
+
+class Customer {
+  constructor(name, address) {
+    this.name = name;
+    this.address = address;
+    this.accounts = [];
+  }
+
+  addAccount(account) {
+    this.accounts.push(account);
+  }
+}
+
+class Bank {
+  constructor(name, address) {
+    this.name = name;
+    this.address = address;
+    this.customers = [];
+  }
+
+  addCustomer(customer) {
+    this.customers.push(customer);
+  }
+}
+
+// Example usage
+const account1 = new Account(12345, 1000);
+const customer1 = new Customer('John Doe', '123 Elm St');
+customer1.addAccount(account1);
+
+const bank = new Bank('My Bank', '456 Oak St');
+bank.addCustomer(customer1);
+```
+
+In this example, OOP principles make it easy to add new features, like different types of accounts (savings, checking), without altering the existing structure. This modular, reusable, and maintainable approach is a primary reason why OOP is widely used in software development.
+
+// start here 
+
 ![oop image](images/image-4.png)
 
 class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
@@ -5252,13 +5345,124 @@ person.greet(); // Output: Hello, my name is John and I'm 30 years old.
   - You can control access or modification of the data.
   - You can make the code more flexible and easy to change with new requirements.
   - Change one part of code without affecting other parts of code.
-- Access modifiers: 6 access modifiers are public, private, protected, internal, protected internal, private internal. The public access modifier makes the member accessible from the outside of the class. The private access modifier makes members accessible only from within the class and hides them from the outside.
 
-![alt text](image-5.png)
+In JavaScript, access modifiers are not explicitly part of the language syntax as they are in languages like Java or C#. However, JavaScript provides ways to simulate private, protected, and public access levels using various techniques. With the introduction of ECMAScript 2015 (ES6) and later, we can achieve this with classes, and in ES2020, the `#` syntax was introduced for private fields.
 
-```js
+Here's an example using the `Person` class to demonstrate different access levels:
 
+##### Public Members
+
+Public members are accessible from anywhere. By default, all class properties and methods are public.
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name; // public
+    this.age = age;   // public
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+const person1 = new Person("John", 30);
+console.log(person1.name); // John
+person1.greet(); // Hello, my name is John and I am 30 years old.
 ```
+
+##### Private Members (using `#` syntax)
+
+Private members are accessible only within the class. We use the `#` syntax to declare private fields.
+
+```javascript
+class Person {
+  #name;
+  #age;
+
+  constructor(name, age) {
+    this.#name = name; // private
+    this.#age = age;   // private
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  setName(name) {
+    this.#name = name;
+  }
+}
+
+const person1 = new Person("John", 30);
+console.log(person1.getName()); // John
+person1.setName("Jane");
+console.log(person1.getName()); // Jane
+person1.greet(); // Hello, my name is Jane and I am 30 years old.
+
+// Trying to access private fields directly will result in an error
+console.log(person1.#name); // SyntaxError: Private field '#name' must be declared in an enclosing class
+```
+
+#### Protected Members (simulated using WeakMap)
+
+JavaScript does not have a built-in concept of protected members. However, you can simulate protected members using a `WeakMap`. Protected members are accessible within the class and by instances of subclasses.
+
+```javascript
+const _name = new WeakMap();
+const _age = new WeakMap();
+
+class Person {
+  constructor(name, age) {
+    _name.set(this, name); // protected
+    _age.set(this, age);   // protected
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${_name.get(this)} and I am ${_age.get(this)} years old.`);
+  }
+
+  getName() {
+    return _name.get(this);
+  }
+
+  setName(name) {
+    _name.set(this, name);
+  }
+}
+
+class Employee extends Person {
+  constructor(name, age, jobTitle) {
+    super(name, age);
+    this.jobTitle = jobTitle;
+  }
+
+  introduce() {
+    console.log(`Hi, I am ${this.getName()}, a ${this.jobTitle}.`);
+  }
+}
+
+const employee1 = new Employee("John", 30, "Developer");
+employee1.introduce(); // Hi, I am John, a Developer.
+employee1.greet(); // Hello, my name is John and I am 30 years old.
+employee1.setName("Jane");
+employee1.introduce(); // Hi, I am Jane, a Developer.
+
+// Direct access to the protected members is not possible
+console.log(employee1._name); // undefined
+```
+
+##### Summary of encapsulation
+
+- **Public**: Default in JavaScript. Accessible from anywhere.
+- **Private**: Declared using `#` in ES2020. Accessible only within the class.
+- **Protected**: Not natively supported but can be simulated using `WeakMap`.
+
+Using these techniques, you can control the visibility and accessibility of properties and methods in your JavaScript classes, ensuring encapsulation and better design.
 
 #### 3.1.2 Encapsulation
 
