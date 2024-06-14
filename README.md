@@ -5116,6 +5116,96 @@ Closures are a powerful feature in JavaScript that allow functions to retain acc
 
 ### 3.1 Object Oriented Programming (OOP)
 
+[!oop image](images/image-4.png)
+
+class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
+
+```javascript
+// version 1
+class Person {
+  name = 'default name'; // public by default
+  age = 0;
+}
+
+// Create an instance of the Person class
+const p1 = new Person();
+// acceesing class members
+p1.name = 'Anisul Islam';
+p1.age = 32;
+
+console.log(p1.name);
+console.log(p1.age);
+```
+
+#### Introduce methods
+
+```js
+// version 2
+class Person {
+  name = "Default Name";
+  age = 0;
+
+  // Method to greet
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+// Create an instance of the Person class
+const person1 = new Person();
+person1.name = "John";
+person1.age = 30;
+person1.greet(); // Output: Hello, my name is John and I am 30 years old.
+```
+
+```js
+// version 3
+class Person {
+  // Method to set properties
+  setProperties(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // Method to greet
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
+  }
+}
+
+// Create an instance of the Person class
+const person1 = new Person();
+person1.setProperties("John", 30);
+person1.greet(); // Output: Hello, my name is John and I am 30 years old.
+
+```
+
+#### introduce constructor
+
+```js
+class Person {
+  // The constructor method is called when an object is created from this class.
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // Method to greet
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
+  }
+}
+
+// Create an instance of the Person class
+const person1 = new Person("John", 30);
+```
+
+#### Class vs function
+
 ```js
 function Person(name, age) {
     this.name = name;
@@ -5154,42 +5244,21 @@ person.greet(); // Output: Hello, my name is John and I'm 30 years old.
 
 - 4 keys principles of OOP: Inheritance, Encapsulation, Abstraction and Polymorphism. In order to understand these 4 key concepts we need to understand class and object.
 
-class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
+#### 3.1.1 Encapsulation
 
-```javascript
-// Define a class named "Person"
-class Person {
-  // The constructor method is called when an object is created from this class.
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
+- Encapsulate -> group (members in a class) and protect (access modifiers for the class members).
+- encapsulation is the idea of "surrounding" an entity, not just to keep what's inside together, but also to protect it. hiding from outside using private.
+- benefits of encapsulation
+  - You can control access or modification of the data.
+  - You can make the code more flexible and easy to change with new requirements.
+  - Change one part of code without affecting other parts of code.
+- Access modifiers: 6 access modifiers are public, private, protected, internal, protected internal, private internal. The public access modifier makes the member accessible from the outside of the class. The private access modifier makes members accessible only from within the class and hides them from the outside.
 
-  // Method to greet
-  greet() {
-    console.log(
-      `Hello, my name is ${this.name} and I am ${this.age} years old.`
-    );
-  }
-}
+![alt text](image-5.png)
 
-// Create an instance of the Person class
-const person1 = new Person("John", 30);
+```js
 
-// Call the greet method on the object
-person1.greet(); // Output: "Hello, my name is John and I am 30 years old."
 ```
-
-In this example:
-
-- We define a `Person` class with a constructor method that sets the `name` and `age` properties of the object when it's created.
-- We define a `greet` method within the class that allows objects created from this class to greet.
-- We create an instance of the `Person` class called `person1` using the `new` keyword and pass in values for the `name` and `age` properties.
-- We call the `greet` method on the `person1` object to display a greeting.
-
-ES6 classes provide a more structured and readable way to work with object-oriented programming in JavaScript, making it easier to create and manage objects with shared behaviors.
-
-#### 3.1.1 Inheritance
 
 #### 3.1.2 Encapsulation
 
