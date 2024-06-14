@@ -5464,38 +5464,136 @@ console.log(employee1._name); // undefined
 
 Using these techniques, you can control the visibility and accessibility of properties and methods in your JavaScript classes, ensuring encapsulation and better design.
 
-#### 3.1.2 Encapsulation
-
-However, constructors cannot be private in JavaScript.
+#### 3.1.2 Inheritance
 
 ```js
-class Shape {
-  #dim1;
-  #dim2;
-  constructor(dim1, dim2) {
-    this.#dim1 = dim1;
-    this.#dim2 = dim2;
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
 
-  setDim1(dim1) {
-    this.#dim1 = dim1;
-  }
-  setDim2(dim2) {
-    this.#dim2 = dim2;
-  }
-
-  getDim1() {
-    return this.#dim1;
-  }
-  getDim2() {
-    return this.#dim2;
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
   }
 }
 
-const s = new Shape(20, 30);
-s.setDim1(50);
-console.log(s.getDim1());
+class Student extends Person {
+  constructor(name, age, grade) {
+    super(name, age);
+    this.grade = grade;
+  }
+
+  study() {
+    console.log(`${this.name} is studying in grade ${this.grade}.`);
+  }
+}
+
+class Teacher extends Person {
+  constructor(name, age, subject) {
+    super(name, age);
+    this.subject = subject;
+  }
+
+  teach() {
+    console.log(`${this.name} is teaching ${this.subject}.`);
+  }
+}
+
+// Create instances of Student and Teacher
+const student1 = new Student("Alice", 20, "12th");
+const teacher1 = new Teacher("Mr. Smith", 40, "Mathematics");
+
+// Call methods on the instances
+student1.greet(); // Hello, my name is Alice and I am 20 years old.
+student1.study(); // Alice is studying in grade 12th.
+
+teacher1.greet(); // Hello, my name is Mr. Smith and I am 40 years old.
+teacher1.teach(); // Mr. Smith is teaching Mathematics.
 ```
+
+Sure, here's an example using private members in the `Person`, `Student`, and `Teacher` classes. Private members in JavaScript can be defined using the `#` prefix.
+
+##### Example with Private Members and Inheritance
+
+```javascript
+class Person {
+  #name;
+  #age;
+
+  constructor(name, age) {
+    this.#name = name;
+    this.#age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  getAge() {
+    return this.#age;
+  }
+}
+
+class Student extends Person {
+  #grade;
+
+  constructor(name, age, grade) {
+    super(name, age);
+    this.#grade = grade;
+  }
+
+  study() {
+    console.log(`${this.getName()} is studying in grade ${this.#grade}.`);
+  }
+}
+
+class Teacher extends Person {
+  #subject;
+
+  constructor(name, age, subject) {
+    super(name, age);
+    this.#subject = subject;
+  }
+
+  teach() {
+    console.log(`${this.getName()} is teaching ${this.#subject}.`);
+  }
+}
+
+// Create instances of Student and Teacher
+const student1 = new Student("Alice", 20, "12th");
+const teacher1 = new Teacher("Mr. Smith", 40, "Mathematics");
+
+// Call methods on the instances
+student1.greet(); // Hello, my name is Alice and I am 20 years old.
+student1.study(); // Alice is studying in grade 12th.
+
+teacher1.greet(); // Hello, my name is Mr. Smith and I am 40 years old.
+teacher1.teach(); // Mr. Smith is teaching Mathematics.
+```
+
+##### Explanation
+
+- **Person Class**:
+  - The `Person` class has private members `#name` and `#age`, which are initialized in the constructor.
+  - The `greet` method accesses these private members to print a greeting message.
+  - `getName` and `getAge` methods are provided to allow child classes to access the private members.
+
+- **Student Class**:
+  - The `Student` class extends the `Person` class and adds a private member `#grade`.
+  - The `study` method accesses the private members through the `getName` method provided by the `Person` class.
+
+- **Teacher Class**:
+  - The `Teacher` class extends the `Person` class and adds a private member `#subject`.
+  - The `teach` method accesses the private members through the `getName` method provided by the `Person` class.
+
+- **Instances**:
+  - Instances of `Student` and `Teacher` are created, and their methods are called to demonstrate the usage of private members and inheritance.
 
 #### 3.1.3 Polymorphism
 
@@ -5541,6 +5639,80 @@ In this example:
 3. We create instances of `Dog` and `Cat` and store them in an array.
 
 4. We iterate through the array of animals and call the `speak` method on each object. Despite the method having the same name in the base class, it behaves differently based on the actual type of the object (i.e., polymorphism).
+
+```js
+class Person {
+  #name;
+  #age;
+
+  constructor(name, age) {
+    this.#name = name;
+    this.#age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  getAge() {
+    return this.#age;
+  }
+
+  describe() {
+    console.log(`I am a person named ${this.#name}.`);
+  }
+}
+
+class Student extends Person {
+  #grade;
+
+  constructor(name, age, grade) {
+    super(name, age);
+    this.#grade = grade;
+  }
+
+  study() {
+    console.log(`${this.getName()} is studying in grade ${this.#grade}.`);
+  }
+
+  describe() {
+    console.log(`I am a student named ${this.getName()} in grade ${this.#grade}.`);
+  }
+}
+
+class Teacher extends Person {
+  #subject;
+
+  constructor(name, age, subject) {
+    super(name, age);
+    this.#subject = subject;
+  }
+
+  teach() {
+    console.log(`${this.getName()} is teaching ${this.#subject}.`);
+  }
+
+  describe() {
+    console.log(`I am a teacher named ${this.getName()} and I teach ${this.#subject}.`);
+  }
+}
+
+// Create instances of Person, Student, and Teacher
+const person1 = new Person("John", 50);
+const student1 = new Student("Alice", 20, "12th");
+const teacher1 = new Teacher("Mr. Smith", 40, "Mathematics");
+
+// Create an array of different types of Person
+const people = [person1, student1, teacher1];
+
+// Call the describe method on each instance
+people.forEach(person => person.describe());
+
+```
 
 #### 3.1.4 Abstraction
 
