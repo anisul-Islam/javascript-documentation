@@ -5116,7 +5116,7 @@ Closures are a powerful feature in JavaScript that allow functions to retain acc
 
 ### 3.1 Object Oriented Programming (OOP)
 
-[!oop image](images/image-4.png)
+[oop image](images/image-4.png)
 
 class: In JavaScript, a class is a blueprint for creating objects with shared properties and methods. It's a way to define a template for objects. Classes were introduced in ECMAScript 6 (ES6) to provide a more structured and familiar way to work with objects and prototypes. Here's an example of creating and using a class in JavaScript:
 
