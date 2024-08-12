@@ -7,7 +7,9 @@
 1. [Basic Javascript Topics](#1-basic-javascript-topics)
 
    [1.1 Introduction to Javascript](#11-introduction-to-javascript)
+
    [1.2 Output Console Object & comment](#12-output--comment)
+
    [1.3 Tokens - variables, data types, operators](#13-tokens)
 
    [1.4 Control Flow](#14-control-statement)
@@ -50,9 +52,13 @@
    [2.9 API Calling](#29-api-calling)
 
 3. [Advanced JavaScript Topics](#3-advanced-javascript-topics)
+
    [3.1 OOP](#31-object-oriented-programming-oop)
+
    [3.2 Bank Demo](#32-bank-demo)
+
    [3.3 Prepare for technical test](#33-prepare-for-technical-test)
+
    [3.2 Testing and Debugging]()
 
    - [Unit testing with frameworks like Jest]()
