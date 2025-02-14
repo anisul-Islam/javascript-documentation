@@ -356,29 +356,44 @@
 
   While comments are essential for code readability and collaboration, it's also crucial to keep them up to date. Outdated comments can be misleading and may not accurately reflect the current state of the code. Therefore, it's good practice to maintain comments as you make changes to your code.
 
-- **Tasks 1: Can you print your name, age, address?**
-- **Program 1: E-Commerce app [printing product details]**
+- **Program 1: E-Commerce app [printing category information]**
 
   ```js
-  // prodcut details
-  /*
-  id : 1
-  title : iphone 12
-  description: brilliant phone with 4k camera
-  price : 549
-  discountPercentage : 8
-  rating : 4.69
-  brand : Apple
-  */
+  // Print Category1 information
 
-  // product actual price calculator [printing product details]
-  console.log("id : 1");
-  console.log("title : iphone 12");
-  console.log("description: brilliant phone with 4k camera");
-  console.log("price : 510");
-  console.log("discountPercentage : 8");
-  console.log("rating : 4.69");
-  console.log("brand : Apple");
+  console.log("Id: 1");
+  console.log("Name: Electronics");
+  console.log(
+    "Description: Latest gadgets and electronic devices including phones, laptops, and accessories."
+  );
+
+  // Print Category2 information
+  console.log("Id: 2");
+  console.log("Name: Fashion");
+  console.log(
+    "Description: Trending apparel and accessories for men, women, and kids."
+  );
+
+  // Print Category3 information
+  console.log("Id: 3");
+  console.log("Name: Home & Kitchen");
+  console.log(
+    "Description: Quality home and kitchen products, including furniture, decor, and cookware."
+  );
+
+  // Print Category4 information
+  console.log("Id: 4");
+  console.log("Name: Books");
+  console.log(
+    "Description: A wide variety of books including fiction, non-fiction, educational, and more."
+  );
+
+  // Print Category5 information
+  console.log("Id: 5");
+  console.log("Name: Sports & Outdoors");
+  console.log(
+    "Sports gear, outdoor equipment, and fitness accessories for active lifestyles."
+  );
   ```
 
 - setup prettier code formatter
@@ -482,6 +497,46 @@
      ```
 
   These escape sequences allow you to include special characters or characters that have special meanings within your strings without causing syntax errors or unexpected behavior.
+
+- **Program 2: E-Commerce app [Add Backslash characters]**
+
+  ```js
+  // Print Category1 information
+
+  console.log("Id: 1");
+  console.log("Name: Electronics");
+  console.log(
+    "Description: Latest gadgets and electronic devices including phones, laptops, and accessories.\n\n"
+  );
+
+  // Print Category2 information
+  console.log("Id: 2");
+  console.log("Name: Fashion");
+  console.log(
+    "Description: Trending apparel and accessories for men, women, and kids.\n\n"
+  );
+
+  // Print Category3 information
+  console.log("Id: 3");
+  console.log("Name: Home & Kitchen");
+  console.log(
+    "Description: Quality home and kitchen products, including furniture, decor, and cookware.\n\n"
+  );
+
+  // Print Category4 information
+  console.log("Id: 4");
+  console.log("Name: Books");
+  console.log(
+    "Description: A wide variety of books including fiction, non-fiction, educational, and more.\n\n"
+  );
+
+  // Print Category5 information
+  console.log("Id: 5");
+  console.log("Name: Sports & Outdoors");
+  console.log(
+    "Sports gear, outdoor equipment, and fitness accessories for active lifestyles.\n\n"
+  );
+  ```
 
 #### 1.3.2 Data types
 
@@ -1063,6 +1118,12 @@ Operators: Symbol that helps us to do mathmatical operation. 3 major types: Unar
   // "age: 30"
   // "job: Engineer"
   ```
+
+##### Loop related programs
+
+- sum of digits, reverse, palindrome, armstring number
+- prime, lcd,lcm
+- pattern printing
 
 #### 1.4.3 jump control statement
 
@@ -3855,25 +3916,26 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 - JS is a synchronous, blocking, single thread programming Language;
 
-    ```js
-      // synchronous
-      console.log('Task 1');
-      console.log('Task 2');
-      console.log('Task 3');
-      console.log('Task 4');
-      console.log('Task 5');
+  ```js
+  // synchronous
+  console.log("Task 1");
+  console.log("Task 2");
+  console.log("Task 3");
+  console.log("Task 4");
+  console.log("Task 5");
 
-      // blocking
-      console.log('Task 1');
-      console.log('Task 2');
-      const guess = Number(prompt('Enter a guess: '));
-      console.log(guess);
-      console.log('Task 3');
-      console.log('Task 4');
-      console.log('Task 5');
-    ```
+  // blocking
+  console.log("Task 1");
+  console.log("Task 2");
+  const guess = Number(prompt("Enter a guess: "));
+  console.log(guess);
+  console.log("Task 3");
+  console.log("Task 4");
+  console.log("Task 5");
+  ```
 
 - we can use web API and fucntions from browser to make our code asycnhronous
+
   - manage the time using settimeout, setinterval (these functions are not part of js they are just provided by the browser)
   - event driven such as click a mouse then addEvenetListener will handle the event
   - arrival of data using callbacks, promises and async await
@@ -3881,54 +3943,54 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 - setTimeout(): we can use setTimeout and setInterval traditional function to make our code asynchronous: settimeout(function, duration, param1, param2....). setTimeout runs once after a specific amount of time. the dealys are minimum delay but it can take more time.
 
   ```js
-    console.log('Task 1');
-    console.log('Task 2');
-    setTimeout(() => {
-      console.log('Task 3');
-    }, 2000);
-    console.log('Task 4');
-    console.log('Task 5');
+  console.log("Task 1");
+  console.log("Task 2");
+  setTimeout(() => {
+    console.log("Task 3");
+  }, 2000);
+  console.log("Task 4");
+  console.log("Task 5");
 
   // cleartimeout()
-  console.log('Task 1');
-  console.log('Task 2');
+  console.log("Task 1");
+  console.log("Task 2");
   const timeoutId = setTimeout(() => {
-    console.log('Task 3');
+    console.log("Task 3");
   }, 2000);
   clearTimeout(timeoutId);
-  console.log('Task 4');
-  console.log('Task 5');
-
+  console.log("Task 4");
+  console.log("Task 5");
   ```
 
-- setInterval(): setInterval runs repeatedly after a specific amount of time. 
+- setInterval(): setInterval runs repeatedly after a specific amount of time.
+
   - create a basic digital clock
 
     ```html
-      <p class="watch"></p>
-        <button id="watch-btn">stop the watch</button>
+    <p class="watch"></p>
+    <button id="watch-btn">stop the watch</button>
     ```
 
     ```js
-      const watchElement = document.querySelector('.watch');
+    const watchElement = document.querySelector(".watch");
 
-      const watchButton = document.querySelector('#watch-btn');
-      function updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        const timeString = `${hours}:${minutes}:${seconds}`;
-        watchElement.textContent = timeString;
-      }
+    const watchButton = document.querySelector("#watch-btn");
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const seconds = String(now.getSeconds()).padStart(2, "0");
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      watchElement.textContent = timeString;
+    }
 
-      const intervalId = setInterval(updateClock, 1000); // Update every second
+    const intervalId = setInterval(updateClock, 1000); // Update every second
 
-      const stopWatch = () => {
-        clearInterval(intervalId);
-      };
+    const stopWatch = () => {
+      clearInterval(intervalId);
+    };
 
-      watchButton?.addEventListener('click', stopWatch);
+    watchButton?.addEventListener("click", stopWatch);
     ```
 
 - we can achieve the the task of setInterval using recusrsive setTimeOut
@@ -4076,90 +4138,90 @@ Destructuring is a feature in JavaScript that allows you to extract values from 
 
 ##### Promise: 3 states-pending, resolve, reject
 
-  ```js
-  const promise1 = new Promise((resolve, reject) => {
-    resolve("task 1");
+```js
+const promise1 = new Promise((resolve, reject) => {
+  resolve("task 1");
+});
+const promise2 = new Promise((resolve, reject) => {
+  resolve("task 2");
+});
+
+// then function will be called when promise is resolved
+// catch function will be called when promise is rejected
+// Promise is created for you most of the time but you know how to use
+promise1
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
   });
-  const promise2 = new Promise((resolve, reject) => {
-    resolve("task 2");
+promise2
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
   });
+```
 
-  // then function will be called when promise is resolved
-  // catch function will be called when promise is rejected
-  // Promise is created for you most of the time but you know how to use
-  promise1
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  promise2
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  ```
+- async and await
 
-  - async and await
+```js
+// promise, promise chaining, async await
+console.log("welcome");
+const taskOne = () => {
+  return new Promise((resolve, reject) => {
+    resolve("task 1 is completed");
+  });
+};
+const taskTwo = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("task 2 is completed");
+    }, 2000);
+  });
+};
+const taskThree = () => {
+  return new Promise((resolve, reject) => {
+    reject("task 3 is not completed");
+  });
+};
+const taskFour = () => {
+  return new Promise((resolve, reject) => {
+    resolve("task 4 is completed");
+  });
+};
 
-  ```js
-  // promise, promise chaining, async await
-  console.log("welcome");
-  const taskOne = () => {
-    return new Promise((resolve, reject) => {
-      resolve("task 1 is completed");
-    });
-  };
-  const taskTwo = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("task 2 is completed");
-      }, 2000);
-    });
-  };
-  const taskThree = () => {
-    return new Promise((resolve, reject) => {
-      reject("task 3 is not completed");
-    });
-  };
-  const taskFour = () => {
-    return new Promise((resolve, reject) => {
-      resolve("task 4 is completed");
-    });
-  };
+// taskOne()
+//   .then((res) => console.log(res))
+//   .then(taskTwo)
+//   .then((res) => console.log(res))
+//   .then(taskThree)
+//   .then((res) => console.log(res))
+//   .then(taskFour)
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
 
-  // taskOne()
-  //   .then((res) => console.log(res))
-  //   .then(taskTwo)
-  //   .then((res) => console.log(res))
-  //   .then(taskThree)
-  //   .then((res) => console.log(res))
-  //   .then(taskFour)
-  //   .then((res) => console.log(res))
-  //   .catch((err) => console.log(err));
+const callAllTasks = async () => {
+  try {
+    const t1 = await taskOne();
+    console.log(t1);
+    const t2 = await taskTwo();
+    console.log(t2);
+    const t3 = await taskThree();
+    console.log(t3);
+    const t4 = await taskFour();
+    console.log(t4);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-  const callAllTasks = async () => {
-    try {
-      const t1 = await taskOne();
-      console.log(t1);
-      const t2 = await taskTwo();
-      console.log(t2);
-      const t3 = await taskThree();
-      console.log(t3);
-      const t4 = await taskFour();
-      console.log(t4);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+callAllTasks();
 
-  callAllTasks();
-
-  console.log("bye");
-  ```
+console.log("bye");
+```
 
 // new explanation
 
@@ -4178,9 +4240,9 @@ const myPromise = new Promise((resolve, reject) => {
   const success = true; // Change this to `false` to see the rejection case
 
   if (success) {
-    resolve('Operation was successful!');
+    resolve("Operation was successful!");
   } else {
-    reject('Operation failed.');
+    reject("Operation failed.");
   }
 });
 ```
@@ -4209,7 +4271,7 @@ Let's use Promises in a more practical example, such as fetching data from an AP
 const fetchData = (url) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
+    xhr.open("GET", url);
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) {
         resolve(JSON.parse(xhr.responseText));
@@ -4217,19 +4279,19 @@ const fetchData = (url) => {
         reject(`Error: ${xhr.status}`);
       }
     };
-    xhr.onerror = () => reject('Network error');
+    xhr.onerror = () => reject("Network error");
     xhr.send();
   });
 };
 
-const url = 'https://jsonplaceholder.typicode.com/posts/1';
+const url = "https://jsonplaceholder.typicode.com/posts/1";
 
 fetchData(url)
   .then((data) => {
-    console.log('Data fetched successfully:', data);
+    console.log("Data fetched successfully:", data);
   })
   .catch((error) => {
-    console.error('Failed to fetch data:', error);
+    console.error("Failed to fetch data:", error);
   });
 ```
 
@@ -4238,7 +4300,7 @@ fetchData(url)
 The Fetch API is a modern and easier way to make network requests. It returns a Promise.
 
 ```javascript
-const url = 'https://jsonplaceholder.typicode.com/posts/1';
+const url = "https://jsonplaceholder.typicode.com/posts/1";
 
 fetch(url)
   .then((response) => {
@@ -4248,10 +4310,10 @@ fetch(url)
     return response.json();
   })
   .then((data) => {
-    console.log('Data fetched successfully:', data);
+    console.log("Data fetched successfully:", data);
   })
   .catch((error) => {
-    console.error('Failed to fetch data:', error);
+    console.error("Failed to fetch data:", error);
   });
 ```
 
@@ -4262,7 +4324,7 @@ Promises can be chained to sequence multiple asynchronous operations.
 ```javascript
 const firstPromise = new Promise((resolve) => {
   setTimeout(() => {
-    resolve('First promise resolved');
+    resolve("First promise resolved");
   }, 1000);
 });
 
@@ -4271,7 +4333,7 @@ firstPromise
     console.log(message); // "First promise resolved"
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve('Second promise resolved');
+        resolve("Second promise resolved");
       }, 1000);
     });
   })
@@ -4316,7 +4378,7 @@ Promises are powerful and form the basis of async/await syntax, which provides a
 
 #### 2.5.1 higher order function and callback function
 
-- check this site for understanding HOF - https://www.freecodecamp.org/news/higher-order-functions-in-javascript/ 
+- check this site for understanding HOF - https://www.freecodecamp.org/news/higher-order-functions-in-javascript/
 
 [!higher order function](images/hof.png)
 
@@ -4378,14 +4440,13 @@ This is a simple example of how higher-order functions and callback functions wo
 - Asynchornous callback: a callback which is not called immediately or which is responsible to make the delay for executing a function until a further time or event has occured. example fetching data and then run a function. Example: setTimeout(), event handler
 
   ```js
-    const message = (msg) => {
-      console.log(msg);
-    }
-    setTimeout(message, 5000, "hello");
-
+  const message = (msg) => {
+    console.log(msg);
+  };
+  setTimeout(message, 5000, "hello");
   ```
-- callback hell is an issue where innerCallback dependeds on outer callback result. so the solution is promise. it is the most common interview questions.
 
+- callback hell is an issue where innerCallback dependeds on outer callback result. so the solution is promise. it is the most common interview questions.
 
 #### 2.5.2 forEach
 
@@ -4439,7 +4500,7 @@ When working with arrays in programming languages like **JavaScript**, two commo
   const numbers = [1, 2, 3, 4, 5];
   let sum = 0;
 
-  numbers.forEach(number => {
+  numbers.forEach((number) => {
     sum += number;
   });
 
@@ -4456,7 +4517,7 @@ When working with arrays in programming languages like **JavaScript**, two commo
   ```javascript
   const numbers = [1, 2, 3, 4, 5];
 
-  const doubled = numbers.map(number => number * 2);
+  const doubled = numbers.map((number) => number * 2);
 
   console.log(doubled); // Outputs: [2, 4, 6, 8, 10]
   ```
@@ -4496,12 +4557,13 @@ When working with arrays in programming languages like **JavaScript**, two commo
 
 - You need to perform side effects without returning a new array.
 - Examples:
+
   - Logging each element to the console.
   - Modifying variables outside the loop.
 
   ```javascript
-  const fruits = ['apple', 'banana', 'cherry'];
-  fruits.forEach(fruit => console.log(fruit.toUpperCase()));
+  const fruits = ["apple", "banana", "cherry"];
+  fruits.forEach((fruit) => console.log(fruit.toUpperCase()));
   // Outputs: APPLE, BANANA, CHERRY
   ```
 
@@ -4509,12 +4571,13 @@ When working with arrays in programming languages like **JavaScript**, two commo
 
 - You need to transform each element and obtain a new array.
 - Examples:
+
   - Converting data formats.
   - Applying calculations to each element.
 
   ```javascript
   const temperaturesC = [0, 20, 30];
-  const temperaturesF = temperaturesC.map(c => c * 9/5 + 32);
+  const temperaturesF = temperaturesC.map((c) => (c * 9) / 5 + 32);
   console.log(temperaturesF); // Outputs: [32, 68, 86]
   ```
 
@@ -4528,17 +4591,19 @@ To illustrate potential performance differences, you can run a simple benchmark:
 const largeArray = Array.from({ length: 1e7 }, (_, i) => i);
 
 // Using forEach
-console.time('forEach');
+console.time("forEach");
 let total1 = 0;
-largeArray.forEach(num => {
+largeArray.forEach((num) => {
   total1 += num;
 });
-console.timeEnd('forEach');
+console.timeEnd("forEach");
 
 // Using map
-console.time('map');
-const total2 = largeArray.map(num => num).reduce((acc, curr) => acc + curr, 0);
-console.timeEnd('map');
+console.time("map");
+const total2 = largeArray
+  .map((num) => num)
+  .reduce((acc, curr) => acc + curr, 0);
+console.timeEnd("map");
 ```
 
 **Note**: This benchmark may show that `forEach` completes faster than `map`, but the difference is often minimal compared to the total execution time.
@@ -4548,6 +4613,7 @@ console.timeEnd('map');
 ##### **Memory Usage Considerations**
 
 - **`forEach`**:
+
   - Lower memory footprint since it doesn't create a new array.
   - Preferred when working with large datasets and you don't need to store transformed data.
 
@@ -4560,12 +4626,11 @@ console.timeEnd('map');
 ##### **Chaining and Functional Programming**
 
 - **`map`** supports chaining because it returns a new array.
+
   - Example:
 
     ```javascript
-    const result = [1, 2, 3, 4, 5]
-      .map(x => x * 2)
-      .filter(x => x > 5);
+    const result = [1, 2, 3, 4, 5].map((x) => x * 2).filter((x) => x > 5);
     console.log(result); // Outputs: [6, 8, 10]
     ```
 
@@ -4576,6 +4641,7 @@ console.timeEnd('map');
 ##### **Conclusion**
 
 - **Performance Difference**:
+
   - The performance difference between `forEach` and `map` is typically minimal.
   - `forEach` may have a slight edge in speed and memory usage due to not creating a new array.
   - In most cases, the choice between them should be based on the specific use case rather than performance.
@@ -4595,7 +4661,7 @@ console.timeEnd('map');
   - Example of inefficient use:
 
     ```javascript
-    [1, 2, 3].map(num => console.log(num));
+    [1, 2, 3].map((num) => console.log(num));
     // Use forEach instead
     ```
 
@@ -4647,7 +4713,6 @@ console.timeEnd('map');
 - reduce() higher order function: The reduce function is a higher-order function that applies a function against an accumulator (initial value is 0 for this you can think about let sum=0) and each element in an array (from left to right) to reduce it to a single value. sum of all numbers; when sum think reduce. it executes a reducer function for array element. it returns a single value: the function's accumulated result. it does not execute the function for empty array elements. it does not change the original array.
 
   ```js
-  
   const numbers = [10, 20, 30, 40, 50];
   // first call -> previous 10, current 20
   // 2nd call -> previous 30, current 30
@@ -4666,13 +4731,11 @@ console.timeEnd('map');
   );
   console.log(sum); // 15
 
-
   // Another example
   const products = [
-  { id: 1, name: 'x', price: 300 },
-  { id: 2, name: 'y', price: 400 },
-  { id: 3, name: 'z', price: 500 },
-
+    { id: 1, name: "x", price: 300 },
+    { id: 2, name: "y", price: 400 },
+    { id: 3, name: "z", price: 500 },
   ];
 
   const total = products
@@ -4695,10 +4758,10 @@ console.log(allEven); // false
 
 #### 2.5.7 sort
 
-The sort function is a higher-order function that sorts the elements of an array based on a provided comparison function.  The default sort order is ascending, based on converting the elements into strings and comparing their sequences of UTF-16 code units values. This default behavior may not work well for sorting numbers or other types of data.
+The sort function is a higher-order function that sorts the elements of an array based on a provided comparison function. The default sort order is ascending, based on converting the elements into strings and comparing their sequences of UTF-16 code units values. This default behavior may not work well for sorting numbers or other types of data.
 
 ```js
-const names = ['david', 'anisul', 'lisa'];
+const names = ["david", "anisul", "lisa"];
 names.sort();
 console.log(names);
 
@@ -4706,9 +4769,7 @@ const fruits = ["apple", "banana", "cherry", "date"];
 const sortedFruits = fruits.sort((a, b) => a.localeCompare(b)); // for string compare
 console.log(sortedFruits); // ['apple', 'banana', 'cherry', 'date']
 
-
-
-const numbers = [20,10,5,-3,50]; // An array of numbers
+const numbers = [20, 10, 5, -3, 50]; // An array of numbers
 numbers.sort(); // Sort the array in ascending order
 console.log(numbers); //  [-3, 10, 20, 5, 50]
 
@@ -4722,11 +4783,11 @@ console.log(numbers);
 
 ```js
 // complex example version 1
-  const todos = [
-  {id: 3, description: 'learn js', completed: true},
-  {id: 1, description: 'update ts doc', completed: false},
-  {id: 2, description: 'create js video', completed: true},
-]
+const todos = [
+  { id: 3, description: "learn js", completed: true },
+  { id: 1, description: "update ts doc", completed: false },
+  { id: 2, description: "create js video", completed: true },
+];
 // adding sorting functionality
 function compareById(a, b) {
   return b.id - a.id; // descending
@@ -4740,11 +4801,11 @@ function compareByDescription(a, b) {
 const sortTodos = (event) => {
   const sortTerm = event.target.value;
   switch (sortTerm) {
-    case 'id':
+    case "id":
       todos.sort(compareById);
       displayTodos(todos);
       break;
-    case 'text':
+    case "text":
       todos.sort(compareByDescription);
       displayTodos(todos);
       break;
@@ -4753,26 +4814,25 @@ const sortTodos = (event) => {
 
 // complex example version 2
 const todos = [
-    { id: 3, description: 'learn js', completed: true },
-    { id: 1, description: 'update ts doc', completed: false },
-    { id: 2, description: 'create js video', completed: true },
+  { id: 3, description: "learn js", completed: true },
+  { id: 1, description: "update ts doc", completed: false },
+  { id: 2, description: "create js video", completed: true },
 ];
 
 // Comparison functions
 const comparators = {
-    id: (a, b) => b.id - a.id,
-    text: (a, b) => b.description.localeCompare(a.description),
+  id: (a, b) => b.id - a.id,
+  text: (a, b) => b.description.localeCompare(a.description),
 };
 
 // Sort function
 const sortTodos = (event) => {
-    const sortTerm = event.target.value;
-    if (sortTerm in comparators) {
-        todos.sort(comparators[sortTerm]);
-        displayTodos(todos);
-    }
+  const sortTerm = event.target.value;
+  if (sortTerm in comparators) {
+    todos.sort(comparators[sortTerm]);
+    displayTodos(todos);
+  }
 };
-
 ```
 
 [&#8593; Back to Top](#table-of-contents)
@@ -5127,10 +5187,10 @@ In ES5, the value of `this` is determined by how a function is called. Here are 
 
    ```javascript
    var person = {
-     name: 'John',
-     greet: function() {
+     name: "John",
+     greet: function () {
        console.log(this.name);
-     }
+     },
    };
    person.greet(); // John
    ```
@@ -5143,7 +5203,7 @@ In ES5, the value of `this` is determined by how a function is called. Here are 
    function Person(name) {
      this.name = name;
    }
-   var john = new Person('John');
+   var john = new Person("John");
    console.log(john.name); // John
    ```
 
@@ -5155,7 +5215,7 @@ In ES5, the value of `this` is determined by how a function is called. Here are 
    function greet() {
      console.log(this.name);
    }
-   var person = { name: 'John' };
+   var person = { name: "John" };
    greet.call(person); // John
    ```
 
@@ -5169,13 +5229,13 @@ ES6 introduced arrow functions, which handle `this` differently compared to regu
 
    ```javascript
    var person = {
-     name: 'John',
-     greet: function() {
+     name: "John",
+     greet: function () {
        var innerFunction = () => {
          console.log(this.name);
        };
        innerFunction();
-     }
+     },
    };
    person.greet(); // John
    ```
@@ -5195,13 +5255,14 @@ ES6 introduced arrow functions, which handle `this` differently compared to regu
        console.log(this.name);
      }
    }
-   const john = new Person('John');
+   const john = new Person("John");
    john.greet(); // John
    ```
 
 #### Summary of this keyword
 
 - **ES5:**
+
   - `this` depends on how a function is called.
   - In global context, `this` refers to the global object.
   - In a method, `this` refers to the object the method belongs to.
@@ -5228,7 +5289,7 @@ Here's a simple example to illustrate how closures work:
 
 ```javascript
 function outerFunction() {
-  var outerVariable = 'I am from the outer function';
+  var outerVariable = "I am from the outer function";
 
   function innerFunction() {
     console.log(outerVariable); // The inner function can access the outer function's variable
@@ -5259,14 +5320,14 @@ function createCounter() {
   let count = 0;
 
   return {
-    increment: function() {
+    increment: function () {
       count++;
       return count;
     },
-    decrement: function() {
+    decrement: function () {
       count--;
       return count;
-    }
+    },
   };
 }
 
@@ -5284,7 +5345,7 @@ Closures can be used to create functions that are pre-configured with specific d
 
 ```javascript
 function createAdder(x) {
-  return function(y) {
+  return function (y) {
     return x + y;
   };
 }
@@ -5304,7 +5365,7 @@ Closures can be used to maintain state across multiple function calls.
 function createToggle(initialState = false) {
   let state = initialState;
 
-  return function() {
+  return function () {
     state = !state;
     return state;
   };
@@ -5329,24 +5390,31 @@ Closures are a powerful feature in JavaScript that allow functions to retain acc
 Object-Oriented Programming (OOP) is a programming paradigm centered around the concept of "objects," which can contain data in the form of fields (often known as attributes or properties) and code in the form of methods (functions). OOP is a widely used paradigm in modern software development, and it provides several key benefits:
 
 1. **Modularity**:
+
    - OOP allows developers to break down a complex problem into smaller, more manageable pieces (objects). Each object represents a different part of the application and encapsulates its own data and behavior. This modularity makes it easier to understand, develop, and maintain the code.
 
 2. **Encapsulation**:
+
    - Encapsulation is the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, or object. It restricts direct access to some of an object's components, which can prevent the accidental modification of data. By providing public methods for data access and modification, it enhances data security and integrity.
 
 3. **Reusability**:
+
    - OOP promotes code reuse through inheritance and composition. Inheritance allows new classes to inherit properties and methods from existing classes, reducing code duplication. Composition allows objects to be composed of other objects, further promoting reuse.
 
 4. **Flexibility and Maintainability**:
+
    - OOP makes it easier to maintain and modify existing code. Since objects are self-contained, changes to one part of the system (object) have minimal impact on other parts. This separation of concerns makes it simpler to troubleshoot, update, and extend the application.
 
 5. **Abstraction**:
+
    - OOP allows developers to abstract complex systems into simple models using classes. These classes provide a blueprint for creating objects, hiding complex implementation details and exposing only what is necessary. This simplifies the design and implementation of systems.
 
 6. **Inheritance**:
+
    - Inheritance allows new classes to derive from existing ones, inheriting their attributes and methods. This promotes the reuse of existing code and can simplify the addition of new features. Inheritance can also facilitate polymorphism, allowing objects of different classes to be treated as objects of a common superclass.
 
 7. **Polymorphism**:
+
    - Polymorphism enables objects of different classes to be treated as objects of a common superclass. It allows for the implementation of methods that can work with objects of multiple types, enhancing flexibility and integration. This is particularly useful in designing systems that can handle a variety of data types and behaviors.
 
 8. **Improved Collaboration**:
@@ -5377,7 +5445,7 @@ class Account {
     if (amount <= this.balance) {
       this.balance -= amount;
     } else {
-      console.log('Insufficient balance');
+      console.log("Insufficient balance");
     }
   }
 }
@@ -5408,16 +5476,16 @@ class Bank {
 
 // Example usage
 const account1 = new Account(12345, 1000);
-const customer1 = new Customer('John Doe', '123 Elm St');
+const customer1 = new Customer("John Doe", "123 Elm St");
 customer1.addAccount(account1);
 
-const bank = new Bank('My Bank', '456 Oak St');
+const bank = new Bank("My Bank", "456 Oak St");
 bank.addCustomer(customer1);
 ```
 
 In this example, OOP principles make it easy to add new features, like different types of accounts (savings, checking), without altering the existing structure. This modular, reusable, and maintainable approach is a primary reason why OOP is widely used in software development.
 
-// start here 
+// start here
 
 ![oop image](images/image-4.png)
 
@@ -5426,14 +5494,14 @@ class: In JavaScript, a class is a blueprint for creating objects with shared pr
 ```javascript
 // version 1
 class Person {
-  name = 'default name'; // public by default
+  name = "default name"; // public by default
   age = 0;
 }
 
 // Create an instance of the Person class
 const p1 = new Person();
 // acceesing class members
-p1.name = 'Anisul Islam';
+p1.name = "Anisul Islam";
 p1.age = 32;
 
 console.log(p1.name);
@@ -5450,7 +5518,9 @@ class Person {
 
   // Method to greet
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5482,7 +5552,6 @@ class Person {
 const person1 = new Person();
 person1.setProperties("John", 30);
 person1.greet(); // Output: Hello, my name is John and I am 30 years old.
-
 ```
 
 #### introduce constructor
@@ -5511,36 +5580,39 @@ const person1 = new Person("John", 30);
 
 ```js
 function Person(name, age) {
-    this.name = name;
-    this.age = age;
-    this.greet = function() {
-        console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
-    };
+  this.name = name;
+  this.age = age;
+  this.greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`
+    );
+  };
 }
 
-const person = new Person('John', 30);
+const person = new Person("John", 30);
 person.greet(); // Output: Hello, my name is John and I'm 30 years old.
-
 ```
 
 ```js
 class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
-    greet() {
-        console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
-    }
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`
+    );
+  }
 }
 
-const person = new Person('John', 30);
+const person = new Person("John", 30);
 person.greet(); // Output: Hello, my name is John and I'm 30 years old.
-
 ```
 
 - key differences:
+
   - Classes provide a more structured way to define object blueprints compared to constructor functions.
   - Classes support inheritance, allowing one class to inherit properties and methods from another.
   - Classes have a more familiar syntax for developers coming from other programming languages.
@@ -5568,11 +5640,13 @@ Public members are accessible from anywhere. By default, all class properties an
 class Person {
   constructor(name, age) {
     this.name = name; // public
-    this.age = age;   // public
+    this.age = age; // public
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5592,11 +5666,13 @@ class Person {
 
   constructor(name, age) {
     this.#name = name; // private
-    this.#age = age;   // private
+    this.#age = age; // private
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+    console.log(
+      `Hello, my name is ${this.#name} and I am ${this.#age} years old.`
+    );
   }
 
   getName() {
@@ -5629,11 +5705,15 @@ const _age = new WeakMap();
 class Person {
   constructor(name, age) {
     _name.set(this, name); // protected
-    _age.set(this, age);   // protected
+    _age.set(this, age); // protected
   }
 
   greet() {
-    console.log(`Hello, my name is ${_name.get(this)} and I am ${_age.get(this)} years old.`);
+    console.log(
+      `Hello, my name is ${_name.get(this)} and I am ${_age.get(
+        this
+      )} years old.`
+    );
   }
 
   getName() {
@@ -5684,7 +5764,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5737,7 +5819,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+    console.log(
+      `Hello, my name is ${this.#name} and I am ${this.#age} years old.`
+    );
   }
 
   getName() {
@@ -5790,15 +5874,18 @@ teacher1.teach(); // Mr. Smith is teaching Mathematics.
 ##### Explanation
 
 - **Person Class**:
+
   - The `Person` class has private members `#name` and `#age`, which are initialized in the constructor.
   - The `greet` method accesses these private members to print a greeting message.
   - `getName` and `getAge` methods are provided to allow child classes to access the private members.
 
 - **Student Class**:
+
   - The `Student` class extends the `Person` class and adds a private member `#grade`.
   - The `study` method accesses the private members through the `getName` method provided by the `Person` class.
 
 - **Teacher Class**:
+
   - The `Teacher` class extends the `Person` class and adds a private member `#subject`.
   - The `teach` method accesses the private members through the `getName` method provided by the `Person` class.
 
@@ -5863,7 +5950,6 @@ class Teacher extends Person {
 }
 
 // Managing control = members => do not read or write access
-
 ```
 
 #### Types of Inheritance
@@ -5882,7 +5968,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5897,7 +5985,7 @@ class Student extends Person {
   }
 }
 
-const student = new Student('Alice', 20, '12th');
+const student = new Student("Alice", 20, "12th");
 student.greet(); // Output: Hello, my name is Alice and I am 20 years old.
 student.study(); // Output: Alice is studying in grade 12th.
 ```
@@ -5914,7 +6002,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5940,7 +6030,7 @@ class GraduateStudent extends Student {
   }
 }
 
-const gradStudent = new GraduateStudent('Bob', 25, '12th', 'PhD');
+const gradStudent = new GraduateStudent("Bob", 25, "12th", "PhD");
 gradStudent.greet(); // Output: Hello, my name is Bob and I am 25 years old.
 gradStudent.study(); // Output: Bob is studying in grade 12th.
 gradStudent.research(); // Output: Bob is researching for a PhD degree.
@@ -5958,7 +6048,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -5984,8 +6076,8 @@ class Teacher extends Person {
   }
 }
 
-const student = new Student('Alice', 20, '12th');
-const teacher = new Teacher('Mr. Smith', 40, 'Mathematics');
+const student = new Student("Alice", 20, "12th");
+const teacher = new Teacher("Mr. Smith", 40, "Mathematics");
 
 student.greet(); // Output: Hello, my name is Alice and I am 20 years old.
 student.study(); // Output: Alice is studying in grade 12th.
@@ -6011,13 +6103,13 @@ class Person {
 const canStudy = {
   study() {
     console.log(`${this.name} is studying.`);
-  }
+  },
 };
 
 const canTeach = {
   teach() {
     console.log(`${this.name} is teaching.`);
-  }
+  },
 };
 
 class Student extends Person {
@@ -6035,8 +6127,8 @@ class Teacher extends Person {
 Object.assign(Student.prototype, canStudy);
 Object.assign(Teacher.prototype, canTeach);
 
-const student = new Student('Alice');
-const teacher = new Teacher('Mr. Smith');
+const student = new Student("Alice");
+const teacher = new Teacher("Mr. Smith");
 
 student.greet(); // Output: Hello, my name is Alice.
 student.study(); // Output: Alice is studying.
@@ -6056,9 +6148,11 @@ teacher.teach(); // Output: Mr. Smith is teaching.
 In ES6 (ECMAScript 2015) classes, inheritance is implemented through the `extends` keyword, which allows a class to inherit properties and methods from another class. Here are the different types of inheritance that can be achieved using ES6 classes:
 
 ### 1. Single Inheritance
+
 Single inheritance allows a class to inherit from only one superclass. This is the most common form of inheritance and is straightforward to implement.
 
 #### Example:
+
 ```javascript
 class Person {
   constructor(name, age) {
@@ -6067,7 +6161,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -6082,15 +6178,17 @@ class Student extends Person {
   }
 }
 
-const student = new Student('Alice', 20, '12th');
+const student = new Student("Alice", 20, "12th");
 student.greet(); // Output: Hello, my name is Alice and I am 20 years old.
 student.study(); // Output: Alice is studying in grade 12th.
 ```
 
 ### 2. Multilevel Inheritance
+
 Multilevel inheritance is a type of inheritance where a class is derived from another derived class. This creates a chain of inheritance.
 
 #### Example:
+
 ```javascript
 class Person {
   constructor(name, age) {
@@ -6099,7 +6197,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -6125,16 +6225,18 @@ class GraduateStudent extends Student {
   }
 }
 
-const gradStudent = new GraduateStudent('Bob', 25, '12th', 'PhD');
+const gradStudent = new GraduateStudent("Bob", 25, "12th", "PhD");
 gradStudent.greet(); // Output: Hello, my name is Bob and I am 25 years old.
 gradStudent.study(); // Output: Bob is studying in grade 12th.
 gradStudent.research(); // Output: Bob is researching for a PhD degree.
 ```
 
 ### 3. Hierarchical Inheritance
+
 Hierarchical inheritance occurs when multiple classes inherit from a single superclass. This allows different subclasses to share the properties and methods of the superclass.
 
 #### Example:
+
 ```javascript
 class Person {
   constructor(name, age) {
@@ -6143,7 +6245,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
@@ -6169,8 +6273,8 @@ class Teacher extends Person {
   }
 }
 
-const student = new Student('Alice', 20, '12th');
-const teacher = new Teacher('Mr. Smith', 40, 'Mathematics');
+const student = new Student("Alice", 20, "12th");
+const teacher = new Teacher("Mr. Smith", 40, "Mathematics");
 
 student.greet(); // Output: Hello, my name is Alice and I am 20 years old.
 student.study(); // Output: Alice is studying in grade 12th.
@@ -6179,9 +6283,11 @@ teacher.teach(); // Output: Mr. Smith is teaching Mathematics.
 ```
 
 ### 4. Multiple Inheritance (via Mixins)
+
 JavaScript does not support multiple inheritance directly (i.e., a class inheriting from multiple classes), but similar behavior can be achieved using mixins. Mixins are a way to include reusable functionality in classes.
 
 #### Example:
+
 ```javascript
 class Person {
   constructor(name) {
@@ -6196,13 +6302,13 @@ class Person {
 const canStudy = {
   study() {
     console.log(`${this.name} is studying.`);
-  }
+  },
 };
 
 const canTeach = {
   teach() {
     console.log(`${this.name} is teaching.`);
-  }
+  },
 };
 
 class Student extends Person {
@@ -6220,8 +6326,8 @@ class Teacher extends Person {
 Object.assign(Student.prototype, canStudy);
 Object.assign(Teacher.prototype, canTeach);
 
-const student = new Student('Alice');
-const teacher = new Teacher('Mr. Smith');
+const student = new Student("Alice");
+const teacher = new Teacher("Mr. Smith");
 
 student.greet(); // Output: Hello, my name is Alice.
 student.study(); // Output: Alice is studying.
@@ -6404,7 +6510,9 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.#name} and I am ${this.#age} years old.`);
+    console.log(
+      `Hello, my name is ${this.#name} and I am ${this.#age} years old.`
+    );
   }
 
   getName() {
@@ -6433,7 +6541,9 @@ class Student extends Person {
   }
 
   describe() {
-    console.log(`I am a student named ${this.getName()} in grade ${this.#grade}.`);
+    console.log(
+      `I am a student named ${this.getName()} in grade ${this.#grade}.`
+    );
   }
 }
 
@@ -6450,7 +6560,9 @@ class Teacher extends Person {
   }
 
   describe() {
-    console.log(`I am a teacher named ${this.getName()} and I teach ${this.#subject}.`);
+    console.log(
+      `I am a teacher named ${this.getName()} and I teach ${this.#subject}.`
+    );
   }
 }
 
@@ -6463,8 +6575,7 @@ const teacher1 = new Teacher("Mr. Smith", 40, "Mathematics");
 const people = [person1, student1, teacher1];
 
 // Call the describe method on each instance
-people.forEach(person => person.describe());
-
+people.forEach((person) => person.describe());
 ```
 
 #### 3.1.4 Abstraction
@@ -6695,8 +6806,6 @@ bank.listCustomers(branch1, true);
 ### 3.3 Prepare for technical test
 
 ```js
-
-
 function sockMerchant(n, ar) {
   // Create an object to store the count of each color of socks
   let pairs = 0;
@@ -6710,7 +6819,7 @@ function sockMerchant(n, ar) {
     } else {
       sockColorsCount[color] = 1;
     }
-    console.log('sockColorsCount : ', sockColorsCount);
+    console.log("sockColorsCount : ", sockColorsCount);
   });
 
   return pairs;
@@ -6719,6 +6828,5 @@ function sockMerchant(n, ar) {
 const n = 7;
 const ar = [1, 2, 1, 2, 1, 3, 2];
 const pairs = sockMerchant(n, ar);
-console.log('The number of pairs is:', pairs);
-
+console.log("The number of pairs is:", pairs);
 ```
